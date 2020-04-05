@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeathPlayer : MonoBehaviour
 {
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
