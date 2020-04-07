@@ -5,6 +5,7 @@ using UnityEngine;
 
 
 // estce que on clic et on attend la fi n du path ?
+// camera ensuite
 public class MovePlayer : MonoBehaviour
 {
     // Component NavMeshAgent
@@ -30,18 +31,8 @@ public class MovePlayer : MonoBehaviour
         //    AgentPathUpdate();
         //}
 
-        DetermineHitOnScreen();
-        
 
-    }
-
-
-    /// <summary>
-    /// Raycasts the touch on screen to a point in the world 
-    /// </summary>
-    private void DetermineHitOnScreen()
-    {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 )
         {
             // remove this to revert to follow the finger type of movement
             if (!m_agent.hasPath)
@@ -60,8 +51,9 @@ public class MovePlayer : MonoBehaviour
 
                 }
             }
-
+            
         }
+
     }
 
 
