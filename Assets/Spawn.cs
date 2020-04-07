@@ -6,7 +6,7 @@ public class Spawn : MonoBehaviour
 {
     [SerializeField] GameObject m_prefab;   
 
-    void Start()
+    void Awake()
     {
         Instantiate(m_prefab, transform.position, transform.rotation);
     }
