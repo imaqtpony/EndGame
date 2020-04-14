@@ -1,22 +1,10 @@
-﻿/* 
-    ------------------- Code Monkey -------------------
-
-    Thank you for downloading the Code Monkey Utilities
-    I hope you find them useful in your projects
-    If you have any questions use the contact form
-    Cheers!
-
-               unitycodemonkey.com
-    --------------------------------------------------
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace CodeMonkey.Utils {
+namespace InventoryNS.Utils {
 
     /*
      * Various assorted utilities functions
@@ -97,17 +85,6 @@ namespace CodeMonkey.Utils {
             textMesh.GetComponent<MeshRenderer>().sortingOrder = sortingOrder;
             return textMesh;
         }
-
-
-        // Create a Text Popup in the World, no parent
-
-        
-        // Create a Text Popup in the World
-
-
-        // Create Text Updater in UI
-
-
 
         // Draw a UI Sprite
         public static RectTransform DrawSprite(Color color, Transform parent, Vector2 pos, Vector2 size, string name = null) {
@@ -334,20 +311,10 @@ namespace CodeMonkey.Utils {
             return ApplyRotationToVector(vec, GetAngleFromVectorFloat(vecRotation));
         }
 
-        public static Vector3 ApplyRotationToVector(Vector3 vec, float angle) {
-            return Quaternion.Euler(0,0,angle) * vec;
+        public static Vector3 ApplyRotationToVector(Vector3 vec, float angle)
+        {
+            return Quaternion.Euler(0, 0, angle) * vec;
         }
-
-
-        
-
-        
-
-        
-
-
-
-        
 
         // Get UI Position from World Position
         public static Vector2 GetWorldUIPosition(Vector3 worldPosition, Transform parent, Camera uiCamera, Camera worldCamera) {
@@ -392,9 +359,6 @@ namespace CodeMonkey.Utils {
             xy.Raycast(ray, out distance);
             return ray.GetPoint(distance);
         }
-
-
-        // Screen Shake
 
 
     }

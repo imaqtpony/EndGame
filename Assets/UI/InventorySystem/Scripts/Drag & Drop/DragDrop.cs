@@ -10,7 +10,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
 
-    private void Awake()
+    private Vector3 itemPos;
+
+    private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
@@ -21,12 +23,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         Debug.Log("OnBeginDrag");
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
+        itemPos = gameObject.transform.position;
+        Debug.Log(itemPos);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta / 0.6F;
+        rectTransform.anchoredPosition += eventData.delta / 0.6f;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -34,6 +38,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         Debug.Log("OnEndDrag");
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
+        //gameObject.transform.position = itemPos;
 
     }
     public void OnPointerDown(PointerEventData eventData)

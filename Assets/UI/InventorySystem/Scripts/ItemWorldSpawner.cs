@@ -8,7 +8,6 @@ public class ItemWorldSpawner : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("ITEM WORLD SPAWNER AWAKE");
         ItemWorld.SpawnItemWorld(transform.position, item);
         Destroy(gameObject);
 

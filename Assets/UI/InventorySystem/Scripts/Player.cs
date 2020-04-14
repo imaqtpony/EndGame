@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 
     private Inventory inventory;
 
+    [SerializeField]private LifePlayer m_lifePlayer;
+
     [SerializeField] private UI_Inventory uiInventory;
     // Start is called before the first frame update
     private void Awake()
@@ -38,15 +40,16 @@ public class Player : MonoBehaviour
         switch (item.itemType)
         {
             case Item.ItemType.Item1:
-                Debug.Log("t'as utilisé un cercle pov con");
                 inventory.RemoveItem(new Item { itemType = Item.ItemType.Item1, amount = 1 });
+                m_lifePlayer.HealingFunc();
+
                 break;
             case Item.ItemType.Item2:
-                Debug.Log("c'est un carré vert ca je crois");
+                Debug.Log("Carré utilisé");
                 inventory.RemoveItem(new Item { itemType = Item.ItemType.Item2, amount = 1 });
                 break;
             case Item.ItemType.Item3:
-                Debug.Log("et ca le triangle non ?");
+                Debug.Log("Triangle utilisé");
                 inventory.RemoveItem(new Item { itemType = Item.ItemType.Item3, amount = 1 });
                 break;
 

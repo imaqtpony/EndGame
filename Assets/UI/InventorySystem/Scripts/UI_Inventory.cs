@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using CodeMonkey.Utils;
+using InventoryNS.Utils;
 
 public class UI_Inventory : MonoBehaviour
 {
@@ -88,6 +88,17 @@ public class UI_Inventory : MonoBehaviour
                 x = 0;
                 y--;
             }
+        }
+
+    }
+
+    public void DropItemFunction()
+    {
+        foreach (Item item in inventory.GetItemList())
+        {
+            Item duplicateItem = new Item { itemType = item.itemType, amount = item.amount };
+            inventory.RemoveItem(item);
+            ItemWorld.DropItem(player.GetPosition(), duplicateItem);
         }
     }
 }
