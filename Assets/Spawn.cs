@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    [SerializeField] GameObject m_prefab;   
+    private GameObject m_prefab;   
 
     void Start()
     {
+
+        m_prefab = GameObject.Find("Ennemy");
         Instantiate(m_prefab, transform.position, transform.rotation);
     }
 }

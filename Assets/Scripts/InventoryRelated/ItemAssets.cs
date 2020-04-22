@@ -16,4 +16,5 @@ public class ItemAssets : MonoBehaviour
     public Sprite item1Sprite;
     public Sprite item2Sprite;
     public Sprite item3Sprite;
+    public Sprite item4Sprite;
 }

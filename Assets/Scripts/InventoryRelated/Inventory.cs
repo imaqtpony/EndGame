@@ -5,11 +5,13 @@ using System;
 
 public class Inventory
 {
-    private List<Item> itemList;
+    public static List<Item> itemList;
 
     private Action<Item> useItemAction;
 
     public event EventHandler OnItemListChanged;
+
+
     public Inventory(Action<Item> useItemAction)
     {
         this.useItemAction = useItemAction;
@@ -42,6 +44,7 @@ public class Inventory
 
         }
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+
     }
 
     public void RemoveItem(Item item)
@@ -80,5 +83,10 @@ public class Inventory
     public List<Item> GetItemList()
     {
         return itemList;
+    }
+
+    public void craftLosange()
+    {
+        AddItem(new Item { itemType = Item.ItemType.Item4, amount = 1 });
     }
 }
