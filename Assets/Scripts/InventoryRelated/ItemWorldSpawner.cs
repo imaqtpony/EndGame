@@ -6,6 +6,8 @@ public class ItemWorldSpawner : MonoBehaviour
 {
     public Item item;
 
+    private Inventory inventory;
+
     private void Start()
     {
         ItemWorld.SpawnItemWorld(transform.position, item);

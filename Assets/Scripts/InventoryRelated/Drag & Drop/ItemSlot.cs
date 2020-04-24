@@ -21,6 +21,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
     public Image m_itemSprite;
 
+
     public void OnDrop(PointerEventData eventData)
     {
         if(eventData.pointerDrag != null)
@@ -28,7 +29,6 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             //we check if the item slot has already an item on it or not 
             if (gameObject.transform.Find("Item") == null)
             {
-                Debug.Log("OnDrop");
                 eventData.pointerDrag.GetComponent<RectTransform>().position = GetComponent<RectTransform>().position;
                 ChangingParent(eventData);
 
@@ -55,18 +55,14 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         if(gameObject.tag == "CraftSlot")
         {
             m_itemSprite = transform.GetChild(2).GetComponent<Image>();
-
             m_craftSystem.m_craftSlotList.Add(transform.GetChild(2));
-
-
         }
         else
         {
             m_craftSystem.m_craftSlotList.Remove(transform.GetChild(2));
 
         }
-        
-        
     }
+
 
 }

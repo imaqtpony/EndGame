@@ -17,6 +17,7 @@ public class Inventory
         this.useItemAction = useItemAction;
         itemList = new List<Item>();
 
+        
     }
 
     public void AddItem(Item item)
@@ -83,10 +84,5 @@ public class Inventory
     public List<Item> GetItemList()
     {
         return itemList;
-    }
-
-    public void craftLosange()
-    {
-        AddItem(new Item { itemType = Item.ItemType.Item4, amount = 1 });
     }
 }

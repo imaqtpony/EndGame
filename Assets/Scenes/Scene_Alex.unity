@@ -839,7 +839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269763091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.63, y: 1.01, z: -0.41}
+  m_LocalPosition: {x: -1.64, y: 1.01, z: -0.19}
   m_LocalScale: {x: 0.34266, y: 0.34266, z: 0.34266}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1397,7 +1397,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 260
+  m_textAlignment: 516
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -1428,7 +1428,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 6.5850782, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 590361013}
     characterCount: 1
@@ -2187,7 +2187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
     itemType: 1
-    amount: 32
+    amount: 1
 --- !u!4 &867927688
 Transform:
   m_ObjectHideFlags: 0
@@ -3751,7 +3751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614986406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6, y: 1.01, z: -0.34}
+  m_LocalPosition: {x: -1.47, y: 1.01, z: -0.14}
   m_LocalScale: {x: 0.34266, y: 0.34266, z: 0.34266}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4051,6 +4051,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b180b4e5939e3418b6f89d47163696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_craftSlot_1: {fileID: 570441514}
+  m_craftSlot_2: {fileID: 1814108924}
+  m_craftSystem: {fileID: 352668208}
 --- !u!1 &1790232143
 GameObject:
   m_ObjectHideFlags: 0

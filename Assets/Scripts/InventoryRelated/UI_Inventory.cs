@@ -9,8 +9,19 @@ public class UI_Inventory : MonoBehaviour
 {
     private Inventory inventory;
 
+    [Header("Elements needed to be found")]
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
+
+    private Transform craftItemSlot;
+    private Transform craftResult;
+
+    [SerializeField] Transform m_craftSlot_1;
+    [SerializeField] Transform m_craftSlot_2;
+
+
+    [SerializeField] CraftSystem m_craftSystem;
+
 
     private Player player;
 
@@ -18,6 +29,9 @@ public class UI_Inventory : MonoBehaviour
     {
         itemSlotContainer = transform.Find("ItemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("ItemSlot");
+        craftItemSlot = transform.Find("CraftItemSlot");
+        craftResult = craftItemSlot.Find("CraftResult");
+        
     }
 
     public void SetPlayer(Player player)
@@ -48,7 +62,7 @@ public class UI_Inventory : MonoBehaviour
 
         int x = 0;
         int y = 0;
-        float itemSlotCellSize = 110f;
+        float itemSlotCellSize = 100f;
 
         foreach(Item item in inventory.GetItemList())
         {
@@ -68,6 +82,16 @@ public class UI_Inventory : MonoBehaviour
                 ItemWorld.DropItem(player.GetPosition(), duplicateItem);
             };
 
+            craftResult.GetComponent<Button_UI>().ClickFunc = () =>
+            {
+                inventory.AddItem(new Item { itemType = Item.ItemType.Item4, amount = 1});
+                Destroy(m_craftSlot_1.transform.GetChild(2).gameObject);
+                Destroy(m_craftSlot_2.transform.GetChild(2).gameObject);
+                m_craftSystem.m_craftSlotList.Clear();
+                m_craftSystem.NotEnoughItemToCraft();
+
+            };
+
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
             Image image = itemSlotRectTransform.Find("Item").GetComponent<Image>();
             image.sprite = item.GetSprite();
@@ -83,7 +107,7 @@ public class UI_Inventory : MonoBehaviour
             }
 
             x++;
-            if (x > 3)
+            if (x > 4)
             {
                 x = 0;
                 y--;

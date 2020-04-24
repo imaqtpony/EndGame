@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
     private Inventory inventory;
 
-    [SerializeField]private LifePlayer m_lifePlayer;
+    [SerializeField] private LifePlayer m_lifePlayer;
 
     [SerializeField] private UI_Inventory uiInventory;
     // Start is called before the first frame update
@@ -17,8 +17,8 @@ public class Player : MonoBehaviour
         uiInventory.SetPlayer(this);
         uiInventory.SetInventory(inventory);
 
-
     }
+
     public Vector3 GetPosition()
     {
         return transform.position;

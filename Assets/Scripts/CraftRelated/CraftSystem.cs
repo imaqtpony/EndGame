@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using InventoryNS.Utils;
 
-
-public class CraftSystem : MonoBehaviour, IPointerDownHandler
+public class CraftSystem : MonoBehaviour
 {
     [Header("Basic Objects")]
     [SerializeField] Sprite circle;
@@ -18,9 +18,7 @@ public class CraftSystem : MonoBehaviour, IPointerDownHandler
 
     private Inventory inventory;
 
-
     public List<Transform> m_craftSlotList;
-
 
     public void CheckCraftSlot()
     {
@@ -34,14 +32,6 @@ public class CraftSystem : MonoBehaviour, IPointerDownHandler
     public void NotEnoughItemToCraft()
     {
         m_itemResult.sprite = mask;
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if(m_itemResult.sprite == losange)
-        {
-            inventory.craftLosange();
-        }
     }
 
 }

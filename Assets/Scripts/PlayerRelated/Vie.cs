@@ -13,7 +13,6 @@ public class Vie : MonoBehaviour
     {
         Debug.Log(m_ScriptablObject.Value);
 
-        //m_ScriptablObject.Value = 0;
     }
 
     
