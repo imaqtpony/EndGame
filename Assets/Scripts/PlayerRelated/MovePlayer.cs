@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 
 // estce que on clic et on attend la fi n du path ?
 // camera ensuite
@@ -26,13 +26,8 @@ public class MovePlayer : MonoBehaviour
     {
         Debug.Log(m_agent.hasPath);
 
-        //if (pathStat == "PathComplete" && input get touch 0 ?
-        //{
-        //    AgentPathUpdate();
-        //}
-
-
-        if (Input.touchCount > 0 )
+        //si quand j'envoie un raycast il n'y a pas d'objet devant, alors ca marche
+        if (Input.touchCount > 0 && !EventSystem.current.IsPointerOverGameObject())
         {
             // remove this to revert to follow the finger type of movement
             if (!m_agent.hasPath)

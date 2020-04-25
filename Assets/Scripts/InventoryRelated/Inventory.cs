@@ -17,7 +17,6 @@ public class Inventory
         this.useItemAction = useItemAction;
         itemList = new List<Item>();
 
-        
     }
 
     public void AddItem(Item item)

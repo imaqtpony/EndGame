@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
 
     [SerializeField] private Canvas canvas;
@@ -37,7 +37,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnBeginDrag");
+        Debug.Log("OnBeginDrag");
         itemSlot.transform.SetSiblingIndex(Inventory.itemList.Count);
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
@@ -61,13 +61,18 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup.alpha = 1f;
         DeplaceItemText();
     }
+
     public void OnPointerDown(PointerEventData eventData)
     {
-        //Debug.Log("OnPointerDown");
+        Debug.Log("OnPointerDown");
+        canvasGroup.blocksRaycasts = false;
+
     }
 
-    public void OnDrop (PointerEventData eventData)
+    public void OnPointerUp(PointerEventData eventData)
     {
+        Debug.Log("OnPointerUp");
+        canvasGroup.blocksRaycasts = true;
 
     }
 
