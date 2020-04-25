@@ -84,11 +84,11 @@ public class UI_Inventory : MonoBehaviour
 
             craftResult.GetComponent<Button_UI>().ClickFunc = () =>
             {
-                inventory.AddItem(new Item { itemType = Item.ItemType.Item4, amount = 1});
-                Destroy(m_craftSlot_1.transform.GetChild(2).gameObject);
-                Destroy(m_craftSlot_2.transform.GetChild(2).gameObject);
-                m_craftSystem.m_craftSlotList.Clear();
-                m_craftSystem.NotEnoughItemToCraft();
+                if (m_craftSystem.m_craftActive)
+                {
+                    craftLosange();
+                }
+                
 
             };
 
@@ -125,4 +125,16 @@ public class UI_Inventory : MonoBehaviour
             ItemWorld.DropItem(player.GetPosition(), duplicateItem);
         }
     }
+
+    private void craftLosange()
+    {
+        inventory.AddItem(new Item { itemType = Item.ItemType.Item4, amount = 1 });
+        inventory.RemoveItem(new Item { itemType = Item.ItemType.Item1, amount = 1 });
+        inventory.RemoveItem(new Item { itemType = Item.ItemType.Item3, amount = 1 });
+        Destroy(m_craftSlot_1.transform.GetChild(2).gameObject);
+        Destroy(m_craftSlot_2.transform.GetChild(2).gameObject);
+        m_craftSystem.m_craftSlotList.Clear();
+        m_craftSystem.NotEnoughItemToCraft();
+    }
+
 }

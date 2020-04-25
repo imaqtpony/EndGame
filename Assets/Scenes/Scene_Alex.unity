@@ -1005,6 +1005,7 @@ MonoBehaviour:
   mask: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   losange: {fileID: 21300000, guid: 04f8a55ad0395c444b805183b5df7c23, type: 3}
   m_craftSlotList: []
+  m_craftActive: 0
 --- !u!1 &410018075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,6 +1510,7 @@ GameObject:
   - component: {fileID: 634119185}
   - component: {fileID: 634119187}
   - component: {fileID: 634119186}
+  - component: {fileID: 634119188}
   m_Layer: 5
   m_Name: Background (1)
   m_TagString: Untagged
@@ -1571,6 +1573,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634119184}
   m_CullTransparentMesh: 0
+--- !u!225 &634119188
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634119184}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
