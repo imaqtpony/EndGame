@@ -362,6 +362,7 @@ Transform:
   m_Children:
   - {fileID: 4983207533935380550}
   - {fileID: 749645779148987011}
+  - {fileID: 7715815874563130405}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -583,3 +584,47 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &8979772072265474212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7715815874563130405}
+  - component: {fileID: 8241152926291984155}
+  m_Layer: 0
+  m_Name: swipeScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7715815874563130405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8979772072265474212}
+  m_LocalRotation: {x: -0.000000021855694, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.000000054980767, z: 2.4032857e-15}
+  m_LocalScale: {x: 0.9224242, y: 0.9224242, z: 0.9224242}
+  m_Children: []
+  m_Father: {fileID: 600910415352610997}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8241152926291984155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8979772072265474212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a86805f143b3638449247551e32176cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_swipeEvent: {fileID: 11400000, guid: 11e780d398482fc4f90e8ec83823bc9e, type: 2}
