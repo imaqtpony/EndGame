@@ -58,7 +58,7 @@ public class ItemWorld : MonoBehaviour
 
                 mySphere.transform.parent = gameObject.transform;
                 m_amountCircle = item.amount;
-                Debug.Log(m_amountCircle);
+                //Debug.Log(m_amountCircle);
 
                 break;
 
@@ -77,7 +77,7 @@ public class ItemWorld : MonoBehaviour
 
                 myTriangle.transform.parent = gameObject.transform;
                 m_amountTriangle = item.amount;
-                Debug.Log(m_amountTriangle);
+                //Debug.Log(m_amountTriangle);
 
                 break;
 

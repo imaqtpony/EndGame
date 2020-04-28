@@ -6,8 +6,15 @@ public class Spawn : MonoBehaviour
 {
     [SerializeField] GameObject m_prefab;   
 
-    void Awake()
+    private void Awake()
     {
-        Instantiate(m_prefab, transform.position, transform.rotation);
+        var nb_enemies = 3;
+        for (int i=1;i<nb_enemies;i++)
+                Instantiate(m_prefab, RandomizeSpawn(), transform.rotation);
+    }
+
+    private Vector3 RandomizeSpawn()
+    {
+        return new Vector3(transform.position.x + Random.Range(-3f, 3f), transform.position.y, transform.position.z + Random.Range(-3f, 3f));
     }
 }

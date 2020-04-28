@@ -11,4 +11,8 @@ public class Data : ScriptableObject
     [Tooltip("is the player currently swiping")]
     public bool m_isSwiping;
 
+    [SerializeField]
+    [Tooltip("The player gameobject")]
+    public GameObject m_player;
+
 }

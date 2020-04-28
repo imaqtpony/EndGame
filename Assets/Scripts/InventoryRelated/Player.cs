@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private LifePlayer m_lifePlayer;
 
     [SerializeField] private UI_Inventory uiInventory;
-    // Start is called before the first frame update
+    
     private void Awake()
     {
         inventory = new Inventory(UseItem);

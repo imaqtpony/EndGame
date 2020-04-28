@@ -5,24 +5,21 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] Transform m_player;
-
-    [SerializeField] Transform m_back;
 
     private NavMeshAgent m_agent;
 
     private DetectLight EnemyDetect;
 
-    void Start()
+    [SerializeField]
+    private Data m_data;
+
+    private void Awake()
     {
+        m_agent = GetComponent<NavMeshAgent>();
         EnemyDetect = GetComponent<DetectLight>();
     }
-    void Awake()
-    {
-        m_agent = GetComponent<NavMeshAgent>();        
-    }
 
-    void Update()
+    private void Update()
     {
         //m_agent.SetDestination(m_player.transform.position);
 
@@ -35,7 +32,7 @@ public class EnemyAI : MonoBehaviour
 
         if (EnemyDetect.m_inLight == false)
         {
-            m_agent.SetDestination(m_player.transform.position);
+            //m_agent.SetDestination(m_data.m_player.transform.position);
         }
     }
 }
