@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LightCone
   - Enemy
+  - CraftSlot
   layers:
   - Default
   - TransparentFX
