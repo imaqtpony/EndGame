@@ -839,7 +839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269763091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.35, y: 1.01, z: 1.28}
+  m_LocalPosition: {x: -1.64, y: 1.01, z: -0.29}
   m_LocalScale: {x: 0.34266, y: 0.34266, z: 0.34266}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1488,7 +1488,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612647735}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -81.8125}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 805446955}
@@ -2210,7 +2210,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1250
+  m_Name: pb_Mesh-1282
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2411,6 +2411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fbd5deb8d52ae4aac78237cc85b8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_prefab: {fileID: 0}
 --- !u!1 &1098379054
 GameObject:
   m_ObjectHideFlags: 0
@@ -4809,7 +4810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f495ca75f22e54d8552c33ffde8eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_lifePlayer: {fileID: 4471376300533314884}
   uiInventory: {fileID: 1739969300}
 --- !u!114 &4471376300533314882
 MonoBehaviour:
@@ -4820,10 +4820,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4471376300533314878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d8deb9ff0c000942b9ffcf3c866aea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b459ddd5eca19d44a6e8dd5b14ab7f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_scriptablObject: {fileID: 11400000, guid: 0ee1c2f77f180ce4aa781895f38f1f76, type: 2}
+  m_lifeValue: {fileID: 11400000, guid: 31e5312b38dc46c4ab7ed0785f305351, type: 2}
+  collider: {fileID: 4471376300533314879}
+  m_invDuration: 1
+  lifeHeartContainer: {fileID: 612647736}
+  lifeHeartSprite: {fileID: 805446955}
 --- !u!114 &4471376300533314883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4836,8 +4840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9547c1c9ec2c9a24e861363f0585ae94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_vie: 0
-  m_ScriptablObject: {fileID: 11400000, guid: 0ee1c2f77f180ce4aa781895f38f1f76, type: 2}
+  m_vie: 3
+  m_ScriptableObject: {fileID: 11400000, guid: 31e5312b38dc46c4ab7ed0785f305351, type: 2}
 --- !u!114 &4471376300533314884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4850,11 +4854,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999c25d124f92ce4799f1df8aa10132c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_lifeValue: {fileID: 11400000, guid: 0ee1c2f77f180ce4aa781895f38f1f76, type: 2}
-  collider: {fileID: 4471376300533314879}
-  m_invDuration: 1
-  lifeHeartContainer: {fileID: 612647736}
-  lifeHeartSprite: {fileID: 805446955}
 --- !u!224 &4782693937879132656
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5352,6 +5351,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6437657295419060774, guid: b06a107390c8e6044bb9c4508f7ffaf6,
+        type: 3}
+      propertyPath: m_data
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7046180854639317641, guid: b06a107390c8e6044bb9c4508f7ffaf6,
         type: 3}
       propertyPath: m_IsActive
@@ -5375,7 +5379,7 @@ PrefabInstance:
     - target: {fileID: 8338070104036307266, guid: b06a107390c8e6044bb9c4508f7ffaf6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.6
+      value: -1.71
       objectReference: {fileID: 0}
     - target: {fileID: 8338070104036307266, guid: b06a107390c8e6044bb9c4508f7ffaf6,
         type: 3}
@@ -5385,7 +5389,7 @@ PrefabInstance:
     - target: {fileID: 8338070104036307266, guid: b06a107390c8e6044bb9c4508f7ffaf6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.02
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 8338070104036307266, guid: b06a107390c8e6044bb9c4508f7ffaf6,
         type: 3}
