@@ -37,7 +37,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
+
         itemSlot.transform.SetSiblingIndex(Inventory.itemList.Count);
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
@@ -64,14 +64,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
+
         canvasGroup.blocksRaycasts = false;
 
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("OnPointerUp");
+
         canvasGroup.blocksRaycasts = true;
 
     }

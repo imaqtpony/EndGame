@@ -19,8 +19,10 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] Transform m_craftSlot_1;
     [SerializeField] Transform m_craftSlot_2;
 
-
     [SerializeField] CraftSystem m_craftSystem;
+
+
+    public List<Transform> m_itemForCraft;
 
 
     private Player player;
@@ -86,8 +88,9 @@ public class UI_Inventory : MonoBehaviour
             {
                 if (m_craftSystem.m_craftActive)
                 {
-                    craftLosange();
+                    craftLosange(item);
                 }
+
                 
 
             };
@@ -126,15 +129,29 @@ public class UI_Inventory : MonoBehaviour
         }
     }
 
-    private void craftLosange()
+    private void craftLosange(Item item)
     {
-        inventory.AddItem(new Item { itemType = Item.ItemType.Item4, amount = 1 });
-        inventory.RemoveItem(new Item { itemType = Item.ItemType.Item1, amount = 1 });
-        inventory.RemoveItem(new Item { itemType = Item.ItemType.Item3, amount = 1 });
-        Destroy(m_craftSlot_1.transform.GetChild(2).gameObject);
-        Destroy(m_craftSlot_2.transform.GetChild(2).gameObject);
-        m_craftSystem.m_craftSlotList.Clear();
-        m_craftSystem.NotEnoughItemToCraft();
+
+        if(ItemWorld.m_amountCircle > 1)
+        {
+            inventory.AddItem(new Item { itemType = Item.ItemType.Item4, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.Item1, amount = 2 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.Item3, amount = 1 });
+
+            ItemWorld.m_amountCircle -= 2;
+            ItemWorld.m_amountTriangle -= 1;
+
+            Debug.Log(ItemWorld.m_amountCircle);
+
+            Debug.Log(ItemWorld.m_amountTriangle);
+
+            Destroy(m_craftSlot_1.transform.GetChild(2).gameObject);
+            Destroy(m_craftSlot_2.transform.GetChild(2).gameObject);
+            m_craftSystem.m_craftSlotList.Clear();
+            m_craftSystem.NotEnoughItemToCraft();
+        }
+
+        
     }
 
 }

@@ -830,7 +830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
     itemType: 0
-    amount: 1
+    amount: 42
 --- !u!4 &269763094
 Transform:
   m_ObjectHideFlags: 0
@@ -839,7 +839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269763091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.64, y: 1.01, z: -0.19}
+  m_LocalPosition: {x: 0.35, y: 1.01, z: 1.28}
   m_LocalScale: {x: 0.34266, y: 0.34266, z: 0.34266}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1307,6 +1307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DragDrop: {fileID: 748783382}
   m_craftSystem: {fileID: 352668208}
+  m_uiInventory: {fileID: 1739969300}
   m_itemSprite: {fileID: 0}
 --- !u!1 &590361011
 GameObject:
@@ -2197,7 +2198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867927685}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.495, y: 1.01, z: 1.435}
+  m_LocalPosition: {x: -3.34, y: 1.01, z: 1.13}
   m_LocalScale: {x: 0.34266, y: 0.34266, z: 0.34266}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2209,7 +2210,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1242
+  m_Name: pb_Mesh-1250
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3127,6 +3128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DragDrop: {fileID: 748783382}
   m_craftSystem: {fileID: 352668208}
+  m_uiInventory: {fileID: 1739969300}
   m_itemSprite: {fileID: 0}
 --- !u!1 &1485929217
 GameObject:
@@ -3752,7 +3754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614986406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.47, y: 1.01, z: -0.14}
+  m_LocalPosition: {x: -0.04, y: 1.01, z: -1.32}
   m_LocalScale: {x: 0.34266, y: 0.34266, z: 0.34266}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4055,6 +4057,7 @@ MonoBehaviour:
   m_craftSlot_1: {fileID: 570441514}
   m_craftSlot_2: {fileID: 1814108924}
   m_craftSystem: {fileID: 352668208}
+  m_itemForCraft: []
 --- !u!1 &1790232143
 GameObject:
   m_ObjectHideFlags: 0
@@ -4277,6 +4280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DragDrop: {fileID: 748783382}
   m_craftSystem: {fileID: 352668208}
+  m_uiInventory: {fileID: 1739969300}
   m_itemSprite: {fileID: 0}
 --- !u!1 &1878300598
 GameObject:

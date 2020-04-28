@@ -9,8 +9,9 @@ public class Inventory
 
     private Action<Item> useItemAction;
 
-    public event EventHandler OnItemListChanged;
+    public SerInt m_inventorySpace;
 
+    public event EventHandler OnItemListChanged;
 
     public Inventory(Action<Item> useItemAction)
     {
@@ -21,6 +22,9 @@ public class Inventory
 
     public void AddItem(Item item)
     {
+        Debug.Log(itemList.Count);
+
+
         if (item.IsStackable())
         {
             bool itemAlreadyInInventory = false;

@@ -26,15 +26,12 @@ public class InventoryButton : MonoBehaviour
         if (m_InventoryEnabled)
         {
             m_Inventory.SetActive(true);
-            Debug.Log("Inventory Opened !");
-            //Time.timeScale = 0f;
+
 
         }
         else
         {
             m_Inventory.SetActive(false);
-            Debug.Log("Inventory Closed !");
-            //Time.timeScale = 1f;
 
         }
     }

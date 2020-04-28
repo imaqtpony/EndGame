@@ -11,7 +11,7 @@ public class Vie : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(m_ScriptablObject.Value);
+        //Debug.Log(m_ScriptablObject.Value);
 
     }
 

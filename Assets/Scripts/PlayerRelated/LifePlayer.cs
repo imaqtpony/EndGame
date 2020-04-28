@@ -27,7 +27,6 @@ public class LifePlayer : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             StartCoroutine(InvFrame());
-            Debug.Log("baisser la vie du perso");
             m_lifeValue.Value -= 1;
             x--;
 
@@ -36,7 +35,6 @@ public class LifePlayer : MonoBehaviour
 
             //et on le detruit
             Destroy(lastHeart);
-            Debug.Log(m_lifeValue.Value);
 
             if(m_lifeValue.Value == 0)
             {

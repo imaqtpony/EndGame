@@ -24,7 +24,6 @@ public class MovePlayer : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(m_agent.hasPath);
 
         //si quand j'envoie un raycast il n'y a pas d'objet devant, alors ca marche
         if (Input.touchCount > 0 && !EventSystem.current.IsPointerOverGameObject())

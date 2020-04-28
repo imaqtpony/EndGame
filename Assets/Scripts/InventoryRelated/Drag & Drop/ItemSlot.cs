@@ -16,11 +16,22 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     private bool m_isCraftSlotsFilled;
 
     [SerializeField] CraftSystem m_craftSystem;
+
+    public UI_Inventory m_uiInventory;
  
     public static Vector3 m_craftSlotPos;
 
     public Image m_itemSprite;
 
+    private void OnEnable()
+    {
+        if(gameObject.tag == "CraftSlot") m_uiInventory.m_itemForCraft.Add(transform);
+    }
+
+    private void OnDisable()
+    {
+        if (gameObject.tag == "CraftSlot") m_uiInventory.m_itemForCraft.Remove(transform);
+    }
 
     public void OnDrop(PointerEventData eventData)
     {

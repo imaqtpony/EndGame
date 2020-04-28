@@ -13,6 +13,9 @@ public class ItemWorld : MonoBehaviour
     [SerializeField] GameObject Triangle;
     [SerializeField] GameObject Losange;
 
+    public static int m_amountCircle;
+    public static int m_amountTriangle;
+
     GameObject myItem;
     public static ItemWorld SpawnItemWorld(Vector3 position, Item item)
     {
@@ -54,6 +57,9 @@ public class ItemWorld : MonoBehaviour
                                             gameObject.transform.position.z), Quaternion.identity);
 
                 mySphere.transform.parent = gameObject.transform;
+                m_amountCircle = item.amount;
+                Debug.Log(m_amountCircle);
+
                 break;
 
             case Item.ItemType.Item2:
@@ -70,6 +76,9 @@ public class ItemWorld : MonoBehaviour
                                             gameObject.transform.position.z), Quaternion.identity);
 
                 myTriangle.transform.parent = gameObject.transform;
+                m_amountTriangle = item.amount;
+                Debug.Log(m_amountTriangle);
+
                 break;
 
             case Item.ItemType.Item4:
@@ -96,8 +105,35 @@ public class ItemWorld : MonoBehaviour
             uiText.SetText("");
 
         }
+
     }
 
+    public void UpdateAmountItem()
+    {
+        switch (item.itemType)
+        {
+            case Item.ItemType.Item1:
+                
+
+                break;
+
+            case Item.ItemType.Item2:
+
+                break;
+
+            case Item.ItemType.Item3:
+                m_amountTriangle = item.amount;
+                Debug.Log(m_amountTriangle);
+
+                break;
+
+            case Item.ItemType.Item4:
+
+                break;
+
+        }
+
+    }
 
     public Item GetItem()
     {
