@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 232920565}
   - component: {fileID: 232920564}
   m_Layer: 0
-  m_Name: line drawer (not working)
+  m_Name: swipe debugger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,7 +338,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 8.52e-43, y: -7.176463e-34, z: 8.5e-43, w: -4.8625326e-10}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
