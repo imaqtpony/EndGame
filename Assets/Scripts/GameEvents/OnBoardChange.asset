@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f45b3db29d9f0fe468c85c8c162ef154, type: 3}
-  m_Name: Data
+  m_Script: {fileID: 11500000, guid: e8081af4d51ea6c4f92e4556c325fe6b, type: 3}
+  m_Name: OnBoardChange
   m_EditorClassIdentifier: 
-  m_isSwiping: 0

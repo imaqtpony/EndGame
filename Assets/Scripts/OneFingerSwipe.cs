@@ -13,7 +13,10 @@ public class OneFingerSwipe : MonoBehaviour
     private Vector2 m_initialFingerPos;
 
     [SerializeField]
-    private GD2Lib.Event m_swipeEvent;
+    private GD2Lib.Event m_swipeEvent = null;
+
+    [SerializeField]
+    private Data m_data = null;
 
     private float m_minDistForSwipe = 15f;
 
@@ -50,8 +53,12 @@ public class OneFingerSwipe : MonoBehaviour
     {
         if (VerticalMovementDist() > m_minDistForSwipe || HorizontalMovementDist() > m_minDistForSwipe)
         {
+            m_data.m_isSwiping = true;
             ReturnSwipe();
             m_initialFingerPos = m_currentFingerPos;
+        } else
+        {
+            m_data.m_isSwiping = false;
         }
     }
 

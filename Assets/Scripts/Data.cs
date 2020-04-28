@@ -8,6 +8,7 @@ public class Data : ScriptableObject
 
     // les vars en public
 
-
+    [Tooltip("is the player currently swiping")]
+    public bool m_isSwiping;
 
 }

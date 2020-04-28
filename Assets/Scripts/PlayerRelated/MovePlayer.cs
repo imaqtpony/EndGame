@@ -8,6 +8,9 @@ using UnityEngine.UIElements;
 
 public class MovePlayer : MonoBehaviour
 {
+    [SerializeField]
+    private Data m_data;
+
     // Component NavMeshAgent
     private NavMeshAgent m_agent;
 
@@ -44,23 +47,28 @@ public class MovePlayer : MonoBehaviour
         if ((touch.phase == TouchPhase.Stationary) && (touch.deltaPosition.magnitude < Screen.dpi / 400))
             //Debug.Log("hjagzel");
 
-        switch (touch.phase)
-        {
-            case TouchPhase.Stationary:
-                //fonction mouv
-                if (touch.phase != TouchPhase.Moved)
-                    MoveToTouch(touch);
-                break;
 
-            case TouchPhase.Moved:
-                    // nah
-                //transform.LookAt(new Vector3(touch.position.x, 0, touch.position.y));
-                break;
+        if (!m_data.m_isSwiping && touch.phase == TouchPhase.Stationary)
+                MoveToTouch(touch);
 
-            default:
-                break;
+        Debug.Log(m_data.m_isSwiping);
+        //switch (touch.phase)
+        //{
+        //    case TouchPhase.Stationary:
+        //        //fonction mouv
+        //        if (touch.phase != TouchPhase.Moved)
+        //            MoveToTouch(touch);
+        //        break;
 
-        }
+        //    case TouchPhase.Moved:
+        //            // nah
+        //        //transform.LookAt(new Vector3(touch.position.x, 0, touch.position.y));
+        //        break;
+
+        //    default:
+        //        break;
+
+        //}
 
         
     }

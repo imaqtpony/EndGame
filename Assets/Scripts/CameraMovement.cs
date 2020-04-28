@@ -5,24 +5,28 @@ using UnityEngine;
 // follows the player
 public class CameraMovement : MonoBehaviour
 {
+    //[SerializeField]
+    //private GameObject m_player;
+
+    //private Transform m_tplayer;
+
     [SerializeField]
-    private GameObject m_player;
-
-    private Transform m_tplayer;
-
+    private GameObject board;
 
     private Vector3 dist;
     private void Awake()
     {
-        m_tplayer = m_player.GetComponent<Transform>();
+        dist = transform.position - board.transform.position;
 
-        dist = transform.position - m_tplayer.position;
+        //transform.position = DistToBoard(dist);
+
+        //m_tplayer = m_player.GetComponent<Transform>();
+
     }
 
-    private void FixedUpdate()
+    private Vector3 DistToBoard(Vector3 p_dist)
     {
-        transform.position = new Vector3(m_tplayer.position.x, m_tplayer.position.y + dist.y, m_tplayer.position.z + dist.z);
-
+        return new Vector3(board.transform.position.x, board.transform.position.y + p_dist.y, board.transform.position.z + p_dist.z);
     }
 
 }
