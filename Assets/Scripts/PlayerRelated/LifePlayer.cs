@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GD2Lib;
 
 public class LifePlayer : MonoBehaviour
 {
-    public SerInt m_lifeValue;
+    public IntVar m_lifeValue;
 
     [SerializeField] Collider collider;
 
@@ -60,7 +61,7 @@ public class LifePlayer : MonoBehaviour
 
     public void HealingFunc()
     {
-
+        Debug.Log("on recup de la vie");
         m_lifeValue.Value += 1;
         x++;
 
