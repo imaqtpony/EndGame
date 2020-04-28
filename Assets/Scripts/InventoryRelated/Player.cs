@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private LifePlayer m_lifePlayer;
 
+    public SerInt m_inventorySpace;
+
     [SerializeField] private UI_Inventory uiInventory;
     // Start is called before the first frame update
     private void Awake()
@@ -17,6 +19,8 @@ public class Player : MonoBehaviour
         uiInventory.SetPlayer(this);
         uiInventory.SetInventory(inventory);
 
+        Debug.Log(m_inventorySpace.m_value);
+
     }
 
     public Vector3 GetPosition()
@@ -24,15 +28,21 @@ public class Player : MonoBehaviour
         return transform.position;
     }
 
+    
     private void OnTriggerEnter(Collider collider)
     {
-        ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
-
-        if (itemWorld != null)
+        if(Inventory.itemList.Count <= m_inventorySpace.m_value)
         {
-            inventory.AddItem(itemWorld.GetItem());
-            itemWorld.DestroySelf();
+            ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
+            Debug.Log(Inventory.itemList.Count);
+
+            if (itemWorld != null)
+            {
+                inventory.AddItem(itemWorld.GetItem());
+                itemWorld.DestroySelf();
+            }
         }
+        
     }
 
     private void UseItem(Item item)

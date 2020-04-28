@@ -2210,7 +2210,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1250
+  m_Name: pb_Mesh-1646
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4810,6 +4810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_lifePlayer: {fileID: 4471376300533314884}
+  m_inventorySpace: {fileID: 11400000, guid: 0a936bb882459b844b8512c613093929, type: 2}
   uiInventory: {fileID: 1739969300}
 --- !u!114 &4471376300533314882
 MonoBehaviour:
