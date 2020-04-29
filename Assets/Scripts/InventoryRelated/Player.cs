@@ -1,25 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GD2Lib;
 
 public class Player : MonoBehaviour
 {
 
     private Inventory inventory;
 
-    [SerializeField] private LifePlayer m_lifePlayer;
+    private LifePlayer m_lifePlayer;
 
-    public SerInt m_inventorySpace;
+    public IntVar m_inventorySpace;
 
     [SerializeField] private UI_Inventory uiInventory;
     // Start is called before the first frame update
     private void Awake()
     {
+        m_lifePlayer = GetComponent<LifePlayer>();
         inventory = new Inventory(UseItem);
         uiInventory.SetPlayer(this);
         uiInventory.SetInventory(inventory);
-
-        Debug.Log(m_inventorySpace.m_value);
 
     }
 
@@ -31,10 +31,11 @@ public class Player : MonoBehaviour
     
     private void OnTriggerEnter(Collider collider)
     {
-        if(Inventory.itemList.Count <= m_inventorySpace.m_value)
+
+
+        if (Inventory.itemList.Count < m_inventorySpace.Value)
         {
             ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
-            Debug.Log(Inventory.itemList.Count);
 
             if (itemWorld != null)
             {

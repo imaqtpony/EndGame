@@ -89,9 +89,10 @@ public class UI_Inventory : MonoBehaviour
                 if (m_craftSystem.m_craftActive)
                 {
                     craftLosange(item);
+
                 }
 
-                
+
 
             };
 
@@ -129,28 +130,32 @@ public class UI_Inventory : MonoBehaviour
         }
     }
 
+    public void DropAllItemFunction()
+    {
+        foreach (Item item in inventory.GetItemList())
+        {
+            Item duplicateItem = new Item { itemType = item.itemType, amount = item.amount };
+            ItemWorld.DropItem(player.GetPosition(), duplicateItem);
+        }
+        inventory.RemoveAllItems();
+
+    }
+
     private void craftLosange(Item item)
     {
 
-        if(ItemWorld.m_amountCircle > 1)
+        if(Inventory.m_amountCircle > 4)
         {
             inventory.AddItem(new Item { itemType = Item.ItemType.Item4, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.Item1, amount = 2 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.Item3, amount = 1 });
-
-            ItemWorld.m_amountCircle -= 2;
-            ItemWorld.m_amountTriangle -= 1;
-
-            Debug.Log(ItemWorld.m_amountCircle);
-
-            Debug.Log(ItemWorld.m_amountTriangle);
 
             Destroy(m_craftSlot_1.transform.GetChild(2).gameObject);
             Destroy(m_craftSlot_2.transform.GetChild(2).gameObject);
             m_craftSystem.m_craftSlotList.Clear();
             m_craftSystem.NotEnoughItemToCraft();
         }
-
+        
         
     }
 

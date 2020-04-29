@@ -49,7 +49,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void OnDrag(PointerEventData eventData)
     {
         //Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta / 0.6f;
+        rectTransform.anchoredPosition += eventData.delta / 1.3f;
         DeplaceItemText();
 
     }

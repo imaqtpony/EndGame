@@ -2,34 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using GD2Lib;
 
 public class Vie : MonoBehaviour
 {
     [SerializeField] int m_vie;
 
-    public SerInt m_ScriptablObject;
+    public IntVar m_ScriptableObject;
 
     private void Start()
     {
-        //Debug.Log(m_ScriptablObject.Value);
+        //Debug.Log(m_ScriptableObject.Value);
 
     }
 
     
     private void OnEnable()
     {
-        m_ScriptablObject.onValueChange += HandleVie;
-        m_ScriptablObject.Value = 3;
+        m_ScriptableObject.OnValueChanged += HandleVie;
+        m_ScriptableObject.Value = m_vie;
     }
 
     private void OnDisable()
     {
-        m_ScriptablObject.onValueChange -= HandleVie;
+        m_ScriptableObject.OnValueChanged -= HandleVie;
     }
 
     private void OnApplicationQuit()
     {
-        m_ScriptablObject.Value = 3;
+        m_ScriptableObject.Value = m_vie;
     }
 
     public void HandleVie(int m_vie)
