@@ -63,7 +63,7 @@ public class Inventory
                     break;
                 case Item.ItemType.Item2:
                     m_amountSquare = inventoryItem.amount;
-
+                    Debug.Log(m_amountSquare);
                     break;
                 case Item.ItemType.Item3:
                     m_amountTriangle = inventoryItem.amount;
