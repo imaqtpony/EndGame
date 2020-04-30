@@ -10,10 +10,11 @@ public class Inventory
 
     private Action<Item> useItemAction;
 
-    [SerializeField]
-    public IntVar m_inventorySpace;
-
     public event EventHandler OnItemListChanged;
+
+    public static int m_amountCircle;
+    public static int m_amountSquare;
+    public static int m_amountTriangle;
 
     public Inventory(Action<Item> useItemAction)
     {
@@ -24,9 +25,6 @@ public class Inventory
 
     public void AddItem(Item item)
     {
-        Debug.Log(itemList.Count);
-
-
         if (item.IsStackable())
         {
             bool itemAlreadyInInventory = false;
@@ -50,7 +48,30 @@ public class Inventory
 
         }
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        AmountItems(item);
+    }
 
+    public void AmountItems(Item item)
+    {
+        foreach (Item inventoryItem in itemList)
+        {
+            switch (inventoryItem.itemType)
+            {
+
+                case Item.ItemType.Item1:
+                    m_amountCircle = inventoryItem.amount;
+                    
+                    break;
+                case Item.ItemType.Item2:
+                    m_amountSquare = inventoryItem.amount;
+                    Debug.Log(m_amountSquare);
+                    break;
+                case Item.ItemType.Item3:
+                    m_amountTriangle = inventoryItem.amount;
+
+                    break;
+            }
+        }
     }
 
     public void RemoveItem(Item item)
@@ -78,7 +99,16 @@ public class Inventory
             itemList.Remove(item);
 
         }
+        AmountItems(item);
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void RemoveAllItems()
+    {
+        
+        itemList.Clear();
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+
     }
 
     public void UseItem(Item item)

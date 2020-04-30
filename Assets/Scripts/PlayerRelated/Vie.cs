@@ -12,7 +12,7 @@ public class Vie : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(m_ScriptableObject.Value);
+        //Debug.Log(m_ScriptableObject.Value);
 
     }
 
@@ -20,7 +20,7 @@ public class Vie : MonoBehaviour
     private void OnEnable()
     {
         m_ScriptableObject.OnValueChanged += HandleVie;
-        m_ScriptableObject.Value = 3;
+        m_ScriptableObject.Value = m_vie;
     }
 
     private void OnDisable()
@@ -30,7 +30,7 @@ public class Vie : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        m_ScriptableObject.Value = 3;
+        m_ScriptableObject.Value = m_vie;
     }
 
     public void HandleVie(int m_vie)

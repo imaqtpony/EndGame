@@ -25,6 +25,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public bool m_isOnSlot;
 
+    public static Item.ItemType itemType;
 
     private void Start()
     {
@@ -41,15 +42,15 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         itemSlot.transform.SetSiblingIndex(Inventory.itemList.Count);
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
-
         DetectItem();
-        
+
+
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         //Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta / 0.6f;
+        rectTransform.anchoredPosition += eventData.delta / 1.3f;
         DeplaceItemText();
 
     }
@@ -60,6 +61,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
         DeplaceItemText();
+
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -81,16 +83,31 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         m_amountText.transform.position = new Vector2(gameObject.transform.position.x + 10, gameObject.transform.position.y - 15);
     }
 
-
-    public void ReplaceItem()
-    {
-        Debug.Log("replace item");
-
-    }
-
-    public void DetectItem()
+    public Item.ItemType DetectItem()
     {
         var itemSprite = image.sprite;
 
+
+        switch (itemSprite.name)
+        {
+            default:
+            case "circle":
+                itemType = Item.ItemType.Item1;
+                break;
+            case "square":
+                itemType = Item.ItemType.Item2;
+                break;
+            case "triangle":
+                itemType = Item.ItemType.Item3;
+                break;
+            case "losange":
+                itemType = Item.ItemType.Item4;
+                break;
+        }
+        Debug.Log(itemType);
+
+        return itemType;
+
     }
+
 }

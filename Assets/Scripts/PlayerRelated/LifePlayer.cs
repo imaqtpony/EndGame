@@ -3,24 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using GD2Lib;
-
+using UnityEngine.UI;
 public class LifePlayer : MonoBehaviour
 {
     public IntVar m_lifeValue;
 
     [SerializeField] Collider collider;
 
+    private Inventory inventory;
+    [SerializeField] UI_Inventory m_uiInventory;
+
     public float m_invDuration;
 
-    [SerializeField]private Transform lifeHeartContainer;
-    [SerializeField]private Transform lifeHeartSprite;
+    [SerializeField] Image m_backgroundLife;
+
+    [SerializeField] private Transform lifeHeartContainer;
+    [SerializeField] private Transform lifeHeartSprite;
 
     private int x = 0;
     private int y = 0;
 
     private void Start()
     {
+
         InstantiateHearts();
+        UpdateWidthBackgroundLife();
     }
 
     void OnTriggerEnter(Collider collision)
@@ -36,10 +43,12 @@ public class LifePlayer : MonoBehaviour
 
             //et on le detruit
             Destroy(lastHeart);
+            UpdateWidthBackgroundLife();
 
-            if(m_lifeValue.Value == 0)
+            if (m_lifeValue.Value == 0)
             {
-                SceneManager.LoadScene("Scene_Alex");
+                m_uiInventory.DropAllItemFunction();
+                //SceneManager.LoadScene("Scene_Alex");
             }
         }
     }
@@ -68,7 +77,7 @@ public class LifePlayer : MonoBehaviour
         int SPACE_BETWEEN_HEARTS = 70;
         RectTransform itemSlotRectTransform = Instantiate(lifeHeartSprite, lifeHeartContainer).GetComponent<RectTransform>();
         itemSlotRectTransform.anchoredPosition = new Vector2(x * SPACE_BETWEEN_HEARTS, y * SPACE_BETWEEN_HEARTS);
-
+        UpdateWidthBackgroundLife();
     }
 
     private IEnumerator InvFrame()
@@ -82,5 +91,12 @@ public class LifePlayer : MonoBehaviour
         }
         collider.enabled = true;
     }
+
+    public void UpdateWidthBackgroundLife()
+    {
+        m_backgroundLife.rectTransform.sizeDelta = new Vector2(m_lifeValue.Value * 162, 162); 
+    }
+
+    
 
 }

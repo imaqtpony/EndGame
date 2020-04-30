@@ -104,7 +104,6 @@ GameObject:
   - component: {fileID: 1075727173465951092}
   - component: {fileID: 6760265061285476237}
   - component: {fileID: 2218929116136582751}
-  - component: {fileID: 4781456274275417694}
   - component: {fileID: 6437657295419060774}
   m_Layer: 0
   m_Name: PlayerHugo
@@ -199,20 +198,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!64 &4781456274275417694
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5038858714530284369}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5060444177187149915, guid: d8f79bb4a82cea944af04529de8bdde0, type: 3}
 --- !u!114 &6437657295419060774
 MonoBehaviour:
   m_ObjectHideFlags: 0
