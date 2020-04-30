@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Scripts/SyncVars/InventorySpace.asset.meta
-guid: c47fdefa55215e94e98b7f1148c9a772
-=======
-guid: d07dc231abe8106478e8d2b1db02f1a2
->>>>>>> ALEX:Assets/Scripts/InventoryRelated/InventorySpaceValue.asset.meta
+guid: 7c44a541d593c3540bd485ee13a744e8
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

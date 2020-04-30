@@ -1892,7 +1892,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1242
+  m_Name: pb_Mesh-7918
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2093,6 +2093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fbd5deb8d52ae4aac78237cc85b8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_prefab: {fileID: 0}
 --- !u!1 &1171551566
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,22 +3983,22 @@ PrefabInstance:
     - target: {fileID: 2532612635152508465, guid: ebbe62c6d2eacef4996844b686a9372d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.42261827
+      value: 0.5735764
       objectReference: {fileID: 0}
     - target: {fileID: 2532612635152508465, guid: ebbe62c6d2eacef4996844b686a9372d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2532612635152508465, guid: ebbe62c6d2eacef4996844b686a9372d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2532612635152508465, guid: ebbe62c6d2eacef4996844b686a9372d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9063079
+      value: 0.8191521
       objectReference: {fileID: 0}
     - target: {fileID: 2532612635152508465, guid: ebbe62c6d2eacef4996844b686a9372d,
         type: 3}
@@ -4007,7 +4008,7 @@ PrefabInstance:
     - target: {fileID: 2532612635152508465, guid: ebbe62c6d2eacef4996844b686a9372d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 2532612635152508465, guid: ebbe62c6d2eacef4996844b686a9372d,
         type: 3}
@@ -4073,7 +4074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f495ca75f22e54d8552c33ffde8eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_inventorySpace: {fileID: 11400000, guid: d07dc231abe8106478e8d2b1db02f1a2, type: 2}
+  m_inventorySpace: {fileID: 0}
   uiInventory: {fileID: 1739969300}
   m_dropItemZone: {fileID: 104052293}
 --- !u!114 &4471376300533314882
@@ -4089,7 +4090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_inventorySpace: 4
-  m_ScriptableObject: {fileID: 11400000, guid: d07dc231abe8106478e8d2b1db02f1a2, type: 2}
+  m_ScriptableObject: {fileID: 0}
 --- !u!114 &4471376300533314883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4103,7 +4104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_vie: 3
-  m_ScriptableObject: {fileID: 11400000, guid: 0ee1c2f77f180ce4aa781895f38f1f76, type: 2}
+  m_ScriptableObject: {fileID: 0}
 --- !u!114 &4471376300533314884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4116,13 +4117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999c25d124f92ce4799f1df8aa10132c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_lifeValue: {fileID: 11400000, guid: 0ee1c2f77f180ce4aa781895f38f1f76, type: 2}
-  collider: {fileID: 4471376300533314879}
-  m_uiInventory: {fileID: 1739969300}
-  m_invDuration: 1.5
-  m_backgroundLife: {fileID: 302283820}
-  lifeHeartContainer: {fileID: 612647736}
-  lifeHeartSprite: {fileID: 805446955}
 --- !u!224 &4782693937879132656
 RectTransform:
   m_ObjectHideFlags: 0

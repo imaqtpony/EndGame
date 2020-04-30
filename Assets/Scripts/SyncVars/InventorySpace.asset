@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: InventorySpace
   m_EditorClassIdentifier: Assembly-CSharp:GD2Lib:IntVar
-  m_initialValue: 0
+  m_initialValue: 4

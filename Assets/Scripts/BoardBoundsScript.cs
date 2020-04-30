@@ -12,7 +12,7 @@ public class BoardBoundsScript : MonoBehaviour
     void OnDrawGizmos()
     {
         //// Draw a semitransparent blue cube at the transforms position
-        //Gizmos.color = new Color(1, 0, 0, 0.5f);
+        //Gizmos.color = new Color(1, 0, 0, 0.5f); 
         //Gizmos.DrawCube(transform.position, new Vector3(1,1,1));
         //Gizmos.DrawCube(transform.localPosition, new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z));
         //Gizmos.DrawMesh(gameObject.GetComponent<Mesh>(), transform.position);

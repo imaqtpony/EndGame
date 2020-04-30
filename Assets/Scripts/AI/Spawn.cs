@@ -9,6 +9,7 @@ public class Spawn : MonoBehaviour
     private void Awake()
     {
         var nb_enemies = 3;
+
         for (int i=1;i<nb_enemies;i++)
                 Instantiate(m_prefab, RandomizeSpawn(), transform.rotation);
     }

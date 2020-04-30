@@ -27,12 +27,13 @@ public class EnemyAI : MonoBehaviour
         {
             //Debug.Log(EnemyDetect.m_inLight);
             //m_agent.SetDestination(m_back.transform.position);
-            transform.position += Vector3.forward * Time.deltaTime * 10;
+            //transform.position += Vector3.forward * Time.deltaTime * 10;
+            m_agent.SetDestination(transform.forward * -10);
         }
 
         if (EnemyDetect.m_inLight == false)
         {
-            //m_agent.SetDestination(m_data.m_player.transform.position);
+            m_agent.SetDestination(m_data.m_player.transform.position);
         }
     }
 }
