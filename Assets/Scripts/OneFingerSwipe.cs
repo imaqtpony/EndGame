@@ -40,7 +40,7 @@ public class OneFingerSwipe : MonoBehaviour
                 DetectSwipe();
             }
 
-            if (touch.phase == TouchPhase.Ended)
+            if (touch.phase == TouchPhase.Ended ||touch.phase == TouchPhase.Canceled)
             {
                 m_currentFingerPos = touch.position;
                 DetectSwipe();

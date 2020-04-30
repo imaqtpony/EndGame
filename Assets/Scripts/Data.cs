@@ -15,4 +15,5 @@ public class Data : ScriptableObject
     [Tooltip("The player gameobject")]
     public GameObject m_player;
 
+
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using GD2Lib;
 
 public class Inventory
 {
@@ -9,7 +10,8 @@ public class Inventory
 
     private Action<Item> useItemAction;
 
-    public SerInt m_inventorySpace;
+    [SerializeField]
+    public IntVar m_inventorySpace;
 
     public event EventHandler OnItemListChanged;
 

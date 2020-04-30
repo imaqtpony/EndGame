@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
 using UnityEngine.UIElements;
-
+using UnityEditor.Build;
 
 public class MovePlayer : MonoBehaviour
 {
@@ -20,7 +20,7 @@ public class MovePlayer : MonoBehaviour
     [Tooltip ("This object's rigidbody")]
     private Rigidbody m_rb;
 
-
+    private int m_nbFramesElapsed;
 
     private void Awake()
     {
@@ -28,29 +28,68 @@ public class MovePlayer : MonoBehaviour
         m_agent = GetComponent<NavMeshAgent>();
 
         m_agent.updateRotation = false;
+        m_nbFramesElapsed = 0;
     }
 
 
     private void Update()
     {
-        //Debug.Log(m_agent.hasPath);
-        Touch touch = Input.GetTouch(0);
+        // Ended = movetotouch
+        // looks like deltaTime is the sensibility 0.0333
 
+        //If ended
+        //If touch long
+        // rotate, its a swipe or whatever
+        //else
+        // movetotouch
+
+        // pk la rotation est flinguée en y?
+
+        Touch touch = Input.GetTouch(0);
+        //Vector3 touchStartPos;
+        transform.rotation = Quaternion.LookRotation(m_agent.velocity.normalized);
+
+
+        //Debug.Log(m_agent.hasPath);
+        //Debug.Log(touch.deltaTime);
+        //Debug.Log(m_data.m_isSwiping);
         //Debug.Log(touch.phase);
 
         // the pathcomplete bug fix where the agent stops but his path is not completed, we reset the path if the agent enters a small square radius around the destination
         if ((transform.position.x < m_agent.destination.x + 0.2f && transform.position.x > m_agent.destination.x - 0.2f) && (transform.position.z < m_agent.destination.z + 0.2f && transform.position.z > m_agent.destination.z - 0.2f))
             m_agent.ResetPath();
 
+        //if (touch.phase == TouchPhase.Began)
+        //    touchStartPos = touch.position;
 
-        if ((touch.phase == TouchPhase.Stationary) && (touch.deltaPosition.magnitude < Screen.dpi / 400))
-            //Debug.Log("hjagzel");
 
+        if(touch.phase == TouchPhase.Began)
+        {
+            m_nbFramesElapsed = 0;
+        }
 
-        if (!m_data.m_isSwiping && touch.phase == TouchPhase.Stationary)
+        if (Input.touchCount > 0)
+            m_nbFramesElapsed++;
+
+        if(touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+        {
+            if (m_nbFramesElapsed > 20)
+            {
+                Debug.Log("SWIPE OR W/E");
+            } else
+            {
                 MoveToTouch(touch);
+            }
+        }
 
-        Debug.Log(m_data.m_isSwiping);
+        //if ((touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled) && true)
+
+
+        //if (!m_data.m_isSwiping && touch.phase == TouchPhase.Stationary)
+        //    MoveToTouch(touch);
+
+
+
         //switch (touch.phase)
         //{
         //    case TouchPhase.Stationary:
@@ -69,8 +108,9 @@ public class MovePlayer : MonoBehaviour
 
         //}
 
-        
+
     }
+
 
     /// <summary>
     /// Move the player to the touch location on the screen
@@ -78,7 +118,6 @@ public class MovePlayer : MonoBehaviour
     /// <param name="p_touch"> the touch on the screen </param>
     private void MoveToTouch(Touch p_touch)
     {
-        transform.rotation = Quaternion.LookRotation(m_agent.velocity.normalized);
 
         //if le tel marche
         if (Input.touchCount > 0)

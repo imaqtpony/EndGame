@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using GD2Lib;
 
+
+// TouchPhase began et ended
+
 public class RotatePlayer : MonoBehaviour
 {
     [SerializeField]
@@ -12,10 +15,11 @@ public class RotatePlayer : MonoBehaviour
     //[SerializeField]
     //private GameObject m_player;
 
+    //private LineRenderer m_lineRenderer;
 
     private void Awake()
     {
-
+        //m_lineRenderer = GetComponent<LineRenderer>();
     }
 
 
@@ -31,7 +35,18 @@ public class RotatePlayer : MonoBehaviour
             //m_lineRenderer.positionCount = 2;
             //m_lineRenderer.SetPositions(positions);
 
-            //m_player.transform.LookAt(sData.endPosition);
+            Ray castPoint = Camera.main.ScreenPointToRay(sData.endPosition);
+            RaycastHit hit;
+
+            Debug.DrawRay(castPoint.origin, castPoint.direction, Color.green);
+
+            if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+            {
+                gameObject.transform.LookAt(hit.point);
+                //gameObject.transform.LookAt(new Vector3(hit.point.x,0,hit.point.z));
+
+            }
+
         }
         else
         {
