@@ -13,9 +13,6 @@ public class Player : MonoBehaviour
     public IntVar m_inventorySpace;
 
     [SerializeField] private UI_Inventory uiInventory;
-
-    [SerializeField] DropItemZone m_dropItemZone;
-
     // Start is called before the first frame update
     private void Awake()
     {

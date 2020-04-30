@@ -120,40 +120,15 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
-    public void DropItemFunction(Item.ItemType itemTypeToDrop)
+    public void DropItemFunction()
     {
         foreach (Item item in inventory.GetItemList())
         {
-            if (itemTypeToDrop == Item.ItemType.Item1)
-            {
-
-                Item duplicateItem = new Item { itemType = Item.ItemType.Item1, amount = Inventory.m_amountCircle };
-                inventory.RemoveItem(new Item { itemType = Item.ItemType.Item1, amount = Inventory.m_amountCircle });
-                ItemWorld.DropItem(player.GetPosition(), duplicateItem);
-
-            }
-            else if (itemTypeToDrop == Item.ItemType.Item2)
-            {
-
-                    Item duplicateItem = new Item { itemType = Item.ItemType.Item2, amount = Inventory.m_amountSquare };
-                    inventory.RemoveItem(new Item { itemType = Item.ItemType.Item2, amount = Inventory.m_amountSquare });
-                    ItemWorld.DropItem(player.GetPosition(), duplicateItem);
-
-
-            }
-            else if (itemTypeToDrop == Item.ItemType.Item3)
-            {
-
-                    Item duplicateItem = new Item { itemType = Item.ItemType.Item3, amount = Inventory.m_amountTriangle };
-                    inventory.RemoveItem(new Item { itemType = Item.ItemType.Item3, amount = Inventory.m_amountTriangle });
-                    ItemWorld.DropItem(player.GetPosition(), duplicateItem);
-
-            }
+            Item duplicateItem = new Item { itemType = item.itemType, amount = item.amount };
+            inventory.RemoveItem(item);
+            ItemWorld.DropItem(player.GetPosition(), duplicateItem);
         }
-
-
     }
-
 
     public void DropAllItemFunction()
     {

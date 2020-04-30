@@ -18,6 +18,8 @@ public class ReplaceItem : MonoBehaviour, IDropHandler
             {
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
 
+                DragDrop.ReplaceItem();
+
             }
 
 
