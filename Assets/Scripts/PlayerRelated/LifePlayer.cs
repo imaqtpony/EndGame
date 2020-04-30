@@ -48,6 +48,9 @@ public class LifePlayer : MonoBehaviour
             if (m_lifeValue.Value == 0)
             {
                 m_uiInventory.DropAllItemFunction();
+                m_uiInventory.RemoveItemFromCraftSlot();
+                m_lifeValue.Value = 3;
+
                 //SceneManager.LoadScene("Scene_Alex");
             }
         }

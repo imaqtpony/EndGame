@@ -120,39 +120,27 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
-    public void DropItemFunction(Item.ItemType itemTypeToDrop)
+    public void DropItemFunction(Item.ItemType itemTypeToDrop, int p_amount)
     {
+
         foreach (Item item in inventory.GetItemList())
         {
-            if (itemTypeToDrop == Item.ItemType.Item1)
-            {
 
-                Item duplicateItem = new Item { itemType = Item.ItemType.Item1, amount = Inventory.m_amountCircle };
-                inventory.RemoveItem(new Item { itemType = Item.ItemType.Item1, amount = Inventory.m_amountCircle });
+                Item duplicateItem = new Item { itemType = itemTypeToDrop, amount = p_amount };
+                inventory.RemoveItem(new Item { itemType = itemTypeToDrop, amount = p_amount });
                 ItemWorld.DropItem(player.GetPosition(), duplicateItem);
-
-            }
-            else if (itemTypeToDrop == Item.ItemType.Item2)
-            {
-
-                    Item duplicateItem = new Item { itemType = Item.ItemType.Item2, amount = Inventory.m_amountSquare };
-                    inventory.RemoveItem(new Item { itemType = Item.ItemType.Item2, amount = Inventory.m_amountSquare });
-                    ItemWorld.DropItem(player.GetPosition(), duplicateItem);
-
-
-            }
-            else if (itemTypeToDrop == Item.ItemType.Item3)
-            {
-
-                    Item duplicateItem = new Item { itemType = Item.ItemType.Item3, amount = Inventory.m_amountTriangle };
-                    inventory.RemoveItem(new Item { itemType = Item.ItemType.Item3, amount = Inventory.m_amountTriangle });
-                    ItemWorld.DropItem(player.GetPosition(), duplicateItem);
-
-            }
+            
         }
 
+    }
+
+    public void UseItemFunction(Item.ItemType itemTypeToUse)
+    {
+
+        inventory.RemoveItem(new Item { itemType = itemTypeToUse, amount = 1 });
 
     }
+
 
 
     public void DropAllItemFunction()
@@ -171,17 +159,22 @@ public class UI_Inventory : MonoBehaviour
 
         if(Inventory.m_amountCircle > 4)
         {
-            inventory.AddItem(new Item { itemType = Item.ItemType.Item4, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.Item1, amount = 2 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.Item3, amount = 1 });
+            inventory.AddItem(new Item { itemType = Item.ItemType.losange, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.circle, amount = 2 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.triangle, amount = 1 });
 
-            Destroy(m_craftSlot_1.transform.GetChild(2).gameObject);
-            Destroy(m_craftSlot_2.transform.GetChild(2).gameObject);
+            RemoveItemFromCraftSlot();
             m_craftSystem.m_craftSlotList.Clear();
             m_craftSystem.NotEnoughItemToCraft();
         }
         
         
+    }
+
+    public void RemoveItemFromCraftSlot()
+    {
+        Destroy(m_craftSlot_1.transform.GetChild(2).gameObject);
+        Destroy(m_craftSlot_2.transform.GetChild(2).gameObject);
     }
 
 }

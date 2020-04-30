@@ -53,18 +53,18 @@ public class Player : MonoBehaviour
     {
         switch (item.itemType)
         {
-            case Item.ItemType.Item1:
-                inventory.RemoveItem(new Item { itemType = Item.ItemType.Item1, amount = 1 });
+            case Item.ItemType.circle:
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.circle, amount = 1 });
                 m_lifePlayer.HealingFunc();
 
                 break;
-            case Item.ItemType.Item2:
+            case Item.ItemType.square:
                 Debug.Log("Carré utilisé");
-                inventory.RemoveItem(new Item { itemType = Item.ItemType.Item2, amount = 1 });
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.square, amount = 1 });
                 break;
-            case Item.ItemType.Item3:
+            case Item.ItemType.triangle:
                 Debug.Log("Triangle utilisé");
-                inventory.RemoveItem(new Item { itemType = Item.ItemType.Item3, amount = 1 });
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.triangle, amount = 1 });
                 break;
 
         }

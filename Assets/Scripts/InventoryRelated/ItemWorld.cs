@@ -13,7 +13,6 @@ public class ItemWorld : MonoBehaviour
     [SerializeField] GameObject Triangle;
     [SerializeField] GameObject Losange;
 
-    
 
     GameObject myItem;
     public static ItemWorld SpawnItemWorld(Vector3 position, Item item)
@@ -50,7 +49,7 @@ public class ItemWorld : MonoBehaviour
 
         switch (item.itemType)
         {
-            case Item.ItemType.Item1:
+            case Item.ItemType.circle:
                 var mySphere = Instantiate(Sphere, new Vector3(gameObject.transform.position.x,
                                             gameObject.transform.position.y,
                                             gameObject.transform.position.z), Quaternion.identity);
@@ -58,7 +57,7 @@ public class ItemWorld : MonoBehaviour
                 mySphere.transform.parent = gameObject.transform;
                 break;
 
-            case Item.ItemType.Item2:
+            case Item.ItemType.square:
                 var mySquare = Instantiate(Cube, new Vector3(gameObject.transform.position.x,
                                             gameObject.transform.position.y,
                                             gameObject.transform.position.z), Quaternion.identity);
@@ -66,7 +65,7 @@ public class ItemWorld : MonoBehaviour
                 mySquare.transform.parent = gameObject.transform;
                 break;
 
-            case Item.ItemType.Item3:
+            case Item.ItemType.triangle:
                 var myTriangle = Instantiate(Triangle, new Vector3(gameObject.transform.position.x,
                                             gameObject.transform.position.y,
                                             gameObject.transform.position.z), Quaternion.identity);
@@ -74,7 +73,7 @@ public class ItemWorld : MonoBehaviour
                 myTriangle.transform.parent = gameObject.transform;
                 break;
 
-            case Item.ItemType.Item4:
+            case Item.ItemType.losange:
                 var myLosange = Instantiate(Losange, new Vector3(gameObject.transform.position.x,
                                             gameObject.transform.position.y,
                                             gameObject.transform.position.z), Quaternion.identity);

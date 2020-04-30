@@ -531,7 +531,7 @@ Transform:
   m_LocalScale: {x: 0.34266, y: 0.34266, z: 0.34266}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0.97400004, y: 0.002, z: 0.22800002}
 --- !u!1 &302283818
 GameObject:
@@ -1616,6 +1616,7 @@ MonoBehaviour:
   circle: {fileID: 21300000, guid: 0678c7c41eda26847baf291cb3a1b235, type: 3}
   square: {fileID: 21300000, guid: fe768d8e8b3bfbb4c94fc7195332aa3c, type: 3}
   triangle: {fileID: 21300000, guid: 011810c801fd8f74493800ba843757d5, type: 3}
+  uiInventory: {fileID: 1739969300}
   m_isOnSlot: 0
 --- !u!225 &748783383
 CanvasGroup:
@@ -1884,7 +1885,7 @@ Transform:
   m_LocalScale: {x: 0.34266, y: 0.34266, z: 0.34266}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &918453914
 Mesh:
@@ -1892,7 +1893,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1242
+  m_Name: pb_Mesh-66870
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3156,7 +3157,7 @@ Transform:
   m_LocalScale: {x: 0.34266, y: 0.34266, z: 0.34266}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1623083915
 GameObject:
@@ -3746,10 +3747,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pfItemWorld: {fileID: 4834034316151395651, guid: faf6379e1658d314fae15d3ada37e65d,
     type: 3}
-  item1Sprite: {fileID: 21300000, guid: 0678c7c41eda26847baf291cb3a1b235, type: 3}
-  item2Sprite: {fileID: 21300000, guid: fe768d8e8b3bfbb4c94fc7195332aa3c, type: 3}
-  item3Sprite: {fileID: 21300000, guid: 011810c801fd8f74493800ba843757d5, type: 3}
-  item4Sprite: {fileID: 21300000, guid: 04f8a55ad0395c444b805183b5df7c23, type: 3}
+  circleSprite: {fileID: 21300000, guid: 0678c7c41eda26847baf291cb3a1b235, type: 3}
+  squareSprite: {fileID: 21300000, guid: fe768d8e8b3bfbb4c94fc7195332aa3c, type: 3}
+  triangleSprite: {fileID: 21300000, guid: 011810c801fd8f74493800ba843757d5, type: 3}
+  losangeSprite: {fileID: 21300000, guid: 04f8a55ad0395c444b805183b5df7c23, type: 3}
 --- !u!1 &1939019619
 GameObject:
   m_ObjectHideFlags: 0
@@ -4192,8 +4193,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 217840830}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 600910416242378541}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4291,7 +4292,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8498683695258961085
 GameObject:

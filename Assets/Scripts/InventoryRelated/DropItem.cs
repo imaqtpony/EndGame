@@ -10,6 +10,6 @@ public class DropItem : MonoBehaviour
 
     public void DropItemFunc ()
     {
-        uiInventory.DropItemFunction(DragDrop.itemType);
+        uiInventory.DropItemFunction(DragDrop.itemType, DragDrop.m_amountItemToDrop);
     }
 }

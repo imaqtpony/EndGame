@@ -23,9 +23,15 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     [SerializeField] Sprite square;
     [SerializeField] Sprite triangle;
 
+    [SerializeField] UI_Inventory uiInventory;
+
+    public static int m_amountItemToDrop;
+
     public bool m_isOnSlot;
 
     public static Item.ItemType itemType;
+
+    private float lastClickTime;
 
     private void Start()
     {
@@ -66,16 +72,24 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-
-        canvasGroup.blocksRaycasts = false;
+        DetectItem();
 
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (Input.GetMouseButtonUp(0))
+        {
+            float timeSinceLastClic = Time.time - lastClickTime;
 
-        canvasGroup.blocksRaycasts = true;
+            lastClickTime = Time.time;
+            Debug.Log(timeSinceLastClic);
+            if (timeSinceLastClic < 0.15f)
+            {
+                uiInventory.UseItemFunction(itemType);
 
+            }
+        }
     }
 
     public void DeplaceItemText()
@@ -90,18 +104,25 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
         switch (itemSprite.name)
         {
-            default:
+
             case "circle":
-                itemType = Item.ItemType.Item1;
+                itemType = Item.ItemType.circle;
+                m_amountItemToDrop = Inventory.m_amountCircle;
                 break;
             case "square":
-                itemType = Item.ItemType.Item2;
+                itemType = Item.ItemType.square;
+                m_amountItemToDrop = Inventory.m_amountSquare;
+
                 break;
             case "triangle":
-                itemType = Item.ItemType.Item3;
+                itemType = Item.ItemType.triangle;
+                m_amountItemToDrop = Inventory.m_amountTriangle;
+
                 break;
             case "losange":
-                itemType = Item.ItemType.Item4;
+                itemType = Item.ItemType.losange;
+                m_amountItemToDrop = 1;
+
                 break;
         }
         Debug.Log(itemType);
@@ -109,5 +130,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         return itemType;
 
     }
+
 
 }

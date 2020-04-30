@@ -57,15 +57,15 @@ public class Inventory
             switch (inventoryItem.itemType)
             {
 
-                case Item.ItemType.Item1:
+                case Item.ItemType.circle:
                     m_amountCircle = inventoryItem.amount;
                     
                     break;
-                case Item.ItemType.Item2:
+                case Item.ItemType.square:
                     m_amountSquare = inventoryItem.amount;
                     Debug.Log(m_amountSquare);
                     break;
-                case Item.ItemType.Item3:
+                case Item.ItemType.triangle:
                     m_amountTriangle = inventoryItem.amount;
 
                     break;
@@ -75,29 +75,27 @@ public class Inventory
 
     public void RemoveItem(Item item)
     {
-        if (item.IsStackable())
+        Item itemInInventory = null;
+        foreach (Item inventoryItem in itemList)
         {
-            Item itemInInventory = null;
-            foreach (Item inventoryItem in itemList)
+            if (inventoryItem.itemType == item.itemType)
             {
-                if (inventoryItem.itemType == item.itemType)
-                {
-                    inventoryItem.amount -= item.amount;
-                    itemInInventory = inventoryItem;
-
-                }
-            }
-            if (itemInInventory != null && itemInInventory.amount <= 0)
-            {
-                itemList.Remove(itemInInventory);
+                inventoryItem.amount -= item.amount;
+                itemInInventory = inventoryItem;
 
             }
         }
-        else
+        if (itemInInventory != null && itemInInventory.amount <= 0)
+        {
+            itemList.Remove(itemInInventory);
+
+        }
+
+        /*else
         {
             itemList.Remove(item);
 
-        }
+        }*/
         AmountItems(item);
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
