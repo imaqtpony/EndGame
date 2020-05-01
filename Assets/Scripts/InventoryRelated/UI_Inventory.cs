@@ -74,7 +74,7 @@ public class UI_Inventory : MonoBehaviour
 
             itemSlotRectTransform.GetComponent<Button_UI>().ClickFunc = () => {
                 //use item
-                inventory.UseItem(item);
+                //inventory.UseItem(item);
             };
 
             itemSlotRectTransform.GetComponent<Button_UI>().MouseRightClickFunc = () => {
@@ -111,7 +111,7 @@ public class UI_Inventory : MonoBehaviour
             }
 
             x++;
-            if (x > 4)
+            if (x > 2)
             {
                 x = 0;
                 y--;
@@ -134,10 +134,10 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
-    public void UseItemFunction(Item.ItemType itemTypeToUse)
+    public void UseItemFunction(Item.ItemType p_itemTypeToUse)
     {
 
-        inventory.RemoveItem(new Item { itemType = itemTypeToUse, amount = 1 });
+        inventory.UseItem(p_itemTypeToUse);
 
     }
 

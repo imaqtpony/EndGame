@@ -56,7 +56,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void OnDrag(PointerEventData eventData)
     {
         //Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta / 1.3f;
+        rectTransform.anchoredPosition += eventData.delta / 2f;
         DeplaceItemText();
 
     }
@@ -84,7 +84,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
             lastClickTime = Time.time;
             Debug.Log(timeSinceLastClic);
-            if (timeSinceLastClic < 0.15f)
+            if (timeSinceLastClic < 0.25f)
             {
                 uiInventory.UseItemFunction(itemType);
 
@@ -94,7 +94,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void DeplaceItemText()
     {
-        m_amountText.transform.position = new Vector2(gameObject.transform.position.x + 10, gameObject.transform.position.y - 15);
+        m_amountText.transform.position = new Vector2(gameObject.transform.position.x + 40, gameObject.transform.position.y - 50);
     }
 
     public Item.ItemType DetectItem()

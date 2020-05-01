@@ -7,7 +7,7 @@ public class Inventory
 {
     public static List<Item> itemList;
 
-    private Action<Item> useItemAction;
+    private Action<Item.ItemType> useItemAction;
 
     public event EventHandler OnItemListChanged;
 
@@ -15,7 +15,7 @@ public class Inventory
     public static int m_amountSquare;
     public static int m_amountTriangle;
 
-    public Inventory(Action<Item> useItemAction)
+    public Inventory(Action<Item.ItemType> useItemAction)
     {
         this.useItemAction = useItemAction;
         itemList = new List<Item>();
@@ -63,7 +63,7 @@ public class Inventory
                     break;
                 case Item.ItemType.square:
                     m_amountSquare = inventoryItem.amount;
-                    Debug.Log(m_amountSquare);
+
                     break;
                 case Item.ItemType.triangle:
                     m_amountTriangle = inventoryItem.amount;
@@ -108,7 +108,7 @@ public class Inventory
 
     }
 
-    public void UseItem(Item item)
+    public void UseItem(Item.ItemType item)
     {
         useItemAction(item);
     }
