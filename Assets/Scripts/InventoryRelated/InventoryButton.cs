@@ -6,7 +6,7 @@ public class InventoryButton : MonoBehaviour
 {
     private bool m_InventoryEnabled;
     [SerializeField] GameObject m_Inventory;
-
+    [SerializeField] UI_Inventory m_uiInventory;
     private void Awake()
     {
 
@@ -26,13 +26,12 @@ public class InventoryButton : MonoBehaviour
         if (m_InventoryEnabled)
         {
             m_Inventory.SetActive(true);
-
-
         }
         else
         {
             m_Inventory.SetActive(false);
-
+            m_uiInventory.RefreshInventoryItems();
+            m_uiInventory.RemoveItemFromCraftSlot();
         }
     }
 

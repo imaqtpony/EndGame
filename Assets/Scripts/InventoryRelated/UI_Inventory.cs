@@ -16,8 +16,8 @@ public class UI_Inventory : MonoBehaviour
     private Transform craftItemSlot;
     private Transform craftResult;
 
-    [SerializeField] Transform m_craftSlot_1;
-    [SerializeField] Transform m_craftSlot_2;
+    [SerializeField] List<Transform> m_craftSlot;
+
 
     [SerializeField] CraftSystem m_craftSystem;
 
@@ -54,7 +54,7 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
-    private void RefreshInventoryItems()
+    public void RefreshInventoryItems()
     {
         foreach (Transform child in itemSlotContainer)
         {
@@ -118,6 +118,7 @@ public class UI_Inventory : MonoBehaviour
             }
         }
 
+
     }
 
     public void DropItemFunction(Item.ItemType itemTypeToDrop, int p_amount)
@@ -151,7 +152,7 @@ public class UI_Inventory : MonoBehaviour
             ItemWorld.DropItem(player.GetPosition(), duplicateItem);
         }
         inventory.RemoveAllItems();
-
+        RemoveItemFromCraftSlot();
     }
 
     private void craftLosange(Item item)
@@ -164,8 +165,6 @@ public class UI_Inventory : MonoBehaviour
             inventory.RemoveItem(new Item { itemType = Item.ItemType.triangle, amount = 1 });
 
             RemoveItemFromCraftSlot();
-            m_craftSystem.m_craftSlotList.Clear();
-            m_craftSystem.NotEnoughItemToCraft();
         }
         
         
@@ -173,8 +172,14 @@ public class UI_Inventory : MonoBehaviour
 
     public void RemoveItemFromCraftSlot()
     {
-        Destroy(m_craftSlot_1.transform.GetChild(2).gameObject);
-        Destroy(m_craftSlot_2.transform.GetChild(2).gameObject);
+
+        foreach(Transform craftSlot in m_craftSlot)
+        {
+            Destroy(craftSlot.transform.GetChild(2).gameObject);
+            m_craftSystem.m_craftSlotList.Clear();
+            m_craftSystem.NotEnoughItemToCraft();
+        }
+
     }
 
 }
