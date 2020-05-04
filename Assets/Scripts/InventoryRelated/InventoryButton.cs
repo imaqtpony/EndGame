@@ -28,6 +28,8 @@ public class InventoryButton : MonoBehaviour
         if (m_InventoryEnabled)
         {
             m_Inventory.SetActive(true);
+            m_toolsInventory.SetActive(false);
+            m_toolsInventoryEnabled = false;
         }
         else
         {
@@ -42,14 +44,18 @@ public class InventoryButton : MonoBehaviour
 
         m_toolsInventoryEnabled = !m_toolsInventoryEnabled;
 
-        if (m_toolsInventoryEnabled)
+        if (!m_InventoryEnabled)
         {
-            m_toolsInventory.SetActive(true);
+            if (m_toolsInventoryEnabled)
+            {
+                m_toolsInventory.SetActive(true);
+            }
+            else
+            {
+                m_toolsInventory.SetActive(false);
+            }
         }
-        else
-        {
-            m_toolsInventory.SetActive(false);
-        }
+        
         
         
     }

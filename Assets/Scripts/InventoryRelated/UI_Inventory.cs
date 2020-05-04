@@ -11,13 +11,12 @@ public class UI_Inventory : MonoBehaviour
     private Inventory inventory;
 
     [Header("Elements needed to be found")]
-    [SerializeField] Transform ressourcesSlotContainer;
-    [SerializeField] Transform ressourcesSlotTemplate;
-    [SerializeField] Transform toolsWindow;
-    [SerializeField] Transform toolsSlotContainer;
-    [SerializeField] Transform toolsSlotTemplate;
-    private Transform craftItemSlot;
-    [SerializeField] Transform craftResult;
+    [SerializeField] Transform m_ressourcesSlotContainer;
+    [SerializeField] Transform m_ressourcesSlotTemplate;
+    [SerializeField] Transform m_toolsWindow;
+    [SerializeField] Transform m_toolsSlotContainer;
+    [SerializeField] Transform m_toolsSlotTemplate;
+    [SerializeField] Transform m_craftResult;
 
     [SerializeField] List<Transform> m_craftSlot;
 
@@ -29,13 +28,6 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_amountItemsInventory;
 
     private Player player;
-
-    private void Awake()
-    {
-
-        craftItemSlot = transform.Find("CraftItemSlot");
-        
-    }
 
     public void SetPlayer(Player player)
     {
@@ -65,9 +57,9 @@ public class UI_Inventory : MonoBehaviour
 
     public void RefreshInventoryRessources()
     {
-        foreach (Transform child in ressourcesSlotContainer)
+        foreach (Transform child in m_ressourcesSlotContainer)
         {
-            if (child == ressourcesSlotTemplate) continue;
+            if (child == m_ressourcesSlotTemplate) continue;
             Destroy(child.gameObject);
         }
 
@@ -75,7 +67,7 @@ public class UI_Inventory : MonoBehaviour
         int y = 0;
         float itemSlotCellSize = 100f;
 
-        craftResult.GetComponent<Button_UI>().ClickFunc = () =>
+        m_craftResult.GetComponent<Button_UI>().ClickFunc = () =>
         {
             if (m_craftSystem.m_craftActive && Inventory.itemList.Count < m_inventorySpace.Value)
             {
@@ -88,7 +80,7 @@ public class UI_Inventory : MonoBehaviour
 
         foreach (Item item in inventory.GetItemList())
         {
-            RectTransform itemSlotRectTransform = Instantiate(ressourcesSlotTemplate, ressourcesSlotContainer).GetComponent<RectTransform>();
+            RectTransform itemSlotRectTransform = Instantiate(m_ressourcesSlotTemplate, m_ressourcesSlotContainer).GetComponent<RectTransform>();
             itemSlotRectTransform.gameObject.SetActive(true);
 
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
@@ -116,9 +108,9 @@ public class UI_Inventory : MonoBehaviour
 
     public void RefreshInventoryTools()
     {
-        foreach (Transform child in toolsSlotContainer)
+        foreach (Transform child in m_toolsSlotContainer)
         {
-            if (child == toolsSlotTemplate) continue;
+            if (child == m_toolsSlotTemplate) continue;
             Destroy(child.gameObject);
         }
 
@@ -129,7 +121,7 @@ public class UI_Inventory : MonoBehaviour
 
         foreach (Item item in inventory.GetToolsList())
         {
-            RectTransform itemSlotRectTransform = Instantiate(toolsSlotTemplate, toolsSlotContainer).GetComponent<RectTransform>();
+            RectTransform itemSlotRectTransform = Instantiate(m_toolsSlotTemplate, m_toolsSlotContainer).GetComponent<RectTransform>();
             itemSlotRectTransform.gameObject.SetActive(true);
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
             Image image = itemSlotRectTransform.Find("Tools").GetComponent<Image>();
