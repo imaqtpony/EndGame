@@ -11,14 +11,13 @@ public class UI_Inventory : MonoBehaviour
     private Inventory inventory;
 
     [Header("Elements needed to be found")]
-    private Transform ressourcesSlotContainer;
-    private Transform ressourcesSlotTemplate;
-    private Transform toolsWindow;
-    private Transform toolsSlotContainer;
-    private Transform toolsSlotTemplate;
-
+    [SerializeField] Transform ressourcesSlotContainer;
+    [SerializeField] Transform ressourcesSlotTemplate;
+    [SerializeField] Transform toolsWindow;
+    [SerializeField] Transform toolsSlotContainer;
+    [SerializeField] Transform toolsSlotTemplate;
     private Transform craftItemSlot;
-    private Transform craftResult;
+    [SerializeField] Transform craftResult;
 
     [SerializeField] List<Transform> m_craftSlot;
 
@@ -33,15 +32,8 @@ public class UI_Inventory : MonoBehaviour
 
     private void Awake()
     {
-        ressourcesSlotContainer = transform.Find("ItemSlotContainer");
-        ressourcesSlotTemplate = ressourcesSlotContainer.Find("ItemSlot");
 
         craftItemSlot = transform.Find("CraftItemSlot");
-        craftResult = craftItemSlot.Find("CraftResult");
-
-        toolsWindow = transform.Find("ToolsWindow");
-        toolsSlotContainer = toolsWindow.Find("ToolsSlotContainer");
-        toolsSlotTemplate = toolsSlotContainer.Find("ToolsSlot");
         
     }
 

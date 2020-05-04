@@ -39,18 +39,18 @@ public class InventoryButton : MonoBehaviour
 
     public void OpenToolsInventory()
     {
-        if (m_InventoryEnabled)
+
+        m_toolsInventoryEnabled = !m_toolsInventoryEnabled;
+
+        if (m_toolsInventoryEnabled)
         {
-            m_toolsInventoryEnabled = !m_toolsInventoryEnabled;
-            if (m_toolsInventoryEnabled)
-            {
-                m_toolsInventory.SetActive(true);
-            }
-            else
-            {
-                m_toolsInventory.SetActive(false);
-            }
+            m_toolsInventory.SetActive(true);
         }
+        else
+        {
+            m_toolsInventory.SetActive(false);
+        }
+        
         
     }
 
