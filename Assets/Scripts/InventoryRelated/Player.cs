@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GD2Lib;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Player : MonoBehaviour
     [SerializeField] private UI_Inventory uiInventory;
 
     [SerializeField] DropItemZone m_dropItemZone;
+
+    [SerializeField] TextMeshProUGUI m_amounItemsInventory;
 
     // Start is called before the first frame update
     private void Awake()
@@ -39,34 +42,51 @@ public class Player : MonoBehaviour
         if (Inventory.itemList.Count < m_inventorySpace.Value)
         {
             ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
+            m_amounItemsInventory.text = $"{ Inventory.itemList.Count + Inventory.toolsList.Count }/{m_inventorySpace.Value}";
 
             if (itemWorld != null)
             {
-                inventory.AddItem(itemWorld.GetItem());
-                itemWorld.DestroySelf();
+                if(collider.gameObject.tag != "Tools")
+                {
+                    inventory.AddItem(itemWorld.GetItem());
+                    itemWorld.DestroySelf();
+                    Debug.Log("RAMASSE RESSOURCES");
+                }
+                else if (collider.gameObject.tag == "Tools")
+                {
+                    inventory.AddTools(itemWorld.GetItem());
+                    itemWorld.DestroySelf();
+                    Debug.Log("RAMASSE OUTILS");
+                }
+
             }
+
         }
         
     }
 
-    private void UseItem(Item item)
+    private void UseItem(Item.ItemType itemType)
     {
-        switch (item.itemType)
+        switch (itemType)
         {
-            case Item.ItemType.Item1:
-                inventory.RemoveItem(new Item { itemType = Item.ItemType.Item1, amount = 1 });
+            case Item.ItemType.circle:
                 m_lifePlayer.HealingFunc();
 
                 break;
-            case Item.ItemType.Item2:
+            case Item.ItemType.square:
                 Debug.Log("Carré utilisé");
-                inventory.RemoveItem(new Item { itemType = Item.ItemType.Item2, amount = 1 });
+
                 break;
-            case Item.ItemType.Item3:
+            case Item.ItemType.triangle:
                 Debug.Log("Triangle utilisé");
-                inventory.RemoveItem(new Item { itemType = Item.ItemType.Item3, amount = 1 });
+
+                break;
+            case Item.ItemType.losange:
+                Debug.Log("Losange utilisé");
                 break;
 
         }
+        inventory.RemoveItem(new Item { itemType = itemType, amount = 1 });
+
     }
 }

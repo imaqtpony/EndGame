@@ -13,8 +13,8 @@ public class ItemAssets : MonoBehaviour
 
     public Transform pfItemWorld;
 
-    public Sprite item1Sprite;
-    public Sprite item2Sprite;
-    public Sprite item3Sprite;
-    public Sprite item4Sprite;
+    public Sprite circleSprite;
+    public Sprite squareSprite;
+    public Sprite triangleSprite;
+    public Sprite losangeSprite;
 }

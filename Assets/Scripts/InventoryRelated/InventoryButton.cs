@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class InventoryButton : MonoBehaviour
 {
-    private bool m_InventoryEnabled;
+    public static bool m_InventoryEnabled;
+    public static bool m_toolsInventoryEnabled;
     [SerializeField] GameObject m_Inventory;
-
+    [SerializeField] GameObject m_toolsInventory;
+    [SerializeField] UI_Inventory m_uiInventory;
     private void Awake()
     {
 
@@ -26,14 +28,30 @@ public class InventoryButton : MonoBehaviour
         if (m_InventoryEnabled)
         {
             m_Inventory.SetActive(true);
-
-
         }
         else
         {
             m_Inventory.SetActive(false);
-
+            m_uiInventory.RefreshInventoryRessources();
+            m_uiInventory.RemoveItemFromCraftSlot();
         }
+    }
+
+    public void OpenToolsInventory()
+    {
+        if (m_InventoryEnabled)
+        {
+            m_toolsInventoryEnabled = !m_toolsInventoryEnabled;
+            if (m_toolsInventoryEnabled)
+            {
+                m_toolsInventory.SetActive(true);
+            }
+            else
+            {
+                m_toolsInventory.SetActive(false);
+            }
+        }
+        
     }
 
 }

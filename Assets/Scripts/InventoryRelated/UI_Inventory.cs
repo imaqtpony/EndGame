@@ -4,35 +4,44 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using InventoryNS.Utils;
+using GD2Lib;
 
 public class UI_Inventory : MonoBehaviour
 {
     private Inventory inventory;
 
     [Header("Elements needed to be found")]
-    private Transform itemSlotContainer;
-    private Transform itemSlotTemplate;
+    private Transform ressourcesSlotContainer;
+    private Transform ressourcesSlotTemplate;
+    private Transform toolsWindow;
+    private Transform toolsSlotContainer;
+    private Transform toolsSlotTemplate;
 
     private Transform craftItemSlot;
     private Transform craftResult;
 
-    [SerializeField] Transform m_craftSlot_1;
-    [SerializeField] Transform m_craftSlot_2;
+    [SerializeField] List<Transform> m_craftSlot;
 
     [SerializeField] CraftSystem m_craftSystem;
 
-
     public List<Transform> m_itemForCraft;
 
+    public IntVar m_inventorySpace;
+    [SerializeField] TextMeshProUGUI m_amountItemsInventory;
 
     private Player player;
 
     private void Awake()
     {
-        itemSlotContainer = transform.Find("ItemSlotContainer");
-        itemSlotTemplate = itemSlotContainer.Find("ItemSlot");
+        ressourcesSlotContainer = transform.Find("ItemSlotContainer");
+        ressourcesSlotTemplate = ressourcesSlotContainer.Find("ItemSlot");
+
         craftItemSlot = transform.Find("CraftItemSlot");
         craftResult = craftItemSlot.Find("CraftResult");
+
+        toolsWindow = transform.Find("ToolsWindow");
+        toolsSlotContainer = toolsWindow.Find("ToolsSlotContainer");
+        toolsSlotTemplate = toolsSlotContainer.Find("ToolsSlot");
         
     }
 
@@ -45,20 +54,28 @@ public class UI_Inventory : MonoBehaviour
     {
         this.inventory = inventory;
         inventory.OnItemListChanged += Inventory_OnItemListChanged;
-        RefreshInventoryItems();
+        inventory.OnToolsListChanged += Inventory_OnToolsListChanged;
+        RefreshInventoryRessources();
+        RefreshInventoryTools();
     }
 
     private void Inventory_OnItemListChanged(object sender, System.EventArgs e)
     {
-        RefreshInventoryItems();
+        RefreshInventoryRessources();
 
     }
 
-    private void RefreshInventoryItems()
+    private void Inventory_OnToolsListChanged(object sender, System.EventArgs e)
     {
-        foreach (Transform child in itemSlotContainer)
+        RefreshInventoryTools();
+
+    }
+
+    public void RefreshInventoryRessources()
+    {
+        foreach (Transform child in ressourcesSlotContainer)
         {
-            if (child == itemSlotTemplate) continue;
+            if (child == ressourcesSlotTemplate) continue;
             Destroy(child.gameObject);
         }
 
@@ -66,35 +83,21 @@ public class UI_Inventory : MonoBehaviour
         int y = 0;
         float itemSlotCellSize = 100f;
 
-        foreach(Item item in inventory.GetItemList())
+        craftResult.GetComponent<Button_UI>().ClickFunc = () =>
         {
-            RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
-            itemSlotRectTransform.gameObject.SetActive(true);
-
-
-            itemSlotRectTransform.GetComponent<Button_UI>().ClickFunc = () => {
-                //use item
-                inventory.UseItem(item);
-            };
-
-            itemSlotRectTransform.GetComponent<Button_UI>().MouseRightClickFunc = () => {
-                //drop item
-                Item duplicateItem = new Item { itemType = item.itemType, amount = item.amount };
-                inventory.RemoveItem(item);
-                ItemWorld.DropItem(player.GetPosition(), duplicateItem);
-            };
-
-            craftResult.GetComponent<Button_UI>().ClickFunc = () =>
+            if (m_craftSystem.m_craftActive && Inventory.itemList.Count < m_inventorySpace.Value)
             {
-                if (m_craftSystem.m_craftActive)
-                {
-                    craftLosange(item);
+                CraftTools();
+                UpdateAmountItems();
 
-                }
+            }
 
+        };
 
-
-            };
+        foreach (Item item in inventory.GetItemList())
+        {
+            RectTransform itemSlotRectTransform = Instantiate(ressourcesSlotTemplate, ressourcesSlotContainer).GetComponent<RectTransform>();
+            itemSlotRectTransform.gameObject.SetActive(true);
 
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
             Image image = itemSlotRectTransform.Find("Item").GetComponent<Image>();
@@ -111,49 +114,96 @@ public class UI_Inventory : MonoBehaviour
             }
 
             x++;
-            if (x > 4)
+            if (x > 2)
             {
                 x = 0;
                 y--;
             }
         }
+    }
+
+    public void RefreshInventoryTools()
+    {
+        foreach (Transform child in toolsSlotContainer)
+        {
+            if (child == toolsSlotTemplate) continue;
+            Destroy(child.gameObject);
+        }
+
+        int x = 0;
+        int y = 0;
+        float itemSlotCellSize = 100f;
+
+
+        foreach (Item item in inventory.GetToolsList())
+        {
+            RectTransform itemSlotRectTransform = Instantiate(toolsSlotTemplate, toolsSlotContainer).GetComponent<RectTransform>();
+            itemSlotRectTransform.gameObject.SetActive(true);
+            itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
+            Image image = itemSlotRectTransform.Find("Tools").GetComponent<Image>();
+
+            image.sprite = item.GetSprite();
+
+            x++;
+            if (x > 0)
+            {
+                x = 0;
+                y--;
+            }
+        }
+    }
+
+    public void CraftTools()
+    {
+        //craft losange
+        if (Inventory.m_amountCircle >= 4 && Inventory.m_amountTriangle >= 1)
+        {
+            inventory.AddTools(new Item { itemType = Item.ItemType.losange, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.circle, amount = 4 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.triangle, amount = 1 });
+
+            RemoveItemFromCraftSlot();
+        }
 
     }
 
-    public void DropItemFunction(Item.ItemType itemTypeToDrop)
+    public void DropItemFunction(Item.ItemType itemTypeToDrop, int p_amount)
     {
         foreach (Item item in inventory.GetItemList())
         {
-            if (itemTypeToDrop == Item.ItemType.Item1)
-            {
 
-                Item duplicateItem = new Item { itemType = Item.ItemType.Item1, amount = Inventory.m_amountCircle };
-                inventory.RemoveItem(new Item { itemType = Item.ItemType.Item1, amount = Inventory.m_amountCircle });
-                ItemWorld.DropItem(player.GetPosition(), duplicateItem);
+            Item duplicateItem = new Item { itemType = itemTypeToDrop, amount = p_amount };
+            inventory.RemoveItem(new Item { itemType = itemTypeToDrop, amount = p_amount });
+            ItemWorld.DropItem(player.GetPosition(), duplicateItem);
+            UpdateAmountItems();
 
-            }
-            else if (itemTypeToDrop == Item.ItemType.Item2)
-            {
-
-                    Item duplicateItem = new Item { itemType = Item.ItemType.Item2, amount = Inventory.m_amountSquare };
-                    inventory.RemoveItem(new Item { itemType = Item.ItemType.Item2, amount = Inventory.m_amountSquare });
-                    ItemWorld.DropItem(player.GetPosition(), duplicateItem);
-
-
-            }
-            else if (itemTypeToDrop == Item.ItemType.Item3)
-            {
-
-                    Item duplicateItem = new Item { itemType = Item.ItemType.Item3, amount = Inventory.m_amountTriangle };
-                    inventory.RemoveItem(new Item { itemType = Item.ItemType.Item3, amount = Inventory.m_amountTriangle });
-                    ItemWorld.DropItem(player.GetPosition(), duplicateItem);
-
-            }
         }
-
 
     }
 
+    public void DropToolFunction(Item.ItemType itemTypeToDrop, int p_amount)
+    {
+        foreach (Item item in inventory.GetToolsList())
+        {
+
+            Item duplicateItem = new Item { itemType = itemTypeToDrop, amount = p_amount };
+            inventory.RemoveTools(new Item { itemType = itemTypeToDrop, amount = p_amount });
+            ItemWorld.DropItem(player.GetPosition(), duplicateItem);
+            UpdateAmountItems();
+
+        }
+
+    }
+
+
+
+    public void UseItemFunction(Item.ItemType p_itemTypeToUse)
+    {
+
+        inventory.UseItem(p_itemTypeToUse);
+        UpdateAmountItems();
+
+    }
 
     public void DropAllItemFunction()
     {
@@ -161,27 +211,31 @@ public class UI_Inventory : MonoBehaviour
         {
             Item duplicateItem = new Item { itemType = item.itemType, amount = item.amount };
             ItemWorld.DropItem(player.GetPosition(), duplicateItem);
+            UpdateAmountItems();
+
         }
         inventory.RemoveAllItems();
-
+        RemoveItemFromCraftSlot();
     }
 
-    private void craftLosange(Item item)
+    
+    public void RemoveItemFromCraftSlot()
     {
 
-        if(Inventory.m_amountCircle > 4)
+        foreach(Transform craftSlot in m_craftSlot)
         {
-            inventory.AddItem(new Item { itemType = Item.ItemType.Item4, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.Item1, amount = 2 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.Item3, amount = 1 });
-
-            Destroy(m_craftSlot_1.transform.GetChild(2).gameObject);
-            Destroy(m_craftSlot_2.transform.GetChild(2).gameObject);
             m_craftSystem.m_craftSlotList.Clear();
             m_craftSystem.NotEnoughItemToCraft();
+            Destroy(craftSlot.transform.GetChild(2).gameObject);
+
         }
-        
-        
+        UpdateAmountItems();
+    }
+
+    private void UpdateAmountItems()
+    {
+        m_amountItemsInventory.text = $"{ Inventory.itemList.Count + Inventory.toolsList.Count}/{m_inventorySpace.Value}";
+
     }
 
 }

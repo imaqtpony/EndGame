@@ -23,9 +23,17 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     [SerializeField] Sprite square;
     [SerializeField] Sprite triangle;
 
+    [SerializeField] UI_Inventory uiInventory;
+
+    public static int m_amountItemToDrop;
+
     public bool m_isOnSlot;
 
+    public static bool m_isRessource;
+
     public static Item.ItemType itemType;
+
+    private float lastClickTime;
 
     private void Start()
     {
@@ -50,7 +58,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void OnDrag(PointerEventData eventData)
     {
         //Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta / 1.3f;
+        rectTransform.anchoredPosition += eventData.delta / 2f;
         DeplaceItemText();
 
     }
@@ -66,21 +74,29 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-
-        canvasGroup.blocksRaycasts = false;
+        DetectItem();
 
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (Input.GetMouseButtonUp(0))
+        {
+            float timeSinceLastClic = Time.time - lastClickTime;
 
-        canvasGroup.blocksRaycasts = true;
+            lastClickTime = Time.time;
+            Debug.Log(timeSinceLastClic);
+            if (timeSinceLastClic < 0.25f)
+            {
+                uiInventory.UseItemFunction(itemType);
 
+            }
+        }
     }
 
     public void DeplaceItemText()
     {
-        m_amountText.transform.position = new Vector2(gameObject.transform.position.x + 10, gameObject.transform.position.y - 15);
+        m_amountText.transform.position = new Vector2(gameObject.transform.position.x + 40, gameObject.transform.position.y - 50);
     }
 
     public Item.ItemType DetectItem()
@@ -90,18 +106,29 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
         switch (itemSprite.name)
         {
-            default:
+
             case "circle":
-                itemType = Item.ItemType.Item1;
+                itemType = Item.ItemType.circle;
+                m_amountItemToDrop = Inventory.m_amountCircle;
+                m_isRessource = true;
                 break;
             case "square":
-                itemType = Item.ItemType.Item2;
+                itemType = Item.ItemType.square;
+                m_amountItemToDrop = Inventory.m_amountSquare;
+                m_isRessource = true;
+
                 break;
             case "triangle":
-                itemType = Item.ItemType.Item3;
+                itemType = Item.ItemType.triangle;
+                m_amountItemToDrop = Inventory.m_amountTriangle;
+                m_isRessource = true;
+
                 break;
             case "losange":
-                itemType = Item.ItemType.Item4;
+                itemType = Item.ItemType.losange;
+                m_amountItemToDrop = 1;
+                m_isRessource = false;
+
                 break;
         }
         Debug.Log(itemType);
@@ -109,5 +136,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         return itemType;
 
     }
+
 
 }

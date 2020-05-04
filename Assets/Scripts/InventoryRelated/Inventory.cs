@@ -7,19 +7,22 @@ using GD2Lib;
 public class Inventory
 {
     public static List<Item> itemList;
+    public static List<Item> toolsList;
 
-    private Action<Item> useItemAction;
+    private Action<Item.ItemType> useItemAction;
 
     public event EventHandler OnItemListChanged;
+    public event EventHandler OnToolsListChanged;
 
     public static int m_amountCircle;
     public static int m_amountSquare;
     public static int m_amountTriangle;
 
-    public Inventory(Action<Item> useItemAction)
+    public Inventory(Action<Item.ItemType> useItemAction)
     {
         this.useItemAction = useItemAction;
         itemList = new List<Item>();
+        toolsList = new List<Item>();
 
     }
 
@@ -47,7 +50,17 @@ public class Inventory
             itemList.Add(item);
 
         }
+
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        AmountItems(item);
+    }
+
+    public void AddTools(Item item)
+    {
+
+        toolsList.Add(item);
+
+        OnToolsListChanged?.Invoke(this, EventArgs.Empty);
         AmountItems(item);
     }
 
@@ -58,15 +71,15 @@ public class Inventory
             switch (inventoryItem.itemType)
             {
 
-                case Item.ItemType.Item1:
+                case Item.ItemType.circle:
                     m_amountCircle = inventoryItem.amount;
                     
                     break;
-                case Item.ItemType.Item2:
+                case Item.ItemType.square:
                     m_amountSquare = inventoryItem.amount;
-                    Debug.Log(m_amountSquare);
+
                     break;
-                case Item.ItemType.Item3:
+                case Item.ItemType.triangle:
                     m_amountTriangle = inventoryItem.amount;
 
                     break;
@@ -76,31 +89,48 @@ public class Inventory
 
     public void RemoveItem(Item item)
     {
-        if (item.IsStackable())
+        Item itemInInventory = null;
+        foreach (Item inventoryItem in itemList)
         {
-            Item itemInInventory = null;
-            foreach (Item inventoryItem in itemList)
+            if (inventoryItem.itemType == item.itemType)
             {
-                if (inventoryItem.itemType == item.itemType)
-                {
-                    inventoryItem.amount -= item.amount;
-                    itemInInventory = inventoryItem;
-
-                }
-            }
-            if (itemInInventory != null && itemInInventory.amount <= 0)
-            {
-                itemList.Remove(itemInInventory);
+                inventoryItem.amount -= item.amount;
+                itemInInventory = inventoryItem;
 
             }
         }
-        else
+        if (itemInInventory != null && itemInInventory.amount <= 0)
         {
-            itemList.Remove(item);
+            itemList.Remove(itemInInventory);
 
         }
+
         AmountItems(item);
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+
+    }
+
+    public void RemoveTools(Item item)
+    {
+        Item itemInInventory = null;
+        foreach (Item inventoryItem in toolsList)
+        {
+            if (inventoryItem.itemType == item.itemType)
+            {
+                inventoryItem.amount -= item.amount;
+                itemInInventory = inventoryItem;
+
+            }
+        }
+        if (itemInInventory != null && itemInInventory.amount <= 0)
+        {
+            toolsList.Remove(itemInInventory);
+
+        }
+
+        AmountItems(item);
+        OnToolsListChanged?.Invoke(this, EventArgs.Empty);
+
     }
 
     public void RemoveAllItems()
@@ -108,10 +138,11 @@ public class Inventory
         
         itemList.Clear();
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        OnToolsListChanged?.Invoke(this, EventArgs.Empty);
 
     }
 
-    public void UseItem(Item item)
+    public void UseItem(Item.ItemType item)
     {
         useItemAction(item);
     }
@@ -119,5 +150,10 @@ public class Inventory
     public List<Item> GetItemList()
     {
         return itemList;
+    }
+
+    public List<Item> GetToolsList()
+    {
+        return toolsList;
     }
 }
