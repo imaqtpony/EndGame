@@ -23,8 +23,18 @@ public class DropItemZone : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
+        if (DragDrop.m_isRessource)
+        {
+            m_uiInventory.DropItemFunction(DragDrop.itemType, DragDrop.m_amountItemToDrop);
 
-        m_uiInventory.DropItemFunction(DragDrop.itemType, DragDrop.m_amountItemToDrop);
+        }
+        else
+        {
+            m_uiInventory.DropToolFunction(DragDrop.itemType, DragDrop.m_amountItemToDrop);
+
+        }
+
+
     }
 
 }

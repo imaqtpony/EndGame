@@ -13,8 +13,6 @@ public class ItemWorld : MonoBehaviour
     [SerializeField] GameObject Triangle;
     [SerializeField] GameObject Losange;
 
-
-    GameObject myItem;
     public static ItemWorld SpawnItemWorld(Vector3 position, Item item)
     {
         Transform transform = Instantiate(ItemAssets.Instance.pfItemWorld, position, Quaternion.identity);
@@ -79,6 +77,7 @@ public class ItemWorld : MonoBehaviour
                                             gameObject.transform.position.z), Quaternion.identity);
 
                 myLosange.transform.parent = gameObject.transform;
+                gameObject.tag = "Tools";
                 break;
 
 

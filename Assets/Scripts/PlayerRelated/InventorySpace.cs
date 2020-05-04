@@ -14,6 +14,7 @@ public class InventorySpace : MonoBehaviour
     {
         m_ScriptableObject.OnValueChanged += HandleInventorySpace;
         m_ScriptableObject.Value = m_inventorySpace;
+
     }
 
     private void OnDisable()

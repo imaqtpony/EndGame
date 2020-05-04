@@ -6,10 +6,12 @@ using System;
 public class Inventory
 {
     public static List<Item> itemList;
+    public static List<Item> toolsList;
 
     private Action<Item.ItemType> useItemAction;
 
     public event EventHandler OnItemListChanged;
+    public event EventHandler OnToolsListChanged;
 
     public static int m_amountCircle;
     public static int m_amountSquare;
@@ -19,6 +21,7 @@ public class Inventory
     {
         this.useItemAction = useItemAction;
         itemList = new List<Item>();
+        toolsList = new List<Item>();
 
     }
 
@@ -46,7 +49,17 @@ public class Inventory
             itemList.Add(item);
 
         }
+
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        AmountItems(item);
+    }
+
+    public void AddTools(Item item)
+    {
+
+        toolsList.Add(item);
+
+        OnToolsListChanged?.Invoke(this, EventArgs.Empty);
         AmountItems(item);
     }
 
@@ -91,13 +104,32 @@ public class Inventory
 
         }
 
-        /*else
-        {
-            itemList.Remove(item);
-
-        }*/
         AmountItems(item);
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+
+    }
+
+    public void RemoveTools(Item item)
+    {
+        Item itemInInventory = null;
+        foreach (Item inventoryItem in toolsList)
+        {
+            if (inventoryItem.itemType == item.itemType)
+            {
+                inventoryItem.amount -= item.amount;
+                itemInInventory = inventoryItem;
+
+            }
+        }
+        if (itemInInventory != null && itemInInventory.amount <= 0)
+        {
+            toolsList.Remove(itemInInventory);
+
+        }
+
+        AmountItems(item);
+        OnToolsListChanged?.Invoke(this, EventArgs.Empty);
+
     }
 
     public void RemoveAllItems()
@@ -105,6 +137,7 @@ public class Inventory
         
         itemList.Clear();
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        OnToolsListChanged?.Invoke(this, EventArgs.Empty);
 
     }
 
@@ -116,5 +149,10 @@ public class Inventory
     public List<Item> GetItemList()
     {
         return itemList;
+    }
+
+    public List<Item> GetToolsList()
+    {
+        return toolsList;
     }
 }

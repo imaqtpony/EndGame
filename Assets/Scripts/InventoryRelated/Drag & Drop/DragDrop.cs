@@ -29,6 +29,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public bool m_isOnSlot;
 
+    public static bool m_isRessource;
+
     public static Item.ItemType itemType;
 
     private float lastClickTime;
@@ -108,20 +110,24 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
             case "circle":
                 itemType = Item.ItemType.circle;
                 m_amountItemToDrop = Inventory.m_amountCircle;
+                m_isRessource = true;
                 break;
             case "square":
                 itemType = Item.ItemType.square;
                 m_amountItemToDrop = Inventory.m_amountSquare;
+                m_isRessource = true;
 
                 break;
             case "triangle":
                 itemType = Item.ItemType.triangle;
                 m_amountItemToDrop = Inventory.m_amountTriangle;
+                m_isRessource = true;
 
                 break;
             case "losange":
                 itemType = Item.ItemType.losange;
                 m_amountItemToDrop = 1;
+                m_isRessource = false;
 
                 break;
         }
