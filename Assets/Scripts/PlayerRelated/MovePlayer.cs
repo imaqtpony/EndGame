@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine.AI;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.Build;
+
+
 
 public class MovePlayer : MonoBehaviour
 {
@@ -16,15 +17,10 @@ public class MovePlayer : MonoBehaviour
     // range in which it detects a hit on the navmesh, from the touch on screen
     private float m_range = 10f;
 
-
-    [Tooltip ("This object's rigidbody")]
-    private Rigidbody m_rb;
-
     private int m_nbFramesElapsed;
 
     private void Awake()
-    {
-        m_rb = GetComponent<Rigidbody>();
+    { 
         m_agent = GetComponent<NavMeshAgent>();
 
         m_agent.updateRotation = false;
@@ -46,8 +42,6 @@ public class MovePlayer : MonoBehaviour
         // pk la rotation est flinguée en y?
 
         Touch touch = Input.GetTouch(0);
-        //Vector3 touchStartPos;
-        transform.rotation = Quaternion.LookRotation(m_agent.velocity.normalized);
 
 
         //Debug.Log(m_agent.hasPath);
@@ -59,8 +53,6 @@ public class MovePlayer : MonoBehaviour
         if ((transform.position.x < m_agent.destination.x + 0.2f && transform.position.x > m_agent.destination.x - 0.2f) && (transform.position.z < m_agent.destination.z + 0.2f && transform.position.z > m_agent.destination.z - 0.2f))
             m_agent.ResetPath();
 
-        //if (touch.phase == TouchPhase.Began)
-        //    touchStartPos = touch.position;
 
 
         if(touch.phase == TouchPhase.Began)
@@ -82,32 +74,6 @@ public class MovePlayer : MonoBehaviour
             }
         }
 
-        //if ((touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled) && true)
-
-
-        //if (!m_data.m_isSwiping && touch.phase == TouchPhase.Stationary)
-        //    MoveToTouch(touch);
-
-
-
-        //switch (touch.phase)
-        //{
-        //    case TouchPhase.Stationary:
-        //        //fonction mouv
-        //        if (touch.phase != TouchPhase.Moved)
-        //            MoveToTouch(touch);
-        //        break;
-
-        //    case TouchPhase.Moved:
-        //            // nah
-        //        //transform.LookAt(new Vector3(touch.position.x, 0, touch.position.y));
-        //        break;
-
-        //    default:
-        //        break;
-
-        //}
-
 
     }
 
@@ -118,6 +84,7 @@ public class MovePlayer : MonoBehaviour
     /// <param name="p_touch"> the touch on the screen </param>
     private void MoveToTouch(Touch p_touch)
     {
+
 
         //if le tel marche
         if (Input.touchCount > 0)
@@ -139,6 +106,8 @@ public class MovePlayer : MonoBehaviour
                 if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
                 {
                     m_agent.destination = ClosestNavmeshLocation(hit.point, m_range);
+                    //transform.rotation = Quaternion.LookRotation(m_agent.destination - hit.point);
+                    transform.LookAt(hit.point);
 
                 }
             }

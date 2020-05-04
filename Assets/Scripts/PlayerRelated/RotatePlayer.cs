@@ -17,10 +17,10 @@ public class RotatePlayer : MonoBehaviour
 
     //private LineRenderer m_lineRenderer;
 
-    private void Awake()
-    {
-        //m_lineRenderer = GetComponent<LineRenderer>();
-    }
+    //private void Awake()
+    //{
+    //    m_lineRenderer = GetComponent<LineRenderer>();
+    //}
 
 
     private void HandleRotationOnSwipe(GD2Lib.Event p_event, object[] p_params)
@@ -29,16 +29,18 @@ public class RotatePlayer : MonoBehaviour
         if (GD2Lib.Event.TryParseArgs(out SwipeData sData, p_params))
         {
             Debug.Log("swipe!");
+            // the line renderer stuff
             //Vector3[] positions = new Vector3[2];
             //positions[0] = Camera.main.ScreenToWorldPoint(new Vector3(sData.startPosition.x, sData.startPosition.y, 10));
             //positions[1] = Camera.main.ScreenToWorldPoint(new Vector3(sData.endPosition.x, sData.endPosition.y, 10));
             //m_lineRenderer.positionCount = 2;
             //m_lineRenderer.SetPositions(positions);
 
+
             Ray castPoint = Camera.main.ScreenPointToRay(sData.endPosition);
             RaycastHit hit;
 
-            Debug.DrawRay(castPoint.origin, castPoint.direction, Color.green);
+            //Debug.DrawRay(castPoint.origin, castPoint.direction, Color.green);
 
             if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
             {

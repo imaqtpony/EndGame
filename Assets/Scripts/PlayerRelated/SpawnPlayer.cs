@@ -5,7 +5,7 @@ using System;
 using UnityEngine.AI;
 
 /// <summary>
-/// Use this scirpt attached to the player GO to spawn it every time it changes from a board to another.
+/// Use this script attached to the player GO to spawn it every time it changes from a board to another.
 /// </summary>
 public class SpawnPlayer : MonoBehaviour
 {
@@ -46,10 +46,15 @@ public class SpawnPlayer : MonoBehaviour
 
     //}
 
+    /// <summary>
+    /// Place player at a temporary position on the board he wishes to go
+    /// move 6 units to left/top/bot/right
+    /// </summary>
+    /// <param name="p_borderName"> which border the player is coming from the last board ?</param>
     public void PlacePlayer(string p_borderName)
     {
         m_agent.ResetPath();
-        
+        // enable disable otherwise you can't move a navmesh agent from a navmesh to another while active
         m_agent.enabled = false;
 
         switch (p_borderName)
@@ -58,7 +63,6 @@ public class SpawnPlayer : MonoBehaviour
             case "LeftBorder":
 
                 transform.position = new Vector3(transform.position.x - 6, transform.position.y, transform.position.z);
-                //transform.position = new Vector3(-6,0,0);
 
                 break;
             case "RightBorder":
@@ -83,7 +87,6 @@ public class SpawnPlayer : MonoBehaviour
         }
 
         m_agent.enabled = true;
-
 
     }
 }

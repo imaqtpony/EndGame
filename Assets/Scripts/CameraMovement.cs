@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // follows the player
+// not used anymore (for now)
 public class CameraMovement : MonoBehaviour
 {
     //[SerializeField]
