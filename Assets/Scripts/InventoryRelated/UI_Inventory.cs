@@ -27,6 +27,8 @@ public class UI_Inventory : MonoBehaviour
     public IntVar m_inventorySpace;
     [SerializeField] TextMeshProUGUI m_amountItemsInventory;
 
+    [SerializeField] TextMeshProUGUI m_inventoryFull;
+
     private Player player;
 
     public void SetPlayer(Player player)
@@ -69,11 +71,14 @@ public class UI_Inventory : MonoBehaviour
 
         m_craftResult.GetComponent<Button_UI>().ClickFunc = () =>
         {
-            if (m_craftSystem.m_craftActive && Inventory.itemList.Count < m_inventorySpace.Value)
+            if (m_craftSystem.m_craftActive)
             {
-                CraftTools();
-                UpdateAmountItems();
-
+                if(Inventory.itemList.Count + Inventory.toolsList.Count < m_inventorySpace.Value)
+                {
+                    CraftTools();
+                    UpdateAmountItems();
+                }
+                
             }
 
         };
