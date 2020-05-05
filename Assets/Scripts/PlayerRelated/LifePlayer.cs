@@ -15,6 +15,8 @@ public class LifePlayer : MonoBehaviour
 
     public float m_invDuration;
 
+    public IntVar m_maxLifeValue;
+
     [SerializeField] Image m_backgroundLife;
 
     [SerializeField] private Transform m_lifeHeartContainer;
@@ -71,14 +73,17 @@ public class LifePlayer : MonoBehaviour
 
     public void HealingFunc()
     {
-        Debug.Log("on recup de la vie");
-        m_lifeValue.Value += 1;
-        x++;
+        if(m_lifeValue.Value < m_maxLifeValue.Value)
+        {
+            m_lifeValue.Value += 1;
+            x++;
 
-        int SPACE_BETWEEN_HEARTS = 70;
-        RectTransform itemSlotRectTransform = Instantiate(m_lifeHeartSprite, m_lifeHeartContainer).GetComponent<RectTransform>();
-        itemSlotRectTransform.anchoredPosition = new Vector2(x * SPACE_BETWEEN_HEARTS, y * SPACE_BETWEEN_HEARTS);
-        UpdateWidthBackgroundLife();
+            int SPACE_BETWEEN_HEARTS = 70;
+            RectTransform itemSlotRectTransform = Instantiate(m_lifeHeartSprite, m_lifeHeartContainer).GetComponent<RectTransform>();
+            itemSlotRectTransform.anchoredPosition = new Vector2(x * SPACE_BETWEEN_HEARTS, y * SPACE_BETWEEN_HEARTS);
+            UpdateWidthBackgroundLife();
+        }
+        
     }
 
     private IEnumerator InvFrame()

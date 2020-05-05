@@ -65,9 +65,9 @@ public class Player : MonoBehaviour
         
     }
 
-    private void UseItem(Item.ItemType itemType)
+    private void UseItem(Item.ItemType p_itemType)
     {
-        switch (itemType)
+        switch (p_itemType)
         {
             case Item.ItemType.circle:
                 m_lifePlayer.HealingFunc();
@@ -83,10 +83,11 @@ public class Player : MonoBehaviour
                 break;
             case Item.ItemType.losange:
                 Debug.Log("Losange utilisé");
+
                 break;
 
         }
-        inventory.RemoveItem(new Item { itemType = itemType, amount = 1 });
+        inventory.RemoveItem(new Item { itemType = p_itemType, amount = 1 });
 
     }
 }

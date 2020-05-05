@@ -6,15 +6,10 @@ using InventoryNS.Utils;
 
 public class CraftSystem : MonoBehaviour
 {
-    [Header("Basic Objects")]
-    [SerializeField] Sprite circle;
-    [SerializeField] Sprite square;
-    [SerializeField] Sprite triangle;
-
     [Header("Item results sprites")]
     [SerializeField] Image m_itemResult;
     [SerializeField] Sprite mask;
-    [SerializeField] Sprite losange;
+
 
     private Inventory inventory;
 
@@ -25,9 +20,9 @@ public class CraftSystem : MonoBehaviour
     public void CheckCraftSlot()
     {
         Debug.Log("ON PEUT COMMENCER A CRAFTER");
-        if (m_craftSlotList[0].name == "circle" && m_craftSlotList[1].name == "triangle" || m_craftSlotList[0].name == "triangle" && m_craftSlotList[1].name == "circle")
+        if (m_craftSlotList.Find(w => string.Equals(w.name, "circle")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "triangle")) != null))
         {
-            m_itemResult.sprite = losange;
+            m_itemResult.sprite = ItemAssets.Instance.losangeSprite;
             m_craftActive = true;
         }
     }
