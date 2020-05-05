@@ -43,13 +43,11 @@ public class ItemSlot : MonoBehaviour, IDropHandler
                 eventData.pointerDrag.GetComponent<RectTransform>().position = GetComponent<RectTransform>().position;
                 ChangingParent(eventData);
 
-                if (m_craftSystem.m_craftSlotList.Count > 1)
-                {
-                    m_craftSystem.CheckCraftSlot();
-                }else
-                {
-                    m_craftSystem.NotEnoughItemToCraft();
-                }
+                m_craftSystem.CheckCraftSlot();
+
+                if (m_craftSystem.m_craftSlotList.Count < 2) m_craftSystem.NotEnoughItemToCraft();
+
+
             }
 
         }
