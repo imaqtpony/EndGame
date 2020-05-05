@@ -3519,7 +3519,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1540
+  m_Name: pb_Mesh-275338
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3985,6 +3985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fbd5deb8d52ae4aac78237cc85b8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_prefab: {fileID: 2042547983}
 --- !u!1 &1117937290
 GameObject:
   m_ObjectHideFlags: 0
@@ -5733,7 +5734,7 @@ MonoBehaviour:
   - {fileID: 1814108924}
   m_craftSystem: {fileID: 352668208}
   m_itemForCraft: []
-  m_inventorySpace: {fileID: 11400000, guid: d07dc231abe8106478e8d2b1db02f1a2, type: 2}
+  m_inventorySpace: {fileID: 11400000, guid: 04b9debd237b61c459b1a1798ef621bc, type: 2}
   m_amountItemsInventory: {fileID: 817411382}
   m_inventoryFull: {fileID: 0}
 --- !u!1 &1790232143
@@ -6352,6 +6353,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8926163340180780655}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2042547983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7722859285213040, guid: bea9a80052d1ff44fa79fd5d1b4e1525,
+    type: 3}
+  m_PrefabInstance: {fileID: 7722859122003191}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2043626012
 GameObject:
   m_ObjectHideFlags: 0
@@ -6502,19 +6509,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2145075312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145075304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80c034a097aa27f4dbc20cb8167f6fd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_inLight: 0
 --- !u!1001 &7722859122003191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6744,7 +6738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f495ca75f22e54d8552c33ffde8eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_inventorySpace: {fileID: 0}
+  m_inventorySpace: {fileID: 11400000, guid: 04b9debd237b61c459b1a1798ef621bc, type: 2}
   uiInventory: {fileID: 1739969300}
   m_dropItemZone: {fileID: 104052293}
   m_amounItemsInventory: {fileID: 817411382}
@@ -6761,7 +6755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_inventorySpace: 4
-  m_ScriptableObject: {fileID: 0}
+  m_ScriptableObject: {fileID: 11400000, guid: 04b9debd237b61c459b1a1798ef621bc, type: 2}
 --- !u!114 &4471376300533314883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6775,7 +6769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_vie: 3
-  m_ScriptableObject: {fileID: 0}
+  m_ScriptableObject: {fileID: 11400000, guid: 0ee1c2f77f180ce4aa781895f38f1f76, type: 2}
 --- !u!114 &4471376300533314884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6788,14 +6782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999c25d124f92ce4799f1df8aa10132c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_lifeValue: {fileID: 11400000, guid: 0ee1c2f77f180ce4aa781895f38f1f76, type: 2}
-  m_collider: {fileID: 4471376300533314879}
-  m_uiInventory: {fileID: 1739969300}
-  m_invDuration: 1
-  m_maxLifeValue: {fileID: 11400000, guid: 306d5a45f22de4a459e8b0adbf13bc39, type: 2}
-  m_backgroundLife: {fileID: 302283820}
-  m_lifeHeartContainer: {fileID: 612647736}
-  m_lifeHeartSprite: {fileID: 805446955}
 --- !u!114 &4471376300533314885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6810,6 +6796,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxVie: 3
   m_ScriptableObject: {fileID: 11400000, guid: 306d5a45f22de4a459e8b0adbf13bc39, type: 2}
+--- !u!114 &4471376300533314886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4471376300533314878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b459ddd5eca19d44a6e8dd5b14ab7f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_lifeValue: {fileID: 11400000, guid: 0ee1c2f77f180ce4aa781895f38f1f76, type: 2}
+  m_collider: {fileID: 4471376300533314879}
+  m_uiInventory: {fileID: 1739969300}
+  m_invDuration: 1
+  m_maxLifeValue: {fileID: 11400000, guid: 306d5a45f22de4a459e8b0adbf13bc39, type: 2}
+  m_backgroundLife: {fileID: 302283820}
+  m_lifeHeartContainer: {fileID: 612647736}
+  m_lifeHeartSprite: {fileID: 805446955}
 --- !u!224 &4782693937879132656
 RectTransform:
   m_ObjectHideFlags: 0
