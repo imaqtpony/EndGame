@@ -12,6 +12,7 @@ public class ItemWorld : MonoBehaviour
     [SerializeField] GameObject Cube;
     [SerializeField] GameObject Triangle;
     [SerializeField] GameObject Losange;
+    [SerializeField] GameObject Squarangle;
 
     public static ItemWorld SpawnItemWorld(Vector3 position, Item item)
     {
@@ -77,6 +78,15 @@ public class ItemWorld : MonoBehaviour
                                             gameObject.transform.position.z), Quaternion.identity);
 
                 myLosange.transform.parent = gameObject.transform;
+                gameObject.tag = "Tools";
+                break;
+
+            case Item.ItemType.squarangle:
+                var mySquarangle = Instantiate(Squarangle, new Vector3(gameObject.transform.position.x,
+                                            gameObject.transform.position.y,
+                                            gameObject.transform.position.z), Quaternion.identity);
+
+                mySquarangle.transform.parent = gameObject.transform;
                 gameObject.tag = "Tools";
                 break;
 

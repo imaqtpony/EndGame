@@ -10,10 +10,12 @@ public class CraftSystem : MonoBehaviour
     [SerializeField] Image m_itemResult;
     [SerializeField] Sprite mask;
 
-
     private Inventory inventory;
 
     public List<Transform> m_craftSlotList;
+
+    public static Item.ItemType m_itemType;
+
 
     public bool m_craftActive;
 
@@ -24,6 +26,14 @@ public class CraftSystem : MonoBehaviour
         {
             m_itemResult.sprite = ItemAssets.Instance.losangeSprite;
             m_craftActive = true;
+            m_itemType = Item.ItemType.losange;
+        }
+        if (m_craftSlotList.Find(w => string.Equals(w.name, "square")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "triangle")) != null))
+        {
+            m_itemResult.sprite = ItemAssets.Instance.squarangleSprite;
+            m_craftActive = true;
+            m_itemType = Item.ItemType.squarangle;
+
         }
     }
 

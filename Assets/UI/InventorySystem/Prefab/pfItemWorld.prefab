@@ -274,6 +274,8 @@ MonoBehaviour:
   Triangle: {fileID: 1645234219589170601, guid: c8dffef284591694ab2fefa031819eaf,
     type: 3}
   Losange: {fileID: 4449339180192840427, guid: 85c69eff4870b8145a26d2b7d88b51fc, type: 3}
+  Squarangle: {fileID: 5385547379013855582, guid: c736fa7a4a32aec48bd34c9afdbfa2ee,
+    type: 3}
 --- !u!65 &3827464248262650775
 BoxCollider:
   m_ObjectHideFlags: 0
