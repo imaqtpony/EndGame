@@ -21,7 +21,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
  
     public static Vector3 m_craftSlotPos;
 
-    public Image m_itemSprite;
+    private Image m_itemSprite;
 
     private void OnEnable()
     {

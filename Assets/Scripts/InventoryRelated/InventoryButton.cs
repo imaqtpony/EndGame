@@ -10,6 +10,7 @@ public class InventoryButton : MonoBehaviour
     [SerializeField] GameObject m_Inventory;
     [SerializeField] GameObject m_toolsInventory;
     [SerializeField] UI_Inventory m_uiInventory;
+    [SerializeField] CanvasGroup m_menuButton;
 
     private void Awake()
     {
@@ -30,11 +31,15 @@ public class InventoryButton : MonoBehaviour
         if (m_InventoryEnabled)
         {
             m_Inventory.SetActive(true);
-
-
+            Time.timeScale = 0.2f;
+            m_menuButton.alpha = 0.3f;
+            Debug.Log("OPEN INVENTORY");
         }
         else if(!m_InventoryEnabled)
         {
+            m_menuButton.alpha = 1f;
+
+            Time.timeScale = 1f;
             m_Inventory.SetActive(false);
             m_uiInventory.RefreshInventoryRessources();
             m_uiInventory.RemoveItemFromCraftSlot();
