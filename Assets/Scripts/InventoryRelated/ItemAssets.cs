@@ -17,4 +17,5 @@ public class ItemAssets : MonoBehaviour
     public Sprite squareSprite;
     public Sprite triangleSprite;
     public Sprite losangeSprite;
+    public Sprite squarangleSprite;
 }

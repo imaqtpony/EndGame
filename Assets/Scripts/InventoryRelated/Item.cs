@@ -12,6 +12,7 @@ public class Item
         square,
         triangle,
         losange,
+        squarangle,
 
     }
 
@@ -27,6 +28,7 @@ public class Item
             case ItemType.square: return ItemAssets.Instance.squareSprite;
             case ItemType.triangle: return ItemAssets.Instance.triangleSprite;
             case ItemType.losange: return ItemAssets.Instance.losangeSprite;
+            case ItemType.squarangle: return ItemAssets.Instance.squarangleSprite;
         }
     }
 
@@ -40,6 +42,7 @@ public class Item
             case ItemType.triangle:
                 return true;
             case ItemType.losange:
+            case ItemType.squarangle:
                 return false;
         }
     }

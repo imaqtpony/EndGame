@@ -8,6 +8,7 @@ public class ReplaceItem : MonoBehaviour, IDropHandler
 {
 
     [SerializeField] DragDrop DragDrop;
+    [SerializeField] UI_Inventory m_uiInventory;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -17,7 +18,7 @@ public class ReplaceItem : MonoBehaviour, IDropHandler
             if (gameObject.transform.Find("Item") == null)
             {
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-
+                m_uiInventory.RemoveItemFromCraftSlot();
             }
 
 

@@ -11,6 +11,7 @@ public class InventoryButton : MonoBehaviour
     [SerializeField] GameObject m_toolsInventory;
     [SerializeField] UI_Inventory m_uiInventory;
     [SerializeField] CanvasGroup m_menuButton;
+    [SerializeField] DragDrop m_dragDrop;
 
     private void Awake()
     {
@@ -58,10 +59,9 @@ public class InventoryButton : MonoBehaviour
         }
         else
         {
+            m_dragDrop.ReplaceIndicator();
             m_toolsInventory.SetActive(false);
         }
-        
-        
         
         
     }
