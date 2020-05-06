@@ -35,7 +35,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public static Item.ItemType itemType;
 
-    
+    [SerializeField] List<GameObject> m_tools;
 
     private float lastClickTime;
 
@@ -131,12 +131,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 itemType = Item.ItemType.losange;
                 m_amountItemToDrop = 1;
                 m_isRessource = false;
-
+                SelectTools(itemType);
                 break;
             case "squarangle":
                 itemType = Item.ItemType.squarangle;
                 m_amountItemToDrop = 1;
                 m_isRessource = false;
+                SelectTools(itemType);
 
                 break;
         }
@@ -155,5 +156,21 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         m_selectedIndicator.position = new Vector2(100, 100000);
     }
 
+    public void SelectTools(Item.ItemType p_toolsType)
+    {
+        for (int i = 0; i < m_tools.Count + 1; i++)
+        {
+            if (m_tools[i].name == p_toolsType.ToString())
+            {
+                foreach(GameObject tools in m_tools)
+                {
+                    tools.SetActive(false);
+                }
+                m_tools[i].SetActive(true);
+                break;
+            }
+
+        }
+    }
 
 }
