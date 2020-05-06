@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - CraftSlot
   - Tools
+  - Axe
+  - Torch
   layers:
   - Default
   - TransparentFX

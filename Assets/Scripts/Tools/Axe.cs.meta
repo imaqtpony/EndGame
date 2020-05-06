@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5c7cbd049cad8b54e90a7491701a7f84
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_axePrefab: {instanceID: 0}
+  - m_onCutWithAxe: {fileID: 11400000, guid: 69842c52ecd242a499976681f501cbe5, type: 2}
+  - m_onSwipe: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
