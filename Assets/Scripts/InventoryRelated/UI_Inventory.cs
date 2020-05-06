@@ -217,14 +217,17 @@ public class UI_Inventory : MonoBehaviour
     
     public void RemoveItemFromCraftSlot()
     {
-
-        foreach(Transform craftSlot in m_craftSlot)
+        if(m_craftSystem.m_craftSlotList.Count > 0)
         {
-            m_craftSystem.m_craftSlotList.Clear();
-            m_craftSystem.NotEnoughItemToCraft();
-            Destroy(craftSlot.transform.GetChild(2).gameObject);
+            foreach (Transform craftSlot in m_craftSlot)
+            {
+                m_craftSystem.m_craftSlotList.Clear();
+                m_craftSystem.NotEnoughItemToCraft();
+                Destroy(craftSlot.transform.GetChild(2).gameObject);
 
+            }
         }
+        
         UpdateAmountItems();
     }
 
