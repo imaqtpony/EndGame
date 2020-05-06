@@ -22,6 +22,7 @@ public class BoardBoundsScript : MonoBehaviour
     {
         if(p_other.gameObject.tag == "Player")
         {
+            Debug.Log("RAISE");
             m_boardChangeEvent.Raise(gameObject.name);
         }
 

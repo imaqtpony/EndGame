@@ -10,8 +10,8 @@ public class EnemyAI : MonoBehaviour
 
     private DetectLight EnemyDetect;
 
-    [SerializeField]
-    private Data m_data;
+    //[SerializeField]
+    //private Data m_data;
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class EnemyAI : MonoBehaviour
 
         if (EnemyDetect.m_inLight == false)
         {
-            m_agent.SetDestination(m_data.m_player.transform.position);
+            //m_agent.SetDestination(m_data.m_player.transform.position);
         }
         
 

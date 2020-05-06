@@ -38,13 +38,16 @@ public class RotatePlayer : MonoBehaviour
 
 
             Ray castPoint = Camera.main.ScreenPointToRay(sData.endPosition);
-            RaycastHit hit;
 
+            
             //Debug.DrawRay(castPoint.origin, castPoint.direction, Color.green);
 
-            if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+            if (Physics.Raycast(castPoint, out RaycastHit hit, Mathf.Infinity))
             {
-                gameObject.transform.LookAt(hit.point);
+                Vector3 direction = hit.point - transform.position;
+                direction = Vector3.ProjectOnPlane(direction, Vector3.up).normalized;
+
+                gameObject.transform.LookAt(transform.position + direction);
                 //gameObject.transform.LookAt(new Vector3(hit.point.x,0,hit.point.z));
 
             }
