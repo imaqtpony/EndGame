@@ -3,6 +3,7 @@ using UnityEngine.AI;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.Build;
+using UnityEngine.EventSystems;
 
 
 
@@ -82,7 +83,7 @@ public class MovePlayer : MonoBehaviour
     /// Move the player to the touch location on the screen
     /// </summary>
     /// <param name="p_touch"> the touch on the screen </param>
-    private void MoveToTouch(Touch p_touch)
+    public void MoveToTouch(Touch p_touch)
     {
 
 
