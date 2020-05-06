@@ -39,11 +39,6 @@ public class MovePlayer : MonoBehaviour
         //else
         // movetotouch
 
-        // pk la rotation est flinguée en y?
-
-        Touch touch = Input.GetTouch(0);
-
-
         //Debug.Log(m_agent.hasPath);
         //Debug.Log(touch.deltaTime);
         //Debug.Log(m_data.m_isSwiping);
@@ -55,26 +50,30 @@ public class MovePlayer : MonoBehaviour
 
 
 
-        if(touch.phase == TouchPhase.Began)
-        {
-            m_nbFramesElapsed = 0;
-        }
-
         if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                m_nbFramesElapsed = 0;
+            }
+
             m_nbFramesElapsed++;
 
-        if(touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
-        {
-            if (m_nbFramesElapsed > 20)
+            if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
             {
-                Debug.Log("SWIPE OR W/E");
-            } else
-            {
-                MoveToTouch(touch);
+                if (m_nbFramesElapsed > 20)
+                {
+                    Debug.Log("SWIPE OR W/E");
+                }
+                else
+                {
+                    MoveToTouch(touch);
+                }
             }
         }
-
-
+            
     }
 
 

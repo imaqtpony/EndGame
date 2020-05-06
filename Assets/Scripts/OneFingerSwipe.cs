@@ -24,10 +24,12 @@ public class OneFingerSwipe : MonoBehaviour
 
     private void Update()
     {
-        Touch touch = Input.GetTouch(0);
 
         if (Input.touchCount > 0)
         {
+
+            Touch touch = Input.GetTouch(0);
+
             if (touch.phase == TouchPhase.Began)
             {
                 m_initialFingerPos = touch.position;

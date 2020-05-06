@@ -9,8 +9,8 @@ using UnityEngine.AI;
 /// </summary>
 public class SpawnPlayer : MonoBehaviour
 {
-    [SerializeField]
-    public GD2Lib.Event m_boardChangeEvent;
+    //[SerializeField]
+    //public GD2Lib.Event m_boardChangeEvent;
 
     private NavMeshAgent m_agent;
 
@@ -57,27 +57,31 @@ public class SpawnPlayer : MonoBehaviour
         // enable disable otherwise you can't move a navmesh agent from a navmesh to another while active
         m_agent.enabled = false;
 
+        float valueToMovePlayer = 5;
+
+        Debug.Log("MOVING PLAYER");
+
         switch (p_borderName)
         {
 
             case "LeftBorder":
 
-                transform.position = new Vector3(transform.position.x - 6, transform.position.y, transform.position.z);
+                transform.position = new Vector3(transform.position.x - valueToMovePlayer, transform.position.y, transform.position.z);
 
                 break;
             case "RightBorder":
 
-                transform.position = new Vector3(transform.position.x + 6, transform.position.y, transform.position.z);
+                transform.position = new Vector3(transform.position.x + valueToMovePlayer, transform.position.y, transform.position.z);
 
                 break;
             case "BottomBorder":
 
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 6);
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - valueToMovePlayer);
 
                 break;
             case "TopBorder":
 
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 6);
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + valueToMovePlayer);
 
                 break;
 

@@ -15,15 +15,14 @@ public class Torch : MonoBehaviour
 
     private int m_nbFramesElapsed = 0;
 
-    //bla bla bla = event rester appuyé + de 20 frames ? ou je fais la detect ici
-    //if bla bla bla TorchIgnited(true)
 
     private void Update()
     {
-        Touch touch = Input.GetTouch(0);
 
         if (Input.touchCount > 0)
         {
+            Touch touch = Input.GetTouch(0);
+
             m_nbFramesElapsed++;
 
             //rester appuyé = "allumer" et utiliser la torche devant soi
@@ -43,9 +42,20 @@ public class Torch : MonoBehaviour
     private void TorchIgnited(bool p_useTorch)
     {
         //anim flamme de la torche en loop si equipée
-        Debug.Log("Salameche attaque flammeche !");
         if (p_useTorch)
+        {
+            Debug.Log("Salameche attaque flammeche !");
+
             m_onUseTorch.Raise(p_useTorch);
+
+            transform.rotation = Quaternion.LookRotation(new Vector3(transform.parent.position.x, 0, 0));
+
+        }
+        else
+        {
+            transform.rotation = Quaternion.LookRotation(new Vector3(0, transform.parent.position.y, 0));
+        }
+
     }
 
 }
