@@ -9,18 +9,19 @@ using UnityEngine.EventSystems;
 
 public class MovePlayer : MonoBehaviour
 {
-    [SerializeField]
-    private Data m_data;
+    //[SerializeField]
+    //private Data m_data;
 
     // Component NavMeshAgent
     private NavMeshAgent m_agent;
 
     // range in which it detects a hit on the navmesh, from the touch on screen
-    private float m_range = 10f;
+    private float m_range = 0.5f;
 
     private int m_nbFramesElapsed;
 
-    [SerializeField] LayerMask m_ignoreRaycastMask;
+    [SerializeField] private LayerMask m_ignoreRaycastMask;
+
     private void Awake()
     { 
         m_agent = GetComponent<NavMeshAgent>();
@@ -97,15 +98,13 @@ public class MovePlayer : MonoBehaviour
             {
                 //if le tel marche
                 Ray castPoint = Camera.main.ScreenPointToRay(p_touch.position);
-                RaycastHit hit;
 
                 ////if le tel marche plus
                 //Vector3 mouse = Input.mousePosition;
                 //Ray castPoint = Camera.main.ScreenPointToRay(mouse);
 
-                if (Physics.Raycast(castPoint, out hit, Mathf.Infinity) && hit.transform.gameObject.layer == (m_ignoreRaycastMask & (1 << hit.transform.gameObject.layer)))
+                if (Physics.Raycast(castPoint, out RaycastHit hit, Mathf.Infinity) && hit.transform.gameObject.layer == (m_ignoreRaycastMask & (1 << hit.transform.gameObject.layer)))
                 {
-                    Debug.Log(hit.transform.name);
 
                     m_agent.destination = ClosestNavmeshLocation(hit.point, m_range);
                     //transform.rotation = Quaternion.LookRotation(m_agent.destination - hit.point);
