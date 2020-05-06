@@ -86,11 +86,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         if (Input.GetMouseButtonUp(0))
         {
-            float timeSinceLastClic = Time.time - lastClickTime;
+            float timeSinceLastClick = Time.time - lastClickTime;
 
             lastClickTime = Time.time;
-            Debug.Log(timeSinceLastClic);
-            if (timeSinceLastClic < 0.2f)
+            if (timeSinceLastClick < 0.2f)
             {
                 uiInventory.UseItemFunction(itemType);
 
