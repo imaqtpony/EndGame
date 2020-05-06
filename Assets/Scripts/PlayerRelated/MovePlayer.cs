@@ -20,6 +20,7 @@ public class MovePlayer : MonoBehaviour
 
     private int m_nbFramesElapsed;
 
+    [SerializeField] LayerMask m_ignoreRaycastMask;
     private void Awake()
     { 
         m_agent = GetComponent<NavMeshAgent>();
@@ -102,12 +103,14 @@ public class MovePlayer : MonoBehaviour
                 //Vector3 mouse = Input.mousePosition;
                 //Ray castPoint = Camera.main.ScreenPointToRay(mouse);
 
-
-                if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+                if (Physics.Raycast(castPoint, out hit, Mathf.Infinity) && hit.transform.gameObject.layer == (m_ignoreRaycastMask & (1 << hit.transform.gameObject.layer)))
                 {
+                    Debug.Log(hit.transform.name);
+
                     m_agent.destination = ClosestNavmeshLocation(hit.point, m_range);
                     //transform.rotation = Quaternion.LookRotation(m_agent.destination - hit.point);
                     transform.LookAt(hit.point);
+
 
                 }
             }

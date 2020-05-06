@@ -57,7 +57,7 @@ public class SpawnPlayer : MonoBehaviour
         // enable disable otherwise you can't move a navmesh agent from a navmesh to another while active
         m_agent.enabled = false;
 
-        float valueToMovePlayer = 5;
+        float valueToMovePlayer = 6;
 
         Debug.Log("MOVING PLAYER");
 
