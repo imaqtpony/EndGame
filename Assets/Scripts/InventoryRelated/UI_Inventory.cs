@@ -77,8 +77,10 @@ public class UI_Inventory : MonoBehaviour
                 {
                     CraftTools();
                     UpdateAmountItems();
+                    RemoveItemFromCraftSlot();
+
                 }
-                
+
             }
 
         };
@@ -145,15 +147,20 @@ public class UI_Inventory : MonoBehaviour
     public void CraftTools()
     {
         //craft losange
-        if (Inventory.m_amountCircle >= 4 && Inventory.m_amountTriangle >= 1)
+        if (Inventory.m_amountCircle >= 4 && Inventory.m_amountTriangle >= 1 && CraftSystem.m_itemType == Item.ItemType.losange)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.losange, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.circle, amount = 4 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.triangle, amount = 1 });
 
-            RemoveItemFromCraftSlot();
         }
+        if (Inventory.m_amountSquare >= 1 && Inventory.m_amountTriangle >= 1 && CraftSystem.m_itemType == Item.ItemType.squarangle)
+        {
+            inventory.AddTools(new Item { itemType = Item.ItemType.squarangle, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.square, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.triangle, amount = 1 });
 
+        }
     }
 
     public void DropItemFunction(Item.ItemType itemTypeToDrop, int p_amount)

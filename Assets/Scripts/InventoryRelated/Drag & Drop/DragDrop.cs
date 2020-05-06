@@ -25,6 +25,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     [SerializeField] UI_Inventory uiInventory;
 
+    [SerializeField] Transform m_selectedIndicator;
+
     public static int m_amountItemToDrop;
 
     public bool m_isOnSlot;
@@ -32,6 +34,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public static bool m_isRessource;
 
     public static Item.ItemType itemType;
+
+    
 
     private float lastClickTime;
 
@@ -82,11 +86,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         if (Input.GetMouseButtonUp(0))
         {
-            float timeSinceLastClic = Time.time - lastClickTime;
+            float timeSinceLastClick = Time.time - lastClickTime;
 
             lastClickTime = Time.time;
-            Debug.Log(timeSinceLastClic);
-            if (timeSinceLastClic < 0.25f)
+            if (timeSinceLastClick < 0.2f)
             {
                 uiInventory.UseItemFunction(itemType);
 
@@ -130,11 +133,26 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 m_isRessource = false;
 
                 break;
+            case "squarangle":
+                itemType = Item.ItemType.squarangle;
+                m_amountItemToDrop = 1;
+                m_isRessource = false;
+
+                break;
         }
         Debug.Log(itemType);
 
+        if (!m_isRessource)
+        {
+            m_selectedIndicator.position = transform.position;
+        }
         return itemType;
 
+    }
+
+    public void ReplaceIndicator()
+    {
+        m_selectedIndicator.position = new Vector2(100, 100000);
     }
 
 
