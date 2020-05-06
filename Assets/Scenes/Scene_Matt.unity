@@ -6311,6 +6311,7 @@ MonoBehaviour:
   squareSprite: {fileID: 21300000, guid: fe768d8e8b3bfbb4c94fc7195332aa3c, type: 3}
   triangleSprite: {fileID: 21300000, guid: 011810c801fd8f74493800ba843757d5, type: 3}
   losangeSprite: {fileID: 21300000, guid: 04f8a55ad0395c444b805183b5df7c23, type: 3}
+  squarangleSprite: {fileID: 0}
 --- !u!1001 &1559358228
 PrefabInstance:
   m_ObjectHideFlags: 0
