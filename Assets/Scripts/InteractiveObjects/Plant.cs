@@ -86,7 +86,7 @@ public class Plant : EnvironementObject, IFireReact
             Debug.Log("Bye bye plant");
             // plant anim here
             //m_thisAnim.play();
-            //DropMaterialOnDeath(m_attachedItem);
+            DropMaterialOnDeath(m_attachedItem, 0f);
         }
 
         if(other.gameObject.tag == "Torch" && m_burnThings)
@@ -107,8 +107,8 @@ public class Plant : EnvironementObject, IFireReact
         pSys.Play();
         // tweaker ce temps la si on veut donner le temps au joueur pour arreter le feu
         //if(pSys.time > 5f)
-        //// m_attachedItem and charbon
-        //DropMaterialOnDeath(m_attachedItem);
+        //// m_attachedItem and time before the object is destroyed
+        DropMaterialOnDeath(m_attachedItem, 2.0f);
 
     }
 
