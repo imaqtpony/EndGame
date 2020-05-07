@@ -99,7 +99,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void DeplaceItemText()
     {
-        m_amountText.transform.position = new Vector2(gameObject.transform.position.x + 40, gameObject.transform.position.y - 50);
+        //m_amountText.transform.position = new Vector2(transform.position.x + 40, transform.position.y - 50);
     }
 
     public Item.ItemType DetectItem()
