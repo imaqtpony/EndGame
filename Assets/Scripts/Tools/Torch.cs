@@ -48,11 +48,13 @@ public class Torch : MonoBehaviour
 
             m_onUseTorch.Raise(p_useTorch);
 
-            transform.rotation = Quaternion.LookRotation(new Vector3(transform.parent.position.x, 0, 0));
+            transform.rotation = transform.parent.rotation;
+
 
         }
         else
         {
+            // Default rotation
             transform.rotation = Quaternion.LookRotation(new Vector3(0, transform.parent.position.y, 0));
         }
 

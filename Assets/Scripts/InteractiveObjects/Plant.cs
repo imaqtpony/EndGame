@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using GD2Lib;
 using System;
+using System.Collections;
 
 /// <summary>
 /// Attach to a plant gameObject to play its animation when the player cuts it with the axe
@@ -102,13 +102,20 @@ public class Plant : EnvironementObject, IFireReact
 
     public void OnFire()
     {
+        Debug.Log("agzelaguze");
         // play the right pSys
         ParticleSystem pSys = GetComponent<ParticleSystem>();
         pSys.Play();
         // tweaker ce temps la si on veut donner le temps au joueur pour arreter le feu
-        //if(pSys.time > 5f)
+        //if (pSys.time > 5f)
+        //    Debug.Log("auizge");
         //// m_attachedItem and charbon
+
+        //coroutine
+        StartCoroutine(WaitForObjectToBurn());
+
         //DropMaterialOnDeath(m_attachedItem);
+        Destroy(gameObject);
 
     }
 
@@ -116,6 +123,11 @@ public class Plant : EnvironementObject, IFireReact
     public void OnKillFire()
     {
 
+    }
+
+    private IEnumerator WaitForObjectToBurn()
+    {
+        yield return new WaitForSeconds(5);
     }
 
     // we need a particle that slowly spreads in circle
