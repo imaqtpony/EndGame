@@ -20,6 +20,8 @@ public class MovePlayer : MonoBehaviour
 
     private int m_nbFramesElapsed;
 
+    [SerializeField] private LayerMask m_blockRaycastMask;
+
     [SerializeField] private LayerMask m_ignoreRaycastMask;
 
     private void Awake()
@@ -28,24 +30,15 @@ public class MovePlayer : MonoBehaviour
 
         m_agent.updateRotation = false;
         m_nbFramesElapsed = 0;
+
+        //invert bitmask for the raycast to hit everything but layermask m_ignoreRaycastMask
+        m_ignoreRaycastMask = ~m_ignoreRaycastMask;
     }
 
 
     private void Update()
     {
-        // Ended = movetotouch
-        // looks like deltaTime is the sensibility 0.0333
 
-        //If ended
-        //If touch long
-        // rotate, its a swipe or whatever
-        //else
-        // movetotouch
-
-        //Debug.Log(m_agent.hasPath);
-        //Debug.Log(touch.deltaTime);
-        //Debug.Log(m_data.m_isSwiping);
-        //Debug.Log(touch.phase);
 
         // the pathcomplete bug fix where the agent stops but his path is not completed, we reset the path if the agent enters a small square radius around the destination
         if ((transform.position.x < m_agent.destination.x + 0.2f && transform.position.x > m_agent.destination.x - 0.2f) && (transform.position.z < m_agent.destination.z + 0.2f && transform.position.z > m_agent.destination.z - 0.2f))
@@ -84,13 +77,12 @@ public class MovePlayer : MonoBehaviour
     /// Move the player to the touch location on the screen
     /// </summary>
     /// <param name="p_touch"> the touch on the screen </param>
-    public void MoveToTouch(Touch p_touch)
+    private void MoveToTouch(Touch p_touch)
     {
 
-
         //if le tel marche
-        if (Input.touchCount > 0)
-        {
+        //if (Input.touchCount > 0)
+        //{
             // if le tel marche plus
             //if (Input.GetMouseButtonDown(0)) {
 
@@ -103,18 +95,21 @@ public class MovePlayer : MonoBehaviour
                 //Vector3 mouse = Input.mousePosition;
                 //Ray castPoint = Camera.main.ScreenPointToRay(mouse);
 
-                if (Physics.Raycast(castPoint, out RaycastHit hit, Mathf.Infinity) && hit.transform.gameObject.layer == (m_ignoreRaycastMask & (1 << hit.transform.gameObject.layer)))
+                if (Physics.Raycast(castPoint, out RaycastHit hit, Mathf.Infinity, m_ignoreRaycastMask) && hit.transform.gameObject.layer == (m_blockRaycastMask & (1 << hit.transform.gameObject.layer)))
                 {
 
                     m_agent.destination = ClosestNavmeshLocation(hit.point, m_range);
-                    //transform.rotation = Quaternion.LookRotation(m_agent.destination - hit.point);
-                    transform.LookAt(hit.point);
+
+                    Vector3 direction = hit.point - transform.position;
+                    direction = Vector3.ProjectOnPlane(direction, Vector3.up).normalized;
+
+                    gameObject.transform.LookAt(transform.position + direction);
 
 
                 }
             }
 
-        }
+        //}
     }
 
 
