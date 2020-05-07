@@ -67,7 +67,7 @@ public class UI_Inventory : MonoBehaviour
 
         int x = 0;
         int y = 0;
-        float itemSlotCellSize = 100f;
+        float itemSlotCellSize = 105f;
 
         m_craftResult.GetComponent<Button_UI>().ClickFunc = () =>
         {
