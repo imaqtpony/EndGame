@@ -138,6 +138,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 m_amountItemToDrop = 1;
                 m_isRessource = false;
                 SelectTools(itemType);
+                
+                //m_audioManager.m_audioSource.loop = true;
 
                 break;
         }

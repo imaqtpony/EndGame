@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03d2e6e0d6ab5bd4789bf58027127dd1, type: 3}
+  m_Name: AudioManager
+  m_EditorClassIdentifier: 
+  m_audioSource: {fileID: 0}
+  m_openInventorySound: {fileID: 8300000, guid: af7f1955e87f25441b89fa2ac38d3092,
+    type: 3}
+  m_closeInventorySound: {fileID: 8300000, guid: cfef83cf754f11b4bbbedfd1bd7f2767,
+    type: 3}
+  m_wooshFireTorchSound: {fileID: 8300000, guid: 4e0bba6d0b9b460429d1ca68ea4c93d1,
+    type: 3}
+  m_FireTorchSound: {fileID: 8300000, guid: dd066242aeab3cd4aa71e8567809585c, type: 3}
+  m_FireSound: {fileID: 8300000, guid: dc05bab7f088e824e9201d675ccbbbdb, type: 3}

@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 5827241504687496052}
   - component: {fileID: 3703861366158514664}
   - component: {fileID: 7213647193611564798}
-  m_Layer: 0
+  - component: {fileID: 7341354301776719993}
+  m_Layer: 5
   m_Name: Herb_flam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,6 +75,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_onCutWithAxe: {fileID: 11400000, guid: 69842c52ecd242a499976681f501cbe5, type: 2}
   m_onUseTorch: {fileID: 11400000, guid: f46add224d9f28042ad2bf6b1721e814, type: 2}
+  m_itemType: 0
+  m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
 --- !u!65 &3639288105785568541
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4838,6 +4841,102 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.31, y: 0.28, z: -0.69}
   m_TimeToStationary: 0.5
+--- !u!82 &7341354301776719993
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077274761875520007}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2077274760475662213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4919,6 +5018,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herbe_2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945010462846360903, guid: 5d2b9b044883f2749a3732b8342bf964,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d2b9b044883f2749a3732b8342bf964, type: 3}
@@ -5010,6 +5114,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herbe_4 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7405878306897513257, guid: dcc076d8dd906c640b7865bccc8d7871,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc076d8dd906c640b7865bccc8d7871, type: 3}
 --- !u!4 &5498429701459011325 stripped
@@ -5099,6 +5208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herbe_2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945010462846360903, guid: 5d2b9b044883f2749a3732b8342bf964,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d2b9b044883f2749a3732b8342bf964, type: 3}
@@ -5190,6 +5304,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herbe_4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7405878306897513257, guid: dcc076d8dd906c640b7865bccc8d7871,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc076d8dd906c640b7865bccc8d7871, type: 3}
 --- !u!4 &5498429700021325281 stripped
@@ -5279,6 +5398,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herbe_3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981498504272012912, guid: 620748a8d635bb245b0e2b15450743b3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 620748a8d635bb245b0e2b15450743b3, type: 3}
@@ -5370,6 +5494,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herbe_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8863577522216284175, guid: 1073b3c3c8cdbd349877054bcb9d88d4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1073b3c3c8cdbd349877054bcb9d88d4, type: 3}
 --- !u!4 &5875349718150194330 stripped
@@ -5459,6 +5588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herbe_1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863577522216284175, guid: 1073b3c3c8cdbd349877054bcb9d88d4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1073b3c3c8cdbd349877054bcb9d88d4, type: 3}

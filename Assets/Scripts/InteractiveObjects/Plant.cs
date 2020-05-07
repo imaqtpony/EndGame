@@ -25,6 +25,9 @@ public class Plant : EnvironementObject, IFireReact
 
     [SerializeField] Item.ItemType m_itemType;
 
+
+    [SerializeField] AudioManager m_audioManager;
+
     //private animator m_thisAnim;
 
     //private void Awake()
@@ -32,6 +35,12 @@ public class Plant : EnvironementObject, IFireReact
     //    m_thisAnim = GetComponent<Animator>();
     //    m_attachedItem = new Item {truc machin avec les bonnes infos? randomize l'amount}
     //}
+    private void Awake()
+    {
+        m_audioManager.m_audioSource = GetComponent<AudioSource>();
+
+    }
+
 
     private void OnEnable()
     {
@@ -110,6 +119,7 @@ public class Plant : EnvironementObject, IFireReact
         //if(pSys.time > 5f)
         //// m_attachedItem and time before the object is destroyed
         DropMaterialOnDeath(true, 2.0f, 0, 0);
+        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_FireSound);
 
     }
 
