@@ -177,29 +177,20 @@ public class UI_Inventory : MonoBehaviour
 
     public void DropItemFunction(Item.ItemType itemTypeToDrop, int p_amount)
     {
-        foreach (Item item in inventory.GetItemList())
-        {
-            Item duplicateItem = new Item { itemType = itemTypeToDrop, amount = p_amount };
-            inventory.RemoveItem(new Item { itemType = itemTypeToDrop, amount = p_amount });
-            ItemWorld.DropItem(player.GetPosition(), duplicateItem);
-            UpdateAmountItems();
-
-        }
-
+        //y avait un foreach ici
+        Item duplicateItem = new Item { itemType = itemTypeToDrop, amount = p_amount };
+        inventory.RemoveItem(new Item { itemType = itemTypeToDrop, amount = p_amount });
+        ItemWorld.DropItem(player.GetPosition(), duplicateItem);
+        UpdateAmountItems();
     }
 
     public void DropToolFunction(Item.ItemType itemTypeToDrop, int p_amount)
     {
-        foreach (Item item in inventory.GetToolsList())
-        {
 
             Item duplicateItem = new Item { itemType = itemTypeToDrop, amount = p_amount };
             inventory.RemoveTools(new Item { itemType = itemTypeToDrop, amount = p_amount });
             ItemWorld.DropItem(player.GetPosition(), duplicateItem);
             UpdateAmountItems();
-
-        }
-
     }
 
 
@@ -221,6 +212,7 @@ public class UI_Inventory : MonoBehaviour
             UpdateAmountItems();
 
         }
+
         inventory.RemoveAllItems();
         RemoveItemFromCraftSlot();
     }
