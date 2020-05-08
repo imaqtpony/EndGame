@@ -66,6 +66,7 @@ public class InventoryButton : MonoBehaviour
         if (m_toolsInventoryEnabled)
         {
             m_toolsInventory.SetActive(true);
+
         }
         else
         {
@@ -74,7 +75,8 @@ public class InventoryButton : MonoBehaviour
             m_toolsInventory.SetActive(false);
         }
         
-        
+        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_openToolsInventorySound, 8f);
+
     }
 
 }

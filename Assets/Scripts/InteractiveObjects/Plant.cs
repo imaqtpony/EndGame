@@ -25,7 +25,6 @@ public class Plant : EnvironementObject, IFireReact
 
     [SerializeField] Item.ItemType m_itemType;
 
-
     [SerializeField] AudioManager m_audioManager;
 
     //private animator m_thisAnim;
@@ -38,7 +37,7 @@ public class Plant : EnvironementObject, IFireReact
     private void Awake()
     {
         m_audioManager.m_audioSource = GetComponent<AudioSource>();
-        m_audioManager.m_audioSource.clip = m_audioManager.m_FireSound;
+        m_audioManager.m_audioSource.clip = m_audioManager.m_fireSound;
         m_audioManager.m_audioSource.Pause();
 
     }

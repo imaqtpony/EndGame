@@ -24,7 +24,7 @@ public class Torch : MonoBehaviour
     private void OnEnable()
     {
         m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_wooshFireTorchSound);
-        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_FireTorchSound);
+        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_fireTorchSound);
     }
 
     private void Update()

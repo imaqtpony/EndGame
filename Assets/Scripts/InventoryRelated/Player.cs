@@ -42,7 +42,6 @@ public class Player : MonoBehaviour
         if (Inventory.itemList.Count < m_inventorySpace.Value)
         {
             ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
-            m_amounItemsInventory.text = $"{ Inventory.itemList.Count + Inventory.toolsList.Count }/{m_inventorySpace.Value}";
 
             if (itemWorld != null)
             {
@@ -60,9 +59,10 @@ public class Player : MonoBehaviour
                 }
 
             }
+            m_amounItemsInventory.text = $"{ Inventory.itemList.Count + Inventory.toolsList.Count }/{m_inventorySpace.Value}";
 
         }
-        
+
     }
 
     private void UseItem(Item.ItemType p_itemType)

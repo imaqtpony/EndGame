@@ -19,5 +19,7 @@ MonoBehaviour:
     type: 3}
   m_wooshFireTorchSound: {fileID: 8300000, guid: 4e0bba6d0b9b460429d1ca68ea4c93d1,
     type: 3}
-  m_FireTorchSound: {fileID: 8300000, guid: dd066242aeab3cd4aa71e8567809585c, type: 3}
-  m_FireSound: {fileID: 8300000, guid: dc05bab7f088e824e9201d675ccbbbdb, type: 3}
+  m_fireTorchSound: {fileID: 8300000, guid: dd066242aeab3cd4aa71e8567809585c, type: 3}
+  m_fireSound: {fileID: 8300000, guid: dc05bab7f088e824e9201d675ccbbbdb, type: 3}
+  m_openToolsInventorySound: {fileID: 8300000, guid: f9548abd39d8ee14bb53a558f9404f8b,
+    type: 3}

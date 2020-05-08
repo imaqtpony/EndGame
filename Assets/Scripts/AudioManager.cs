@@ -11,7 +11,10 @@ public class AudioManager : ScriptableObject
     public AudioClip m_openInventorySound;
     public AudioClip m_closeInventorySound;
     public AudioClip m_wooshFireTorchSound;
-    public AudioClip m_FireTorchSound;
-    public AudioClip m_FireSound;
+    public AudioClip m_fireTorchSound;
+    public AudioClip m_fireSound;
+    public AudioClip m_openToolsInventorySound;
+    public AudioClip m_craftingSound;
+
 
 }

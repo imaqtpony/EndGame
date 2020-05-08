@@ -31,9 +31,17 @@ public class UI_Inventory : MonoBehaviour
 
     private Player player;
 
+    [SerializeField] AudioManager m_audioManager;
+
     public void SetPlayer(Player player)
     {
         this.player = player;
+    }
+
+    private void Awake()
+    {
+        m_audioManager.m_audioSource = GetComponent<AudioSource>();
+
     }
 
     public void SetInventory(Inventory inventory)
@@ -161,6 +169,8 @@ public class UI_Inventory : MonoBehaviour
             inventory.RemoveItem(new Item { itemType = Item.ItemType.triangle, amount = 1 });
 
         }
+        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+
     }
 
     public void DropItemFunction(Item.ItemType itemTypeToDrop, int p_amount)
