@@ -106,31 +106,31 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         switch (itemSprite.name)
         {
 
-            case "circle":
-                itemType = Item.ItemType.circle;
-                m_amountItemToDrop = Inventory.m_amountCircle;
+            case "baton":
+                itemType = Item.ItemType.baton;
+                m_amountItemToDrop = Inventory.m_amountBaton;
                 m_isRessource = true;
                 break;
-            case "square":
-                itemType = Item.ItemType.square;
+            case "tissu":
+                itemType = Item.ItemType.tissu;
                 m_amountItemToDrop = Inventory.m_amountSquare;
                 m_isRessource = true;
 
                 break;
-            case "triangle":
-                itemType = Item.ItemType.triangle;
-                m_amountItemToDrop = Inventory.m_amountTriangle;
+            case "mrcFer":
+                itemType = Item.ItemType.mrcFer;
+                m_amountItemToDrop = Inventory.m_amountMrcFer;
                 m_isRessource = true;
 
                 break;
-            case "losange":
-                itemType = Item.ItemType.losange;
+            case "hache":
+                itemType = Item.ItemType.hache;
                 m_amountItemToDrop = 1;
                 m_isRessource = false;
                 SelectTools(itemType);
                 break;
-            case "squarangle":
-                itemType = Item.ItemType.squarangle;
+            case "torche":
+                itemType = Item.ItemType.torche;
                 m_amountItemToDrop = 1;
                 m_isRessource = false;
                 SelectTools(itemType);

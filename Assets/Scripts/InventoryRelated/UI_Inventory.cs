@@ -157,18 +157,18 @@ public class UI_Inventory : MonoBehaviour
     public void CraftTools()
     {
         //craft losange
-        if (Inventory.m_amountCircle >= 4 && Inventory.m_amountTriangle >= 1 && CraftSystem.m_itemType == Item.ItemType.losange)
+        if (Inventory.m_amountBaton >= 4 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType == Item.ItemType.hache)
         {
-            inventory.AddTools(new Item { itemType = Item.ItemType.losange, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.circle, amount = 4 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.triangle, amount = 1 });
+            inventory.AddTools(new Item { itemType = Item.ItemType.hache, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 4 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.mrcFer, amount = 1 });
 
         }
-        if (Inventory.m_amountSquare >= 1 && Inventory.m_amountTriangle >= 1 && CraftSystem.m_itemType == Item.ItemType.squarangle)
+        if (Inventory.m_amountSquare >= 1 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType == Item.ItemType.torche)
         {
-            inventory.AddTools(new Item { itemType = Item.ItemType.squarangle, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.square, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.triangle, amount = 1 });
+            inventory.AddTools(new Item { itemType = Item.ItemType.torche, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.tissu, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.mrcFer, amount = 1 });
 
         }
         m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
@@ -186,11 +186,11 @@ public class UI_Inventory : MonoBehaviour
 
     public void DropToolFunction(Item.ItemType itemTypeToDrop, int p_amount)
     {
-
-            Item duplicateItem = new Item { itemType = itemTypeToDrop, amount = p_amount };
-            inventory.RemoveTools(new Item { itemType = itemTypeToDrop, amount = p_amount });
-            ItemWorld.DropItem(player.GetPosition(), duplicateItem);
-            UpdateAmountItems();
+        Debug.Log(itemTypeToDrop);
+        Item duplicateItem = new Item { itemType = itemTypeToDrop, amount = p_amount };
+        inventory.RemoveTools(new Item { itemType = itemTypeToDrop, amount = p_amount });
+        ItemWorld.DropItem(player.GetPosition(), duplicateItem);
+        UpdateAmountItems();
     }
 
 

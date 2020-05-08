@@ -48,7 +48,7 @@ public class ItemWorld : MonoBehaviour
 
         switch (item.itemType)
         {
-            case Item.ItemType.circle:
+            case Item.ItemType.baton:
                 var mySphere = Instantiate(Sphere, new Vector3(gameObject.transform.position.x,
                                             gameObject.transform.position.y,
                                             gameObject.transform.position.z), Quaternion.identity);
@@ -56,7 +56,7 @@ public class ItemWorld : MonoBehaviour
                 mySphere.transform.parent = gameObject.transform;
                 break;
 
-            case Item.ItemType.square:
+            case Item.ItemType.tissu:
                 var mySquare = Instantiate(Cube, new Vector3(gameObject.transform.position.x,
                                             gameObject.transform.position.y,
                                             gameObject.transform.position.z), Quaternion.identity);
@@ -64,7 +64,7 @@ public class ItemWorld : MonoBehaviour
                 mySquare.transform.parent = gameObject.transform;
                 break;
 
-            case Item.ItemType.triangle:
+            case Item.ItemType.mrcFer:
                 var myTriangle = Instantiate(Triangle, new Vector3(gameObject.transform.position.x,
                                             gameObject.transform.position.y,
                                             gameObject.transform.position.z), Quaternion.identity);
@@ -72,7 +72,7 @@ public class ItemWorld : MonoBehaviour
                 myTriangle.transform.parent = gameObject.transform;
                 break;
 
-            case Item.ItemType.losange:
+            case Item.ItemType.hache:
                 var myLosange = Instantiate(Losange, new Vector3(gameObject.transform.position.x,
                                             gameObject.transform.position.y,
                                             gameObject.transform.position.z), Quaternion.identity);
@@ -81,7 +81,7 @@ public class ItemWorld : MonoBehaviour
                 gameObject.tag = "Tools";
                 break;
 
-            case Item.ItemType.squarangle:
+            case Item.ItemType.torche:
                 var mySquarangle = Instantiate(Squarangle, new Vector3(gameObject.transform.position.x,
                                             gameObject.transform.position.y,
                                             gameObject.transform.position.z), Quaternion.identity);

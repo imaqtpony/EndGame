@@ -14,9 +14,9 @@ public class Inventory
     public event EventHandler OnItemListChanged;
     public event EventHandler OnToolsListChanged;
 
-    public static int m_amountCircle;
+    public static int m_amountBaton;
     public static int m_amountSquare;
-    public static int m_amountTriangle;
+    public static int m_amountMrcFer;
 
     public Inventory(Action<Item.ItemType> useItemAction)
     {
@@ -71,16 +71,16 @@ public class Inventory
             switch (inventoryItem.itemType)
             {
 
-                case Item.ItemType.circle:
-                    m_amountCircle = inventoryItem.amount;
+                case Item.ItemType.baton:
+                    m_amountBaton = inventoryItem.amount;
                     
                     break;
-                case Item.ItemType.square:
+                case Item.ItemType.tissu:
                     m_amountSquare = inventoryItem.amount;
 
                     break;
-                case Item.ItemType.triangle:
-                    m_amountTriangle = inventoryItem.amount;
+                case Item.ItemType.mrcFer:
+                    m_amountMrcFer = inventoryItem.amount;
 
                     break;
             }

@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 170715665}
   - component: {fileID: 170715664}
   m_Layer: 0
-  m_Name: ItemWorldSpawner_Circle
+  m_Name: ItemWorldSpawner_Baton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1431,7 +1431,7 @@ GameObject:
   - component: {fileID: 302018430}
   - component: {fileID: 302018429}
   m_Layer: 0
-  m_Name: ItemWorldSpawner_Square
+  m_Name: ItemWorldSpawner_Tissu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2653,7 +2653,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5609,7 +5609,7 @@ PrefabInstance:
     - target: {fileID: 8096467669181654947, guid: 4716127643d5cb645b4442fa051a4f06,
         type: 3}
       propertyPath: m_Name
-      value: squarangle
+      value: torche
       objectReference: {fileID: 0}
     - target: {fileID: 8096467669181654947, guid: 4716127643d5cb645b4442fa051a4f06,
         type: 3}
@@ -6578,7 +6578,7 @@ PrefabInstance:
     - target: {fileID: 8036112120631919500, guid: 0c66ed7b717566246ae8f164793183dc,
         type: 3}
       propertyPath: m_Name
-      value: losange
+      value: hache
       objectReference: {fileID: 0}
     - target: {fileID: 8036112120631919500, guid: 0c66ed7b717566246ae8f164793183dc,
         type: 3}
@@ -8039,7 +8039,7 @@ GameObject:
   - component: {fileID: 1645325717}
   - component: {fileID: 1645325716}
   m_Layer: 0
-  m_Name: ItemWorldSpawner_Triangle
+  m_Name: ItemWorldSpawner_Morceau de Fer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8334,11 +8334,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pfItemWorld: {fileID: 4834034316151395651, guid: faf6379e1658d314fae15d3ada37e65d,
     type: 3}
-  circleSprite: {fileID: 21300000, guid: 0678c7c41eda26847baf291cb3a1b235, type: 3}
-  squareSprite: {fileID: 21300000, guid: fe768d8e8b3bfbb4c94fc7195332aa3c, type: 3}
-  triangleSprite: {fileID: 21300000, guid: 011810c801fd8f74493800ba843757d5, type: 3}
-  losangeSprite: {fileID: 21300000, guid: 04f8a55ad0395c444b805183b5df7c23, type: 3}
-  squarangleSprite: {fileID: 21300000, guid: 2fafbadd6b5355c42924cd5c836aa94b, type: 3}
+  batonSprite: {fileID: 21300000, guid: 2eb9279e988114b46861f6210e773d84, type: 3}
+  tissuSprite: {fileID: 21300000, guid: 933ae2b9df0c26a469e2a0b993d236a1, type: 3}
+  mrcFerSprite: {fileID: 21300000, guid: f88e281da6c1e6d4c8eecec7450fbfb9, type: 3}
+  hacheSprite: {fileID: 21300000, guid: 47238133215c5cf429a71e49f5308a4b, type: 3}
+  torcheSprite: {fileID: 21300000, guid: a9811a18e876cd143953fa4496331c73, type: 3}
 --- !u!4 &1736942611
 Transform:
   m_ObjectHideFlags: 0
@@ -13613,6 +13613,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 598410691435644997}
     m_Modifications:
+    - target: {fileID: 1872998494139362473, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_audioSource
+      value: 
+      objectReference: {fileID: 548228164}
     - target: {fileID: 2077274761875520006, guid: 57a2c3800eb92cb408cd86de63224972,
         type: 3}
       propertyPath: m_LocalPosition.x
