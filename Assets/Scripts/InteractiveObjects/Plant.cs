@@ -38,6 +38,8 @@ public class Plant : EnvironementObject, IFireReact
     private void Awake()
     {
         m_audioManager.m_audioSource = GetComponent<AudioSource>();
+        m_audioManager.m_audioSource.clip = m_audioManager.m_FireSound;
+        m_audioManager.m_audioSource.Pause();
 
     }
 
@@ -119,13 +121,20 @@ public class Plant : EnvironementObject, IFireReact
         //if(pSys.time > 5f)
         //// m_attachedItem and time before the object is destroyed
         DropMaterialOnDeath(true, 2.0f, 0, 0);
-        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_FireSound);
+        m_audioManager.m_audioSource.Play();
+
 
     }
 
     //if on envoit de l'eau on call OnKillFire
     public void OnKillFire()
     {
+
+    }
+
+    private void OnDestroy()
+    {
+        m_audioManager.m_audioSource.Stop();
 
     }
 

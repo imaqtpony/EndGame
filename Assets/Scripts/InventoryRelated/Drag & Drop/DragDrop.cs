@@ -19,10 +19,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public Image image;
 
-    [SerializeField] Sprite circle;
-    [SerializeField] Sprite square;
-    [SerializeField] Sprite triangle;
-
     [SerializeField] UI_Inventory uiInventory;
 
     [SerializeField] Transform m_selectedIndicator;
@@ -143,7 +139,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
                 break;
         }
-        Debug.Log(itemType);
 
         if (!m_isRessource)
         {

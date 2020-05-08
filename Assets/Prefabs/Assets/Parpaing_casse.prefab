@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8288084462305856815}
   - component: {fileID: 1035324711948777241}
   - component: {fileID: 6729151059243568096}
+  - component: {fileID: 7797653603995266040}
+  - component: {fileID: 2905045881566537772}
   m_Layer: 0
   m_Name: Parpaing_casse
   m_TagString: Untagged
@@ -79,3 +81,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7797653603995266040
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998548295262027580}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.44965056, y: 0.8720229, z: 0.38730562}
+  m_Center: {x: 0, y: -0.034021966, z: 0.19365281}
+--- !u!208 &2905045881566537772
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998548295262027580}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.22500001, y: 0.43600002, z: 0.194}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -0.034, z: 0.194}
+  m_TimeToStationary: 0.5

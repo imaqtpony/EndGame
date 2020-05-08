@@ -25,6 +25,7 @@ public class InventoryButton : MonoBehaviour
     private void Start()
     {
         m_Inventory.SetActive(false);
+        m_toolsInventory.SetActive(false);
 
     }
 
@@ -68,6 +69,7 @@ public class InventoryButton : MonoBehaviour
         }
         else
         {
+            m_uiInventory.RefreshInventoryTools();
             m_dragDrop.ReplaceIndicator();
             m_toolsInventory.SetActive(false);
         }

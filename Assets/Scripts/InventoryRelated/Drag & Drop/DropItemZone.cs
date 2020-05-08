@@ -15,6 +15,8 @@ public class DropItemZone : MonoBehaviour, IDropHandler
 
     [SerializeField] Player player;
 
+    [SerializeField] List<GameObject> m_tools;
+
 
     public void SetPlayer(Player player)
     {
@@ -28,10 +30,21 @@ public class DropItemZone : MonoBehaviour, IDropHandler
             m_uiInventory.DropItemFunction(DragDrop.itemType, DragDrop.m_amountItemToDrop);
 
         }
-        else
+        else if (!DragDrop.m_isRessource)
         {
+            for (int i = 0; i < m_tools.Count + 1; i++)
+            {
+
+                if (m_tools[i].name == DragDrop.itemType.ToString())
+                {
+                    m_tools[i].SetActive(false);
+                    break;
+                }
+
+            }
             m_uiInventory.DropToolFunction(DragDrop.itemType, DragDrop.m_amountItemToDrop);
 
+            
         }
 
 

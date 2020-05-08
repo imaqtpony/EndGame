@@ -167,7 +167,6 @@ public class UI_Inventory : MonoBehaviour
     {
         foreach (Item item in inventory.GetItemList())
         {
-
             Item duplicateItem = new Item { itemType = itemTypeToDrop, amount = p_amount };
             inventory.RemoveItem(new Item { itemType = itemTypeToDrop, amount = p_amount });
             ItemWorld.DropItem(player.GetPosition(), duplicateItem);
