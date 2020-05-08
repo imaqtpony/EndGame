@@ -8,21 +8,26 @@ public class EnemyAI : MonoBehaviour
 
     private NavMeshAgent m_agent;
 
-    private DetectLight EnemyDetect;
+    private DetectLight m_enemyDetect;
+
+    [SerializeField]
+    private Data m_data;
 
     //[SerializeField]
-    //private Data m_data;
+    //public GameObject m_player;
 
-    private void Awake()
+    private void OnEnable()
     {
         m_agent = GetComponent<NavMeshAgent>();
-        EnemyDetect = GetComponent<DetectLight>();
+        m_enemyDetect = GetComponent<DetectLight>();
+
     }
 
     private void Update()
     {
+
         //m_agent.SetDestination(m_player.transform.position);
-        if (EnemyDetect.m_inLight == true)
+        if (m_enemyDetect.m_inLight == true)
         {
             //Debug.Log(EnemyDetect.m_inLight);
             //m_agent.SetDestination(m_back.transform.position);
@@ -30,11 +35,13 @@ public class EnemyAI : MonoBehaviour
             m_agent.SetDestination(transform.forward * -10);
         }
 
-        if (EnemyDetect.m_inLight == false)
+        if (m_enemyDetect.m_inLight == false)
         {
             //m_agent.SetDestination(m_data.m_player.transform.position);
+            //m_agent.SetDestination(m_player.transform.position);
+
         }
-        
+
 
     }
 }

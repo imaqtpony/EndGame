@@ -9,8 +9,8 @@ using UnityEngine.EventSystems;
 
 public class MovePlayer : MonoBehaviour
 {
-    //[SerializeField]
-    //private Data m_data;
+    [SerializeField]
+    private Data m_data;
 
     // Component NavMeshAgent
     private NavMeshAgent m_agent;
@@ -25,7 +25,9 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] private LayerMask m_ignoreRaycastMask;
 
     private void Awake()
-    { 
+    {
+        m_data.m_player = gameObject;
+
         m_agent = GetComponent<NavMeshAgent>();
 
         m_agent.updateRotation = false;
@@ -38,7 +40,6 @@ public class MovePlayer : MonoBehaviour
 
     private void Update()
     {
-
 
         // the pathcomplete bug fix where the agent stops but his path is not completed, we reset the path if the agent enters a small square radius around the destination
         if ((transform.position.x < m_agent.destination.x + 0.2f && transform.position.x > m_agent.destination.x - 0.2f) && (transform.position.z < m_agent.destination.z + 0.2f && transform.position.z > m_agent.destination.z - 0.2f))

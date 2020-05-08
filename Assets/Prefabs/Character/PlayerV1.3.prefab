@@ -841,6 +841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d564f4a7f0836924da2c201c5c9bc41e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_data: {fileID: 11400000, guid: d68a4a27d7455254980868e0118b612a, type: 2}
   m_blockRaycastMask:
     serializedVersion: 2
     m_Bits: 256

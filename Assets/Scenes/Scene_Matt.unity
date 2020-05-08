@@ -6464,6 +6464,7 @@ GameObject:
   - component: {fileID: 1863317033}
   - component: {fileID: 1863317039}
   - component: {fileID: 1863317038}
+  - component: {fileID: 1863317040}
   m_Layer: 0
   m_Name: PushableObject
   m_TagString: Untagged
@@ -6555,7 +6556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863317032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5121068, y: 1.4136246, z: 1.2242436}
+  m_LocalPosition: {x: -0.5121068, y: 1.4136246, z: -0.92}
   m_LocalScale: {x: 0.59205616, y: 0.59205616, z: 0.59205616}
   m_Children: []
   m_Father: {fileID: 890387746}
@@ -6586,6 +6587,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e5ef1c85fe09a43807876c7de9f297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1863317040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863317032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897f0633f29781643a9011250c30f50a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_enemiesSpawner: {fileID: 7715719221113452857, guid: 36c17e82138441a4995a16ecf1d4f065,
+    type: 3}
 --- !u!1001 &1929285420
 PrefabInstance:
   m_ObjectHideFlags: 0

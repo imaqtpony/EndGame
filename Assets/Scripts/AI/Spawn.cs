@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    [SerializeField] GameObject m_prefab;   
+    [SerializeField] private GameObject m_prefab;
 
-    private void Awake()
+
+    private void SpawnEnemies()
     {
         var nb_enemies = 3;
 
-        for (int i=1;i<nb_enemies;i++)
-                Instantiate(m_prefab, RandomizeSpawn(), transform.rotation);
+        for (int i = 1; i < nb_enemies; i++)
+        {
+            Instantiate(m_prefab, RandomizeSpawn(), transform.rotation);
+        }
+    }
+
+    private void OnEnable()
+    {
+        SpawnEnemies();
     }
 
     private Vector3 RandomizeSpawn()
