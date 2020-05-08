@@ -13,9 +13,9 @@ public class ItemAssets : MonoBehaviour
 
     public Transform pfItemWorld;
 
-    public Sprite circleSprite;
-    public Sprite squareSprite;
-    public Sprite triangleSprite;
-    public Sprite losangeSprite;
-    public Sprite squarangleSprite;
+    public Sprite batonSprite;
+    public Sprite tissuSprite;
+    public Sprite mrcFerSprite;
+    public Sprite hacheSprite;
+    public Sprite torcheSprite;
 }

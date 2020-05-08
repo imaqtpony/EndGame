@@ -16,23 +16,26 @@ public class CraftSystem : MonoBehaviour
 
     public static Item.ItemType m_itemType;
 
-
     public bool m_craftActive;
+
+    [SerializeField] CanvasGroup m_craftButton;
 
     public void CheckCraftSlot()
     {
         Debug.Log("ON PEUT COMMENCER A CRAFTER");
-        if (m_craftSlotList.Find(w => string.Equals(w.name, "circle")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "triangle")) != null))
+        if (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "mrcFer")) != null))
         {
-            m_itemResult.sprite = ItemAssets.Instance.losangeSprite;
+            m_itemResult.sprite = ItemAssets.Instance.hacheSprite;
             m_craftActive = true;
-            m_itemType = Item.ItemType.losange;
+            m_itemType = Item.ItemType.hache;
+            m_craftButton.alpha = 1f;
         }
-        if (m_craftSlotList.Find(w => string.Equals(w.name, "square")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "triangle")) != null))
+        if (m_craftSlotList.Find(w => string.Equals(w.name, "tissu")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null))
         {
-            m_itemResult.sprite = ItemAssets.Instance.squarangleSprite;
+            m_itemResult.sprite = ItemAssets.Instance.torcheSprite;
             m_craftActive = true;
-            m_itemType = Item.ItemType.squarangle;
+            m_itemType = Item.ItemType.torche;
+            m_craftButton.alpha = 1f;
 
         }
     }
@@ -41,6 +44,7 @@ public class CraftSystem : MonoBehaviour
     {
         m_itemResult.sprite = mask;
         m_craftActive = false;
+        m_craftButton.alpha = .5f;
 
     }
 

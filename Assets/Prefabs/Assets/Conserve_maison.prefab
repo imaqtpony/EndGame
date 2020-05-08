@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6729531381328953460}
   - component: {fileID: 2323610687994853954}
   - component: {fileID: 8287633728418612923}
+  - component: {fileID: 5508082755494369566}
   m_Layer: 0
   m_Name: Conserve_maison
   m_TagString: Untagged
@@ -79,3 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!208 &5508082755494369566
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727966936388219495}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.14, y: 0.33, z: 0.418}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.05, y: 0, z: 0.418}
+  m_TimeToStationary: 0.5

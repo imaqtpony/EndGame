@@ -23,6 +23,8 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
     private Image m_itemSprite;
 
+    [SerializeField] AudioManager m_audioManager;
+
     private void OnEnable()
     {
         if(gameObject.tag == "CraftSlot") m_uiInventory.m_itemForCraft.Add(transform);
@@ -31,6 +33,11 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     private void OnDisable()
     {
         if (gameObject.tag == "CraftSlot") m_uiInventory.m_itemForCraft.Remove(transform);
+    }
+
+    private void Start()
+    {
+        m_audioManager.m_audioSource = GetComponent<AudioSource>();
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -46,6 +53,8 @@ public class ItemSlot : MonoBehaviour, IDropHandler
                 m_craftSystem.CheckCraftSlot();
 
                 if (m_craftSystem.m_craftSlotList.Count < 2) m_craftSystem.NotEnoughItemToCraft();
+
+                m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_craftDropItemOnSlotSound);
 
 
             }

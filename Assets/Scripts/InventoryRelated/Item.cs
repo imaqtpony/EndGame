@@ -8,11 +8,11 @@ public class Item
 {
     public enum ItemType
     {
-        circle,
-        square,
-        triangle,
-        losange,
-        squarangle,
+        baton,
+        tissu,
+        mrcFer,
+        hache,
+        torche,
 
     }
 
@@ -24,11 +24,11 @@ public class Item
         switch (itemType)
         {
             default:
-            case ItemType.circle: return ItemAssets.Instance.circleSprite;
-            case ItemType.square: return ItemAssets.Instance.squareSprite;
-            case ItemType.triangle: return ItemAssets.Instance.triangleSprite;
-            case ItemType.losange: return ItemAssets.Instance.losangeSprite;
-            case ItemType.squarangle: return ItemAssets.Instance.squarangleSprite;
+            case ItemType.baton: return ItemAssets.Instance.batonSprite;
+            case ItemType.tissu: return ItemAssets.Instance.tissuSprite;
+            case ItemType.mrcFer: return ItemAssets.Instance.mrcFerSprite;
+            case ItemType.hache: return ItemAssets.Instance.hacheSprite;
+            case ItemType.torche: return ItemAssets.Instance.torcheSprite;
         }
     }
 
@@ -37,12 +37,12 @@ public class Item
         switch (itemType)
         {
             default:
-            case ItemType.circle:
-            case ItemType.square:
-            case ItemType.triangle:
+            case ItemType.baton:
+            case ItemType.tissu:
+            case ItemType.mrcFer:
                 return true;
-            case ItemType.losange:
-            case ItemType.squarangle:
+            case ItemType.hache:
+            case ItemType.torche:
                 return false;
         }
     }

@@ -67,19 +67,19 @@ public class PlayerInventory : MonoBehaviour
     {
         switch (itemType)
         {
-            case Item.ItemType.circle:
+            case Item.ItemType.baton:
                 m_lifePlayer.HealingFunc();
 
                 break;
-            case Item.ItemType.square:
+            case Item.ItemType.tissu:
                 Debug.Log("Carré utilisé");
 
                 break;
-            case Item.ItemType.triangle:
+            case Item.ItemType.mrcFer:
                 Debug.Log("Triangle utilisé");
 
                 break;
-            case Item.ItemType.losange:
+            case Item.ItemType.hache:
                 Debug.Log("Losange utilisé");
                 break;
 
