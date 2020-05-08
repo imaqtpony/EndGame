@@ -15,7 +15,7 @@ public class Inventory
     public event EventHandler OnToolsListChanged;
 
     public static int m_amountBaton;
-    public static int m_amountSquare;
+    public static int m_amountTissu;
     public static int m_amountMrcFer;
 
     public Inventory(Action<Item.ItemType> useItemAction)
@@ -76,7 +76,7 @@ public class Inventory
                     
                     break;
                 case Item.ItemType.tissu:
-                    m_amountSquare = inventoryItem.amount;
+                    m_amountTissu = inventoryItem.amount;
 
                     break;
                 case Item.ItemType.mrcFer:

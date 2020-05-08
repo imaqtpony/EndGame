@@ -113,7 +113,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 break;
             case "tissu":
                 itemType = Item.ItemType.tissu;
-                m_amountItemToDrop = Inventory.m_amountSquare;
+                m_amountItemToDrop = Inventory.m_amountTissu;
                 m_isRessource = true;
 
                 break;

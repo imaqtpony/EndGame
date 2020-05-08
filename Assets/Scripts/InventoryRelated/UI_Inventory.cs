@@ -164,7 +164,7 @@ public class UI_Inventory : MonoBehaviour
             inventory.RemoveItem(new Item { itemType = Item.ItemType.mrcFer, amount = 1 });
 
         }
-        if (Inventory.m_amountSquare >= 1 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType == Item.ItemType.torche)
+        if (Inventory.m_amountTissu >= 1 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType == Item.ItemType.torche)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.torche, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.tissu, amount = 1 });
