@@ -12665,6 +12665,7 @@ Transform:
   - {fileID: 837081266}
   - {fileID: 48105155}
   - {fileID: 2044505200}
+  - {fileID: 974721130}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -29627,6 +29628,96 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970795849}
   m_Mesh: {fileID: 5412187903236388753, guid: cf4cc5a10c7e7904397c0cef514b36c9, type: 3}
+--- !u!1001 &974721129
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 343602587}
+    m_Modifications:
+    - target: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.419
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.9642
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6642511
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.2424264
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.2424264
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6642511
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 57
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -40.100002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.18286046
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.18286045
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.18286045
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169804114284576434, guid: 5bb215b172bf8c543be509581cf7d597,
+        type: 3}
+      propertyPath: m_Name
+      value: Feuille_1 (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5bb215b172bf8c543be509581cf7d597, type: 3}
+--- !u!4 &974721130 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6186568209106603169, guid: 5bb215b172bf8c543be509581cf7d597,
+    type: 3}
+  m_PrefabInstance: {fileID: 974721129}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &976568121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52657,10 +52748,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pfItemWorld: {fileID: 4834034316151395651, guid: faf6379e1658d314fae15d3ada37e65d,
     type: 3}
-  circleSprite: {fileID: 0}
-  squareSprite: {fileID: 0}
-  triangleSprite: {fileID: 0}
-  losangeSprite: {fileID: 0}
+  batonSprite: {fileID: 0}
+  tissuSprite: {fileID: 0}
+  mrcFerSprite: {fileID: 0}
+  hacheSprite: {fileID: 0}
+  torcheSprite: {fileID: 0}
 --- !u!4 &1736942611
 Transform:
   m_ObjectHideFlags: 0
