@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d31ed0fd376db4a8bee2e60d73da65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragDrop: {fileID: 1847679805}
+  m_dragDrop: {fileID: 0}
   m_craftSystem: {fileID: 1547443208}
   m_uiInventory: {fileID: 1107730852}
   m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
@@ -837,7 +837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DragDrop: {fileID: 1847679805}
-  m_uiInventory: {fileID: 0}
+  m_uiInventory: {fileID: 1107730852}
 --- !u!4 &135910310 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5808991293827922234, guid: dcc076d8dd906c640b7865bccc8d7871,
@@ -1018,7 +1018,7 @@ GameObject:
   - component: {fileID: 185347010}
   m_Layer: 5
   m_Name: ToolsSlot
-  m_TagString: Untagged
+  m_TagString: ToolsSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d31ed0fd376db4a8bee2e60d73da65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragDrop: {fileID: 1847679805}
+  m_dragDrop: {fileID: 0}
   m_craftSystem: {fileID: 1547443208}
   m_uiInventory: {fileID: 1107730852}
   m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
@@ -2062,7 +2062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DragDrop: {fileID: 1847679805}
-  m_uiInventory: {fileID: 0}
+  m_uiInventory: {fileID: 1107730852}
 --- !u!4 &385401808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6248773338791613539, guid: 620748a8d635bb245b0e2b15450743b3,
@@ -4141,7 +4141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d31ed0fd376db4a8bee2e60d73da65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragDrop: {fileID: 1847679805}
+  m_dragDrop: {fileID: 0}
   m_craftSystem: {fileID: 1547443208}
   m_uiInventory: {fileID: 1107730852}
   m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
@@ -9607,7 +9607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d31ed0fd376db4a8bee2e60d73da65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragDrop: {fileID: 1847679805}
+  m_dragDrop: {fileID: 0}
   m_craftSystem: {fileID: 1547443208}
   m_uiInventory: {fileID: 1107730852}
   m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
