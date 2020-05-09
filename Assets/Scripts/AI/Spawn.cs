@@ -16,6 +16,6 @@ public class Spawn : MonoBehaviour
 
     private Vector3 RandomizeSpawn()
     {
-        return new Vector3(transform.position.x + Random.Range(-3f, 3f), transform.position.y, transform.position.z + Random.Range(-3f, 3f));
+        return new Vector3(transform.position.x + Random.Range(-1f, 1f), transform.position.y, transform.position.z + Random.Range(-3f, 3f));
     }
 }

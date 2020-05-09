@@ -157,7 +157,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         for (int i = 0; i < m_tools.Count + 1; i++)
         {
-            if (m_tools[i].name == p_toolsType.ToString())
+            if (m_tools[i].name == p_toolsType.ToString() && !InventoryButton.m_InventoryEnabled)
             {
                 foreach(GameObject tools in m_tools)
                 {
@@ -170,4 +170,5 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         }
     }
 
+    
 }

@@ -8,7 +8,7 @@ using UnityEngine.Sprites;
 public class ItemSlot : MonoBehaviour, IDropHandler
 {
 
-    [SerializeField] DragDrop DragDrop;
+    [SerializeField] DragDrop m_dragDrop;
 
     private Transform m_itemChild;
 
@@ -56,12 +56,28 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
                 m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_craftDropItemOnSlotSound);
 
+                if (!DragDrop.m_isRessource && !gameObject.gameObject.CompareTag("ToolsSlot"))
+                {
+                    float p_sizeSprite = 100f;
+                    ResizeSprite(p_sizeSprite, eventData);
+                }
+                else if(!DragDrop.m_isRessource && gameObject.gameObject.CompareTag("ToolsSlot"))
+                {
+                    float p_sizeSprite = 67.1f;
+                    ResizeSprite(p_sizeSprite, eventData);
+                }
 
             }
 
         }
 
     }
+    public void ResizeSprite(float p_size, PointerEventData eventData)
+    {
+        eventData.pointerDrag.GetComponent<RectTransform>().sizeDelta = new Vector2(p_size, p_size);
+    }
+
+
 
     public void ChangingParent(PointerEventData eventData)
     {
