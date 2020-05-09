@@ -35,6 +35,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     private float lastClickTime;
 
+    [SerializeField] AudioManager m_audioManager;
+    [SerializeField] AudioSource m_audioSource;
+
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -50,6 +53,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         itemSlot.transform.SetSiblingIndex(Inventory.itemList.Count);
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
+        m_audioSource.PlayOneShot(m_audioManager.m_clickSound);
         DetectItem();
 
 

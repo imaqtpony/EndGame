@@ -78,7 +78,8 @@ public class UI_Inventory : MonoBehaviour
         int x = 0;
         int y = 0;
         float itemSlotCellSize = 105f;
-
+        
+        //lorsqu'on clique sur le bouton de craft
         m_craftResult.GetComponent<Button_UI>().ClickFunc = () =>
         {
             if (m_craftSystem.m_craftActive)
@@ -156,7 +157,7 @@ public class UI_Inventory : MonoBehaviour
 
     public void CraftTools()
     {
-        //craft losange
+        //craft hache
         if (Inventory.m_amountBaton >= 4 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType == Item.ItemType.hache)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.hache, amount = 1 });
@@ -164,11 +165,12 @@ public class UI_Inventory : MonoBehaviour
             inventory.RemoveItem(new Item { itemType = Item.ItemType.mrcFer, amount = 1 });
 
         }
-        if (Inventory.m_amountTissu >= 1 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType == Item.ItemType.torche)
+        //craft torche
+        if (Inventory.m_amountTissu >= 1 && Inventory.m_amountBaton >= 1 && CraftSystem.m_itemType == Item.ItemType.torche)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.torche, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.tissu, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.mrcFer, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
 
         }
         m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);

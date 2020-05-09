@@ -17,29 +17,17 @@ public class InventoryButton : MonoBehaviour
 
     [SerializeField] AudioSource m_audioSource;
 
-    private Animator m_animator;
-    private void Awake()
-    {
+    [SerializeField] Animator m_animatorTools;
+    [SerializeField] Animator m_animatorInventory;
 
-        m_Inventory.SetActive(true);
-        m_animator = GetComponent<Animator>();
-
-    }
-
-    private void Start()
-    {
-
-        m_Inventory.SetActive(false);
-        m_toolsInventory.SetActive(false);
-
-    }
 
     public void OpenInventory()
     {
         m_InventoryEnabled = !m_InventoryEnabled;
         if (m_InventoryEnabled)
         {
-            m_Inventory.SetActive(true);
+
+            m_animatorInventory.SetTrigger("OpenInventory");
             m_audioSource.PlayOneShot(m_audioManager.m_openInventorySound);
 
 
@@ -49,13 +37,14 @@ public class InventoryButton : MonoBehaviour
         }
         else if(!m_InventoryEnabled)
         {
+            m_animatorInventory.SetTrigger("CloseInventory");
+
             m_menuButton.alpha = 1f;
             m_audioSource.PlayOneShot(m_audioManager.m_closeInventorySound);
             Debug.Log("CLOSE INVENTORY");
 
             Time.timeScale = 1f;
-
-            m_Inventory.SetActive(false);
+            
 
             m_uiInventory.RefreshInventoryRessources();
             m_uiInventory.RemoveItemFromCraftSlot();
@@ -71,18 +60,21 @@ public class InventoryButton : MonoBehaviour
 
         if (m_toolsInventoryEnabled)
         {
+            m_animatorTools.SetTrigger("OpenTools");
 
-            m_toolsInventory.SetActive(true);
+            //m_toolsInventory.SetActive(true);
             //m_animator.SetTrigger("OpeningTools");
 
         }
         else
         {
+            m_animatorTools.SetTrigger("CloseTools");
+
             m_uiInventory.RefreshInventoryTools();
             m_dragDrop.ReplaceIndicator();
             //m_animator.SetTrigger("ClosingTools");
 
-            m_toolsInventory.SetActive(false);
+            //m_toolsInventory.SetActive(false);
         }
 
         m_audioSource.PlayOneShot(m_audioManager.m_openToolsInventorySound, 8f);

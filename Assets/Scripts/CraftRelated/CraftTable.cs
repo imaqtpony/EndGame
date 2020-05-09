@@ -5,6 +5,7 @@ using UnityEngine;
 public class CraftTable : MonoBehaviour
 {
     [SerializeField] GameObject m_craftcanvas;
+    [SerializeField] GameObject m_craftText;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class CraftTable : MonoBehaviour
         if (enter.gameObject.CompareTag("Player"))
         {
             m_craftcanvas.SetActive(true);
+            m_craftText.SetActive(false);
         }
     }
 
@@ -25,6 +27,8 @@ public class CraftTable : MonoBehaviour
         if (exit.gameObject.CompareTag("Player"))
         {
             m_craftcanvas.SetActive(false);
+            m_craftText.SetActive(true);
+
         }
     }
 }
