@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2077274761875520006}
   m_Layer: 0
-  m_Name: Herb (2)
+  m_Name: Herb_flam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,6 +119,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herbe_2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3522396984387709339, guid: 5d2b9b044883f2749a3732b8342bf964,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d36cf5f5078a8c4b97aa8403d8bd6e1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d2b9b044883f2749a3732b8342bf964, type: 3}
 --- !u!4 &168437290603624657 stripped
@@ -209,6 +214,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herbe_4 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9149661987200303093, guid: dcc076d8dd906c640b7865bccc8d7871,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d36cf5f5078a8c4b97aa8403d8bd6e1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc076d8dd906c640b7865bccc8d7871, type: 3}
 --- !u!4 &5498429701459011325 stripped
@@ -299,6 +309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herbe_2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3522396984387709339, guid: 5d2b9b044883f2749a3732b8342bf964,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d36cf5f5078a8c4b97aa8403d8bd6e1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d2b9b044883f2749a3732b8342bf964, type: 3}
 --- !u!4 &168437289479635768 stripped
@@ -389,6 +404,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herbe_4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9149661987200303093, guid: dcc076d8dd906c640b7865bccc8d7871,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d36cf5f5078a8c4b97aa8403d8bd6e1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc076d8dd906c640b7865bccc8d7871, type: 3}
 --- !u!4 &5498429700021325281 stripped
@@ -479,6 +499,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herbe_3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8709845040347730604, guid: 620748a8d635bb245b0e2b15450743b3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d36cf5f5078a8c4b97aa8403d8bd6e1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 620748a8d635bb245b0e2b15450743b3, type: 3}
 --- !u!4 &5362639666923157584 stripped
@@ -564,6 +589,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 9565.402
       objectReference: {fileID: 0}
+    - target: {fileID: 7150896827947320531, guid: 1073b3c3c8cdbd349877054bcb9d88d4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d36cf5f5078a8c4b97aa8403d8bd6e1, type: 2}
     - target: {fileID: 8863577522216284175, guid: 1073b3c3c8cdbd349877054bcb9d88d4,
         type: 3}
       propertyPath: m_Name
@@ -654,6 +684,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 13955.236
       objectReference: {fileID: 0}
+    - target: {fileID: 7150896827947320531, guid: 1073b3c3c8cdbd349877054bcb9d88d4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d36cf5f5078a8c4b97aa8403d8bd6e1, type: 2}
     - target: {fileID: 8863577522216284175, guid: 1073b3c3c8cdbd349877054bcb9d88d4,
         type: 3}
       propertyPath: m_Name
