@@ -14,20 +14,24 @@ public class EnvironementObject : MonoBehaviour
     //ce script pour generer les items quand l'objet du world creve, et s'autodetruire
     protected void DropMaterialOnDeath(bool p_isBurned, float p_destroyTime, int p_amountItem, Item.ItemType p_itemType)
     {
-        if (!p_isBurned)
+        if (!MovePlayer.m_stopSwipe)
         {
-            //Item item = GenerateItem(transform.position, p_item.ItemType);
-            Destroy(gameObject, p_destroyTime);
-            Debug.Log("DETRUIS TOIIII");
+            if (!p_isBurned)
+            {
+                //Item item = GenerateItem(transform.position, p_item.ItemType);
+                Destroy(gameObject, p_destroyTime);
+                Debug.Log("DETRUIS TOIIII");
 
-            Item duplicateItem = new Item { itemType = p_itemType, amount = p_amountItem };
-            ItemWorld.DropItem(gameObject.transform.position, duplicateItem);
-        }
-        else
-        {
-            Destroy(gameObject, p_destroyTime);
+                Item duplicateItem = new Item { itemType = p_itemType, amount = p_amountItem };
+                ItemWorld.DropItem(gameObject.transform.position, duplicateItem);
+            }
+            else
+            {
+                Destroy(gameObject, p_destroyTime);
 
+            }
         }
+        
 
 
     }

@@ -36,7 +36,7 @@ public class RotatePlayer : MonoBehaviour
             //m_lineRenderer.positionCount = 2;
             //m_lineRenderer.SetPositions(positions);
 
-
+            MovePlayer.m_stopSwipe = false;
             Ray castPoint = Camera.main.ScreenPointToRay(sData.endPosition);
 
             

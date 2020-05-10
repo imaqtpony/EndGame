@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 176553144}
   - component: {fileID: 176553148}
   - component: {fileID: 176553149}
+  - component: {fileID: 6158166402225039189}
   m_Layer: 2
   m_Name: RightBorder
   m_TagString: Untagged
@@ -124,6 +125,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_boardChangeEvent: {fileID: 11400000, guid: 54f5db44864b0424c8dd61e93f5eb6d7, type: 2}
+--- !u!65 &6158166402225039189
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176553143}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000004, y: 1.0000004, z: 0.7}
+  m_Center: {x: -0.000000029802322, y: -0.0000008940697, z: -0.00000047683716}
 --- !u!1 &506827458
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +152,7 @@ GameObject:
   - component: {fileID: 506827459}
   - component: {fileID: 506827463}
   - component: {fileID: 506827464}
+  - component: {fileID: 4781476643737837532}
   m_Layer: 2
   m_Name: BottomBorder
   m_TagString: Untagged
@@ -248,6 +263,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_boardChangeEvent: {fileID: 11400000, guid: 54f5db44864b0424c8dd61e93f5eb6d7, type: 2}
+--- !u!65 &4781476643737837532
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506827458}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9999999, y: 1.0000002, z: 0.65}
+  m_Center: {x: 0, y: -0.0000007748604, z: 0}
 --- !u!1 &772431032
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +290,7 @@ GameObject:
   - component: {fileID: 772431033}
   - component: {fileID: 772431037}
   - component: {fileID: 772431038}
+  - component: {fileID: 6101244418530900107}
   m_Layer: 2
   m_Name: LeftBorder
   m_TagString: Untagged
@@ -372,6 +401,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_boardChangeEvent: {fileID: 11400000, guid: 54f5db44864b0424c8dd61e93f5eb6d7, type: 2}
+--- !u!65 &6101244418530900107
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772431032}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000004, y: 1.0000004, z: 0.52}
+  m_Center: {x: -0.00000008940697, y: -0.0000009536743, z: 0.00000023841858}
 --- !u!1 &1172736915
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +428,7 @@ GameObject:
   - component: {fileID: 1172736916}
   - component: {fileID: 1172736920}
   - component: {fileID: 1172736921}
+  - component: {fileID: 6405462647652431720}
   m_Layer: 2
   m_Name: TopBorder
   m_TagString: Untagged
@@ -496,6 +539,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_boardChangeEvent: {fileID: 11400000, guid: 54f5db44864b0424c8dd61e93f5eb6d7, type: 2}
+--- !u!65 &6405462647652431720
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172736915}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1.0000002, z: 0.66}
+  m_Center: {x: 0.0000000018626451, y: -0.0000011324883, z: 0.0000047683716}
 --- !u!1 &2532612635152508468
 GameObject:
   m_ObjectHideFlags: 0

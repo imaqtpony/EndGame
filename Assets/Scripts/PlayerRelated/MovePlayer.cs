@@ -21,6 +21,8 @@ public class MovePlayer : MonoBehaviour
 
     private int m_nbFramesElapsed;
 
+    public static bool m_stopSwipe;
+
     [SerializeField] private LayerMask m_blockRaycastMask;
 
     [SerializeField] private LayerMask m_ignoreRaycastMask;
@@ -68,6 +70,7 @@ public class MovePlayer : MonoBehaviour
                 if (m_nbFramesElapsed > 20)
                 {
                     Debug.Log("SWIPE OR W/E");
+                    m_stopSwipe = true;
                 }
                 else
                 {
