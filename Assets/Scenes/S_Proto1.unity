@@ -16073,11 +16073,6 @@ PrefabInstance:
       propertyPath: m_uiInventory
       value: 
       objectReference: {fileID: 1107730852}
-    - target: {fileID: 7294091618549757997, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
-        type: 3}
-      propertyPath: m_Name
-      value: hache
-      objectReference: {fileID: 0}
     - target: {fileID: 7252854675689244301, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
         type: 3}
       propertyPath: m_audioManager
@@ -16094,6 +16089,31 @@ PrefabInstance:
       propertyPath: m_audioSource
       value: 
       objectReference: {fileID: 8260226598715580094}
+    - target: {fileID: 7294091618549757997, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
+        type: 3}
+      propertyPath: m_Name
+      value: hache
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260226598715580093, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
+        type: 3}
+      propertyPath: m_uiInventory
+      value: 
+      objectReference: {fileID: 1107730852}
+    - target: {fileID: 8260226598715580093, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
+        type: 3}
+      propertyPath: m_backgroundLife
+      value: 
+      objectReference: {fileID: 568265692}
+    - target: {fileID: 8260226598715580093, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
+        type: 3}
+      propertyPath: m_lifeHeartContainer
+      value: 
+      objectReference: {fileID: 615222014}
+    - target: {fileID: 8260226598715580093, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
+        type: 3}
+      propertyPath: m_lifeHeartSprite
+      value: 
+      objectReference: {fileID: 86874502}
     - target: {fileID: 8655329798545946618, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
         type: 3}
       propertyPath: m_Name
@@ -16129,18 +16149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f495ca75f22e54d8552c33ffde8eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!64 &774567234390714690 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 9199537855417092853, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
-    type: 3}
-  m_PrefabInstance: {fileID: 774567234390714688}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &774567234390714691 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5640390475651859945, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
-    type: 3}
-  m_PrefabInstance: {fileID: 774567234390714688}
-  m_PrefabAsset: {fileID: 0}
 --- !u!54 &774567234390714692 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1315066270232433449, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
@@ -33707,26 +33715,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_inventorySpace: 4
   m_ScriptableObject: {fileID: 11400000, guid: d07dc231abe8106478e8d2b1db02f1a2, type: 2}
---- !u!114 &8260226598715580093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8260226598715580090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b459ddd5eca19d44a6e8dd5b14ab7f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_lifeValue: {fileID: 11400000, guid: a1f541512e7ff0841a2e848206e770db, type: 2}
-  m_collider: {fileID: 774567234390714690}
-  m_uiInventory: {fileID: 1107730852}
-  m_invDuration: 1
-  m_maxLifeValue: {fileID: 11400000, guid: 306d5a45f22de4a459e8b0adbf13bc39, type: 2}
-  m_backgroundLife: {fileID: 568265692}
-  m_lifeHeartContainer: {fileID: 615222014}
-  m_lifeHeartSprite: {fileID: 86874502}
 --- !u!82 &8260226598715580094
 AudioSource:
   m_ObjectHideFlags: 0
