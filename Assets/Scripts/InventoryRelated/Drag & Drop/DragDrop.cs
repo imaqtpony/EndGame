@@ -84,7 +84,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && m_isRessource)
         {
             float timeSinceLastClick = Time.time - lastClickTime;
 
@@ -144,10 +144,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 break;
         }
 
-        if (!m_isRessource)
+        if (!m_isRessource && !InventoryButton.m_InventoryEnabled)
         {
             m_selectedIndicator.position = transform.position;
         }
+
         return itemType;
 
     }
@@ -159,19 +160,23 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void SelectTools(Item.ItemType p_toolsType)
     {
-        for (int i = 0; i < m_tools.Count + 1; i++)
+        if (!InventoryButton.m_InventoryEnabled)
         {
-            if (m_tools[i].name == p_toolsType.ToString() && !InventoryButton.m_InventoryEnabled)
+            for (int i = 0; i < m_tools.Count + 1; i++)
             {
-                foreach(GameObject tools in m_tools)
+                if (m_tools[i].name == p_toolsType.ToString())
                 {
-                    tools.SetActive(false);
+                    foreach (GameObject tools in m_tools)
+                    {
+                        tools.SetActive(false);
+                    }
+                    m_tools[i].SetActive(true);
+                    break;
                 }
-                m_tools[i].SetActive(true);
-                break;
-            }
 
+            }
         }
+        
     }
 
     

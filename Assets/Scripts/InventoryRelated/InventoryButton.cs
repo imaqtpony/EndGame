@@ -57,9 +57,6 @@ public class InventoryButton : MonoBehaviour
         {
             m_animatorTools.SetTrigger("OpenTools");
 
-            //m_toolsInventory.SetActive(true);
-            //m_animator.SetTrigger("OpeningTools");
-
         }
         else
         {
@@ -67,9 +64,7 @@ public class InventoryButton : MonoBehaviour
 
             m_uiInventory.RefreshInventoryTools();
             m_dragDrop.ReplaceIndicator();
-            //m_animator.SetTrigger("ClosingTools");
 
-            //m_toolsInventory.SetActive(false);
         }
 
         m_audioSource.PlayOneShot(m_audioManager.m_openToolsInventorySound, 8f);
