@@ -27,7 +27,7 @@ public class LifePlayer : MonoBehaviour
 
     private void Start()
     {
-
+        m_lifeValue.Value = m_maxLifeValue.Value;
         InstantiateHearts();
         UpdateWidthBackgroundLife();
     }
@@ -43,9 +43,9 @@ public class LifePlayer : MonoBehaviour
             //on recupere le dernier coeur
             GameObject lastHeart = m_lifeHeartContainer.transform.GetChild(m_lifeValue.Value).gameObject;
 
-            //et on le detruit
-            Destroy(lastHeart);
-            UpdateWidthBackgroundLife();
+            //on récupère son canvasgroup pour avoir son alpha et on le diminue a 50%
+            lastHeart.GetComponent<CanvasGroup>().alpha = .5f;
+
 
             if (m_lifeValue.Value == 0)
             {
@@ -62,7 +62,7 @@ public class LifePlayer : MonoBehaviour
 
         int SPACE_BETWEEN_HEARTS = 70;
 
-        for (int i = 0; i < m_lifeValue.Value - 1; i++)
+        for (int i = 0; i < m_maxLifeValue.Value - 1; i++)
         {
             x++;
             RectTransform itemSlotRectTransform = Instantiate(m_lifeHeartSprite, m_lifeHeartContainer).GetComponent<RectTransform>();
@@ -76,16 +76,22 @@ public class LifePlayer : MonoBehaviour
         if(m_lifeValue.Value < m_maxLifeValue.Value)
         {
             m_lifeValue.Value += 1;
-            x++;
 
-            int SPACE_BETWEEN_HEARTS = 70;
-            RectTransform itemSlotRectTransform = Instantiate(m_lifeHeartSprite, m_lifeHeartContainer).GetComponent<RectTransform>();
-            itemSlotRectTransform.anchoredPosition = new Vector2(x * SPACE_BETWEEN_HEARTS, y * SPACE_BETWEEN_HEARTS);
-            UpdateWidthBackgroundLife();
+            //on récupère le dernier coeur
+            GameObject lastHeart = m_lifeHeartContainer.transform.GetChild(m_lifeValue.Value - 1).gameObject;
+
+            //on remet son alpha a 100% quand on récupère le point de vie
+            lastHeart.GetComponent<CanvasGroup>().alpha = 1f;
+
         }
         
     }
 
+    /// <summary>
+    /// on utilise une coroutine pour faire des frame d'invincibilié
+    /// </summary>
+    /// <returns>dans le while, on attend 1s avant d'incrémenter le compteur et de retablir le collider du joueur
+    /// c'est a ce moment la que le joueur est invincible</returns>
     private IEnumerator InvFrame()
     {
         int temp = 0;
@@ -100,7 +106,7 @@ public class LifePlayer : MonoBehaviour
 
     public void UpdateWidthBackgroundLife()
     {
-        m_backgroundLife.rectTransform.sizeDelta = new Vector2(m_lifeValue.Value * 162, 162); 
+        m_backgroundLife.rectTransform.sizeDelta = new Vector2(m_maxLifeValue.Value * 162, 162); 
     }
 
     

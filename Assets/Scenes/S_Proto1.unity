@@ -584,6 +584,7 @@ GameObject:
   - component: {fileID: 86874502}
   - component: {fileID: 86874504}
   - component: {fileID: 86874503}
+  - component: {fileID: 86874505}
   m_Layer: 5
   m_Name: lifeHeart
   m_TagString: Untagged
@@ -646,6 +647,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86874501}
   m_CullTransparentMesh: 0
+--- !u!225 &86874505
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86874501}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &96718248
 GameObject:
   m_ObjectHideFlags: 0
@@ -16098,6 +16111,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: hache
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260226598715580091, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
+        type: 3}
+      propertyPath: m_maxVie
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8260226598715580093, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
         type: 3}
@@ -33697,34 +33715,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 774567234390714688}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8260226598715580091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8260226598715580090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ca46b5ff52a9894887b48b10b6f48ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_maxVie: 3
-  m_ScriptableObject: {fileID: 11400000, guid: 306d5a45f22de4a459e8b0adbf13bc39, type: 2}
---- !u!114 &8260226598715580092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8260226598715580090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a95124ecebe32241bc7b77921c33d97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_inventorySpace: 4
-  m_ScriptableObject: {fileID: 11400000, guid: d07dc231abe8106478e8d2b1db02f1a2, type: 2}
 --- !u!82 &8260226598715580094
 AudioSource:
   m_ObjectHideFlags: 0
