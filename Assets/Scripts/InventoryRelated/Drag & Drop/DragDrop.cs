@@ -19,7 +19,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public Image image;
 
-    [SerializeField] UI_Inventory uiInventory;
+    [SerializeField] UI_Inventory m_uiInventory;
 
     [SerializeField] Transform m_selectedIndicator;
 
@@ -91,8 +91,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
             lastClickTime = Time.time;
             if (timeSinceLastClick < 0.2f)
             {
-                uiInventory.UseItemFunction(itemType);
-
+                m_uiInventory.UseItemFunction(itemType);
+                m_uiInventory.RefreshInventoryRessources();
             }
         }
     }

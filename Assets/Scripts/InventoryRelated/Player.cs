@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     public IntVar m_inventorySpace;
 
-    [SerializeField] private UI_Inventory uiInventory;
+    [SerializeField] UI_Inventory m_uiInventory;
 
     [SerializeField] DropItemZone m_dropItemZone;
 
@@ -24,8 +24,8 @@ public class Player : MonoBehaviour
     {
         m_lifePlayer = GetComponent<LifePlayer>();
         inventory = new Inventory(UseItem);
-        uiInventory.SetPlayer(this);
-        uiInventory.SetInventory(inventory);
+        m_uiInventory.SetPlayer(this);
+        m_uiInventory.SetInventory(inventory);
 
     }
 
@@ -88,6 +88,5 @@ public class Player : MonoBehaviour
 
         }
         inventory.RemoveItem(new Item { itemType = p_itemType, amount = 1 });
-
     }
 }

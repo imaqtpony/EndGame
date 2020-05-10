@@ -40,7 +40,7 @@ public class LifePlayer : MonoBehaviour
             m_lifeValue.Value -= 1;
             x--;
 
-            //on recupere le dernier coueur
+            //on recupere le dernier coeur
             GameObject lastHeart = m_lifeHeartContainer.transform.GetChild(m_lifeValue.Value).gameObject;
 
             //et on le detruit
