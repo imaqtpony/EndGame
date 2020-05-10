@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.Build;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 
 
@@ -24,11 +25,16 @@ public class MovePlayer : MonoBehaviour
 
     [SerializeField] private LayerMask m_ignoreRaycastMask;
 
+    [SerializeField] AudioManager m_audioManager;
+    [SerializeField] AudioSource m_audioSource;
+
     private void Awake()
     {
         m_data.m_player = gameObject;
 
         m_agent = GetComponent<NavMeshAgent>();
+
+        m_audioSource.clip = m_audioManager.m_grassStepSound;
 
         m_agent.updateRotation = false;
         m_nbFramesElapsed = 0;
@@ -44,7 +50,6 @@ public class MovePlayer : MonoBehaviour
         // the pathcomplete bug fix where the agent stops but his path is not completed, we reset the path if the agent enters a small square radius around the destination
         if ((transform.position.x < m_agent.destination.x + 0.2f && transform.position.x > m_agent.destination.x - 0.2f) && (transform.position.z < m_agent.destination.z + 0.2f && transform.position.z > m_agent.destination.z - 0.2f))
             m_agent.ResetPath();
-
 
 
         if (Input.touchCount > 0)
@@ -70,7 +75,7 @@ public class MovePlayer : MonoBehaviour
                 }
             }
         }
-            
+
     }
 
 
@@ -100,19 +105,16 @@ public class MovePlayer : MonoBehaviour
                 {
 
                     m_agent.destination = ClosestNavmeshLocation(hit.point, m_range);
-
-                    Vector3 direction = hit.point - transform.position;
-                    direction = Vector3.ProjectOnPlane(direction, Vector3.up).normalized;
-
-                    gameObject.transform.LookAt(transform.position + direction);
-
+                    //transform.rotation = Quaternion.LookRotation(m_agent.destination - hit.point);
+                    transform.LookAt(hit.point);
+                    m_audioSource.Play();
+                    StartCoroutine(checkPlayerPos());
 
                 }
             }
 
         //}
     }
-
 
     /// <summary>
     /// Generate the closest hit on navmesh from the player touch on screen when moving
@@ -132,6 +134,29 @@ public class MovePlayer : MonoBehaviour
 
 
         return closestPosition;
+
+    }
+    private IEnumerator checkPlayerPos()
+    {
+        Debug.Log("TEST FONCTION");
+
+        var actualPos = transform.position;
+        yield return new WaitForSeconds(0.1f);
+        var finalPos = transform.position;
+
+
+        if (actualPos == finalPos)
+        {
+            m_audioSource.Pause();
+            Debug.Log("LE JOUEUR S'ARRETE");
+
+            StopCoroutine(checkPlayerPos());
+        }
+        else if (actualPos != finalPos)
+        {
+            StartCoroutine(checkPlayerPos());
+
+        }
 
     }
 

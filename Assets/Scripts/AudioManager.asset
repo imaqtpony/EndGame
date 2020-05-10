@@ -27,3 +27,4 @@ MonoBehaviour:
   m_craftDropItemOnSlotSound: {fileID: 8300000, guid: 6aee040f85b1b6d4190f8dc16712f86d,
     type: 3}
   m_clickSound: {fileID: 0}
+  m_grassStepSound: {fileID: 8300000, guid: 14065ecf601c3604282cfe1accdf63b8, type: 3}

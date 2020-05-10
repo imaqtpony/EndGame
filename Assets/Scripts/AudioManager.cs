@@ -18,5 +18,6 @@ public class AudioManager : ScriptableObject
     public AudioClip m_craftDropItemOnSlotSound;
     public AudioClip m_clickSound;
 
+    public AudioClip m_grassStepSound;
 
 }
