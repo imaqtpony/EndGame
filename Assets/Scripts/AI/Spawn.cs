@@ -9,7 +9,7 @@ public class Spawn : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        var nb_enemies = 3;
+        var nb_enemies = 2;
 
         for (int i = 1; i < nb_enemies; i++)
         {

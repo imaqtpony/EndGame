@@ -15,10 +15,12 @@ public class ToxicState : MonoBehaviour
 
     private float m_timerBeforeToxicState = 0.0f;
 
-    private float m_spawningTime = 5f;
+    private float m_spawningTime = 3f;
 
     private bool m_polluted = false;
 
+    [SerializeField] Shader m_toxicShader;
+    Renderer m_renderer;
 
     //private void OnEnable()
     //{
@@ -28,27 +30,44 @@ public class ToxicState : MonoBehaviour
 
     //}
 
+    private void Start()
+    {
+        m_renderer = transform.GetChild(1).GetComponent<Renderer>();
+    }
+
     private void Update()
     {
 
         m_timerBeforeToxicState += Time.deltaTime;
 
-        //30 seconds
-        if (m_timerBeforeToxicState % 60f > m_spawningTime && !m_polluted)
+        if (gameObject.CompareTag("Tools"))
         {
-            Polluted();
-            m_polluted = true;
-        }
-        
-    }
+            //2 minutes
+            if (m_timerBeforeToxicState % 60f > m_spawningTime && !m_polluted)
+            {
+                Polluted();
+                ChangeMaterial();
+                m_polluted = true;
+                Debug.Log("POLLUTION"); 
 
+            }
+
+        }
+    }
 
     private void Polluted()
     {
+
         // spawn/ lance l'effet visuel
         GameObject thisSpawner = Instantiate(m_enemiesSpawner, gameObject.transform);
         // set as child so whenever the player picks the item it destroys the spawner as well
         thisSpawner.transform.parent = gameObject.transform;
+
+    }
+
+    private void ChangeMaterial()
+    {
+        m_renderer.material.shader = m_toxicShader;
     }
 
 

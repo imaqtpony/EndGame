@@ -28,7 +28,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3992207885880290583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.71}
+  m_LocalPosition: {x: 0, y: 0, z: -1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4834034316151395651}
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.22, y: -0.67}
+  m_AnchoredPosition: {x: -0.22, y: -0.167}
   m_SizeDelta: {x: 2.586, y: 1.416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3072907369627121774
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: -7031077661227507373}
   - component: {fileID: 3827464248262650775}
   - component: {fileID: 4250136608923397808}
-  - component: {fileID: 5953641774037517018}
+  - component: {fileID: -353680288851492523}
   m_Layer: 0
   m_Name: pfItemWorld
   m_TagString: Untagged
@@ -274,8 +274,8 @@ MonoBehaviour:
   Cube: {fileID: 4449339180192840427, guid: ad9e04d1b9e2e7b4abe5574ff4beb81b, type: 3}
   Triangle: {fileID: 1645234219589170601, guid: c8dffef284591694ab2fefa031819eaf,
     type: 3}
-  Losange: {fileID: 4449339180192840427, guid: 85c69eff4870b8145a26d2b7d88b51fc, type: 3}
-  Squarangle: {fileID: 5385547379013855582, guid: c736fa7a4a32aec48bd34c9afdbfa2ee,
+  Losange: {fileID: 397589005028919571, guid: 31e9f25e2e7df874183dbdbcdddd7576, type: 3}
+  Squarangle: {fileID: 6597390646020364025, guid: fece2dc0a633e92418c096791bd44855,
     type: 3}
 --- !u!65 &3827464248262650775
 BoxCollider:
@@ -288,8 +288,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.409727, y: 2.2707522, z: 1.8967726}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.409727, y: 0.7107525, z: 1.8967727}
+  m_Center: {x: 0, y: -0.054661684, z: 0}
 --- !u!212 &4250136608923397808
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -340,25 +340,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!195 &5953641774037517018
-NavMeshAgent:
+--- !u!114 &-353680288851492523
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4834034316151395774}
   m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.2
-  m_Speed: 0
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 0
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897f0633f29781643a9011250c30f50a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_enemiesSpawner: {fileID: 7715719221113452857, guid: 36c17e82138441a4995a16ecf1d4f065,
+    type: 3}
+  m_toxicShader: {fileID: -6465566751694194690, guid: 727655a01e36a754ebf7c7f0d25147b4,
+    type: 3}
