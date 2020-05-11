@@ -32,7 +32,16 @@ public class EnvironementObject : MonoBehaviour
             }
         }
         
+    }
 
+    protected void DropMaterialOnDeathCrate(bool p_hasDropObject, GameObject p_attachedObject)
+    {
+        if (!p_hasDropObject)
+        {
+            Instantiate(p_attachedObject, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+
+        }
+        Destroy(gameObject);
 
     }
 
