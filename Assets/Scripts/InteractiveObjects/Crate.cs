@@ -23,12 +23,7 @@ public class Crate : EnvironementObject, IFireReact
 
     private Item m_attachedItem;
 
-    [SerializeField] AudioManager m_audioManager;
-    [SerializeField] AudioSource m_audioSource;
-
     [SerializeField] GameObject m_attachedObject;
-
-    private bool m_hasDropObject;
 
     //private animator m_thisAnim;
 
@@ -38,12 +33,12 @@ public class Crate : EnvironementObject, IFireReact
     //    m_attachedItem = new Item {truc machin avec les bonnes infos? randomize l'amount}
     //}
 
-    private void Awake()
+    /*private void Awake()
     {
         m_audioSource.PlayOneShot(m_audioManager.m_fireSound);
         m_audioSource.Pause();
 
-    }
+    }*/
 
 
     private void OnEnable()
@@ -100,7 +95,7 @@ public class Crate : EnvironementObject, IFireReact
             Debug.Log("Bye bye plant");
             // plant anim here
             //m_thisAnim.play();
-            DropMaterialOnDeathCrate(m_hasDropObject, m_attachedObject);
+            DropMaterialOnDeathCrate(m_attachedObject);
         }
 
         if(other.gameObject.tag == "Torch" && m_burnThings)
@@ -124,7 +119,7 @@ public class Crate : EnvironementObject, IFireReact
         //if(pSys.time > 5f)
         //// m_attachedItem and time before the object is destroyed
         DropMaterialOnDeath(true, 2.0f, 0, 0);
-        m_audioSource.Play();
+        //m_audioSource.Play();
 
 
     }

@@ -6,10 +6,7 @@ using InventoryNS.Utils;
 public class EnvironementObject : MonoBehaviour
 {
 
-    public Vector3 GetPosition()
-    {
-        return transform.position;
-    }
+    public static bool m_hasDropObject;
 
     //ce script pour generer les items quand l'objet du world creve, et s'autodetruire
     protected void DropMaterialOnDeath(bool p_isBurned, float p_destroyTime, int p_amountItem, Item.ItemType p_itemType)
@@ -34,12 +31,12 @@ public class EnvironementObject : MonoBehaviour
         
     }
 
-    protected void DropMaterialOnDeathCrate(bool p_hasDropObject, GameObject p_attachedObject)
+    protected void DropMaterialOnDeathCrate(GameObject p_attachedObject)
     {
-        if (!p_hasDropObject)
+        if (!m_hasDropObject)
         {
             Instantiate(p_attachedObject, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-
+            m_hasDropObject = true;
         }
         Destroy(gameObject);
 
