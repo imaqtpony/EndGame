@@ -69,7 +69,7 @@ public class MovePlayer : MonoBehaviour
             {
                 if (m_nbFramesElapsed > 20)
                 {
-                    Debug.Log("SWIPE OR W/E");
+                    //Debug.Log("SWIPE OR W/E");
                     m_stopSwipe = true;
                 }
                 else
@@ -141,7 +141,7 @@ public class MovePlayer : MonoBehaviour
     }
     private IEnumerator checkPlayerPos()
     {
-        Debug.Log("TEST FONCTION");
+        //Debug.Log("TEST FONCTION");
 
         var actualPos = transform.position;
         yield return new WaitForSeconds(0.1f);
@@ -151,7 +151,7 @@ public class MovePlayer : MonoBehaviour
         if (actualPos == finalPos)
         {
             m_audioSource.Pause();
-            Debug.Log("LE JOUEUR S'ARRETE");
+            //Debug.Log("LE JOUEUR S'ARRETE");
 
             StopCoroutine(checkPlayerPos());
         }

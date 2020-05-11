@@ -59,7 +59,6 @@ public class SpawnPlayer : MonoBehaviour
 
         float valueToMovePlayer = 6.5f;
 
-        Debug.Log("MOVING PLAYER");
 
         switch (p_borderName)
         {
