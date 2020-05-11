@@ -29,7 +29,7 @@ public class BoardManager : MonoBehaviour
     private void Awake()
     {
         //temp nb boards
-        m_nbBoards = 3;
+        m_nbBoards = 5;
         m_boardArray = new BoardData[m_nbBoards, m_nbBoards];
 
         m_spawnScript = m_player.GetComponent<SpawnPlayer>();
@@ -61,7 +61,7 @@ public class BoardManager : MonoBehaviour
             }
         }
 
-        int startingBoard = Mathf.RoundToInt((m_nbBoards - 1) / 2);
+        int startingBoard = Mathf.RoundToInt(2 / 2);
 
         //begin the game at the center of the map
         m_boardArray[startingBoard, startingBoard].isActive = true;
