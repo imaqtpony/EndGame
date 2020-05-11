@@ -11,6 +11,7 @@ TagManager:
   - Axe
   - Torch
   - ToolsSlot
+  - QuestObject
   layers:
   - Default
   - TransparentFX

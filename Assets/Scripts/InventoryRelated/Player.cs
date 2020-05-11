@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using GD2Lib;
 using TMPro;
 
@@ -18,6 +19,8 @@ public class Player : MonoBehaviour
     [SerializeField] DropItemZone m_dropItemZone;
 
     [SerializeField] TextMeshProUGUI m_amounItemsInventory;
+
+    [SerializeField] UI_QuestObjects m_uiQuestObjects;
 
     // Start is called before the first frame update
     private void Awake()
@@ -49,20 +52,31 @@ public class Player : MonoBehaviour
                 {
                     inventory.AddItem(itemWorld.GetItem());
                     itemWorld.DestroySelf();
-                    Debug.Log("RAMASSE RESSOURCES");
                 }
                 else if (collider.gameObject.tag == "Tools")
                 {
                     inventory.AddTools(itemWorld.GetItem());
                     itemWorld.DestroySelf();
-                    Debug.Log("RAMASSE OUTILS");
+
                 }
 
             }
             m_amounItemsInventory.text = $"{ Inventory.itemList.Count + Inventory.toolsList.Count }/{m_inventorySpace.Value}";
 
         }
+        if (collider.CompareTag("QuestObject"))
+        {
+            Invoke("UI_ShowObject", .1f);
+            Destroy(collider.gameObject, .5f);
+        }
 
+
+    }
+
+    private void UI_ShowObject()
+    {
+        m_uiQuestObjects.UI_ShowObject();
+        Debug.Log("LEVIER BORDEL");
     }
 
     private void UseItem(Item.ItemType p_itemType)
