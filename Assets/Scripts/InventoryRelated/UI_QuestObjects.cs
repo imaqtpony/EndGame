@@ -5,7 +5,7 @@ using UnityEngine;
 public class UI_QuestObjects : MonoBehaviour
 {
 
-    [SerializeField] CanvasGroup m_canvasLevier;
+    [SerializeField] GameObject m_canvasLevier;
 
     public string m_nameObject;
 
@@ -17,7 +17,7 @@ public class UI_QuestObjects : MonoBehaviour
         {
             default:
             case "m_Levier":
-                m_canvasLevier.alpha = 1f;
+                m_canvasLevier.SetActive(true);
                 m_hasLevier = true;
                 break;
         }
