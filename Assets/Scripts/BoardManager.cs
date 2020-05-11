@@ -29,7 +29,7 @@ public class BoardManager : MonoBehaviour
     private void Awake()
     {
         //temp nb boards
-        m_nbBoards = 5;
+        m_nbBoards = 7;
         m_boardArray = new BoardData[m_nbBoards, m_nbBoards];
 
         m_spawnScript = m_player.GetComponent<SpawnPlayer>();

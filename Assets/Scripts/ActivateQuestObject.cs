@@ -8,20 +8,24 @@ public class ActivateQuestObject : MonoBehaviour
     private Animator m_animator;
     public static bool m_canUseItem;
 
+    [SerializeField] GameObject m_player;
 
-    public Renderer m_meshRenderer;
+    private Renderer m_meshRenderer;
+
+    private float m_distanceWithPlayer;
 
     private void Start()
     {
         m_animator = GetComponent<Animator>();
         m_meshRenderer = GetComponent<Renderer>();
-
     }
 
-
-    private void OnTriggerStay(Collider collider)
+    public void Update()
     {
-        if (collider.CompareTag("Player"))
+        //check the distance with the player
+        m_distanceWithPlayer = Vector3.Distance(m_player.transform.position, transform.position);
+
+        if (m_distanceWithPlayer <= 2.5f)
         {
             m_canUseItem = true;
             if (UI_QuestObjects.m_activateLevier)
@@ -30,7 +34,14 @@ public class ActivateQuestObject : MonoBehaviour
                 m_animator.SetTrigger("Activate");
             }
         }
+        else
+        {
+            m_canUseItem = false;
+
+        }
+
     }
+
 
     private void OnTriggerExit(Collider collider)
     {

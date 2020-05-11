@@ -22,7 +22,7 @@ public class CraftSystem : MonoBehaviour
 
     public void CheckCraftSlot()
     {
-        Debug.Log("ON PEUT COMMENCER A CRAFTER");
+        
         if (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "mrcFer")) != null))
         {
             m_itemResult.sprite = ItemAssets.Instance.hacheSprite;

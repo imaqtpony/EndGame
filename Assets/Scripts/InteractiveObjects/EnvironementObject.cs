@@ -17,7 +17,6 @@ public class EnvironementObject : MonoBehaviour
             {
                 //Item item = GenerateItem(transform.position, p_item.ItemType);
                 Destroy(gameObject, p_destroyTime);
-                Debug.Log("DETRUIS TOIIII");
 
                 Item duplicateItem = new Item { itemType = p_itemType, amount = p_amountItem };
                 ItemWorld.DropItem(gameObject.transform.position, duplicateItem);

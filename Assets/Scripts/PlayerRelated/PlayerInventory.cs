@@ -21,7 +21,7 @@ public class PlayerInventory : MonoBehaviour
     private void Awake()
     {
         m_lifePlayer = GetComponent<LifePlayer>();
-        inventory = new Inventory(UseItem);
+        //inventory = new Inventory(UseItem);
         //uiInventory.SetPlayer(this);
         uiInventory.SetInventory(inventory);
 
@@ -48,13 +48,11 @@ public class PlayerInventory : MonoBehaviour
                 {
                     inventory.AddItem(itemWorld.GetItem());
                     itemWorld.DestroySelf();
-                    Debug.Log("RAMASSE RESSOURCES");
                 }
                 else if (collider.gameObject.tag == "Tools")
                 {
                     inventory.AddTools(itemWorld.GetItem());
                     itemWorld.DestroySelf();
-                    Debug.Log("RAMASSE OUTILS");
                 }
 
             }
@@ -63,7 +61,7 @@ public class PlayerInventory : MonoBehaviour
 
     }
 
-    private void UseItem(Item.ItemType itemType)
+    /*private void UseItem(Item.ItemType itemType)
     {
         switch (itemType)
         {
@@ -86,5 +84,5 @@ public class PlayerInventory : MonoBehaviour
         }
         inventory.RemoveItem(new Item { itemType = itemType, amount = 1 });
 
-    }
+    }*/
 }

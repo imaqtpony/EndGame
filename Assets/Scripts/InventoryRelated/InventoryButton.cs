@@ -31,7 +31,6 @@ public class InventoryButton : MonoBehaviour
             m_audioSource.PlayOneShot(m_audioManager.m_openInventorySound);
             m_menuButton.alpha = 0.3f;
 
-            Debug.Log("OPEN INVENTORY");
         }
         else if(!m_InventoryEnabled)
         {
@@ -39,7 +38,6 @@ public class InventoryButton : MonoBehaviour
 
             m_menuButton.alpha = 1f;
             m_audioSource.PlayOneShot(m_audioManager.m_closeInventorySound);
-            Debug.Log("CLOSE INVENTORY");
 
             m_uiInventory.RefreshInventoryRessources();
             m_uiInventory.RemoveItemFromCraftSlot();
