@@ -141,7 +141,6 @@ public class MovePlayer : MonoBehaviour
     }
     private IEnumerator checkPlayerPos()
     {
-        Debug.Log("TEST FONCTION");
 
         var actualPos = transform.position;
         yield return new WaitForSeconds(0.1f);
@@ -151,7 +150,6 @@ public class MovePlayer : MonoBehaviour
         if (actualPos == finalPos)
         {
             m_audioSource.Pause();
-            Debug.Log("LE JOUEUR S'ARRETE");
 
             StopCoroutine(checkPlayerPos());
         }
