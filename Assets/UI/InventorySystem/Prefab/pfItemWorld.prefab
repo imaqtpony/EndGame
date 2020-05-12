@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 3827464248262650775}
   - component: {fileID: 4250136608923397808}
   - component: {fileID: -353680288851492523}
+  - component: {fileID: 924241363851159828}
   m_Layer: 0
   m_Name: pfItemWorld
   m_TagString: Untagged
@@ -270,13 +271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e906f9b8ca3d044becdfd28f323828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sphere: {fileID: 1945603804679845473, guid: 7560e7caa43285045b212b970de3bb30, type: 3}
-  Cube: {fileID: 4449339180192840427, guid: ad9e04d1b9e2e7b4abe5574ff4beb81b, type: 3}
-  Triangle: {fileID: -927199367670048503, guid: 55e9c4e86f9799843aa7a1ccf3d77455,
-    type: 3}
-  hache: {fileID: -927199367670048503, guid: 0cb21ed2f077788449b95a1236370707, type: 3}
-  allumette: {fileID: 1097257198731035510, guid: 1ce68d75ed78e7144884e73c05696a2f,
-    type: 3}
 --- !u!65 &3827464248262650775
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -356,3 +350,22 @@ MonoBehaviour:
     type: 3}
   m_toxicShader: {fileID: -6465566751694194690, guid: 727655a01e36a754ebf7c7f0d25147b4,
     type: 3}
+--- !u!95 &924241363851159828
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4834034316151395774}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89c4b7bb5109a964ab057e2ad6570682, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
