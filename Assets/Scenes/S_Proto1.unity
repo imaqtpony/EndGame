@@ -40878,7 +40878,8 @@ GameObject:
   - component: {fileID: 1282676883}
   - component: {fileID: 1282676884}
   - component: {fileID: 1282676879}
-  m_Layer: 0
+  - component: {fileID: 1282676885}
+  m_Layer: 2
   m_Name: Levier
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -40974,7 +40975,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_animatorSlotLevier: {fileID: 1931971627}
-  m_player: {fileID: 8260226598715580090}
 --- !u!95 &1282676884
 Animator:
   serializedVersion: 3
@@ -40994,6 +40994,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &1282676885
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282676878}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.068861865
+  m_Height: 0.54641926
+  m_Direction: 1
+  m_Center: {x: -0.000000044426677, y: -0.12665345, z: 0.06310098}
 --- !u!4 &1286245464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5808991293827922234, guid: dcc076d8dd906c640b7865bccc8d7871,
@@ -46216,7 +46230,7 @@ Transform:
   m_LocalScale: {x: 2.3069124, y: 2.3069122, z: 2.3069122}
   m_Children: []
   m_Father: {fileID: 4240871246393137390}
-  m_RootOrder: 32
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -156.72401}
 --- !u!208 &1444230051
 NavMeshObstacle:
@@ -49125,7 +49139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1548082134
 RectTransform:
   m_ObjectHideFlags: 0
@@ -55415,7 +55429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1743676872
 RectTransform:
   m_ObjectHideFlags: 0
@@ -79044,6 +79058,7 @@ Transform:
   - {fileID: 4240871245869896002}
   - {fileID: 9196400067721768838}
   - {fileID: 9196400069487953187}
+  - {fileID: 1444230050}
   - {fileID: 1101050155}
   - {fileID: 473998614}
   - {fileID: 1006065583}
@@ -79053,7 +79068,6 @@ Transform:
   - {fileID: 1001822802}
   - {fileID: 1973683635}
   - {fileID: 1856077128}
-  - {fileID: 1444230050}
   - {fileID: 128139539}
   - {fileID: 60886094}
   - {fileID: 600715867}
