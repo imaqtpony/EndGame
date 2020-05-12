@@ -58,6 +58,7 @@ public class CandlesHandler : MonoBehaviour
                 {
                     Debug.Log("SOLVED");
                     // insert event here to open chest or w/e
+
                 } else
                 {
                     // deactivate candles, wrong order
