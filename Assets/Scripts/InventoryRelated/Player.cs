@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     private LifePlayer m_lifePlayer;
 
     public IntVar m_inventorySpace;
+    [SerializeField] QuestManager m_questManager;
+
+    [SerializeField] QuestSystem m_questSystem;
 
     [SerializeField] UI_Inventory m_uiInventory;
 
@@ -45,13 +48,18 @@ public class Player : MonoBehaviour
         if (Inventory.itemList.Count < m_inventorySpace.Value)
         {
             ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
-
             if (itemWorld != null)
             {
                 if(collider.gameObject.tag != "Tools")
                 {
                     inventory.AddItem(itemWorld.GetItem());
                     itemWorld.DestroySelf();
+                    if (!m_questManager.m_craftToolDone)
+                    {
+                        m_questSystem.ChangeQuest("Construisez un outil");
+                        
+                    }
+
                 }
                 else if (collider.gameObject.tag == "Tools")
                 {

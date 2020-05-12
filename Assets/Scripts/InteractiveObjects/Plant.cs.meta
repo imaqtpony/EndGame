@@ -6,6 +6,9 @@ MonoImporter:
   defaultReferences:
   - m_onCutWithAxe: {fileID: 11400000, guid: 69842c52ecd242a499976681f501cbe5, type: 2}
   - m_onUseTorch: {fileID: 11400000, guid: f46add224d9f28042ad2bf6b1721e814, type: 2}
+  - m_questManager: {fileID: 11400000, guid: 0c4c3e7d11b2a384b8e40af431899763, type: 2}
+  - m_audioManager: {instanceID: 0}
+  - m_audioSource: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

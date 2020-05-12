@@ -24,7 +24,7 @@ public class EnvironementObject : MonoBehaviour
             else
             {
                 Destroy(gameObject, p_destroyTime);
-
+                
             }
         }
         

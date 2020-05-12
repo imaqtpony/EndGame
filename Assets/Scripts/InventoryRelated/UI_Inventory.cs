@@ -10,6 +10,11 @@ public class UI_Inventory : MonoBehaviour
 {
     private Inventory inventory;
 
+    [Header("Quest system")]
+    [SerializeField] QuestSystem m_questSystem;
+    [SerializeField] QuestManager m_questManager;
+
+
     [Header("Elements needed to be found")]
     [SerializeField] Transform m_ressourcesSlotContainer;
     [SerializeField] Transform m_ressourcesSlotTemplate;
@@ -163,7 +168,6 @@ public class UI_Inventory : MonoBehaviour
             inventory.AddTools(new Item { itemType = Item.ItemType.hache, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 4 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.mrcFer, amount = 1 });
-
         }
         //craft torche
         if (Inventory.m_amountTissu >= 1 && Inventory.m_amountBaton >= 1 && CraftSystem.m_itemType == Item.ItemType.torche)
@@ -171,6 +175,12 @@ public class UI_Inventory : MonoBehaviour
             inventory.AddTools(new Item { itemType = Item.ItemType.torche, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.tissu, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
+            m_questManager.m_craftToolDone = true;
+            if (!m_questManager.m_destroyPlantDone)
+            {
+                m_questSystem.ChangeQuest("Brulez les plantes.");
+
+            }
 
         }
         m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
