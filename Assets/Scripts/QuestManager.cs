@@ -12,6 +12,4 @@ public class QuestManager : ScriptableObject
     public bool m_firstEnigmaDone;
     public bool m_secondEnigmaDone;
 
-    
-
 }

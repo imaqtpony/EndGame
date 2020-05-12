@@ -13,12 +13,12 @@ public class DropItemZone : MonoBehaviour, IDropHandler
 
     [SerializeField] UI_Inventory m_uiInventory;
 
-    [SerializeField] Player player;
+    [SerializeField] HarvestItem player;
 
     [SerializeField] List<GameObject> m_tools;
 
 
-    public void SetPlayer(Player player)
+    public void SetPlayer(HarvestItem player)
     {
         this.player = player;
     }

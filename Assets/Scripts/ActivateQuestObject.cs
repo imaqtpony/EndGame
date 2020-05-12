@@ -6,6 +6,7 @@ public class ActivateQuestObject : MonoBehaviour
 {
 
     private Animator m_animator;
+    [SerializeField] Animator m_animatorSlotLevier;
     public static bool m_canUseItem;
 
     [SerializeField] GameObject m_player;
@@ -27,6 +28,7 @@ public class ActivateQuestObject : MonoBehaviour
 
         if (m_distanceWithPlayer <= 2.5f)
         {
+            m_animatorSlotLevier.SetTrigger("FlashingQuestObject");
             m_canUseItem = true;
             if (UI_QuestObjects.m_activateLevier)
             {
@@ -37,6 +39,7 @@ public class ActivateQuestObject : MonoBehaviour
         else
         {
             m_canUseItem = false;
+            m_animatorSlotLevier.SetTrigger("DisplayQuestObject");
 
         }
 

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1514518968639974128}
   - component: {fileID: 952635527330422317}
   - component: {fileID: 952635527330422319}
-  m_Layer: 0
+  - component: {fileID: 850235941918466619}
+  m_Layer: 2
   m_Name: Etabli
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,4 +112,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_craftcanvas: {fileID: 0}
   m_craftText: {fileID: 0}
-  m_player: {fileID: 0}
+--- !u!65 &850235941918466619
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952635527330422316}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.639377, y: 1.507424, z: 0.5380792}
+  m_Center: {x: 0.5891216, y: 0.00000243341, z: 0.26132268}
