@@ -42,7 +42,7 @@ public class Pushable_Object : MonoBehaviour
         {
             //maybe instead get a forward from the player pos to the mouse pos
             m_rb.AddForce(new Vector3(m_forceDirection.transform.forward.x,0, m_forceDirection.transform.forward.z) * 5f, ForceMode.Impulse);
-            Debug.Log("Successfully pushed obj");
+            //Debug.Log("Successfully pushed obj");
         }
 
     }

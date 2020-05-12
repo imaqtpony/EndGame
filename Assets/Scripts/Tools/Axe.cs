@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using GD2Lib;
 using System;
@@ -15,18 +14,23 @@ public class Axe : MonoBehaviour
 
     private bool m_isCurrentlyCutting;
 
-
-    private void Awake()
+    private void Update()
     {
-        m_isCurrentlyCutting = false;
-    }
+        if (Input.touchCount == 0)
+        {
+            m_isCurrentlyCutting = false;
+            transform.rotation = Quaternion.LookRotation(new Vector3(0, transform.parent.position.y, 0));
 
+        }
+    }
 
     private void OnEnable()
     {
+
         if (m_onSwipe != null)
             m_onSwipe.Register(HandleCutOnSwipe);
     }
+
     private void OnDisable()
     {
         if (m_onSwipe != null)
@@ -41,10 +45,32 @@ public class Axe : MonoBehaviour
             m_isCurrentlyCutting = true;
             m_onCutWithAxe.Raise(m_isCurrentlyCutting, sData);
 
+            transform.rotation = RotateAxe(sData);
+
         }
         else
         {
             Debug.LogError("Invalid type of argument !");
         }
     }
+
+    private Quaternion RotateAxe(SwipeData p_sData)
+    {
+        Quaternion rota;
+
+        if (p_sData.endPosition.x - p_sData.startPosition.x < 0)
+        {
+            //left
+            return rota = transform.parent.rotation * Quaternion.Euler(0, 0, 180);
+
+        }
+        else 
+        {
+            //Right
+            return rota = transform.parent.rotation;
+
+        }
+
+    }
+
 }
