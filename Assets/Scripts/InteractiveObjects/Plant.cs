@@ -18,6 +18,9 @@ public class Plant : EnvironementObject, IFireReact
     [SerializeField]
     private GD2Lib.Event m_onUseTorch;
 
+    public QuestManager m_questManager;
+    public QuestSystem m_questSystem;
+
     private bool m_burnThings;
     private bool m_cutThePlant;
 
@@ -118,6 +121,12 @@ public class Plant : EnvironementObject, IFireReact
 
         DropMaterialOnDeath(true, 2.0f, 0, 0);
         m_audioSource.Play();
+        m_questManager.m_destroyPlantDone = true;
+        if (!m_questManager.m_findDungeonDone)
+        {
+            m_questSystem.ChangeQuest("Trouvez le donjon");
+            m_questManager.m_findDungeonDone = true;
+        }
 
 
     }
