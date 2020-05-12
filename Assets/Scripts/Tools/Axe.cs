@@ -6,9 +6,6 @@ using System;
 
 public class Axe : MonoBehaviour
 {
-    [SerializeField]
-    [Tooltip("The axe Prefab here")]
-    private GameObject m_axePrefab;
 
     [SerializeField]
     private GD2Lib.Event m_onCutWithAxe;
