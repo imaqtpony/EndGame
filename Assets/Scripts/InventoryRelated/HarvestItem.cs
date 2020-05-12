@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using GD2Lib;
 using TMPro;
 
-public class Player : MonoBehaviour
+public class HarvestItem : MonoBehaviour
 {
 
     private Inventory inventory;
@@ -40,7 +40,16 @@ public class Player : MonoBehaviour
         return transform.position;
     }
 
-    
+    private void OnEnable()
+    {
+        m_questManager.m_craftToolDone = false;
+        m_questManager.m_destroyPlantDone = false;
+        m_questManager.m_findDungeonDone = false;
+        m_questManager.m_firstEnigmaDone = false;
+        m_questManager.m_secondEnigmaDone = false;
+    }
+
+
     private void OnTriggerEnter(Collider collider)
     {
 

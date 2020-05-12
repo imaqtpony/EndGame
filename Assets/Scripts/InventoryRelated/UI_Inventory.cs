@@ -34,13 +34,13 @@ public class UI_Inventory : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI m_inventoryFull;
 
-    private Player player;
+    private HarvestItem player;
 
     [SerializeField] AudioManager m_audioManager;
 
     [SerializeField] AudioSource m_audioSource;
 
-    public void SetPlayer(Player player)
+    public void SetPlayer(HarvestItem player)
     {
         this.player = player;
     }
@@ -163,10 +163,10 @@ public class UI_Inventory : MonoBehaviour
     public void CraftTools()
     {
         //craft hache
-        if (Inventory.m_amountBaton >= 4 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType == Item.ItemType.hache)
+        if (Inventory.m_amountBaton >= 1 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType == Item.ItemType.hache)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.hache, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 4 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.mrcFer, amount = 1 });
         }
         //craft torche
@@ -175,6 +175,7 @@ public class UI_Inventory : MonoBehaviour
             inventory.AddTools(new Item { itemType = Item.ItemType.torche, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.tissu, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
+
             m_questManager.m_craftToolDone = true;
             if (!m_questManager.m_destroyPlantDone)
             {

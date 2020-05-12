@@ -100,7 +100,9 @@ public class ItemWorld : MonoBehaviour
         spriteRenderer.sprite = item.GetSprite();
         if(item.amount > 1)
         {
-            uiText.SetText(item.amount.ToString());
+            //uiText.SetText(item.amount.ToString());
+            uiText.SetText("");
+
         }
         else
         {

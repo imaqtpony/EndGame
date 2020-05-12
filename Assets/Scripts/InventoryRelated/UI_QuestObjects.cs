@@ -11,6 +11,12 @@ public class UI_QuestObjects : MonoBehaviour
 
     public static bool m_activateLevier;
 
+    private void Awake()
+    {
+        m_canvasLevier.SetActive(false);
+
+    }
+
     public void UI_ShowObject()
     {
         switch (m_nameObject)
