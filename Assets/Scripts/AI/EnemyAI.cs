@@ -38,10 +38,10 @@ public class EnemyAI : MonoBehaviour
         if (m_enemyDetect.m_inLight == false)
         {
             //m_agent.SetDestination(m_data.m_player.transform.position);
+
             //m_agent.SetDestination(m_player.transform.position);
 
         }
-
 
     }
 }

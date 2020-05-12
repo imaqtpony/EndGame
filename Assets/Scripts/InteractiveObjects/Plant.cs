@@ -91,7 +91,7 @@ public class Plant : EnvironementObject, IFireReact
             Debug.LogError("Invalid type of argument !");
         }
     }
-
+     
 
     private void OnTriggerEnter(Collider other)
     {

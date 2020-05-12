@@ -2,7 +2,6 @@
 using UnityEngine.AI;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEditor.Build;
 using UnityEngine.EventSystems;
 using System.Collections;
 
@@ -108,8 +107,12 @@ public class MovePlayer : MonoBehaviour
                 {
 
                     m_agent.destination = ClosestNavmeshLocation(hit.point, m_range);
-                    //transform.rotation = Quaternion.LookRotation(m_agent.destination - hit.point);
-                    transform.LookAt(hit.point);
+
+                    Vector3 direction = hit.point - transform.position;
+                    direction = Vector3.ProjectOnPlane(direction, Vector3.up).normalized;
+
+                    gameObject.transform.LookAt(transform.position + direction);
+
                     m_audioSource.Play();
                     StartCoroutine(checkPlayerPos());
 
@@ -139,9 +142,10 @@ public class MovePlayer : MonoBehaviour
         return closestPosition;
 
     }
+
+
     private IEnumerator checkPlayerPos()
     {
-        //Debug.Log("TEST FONCTION");
 
         var actualPos = transform.position;
         yield return new WaitForSeconds(0.1f);
@@ -151,7 +155,6 @@ public class MovePlayer : MonoBehaviour
         if (actualPos == finalPos)
         {
             m_audioSource.Pause();
-            //Debug.Log("LE JOUEUR S'ARRETE");
 
             StopCoroutine(checkPlayerPos());
         }
