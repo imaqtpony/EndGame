@@ -3,21 +3,6 @@ using UnityEngine;
 
 namespace GD2Lib {
 
-    
-
-    /// <summary>
-    /// <see cref="GenericVar{T}"/> de type float.
-    /// </summary>
-    [CreateAssetMenu(fileName = "GD2-FloatVar", menuName = "GD2Lib/Variables/FloatVar")]
-    public class FloatVar : GenericVar<float> { }
-
-    /// <summary>
-    /// <see cref="GenericVar{T}"/> de type Vector3.
-    /// </summary>
-    [CreateAssetMenu(fileName = "GD2-Vector3Var", menuName = "GD2Lib/Variables/Vector3Var")]
-    public class Vector3Var : GenericVar<Vector3> { }
-
-
     /// <summary>
     /// Classe abstraite pour les variables synchronisées
     /// </summary>
