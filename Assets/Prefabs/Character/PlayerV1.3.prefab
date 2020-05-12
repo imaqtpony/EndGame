@@ -632,7 +632,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4
   m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
-  m_audioSource: {fileID: 1673995438}
+  m_audioSource: {fileID: 0}
 --- !u!54 &1315066270232433449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -676,6 +676,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_inventorySpace: {fileID: 11400000, guid: d07dc231abe8106478e8d2b1db02f1a2, type: 2}
+  m_questManager: {fileID: 11400000, guid: 0c4c3e7d11b2a384b8e40af431899763, type: 2}
+  m_questSystem: {fileID: 0}
   m_uiInventory: {fileID: 0}
   m_dropItemZone: {fileID: 0}
   m_amounItemsInventory: {fileID: 0}
