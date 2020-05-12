@@ -6,6 +6,8 @@ MonoImporter:
   defaultReferences:
   - m_enemiesSpawner: {fileID: 7715719221113452857, guid: 36c17e82138441a4995a16ecf1d4f065,
       type: 3}
+  - m_toxicShader: {fileID: -6465566751694194690, guid: 0dfa3191d9737cd4f953dd1ff680172a,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

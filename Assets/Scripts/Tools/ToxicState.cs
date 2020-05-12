@@ -32,7 +32,7 @@ public class ToxicState : MonoBehaviour
 
     private void Start()
     {
-        m_renderer = transform.GetChild(1).GetComponent<Renderer>();
+        //m_renderer = transform.GetChild(1).GetComponent<Renderer>();
     }
 
     private void Update()
@@ -46,8 +46,7 @@ public class ToxicState : MonoBehaviour
             if (m_timerBeforeToxicState % 60f > m_spawningTime && !m_polluted)
             {
                 Polluted();
-                ChangeMaterial();
-                m_polluted = true;
+                //ChangeMaterial();
                 Debug.Log("POLLUTION"); 
 
             }
@@ -62,6 +61,7 @@ public class ToxicState : MonoBehaviour
         GameObject thisSpawner = Instantiate(m_enemiesSpawner, gameObject.transform);
         // set as child so whenever the player picks the item it destroys the spawner as well
         thisSpawner.transform.parent = gameObject.transform;
+        m_polluted = true;
 
     }
 

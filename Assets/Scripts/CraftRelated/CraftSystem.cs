@@ -32,9 +32,9 @@ public class CraftSystem : MonoBehaviour
         }
         if (m_craftSlotList.Find(w => string.Equals(w.name, "tissu")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null))
         {
-            m_itemResult.sprite = ItemAssets.Instance.torcheSprite;
+            m_itemResult.sprite = ItemAssets.Instance.allumetteSprite;
             m_craftActive = true;
-            m_itemType = Item.ItemType.torche;
+            m_itemType = Item.ItemType.allumette;
             m_craftButton.alpha = 1f;
 
         }

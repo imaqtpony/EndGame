@@ -133,13 +133,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 m_isRessource = false;
                 SelectTools(itemType);
                 break;
-            case "torche":
-                itemType = Item.ItemType.torche;
+            case "allumette":
+                itemType = Item.ItemType.allumette;
                 m_amountItemToDrop = 1;
                 m_isRessource = false;
                 SelectTools(itemType);
-                
-                //m_audioManager.m_audioSource.loop = true;
 
                 break;
         }
@@ -160,6 +158,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void SelectTools(Item.ItemType p_toolsType)
     {
+        Debug.Log(p_toolsType);
         if (!InventoryButton.m_InventoryEnabled)
         {
             for (int i = 0; i < m_tools.Count + 1; i++)
