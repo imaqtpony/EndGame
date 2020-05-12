@@ -14,7 +14,9 @@ public class Torch : MonoBehaviour
     private GD2Lib.Event m_onUseTorch;
 
     private int m_nbFramesElapsed = 0;
+
     [SerializeField] AudioManager m_audioManager;
+
     private void Awake()
     {
         m_audioManager.m_audioSource = GetComponent<AudioSource>();
