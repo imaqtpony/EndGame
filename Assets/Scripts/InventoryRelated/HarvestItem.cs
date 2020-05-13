@@ -35,7 +35,7 @@ public class HarvestItem : MonoBehaviour
         m_uiInventory.SetInventory(inventory);
 
         // Reset the sync var between the plays in the editor
-        m_inventorySpace.Value = 3;
+        m_inventorySpace.Value = 4;
 
     }
 

@@ -16,6 +16,7 @@ public class Item
         allumette,
         hache_pierre,
         echelle,
+        masse,
 
     }
 
@@ -35,6 +36,7 @@ public class Item
             case ItemType.allumette: return ItemAssets.Instance.allumetteSprite;
             case ItemType.hache_pierre: return ItemAssets.Instance.hache_pierreSprite;
             case ItemType.echelle: return ItemAssets.Instance.echelleSprite;
+            case ItemType.masse: return ItemAssets.Instance.masseSprite;
         }
     }
 
@@ -52,6 +54,7 @@ public class Item
             case ItemType.hache_pierre:
             case ItemType.allumette:
             case ItemType.echelle:
+            case ItemType.masse:
                 return false;
         }
     }

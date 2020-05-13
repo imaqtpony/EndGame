@@ -9,12 +9,10 @@ public class Chest : MonoBehaviour
 
     [SerializeField] Transform[] m_itemsUnlockedSlots;
 
-    [SerializeField] string m_IDChest;
-
     private Image m_image;
 
 
-    [Header("FOR SPECIAL CHEST")]
+    [Header("ITEM A CHOISIR")]
 
     [SerializeField] Item.ItemType[] m_itemTypeGiven;
     [SerializeField] int m_amountItemGiven;
@@ -25,25 +23,33 @@ public class Chest : MonoBehaviour
 
         if (collider.CompareTag("Player"))
         {
+            m_itemsUnlockedSlots[m_itemTypeGiven.Length - 1].gameObject.SetActive(true);
+            Invoke("DisableSlot", 5f);
+
             int p_amount = m_amountItemGiven;
             for (int i = 0; i < m_itemTypeGiven.Length; i++)
             {
-   
                 m_uiInventory.ChestItem(m_itemTypeGiven[i], p_amount);
-                m_image = m_itemsUnlockedSlots[m_itemTypeGiven.Length].GetChild(i).GetComponent<Image>();
+                m_image = m_itemsUnlockedSlots[m_itemTypeGiven.Length - 1].GetChild(i).GetComponent<Image>();
+                m_image.sprite.name = m_itemTypeGiven[i].ToString();
                 AssociateSprite();
                 Debug.Log("give");
+
             }
-
-
-            m_itemsUnlockedSlots[m_itemTypeGiven.Length - 1].gameObject.SetActive(true);
 
             Destroy(this);
         }
     }
 
+    private void DisableSlot()
+    {
+        m_itemsUnlockedSlots[m_itemTypeGiven.Length - 1].gameObject.SetActive(false);
+
+    }
+
     public void AssociateSprite()
     {
+
         switch (m_image.sprite.name)
         {
             case "baton":

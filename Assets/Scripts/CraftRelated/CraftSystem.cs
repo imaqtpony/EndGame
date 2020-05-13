@@ -22,7 +22,7 @@ public class CraftSystem : MonoBehaviour
 
     public void CheckCraftSlot()
     {
-        if (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null)
+        if (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null && BluePrintObjects.m_ladderBluePrintDiscovered)
         {
             m_itemResult.sprite = ItemAssets.Instance.echelleSprite;
             m_craftActive = true;
