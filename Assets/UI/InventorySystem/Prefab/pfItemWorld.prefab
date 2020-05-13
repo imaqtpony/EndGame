@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5705801743241893396}
   - component: {fileID: 8313031469974870686}
   - component: {fileID: 7621772347696979659}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AmountDroppedItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 4250136608923397808}
   - component: {fileID: -353680288851492523}
   - component: {fileID: 924241363851159828}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pfItemWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}

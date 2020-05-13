@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using GD2Lib;
 using UnityEngine.UI;
+
 public class LifePlayer : MonoBehaviour
 {
     public IntVar m_lifeValue;
@@ -15,7 +16,7 @@ public class LifePlayer : MonoBehaviour
 
     public float m_invDuration;
 
-    public IntVar m_maxLifeValue;
+    [SerializeField] public int m_vieMax;
 
     [SerializeField] Image m_backgroundLife;
 
@@ -27,12 +28,12 @@ public class LifePlayer : MonoBehaviour
 
     private void Start()
     {
-        m_lifeValue.Value = m_maxLifeValue.Value;
+        //m_lifeValue.Value = m_vieMax;
         InstantiateHearts();
         UpdateWidthBackgroundLife();
     }
 
-    void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
@@ -62,7 +63,7 @@ public class LifePlayer : MonoBehaviour
 
         int SPACE_BETWEEN_HEARTS = 70;
 
-        for (int i = 0; i < m_maxLifeValue.Value - 1; i++)
+        for (int i = 0; i < m_vieMax - 1; i++)
         {
             x++;
             RectTransform itemSlotRectTransform = Instantiate(m_lifeHeartSprite, m_lifeHeartContainer).GetComponent<RectTransform>();
@@ -73,7 +74,7 @@ public class LifePlayer : MonoBehaviour
 
     public void HealingFunc()
     {
-        if(m_lifeValue.Value < m_maxLifeValue.Value)
+        if(m_lifeValue.Value < m_vieMax)
         {
             m_lifeValue.Value += 1;
 
@@ -106,7 +107,7 @@ public class LifePlayer : MonoBehaviour
 
     public void UpdateWidthBackgroundLife()
     {
-        m_backgroundLife.rectTransform.sizeDelta = new Vector2(m_maxLifeValue.Value * 162, 162); 
+        m_backgroundLife.rectTransform.sizeDelta = new Vector2(m_vieMax * 162, 162); 
     }
 
     
