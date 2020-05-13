@@ -7,6 +7,7 @@ public class ActivateQuestObject : MonoBehaviour
 
     private Animator m_animator;
     [SerializeField] Animator m_animatorSlotLevier;
+    [SerializeField] Animator m_animatorMusicBox;
     public static bool m_canUseItem;
 
     private Renderer m_meshRenderer;
@@ -29,6 +30,7 @@ public class ActivateQuestObject : MonoBehaviour
             {
                 m_meshRenderer.enabled = true;
                 m_animator.SetTrigger("Activate");
+                m_animatorMusicBox.SetTrigger("Activate");
             }
         }
         

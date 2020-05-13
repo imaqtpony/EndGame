@@ -17,5 +17,5 @@ public class ItemAssets : MonoBehaviour
     public Sprite tissuSprite;
     public Sprite mrcFerSprite;
     public Sprite hacheSprite;
-    public Sprite torcheSprite;
+    public Sprite allumetteSprite;
 }

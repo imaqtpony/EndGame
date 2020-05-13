@@ -13,6 +13,8 @@ public class CandlesHandler : MonoBehaviour
 
     private ParticleSystem[] m_pSysArray;
 
+    [SerializeField] Animator[] m_animatorVolet;
+
     [Tooltip("nb candles to solve the puzzle (add 1 to the actual number ) to fit how the checking is done")]
     private int m_nbCandles = 5;
 
@@ -56,8 +58,10 @@ public class CandlesHandler : MonoBehaviour
                 // if true then gg
                 if (SolvePuzzle())
                 {
-                    Debug.Log("SOLVED");
-                    // insert event here to open chest or w/e
+                    foreach (Animator animator in m_animatorVolet)
+                    {
+                        animator.SetTrigger("Activate");
+                    }
 
                 } else
                 {

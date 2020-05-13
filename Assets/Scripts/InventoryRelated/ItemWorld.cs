@@ -8,15 +8,10 @@ using System;
 [Serializable]
 public class ItemWorld : MonoBehaviour
 {
-    [SerializeField] GameObject Sphere;
-    [SerializeField] GameObject Cube;
-    [SerializeField] GameObject Triangle;
-    [SerializeField] GameObject Losange;
-    [SerializeField] GameObject Squarangle;
 
     public static ItemWorld SpawnItemWorld(Vector3 position, Item item)
     {
-        Transform transform = Instantiate(ItemAssets.Instance.pfItemWorld, position, Quaternion.identity);
+        Transform transform = Instantiate(ItemAssets.Instance.pfItemWorld, position, Quaternion.Euler(90f, 0f, 0f));
 
         ItemWorld itemWorld = transform.GetComponent<ItemWorld>();
         itemWorld.SetItem(item);
@@ -46,52 +41,11 @@ public class ItemWorld : MonoBehaviour
     private void Start()
     {
 
-        switch (item.itemType)
+        if(item.itemType == Item.ItemType.hache || item.itemType == Item.ItemType.allumette)
         {
-            case Item.ItemType.baton:
-                var mySphere = Instantiate(Sphere, new Vector3(gameObject.transform.position.x,
-                                            gameObject.transform.position.y,
-                                            gameObject.transform.position.z), Quaternion.identity);
-
-                mySphere.transform.parent = gameObject.transform;
-                break;
-
-            case Item.ItemType.tissu:
-                var mySquare = Instantiate(Cube, new Vector3(gameObject.transform.position.x,
-                                            gameObject.transform.position.y,
-                                            gameObject.transform.position.z), Quaternion.identity);
-
-                mySquare.transform.parent = gameObject.transform;
-                break;
-
-            case Item.ItemType.mrcFer:
-                var myTriangle = Instantiate(Triangle, new Vector3(gameObject.transform.position.x,
-                                            gameObject.transform.position.y,
-                                            gameObject.transform.position.z), Quaternion.identity);
-
-                myTriangle.transform.parent = gameObject.transform;
-                break;
-
-            case Item.ItemType.hache:
-                var myLosange = Instantiate(Losange, new Vector3(gameObject.transform.position.x,
-                                            gameObject.transform.position.y,
-                                            gameObject.transform.position.z), Quaternion.identity);
-
-                myLosange.transform.parent = gameObject.transform;
-                gameObject.tag = "Tools";
-                break;
-
-            case Item.ItemType.torche:
-                var mySquarangle = Instantiate(Squarangle, new Vector3(gameObject.transform.position.x,
-                                            gameObject.transform.position.y,
-                                            gameObject.transform.position.z), Quaternion.identity);
-
-                mySquarangle.transform.parent = gameObject.transform;
-                gameObject.tag = "Tools";
-                break;
-
-
+            gameObject.tag = "Tools";
         }
+
     }
 
     public void SetItem(Item item)

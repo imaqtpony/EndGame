@@ -12,7 +12,7 @@ public class Item
         tissu,
         mrcFer,
         hache,
-        torche,
+        allumette,
 
     }
 
@@ -28,7 +28,7 @@ public class Item
             case ItemType.tissu: return ItemAssets.Instance.tissuSprite;
             case ItemType.mrcFer: return ItemAssets.Instance.mrcFerSprite;
             case ItemType.hache: return ItemAssets.Instance.hacheSprite;
-            case ItemType.torche: return ItemAssets.Instance.torcheSprite;
+            case ItemType.allumette: return ItemAssets.Instance.allumetteSprite;
         }
     }
 
@@ -42,7 +42,7 @@ public class Item
             case ItemType.mrcFer:
                 return true;
             case ItemType.hache:
-            case ItemType.torche:
+            case ItemType.allumette:
                 return false;
         }
     }
