@@ -14,7 +14,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     private CanvasGroup canvasGroup;
 
     public Transform itemSlot;
-    public Transform m_amountText;
     public Transform m_thisItem;
 
     public Image image;
@@ -63,7 +62,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         //Debug.Log("OnDrag");
         rectTransform.anchoredPosition += eventData.delta / 0.66f;
-        DeplaceItemText();
 
     }
 
@@ -72,7 +70,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         //Debug.Log("OnEndDrag");
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
-        DeplaceItemText();
+
 
     }
 
@@ -97,10 +95,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         }
     }
 
-    public void DeplaceItemText()
-    {
-        //m_amountText.transform.position = new Vector2(transform.position.x + 40, transform.position.y - 50);
-    }
 
     public Item.ItemType DetectItem()
     {
@@ -127,6 +121,12 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 m_isRessource = true;
 
                 break;
+            case "caillou":
+                itemType = Item.ItemType.caillou;
+                m_amountItemToDrop = Inventory.m_amountCaillou;
+                m_isRessource = true;
+
+                break;
             case "hache":
                 itemType = Item.ItemType.hache;
                 m_amountItemToDrop = 1;
@@ -135,6 +135,20 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 break;
             case "allumette":
                 itemType = Item.ItemType.allumette;
+                m_amountItemToDrop = 1;
+                m_isRessource = false;
+                SelectTools(itemType);
+
+                break;
+            case "hache_pierre":
+                itemType = Item.ItemType.hache_pierre;
+                m_amountItemToDrop = 1;
+                m_isRessource = false;
+                SelectTools(itemType);
+
+                break;
+            case "echelle":
+                itemType = Item.ItemType.echelle;
                 m_amountItemToDrop = 1;
                 m_isRessource = false;
                 SelectTools(itemType);

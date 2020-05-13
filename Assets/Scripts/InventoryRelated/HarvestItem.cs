@@ -70,7 +70,7 @@ public class HarvestItem : MonoBehaviour
                     }
 
                 }
-                else if (collider.gameObject.tag == "Tools")
+                else if (collider.gameObject.tag == "Tools" && collider.gameObject.tag == "SecondaryObject")
                 {
                     inventory.AddTools(itemWorld.GetItem());
                     itemWorld.DestroySelf();
@@ -110,10 +110,6 @@ public class HarvestItem : MonoBehaviour
                 break;
             case Item.ItemType.mrcFer:
                 Debug.Log("Triangle utilisé");
-
-                break;
-            case Item.ItemType.hache:
-                Debug.Log("Losange utilisé");
 
                 break;
 

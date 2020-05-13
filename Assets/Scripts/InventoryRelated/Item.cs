@@ -11,8 +11,11 @@ public class Item
         baton,
         tissu,
         mrcFer,
+        caillou,
         hache,
         allumette,
+        hache_pierre,
+        echelle,
 
     }
 
@@ -27,8 +30,11 @@ public class Item
             case ItemType.baton: return ItemAssets.Instance.batonSprite;
             case ItemType.tissu: return ItemAssets.Instance.tissuSprite;
             case ItemType.mrcFer: return ItemAssets.Instance.mrcFerSprite;
+            case ItemType.caillou: return ItemAssets.Instance.caillouSprite;
             case ItemType.hache: return ItemAssets.Instance.hacheSprite;
             case ItemType.allumette: return ItemAssets.Instance.allumetteSprite;
+            case ItemType.hache_pierre: return ItemAssets.Instance.hache_pierreSprite;
+            case ItemType.echelle: return ItemAssets.Instance.echelleSprite;
         }
     }
 
@@ -40,9 +46,12 @@ public class Item
             case ItemType.baton:
             case ItemType.tissu:
             case ItemType.mrcFer:
+            case ItemType.caillou:
                 return true;
             case ItemType.hache:
+            case ItemType.hache_pierre:
             case ItemType.allumette:
+            case ItemType.echelle:
                 return false;
         }
     }

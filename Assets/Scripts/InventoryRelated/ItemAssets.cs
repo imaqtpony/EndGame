@@ -16,6 +16,10 @@ public class ItemAssets : MonoBehaviour
     public Sprite batonSprite;
     public Sprite tissuSprite;
     public Sprite mrcFerSprite;
+    public Sprite caillouSprite;
+
     public Sprite hacheSprite;
     public Sprite allumetteSprite;
+    public Sprite hache_pierreSprite;
+    public Sprite echelleSprite;
 }

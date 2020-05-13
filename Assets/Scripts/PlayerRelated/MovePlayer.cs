@@ -151,7 +151,6 @@ public class MovePlayer : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         var finalPos = transform.position;
 
-
         if (actualPos == finalPos)
         {
             m_audioSource.Pause();
@@ -161,7 +160,6 @@ public class MovePlayer : MonoBehaviour
         else if (actualPos != finalPos)
         {
             StartCoroutine(checkPlayerPos());
-
         }
 
     }
