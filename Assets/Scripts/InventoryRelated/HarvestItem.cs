@@ -13,6 +13,7 @@ public class HarvestItem : MonoBehaviour
     private LifePlayer m_lifePlayer;
 
     public IntVar m_inventorySpace;
+
     [SerializeField] QuestManager m_questManager;
 
     [SerializeField] QuestSystem m_questSystem;
@@ -33,6 +34,9 @@ public class HarvestItem : MonoBehaviour
         m_uiInventory.SetPlayer(this);
         m_uiInventory.SetInventory(inventory);
 
+        // Reset the sync var between the plays in the editor
+        m_inventorySpace.Value = 3;
+
     }
 
     public Vector3 GetPosition()
@@ -52,15 +56,15 @@ public class HarvestItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        //Debug.LogWar
-
         if (Inventory.itemList.Count < m_inventorySpace.Value)
         {
             ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
+
             if (itemWorld != null)
             {
                 if(collider.gameObject.tag != "Tools")
                 {
+
                     inventory.AddItem(itemWorld.GetItem());
                     itemWorld.DestroySelf();
                     if (!m_questManager.m_craftToolDone)
@@ -81,6 +85,7 @@ public class HarvestItem : MonoBehaviour
             m_amounItemsInventory.text = $"{ Inventory.itemList.Count + Inventory.toolsList.Count }/{m_inventorySpace.Value}";
 
         }
+
         if (collider.CompareTag("QuestObject"))
         {
             Invoke("UI_ShowObject", .1f);

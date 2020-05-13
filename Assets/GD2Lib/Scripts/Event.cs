@@ -177,11 +177,12 @@ namespace GD2Lib {
 #if UNITY_EDITOR
             // Ca c'est juste un test pour vous éviter de faire n'importe quoi et d'avoir des erreurs zarbi.
             // Test un peu lourd donc je ne l'effectue que dans l'éditeur pour avoir de meilleurs performances dans votre jeux final sur les event
-            if (p_param != null && !typeof(T).IsAssignableFrom(p_param.GetType())) 
+            if (p_param != null && !typeof(T).IsAssignableFrom(p_param.GetType()))
                 return default;
 #endif
 
-            try {
+            try
+            {
                 return p_param != null ? (T)p_param : default;
             }
             catch (Exception ex) {

@@ -6,14 +6,13 @@ using GD2Lib;
 
 public class Vie : MonoBehaviour
 {
-    [SerializeField] int m_vie;
+    [SerializeField] public int m_vie;
 
     public IntVar m_ScriptableObject;
 
-    private void Start()
+    private void Awake()
     {
         //Debug.Log(m_ScriptableObject.Value);
-
     }
 
     
@@ -35,6 +34,6 @@ public class Vie : MonoBehaviour
 
     public void HandleVie(int m_vie)
     {
-
+        // life value changed
     }
 }
