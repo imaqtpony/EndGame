@@ -52,7 +52,7 @@ public class HarvestItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-
+        //Debug.LogWar
 
         if (Inventory.itemList.Count < m_inventorySpace.Value)
         {
@@ -86,7 +86,6 @@ public class HarvestItem : MonoBehaviour
             Invoke("UI_ShowObject", .1f);
             Destroy(collider.gameObject, .5f);
         }
-
 
     }
 

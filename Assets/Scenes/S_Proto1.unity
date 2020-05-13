@@ -10393,7 +10393,7 @@ PrefabInstance:
     - target: {fileID: 2077274761875520006, guid: 57a2c3800eb92cb408cd86de63224972,
         type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 2077274761875520006, guid: 57a2c3800eb92cb408cd86de63224972,
         type: 3}
@@ -11561,7 +11561,7 @@ PrefabInstance:
     - target: {fileID: 2077274761875520006, guid: 57a2c3800eb92cb408cd86de63224972,
         type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 2077274761875520006, guid: 57a2c3800eb92cb408cd86de63224972,
         type: 3}
@@ -15094,7 +15094,7 @@ PrefabInstance:
     - target: {fileID: 8288084462305856815, guid: 4e0701980901d94439d42ca7957bdc76,
         type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 8288084462305856815, guid: 4e0701980901d94439d42ca7957bdc76,
         type: 3}
@@ -31766,10 +31766,10 @@ Transform:
   - {fileID: 1382521589}
   - {fileID: 1971700116}
   - {fileID: 1248978341}
+  - {fileID: 286143815}
   - {fileID: 263094414}
   - {fileID: 1150005894976734530}
   - {fileID: 388254732}
-  - {fileID: 286143815}
   - {fileID: 730946669}
   - {fileID: 1343276810}
   - {fileID: 1327164458}
@@ -56790,8 +56790,8 @@ MonoBehaviour:
   m_selectedIndicator: {fileID: 633966270}
   m_isOnSlot: 0
   m_tools:
-  - {fileID: 747824680}
-  - {fileID: 1728421191}
+  - {fileID: 0}
+  - {fileID: 0}
   m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
   m_audioSource: {fileID: 1276893711}
 --- !u!114 &1276893706
@@ -76943,12 +76943,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1727821840}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1728421191 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8855130995164228142, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
-    type: 3}
-  m_PrefabInstance: {fileID: 774567234390714688}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1729192738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96976,7 +96970,7 @@ Transform:
   - {fileID: 1036824758}
   - {fileID: 879088713}
   m_Father: {fileID: 813570979}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1150005895014699926
 Transform:
