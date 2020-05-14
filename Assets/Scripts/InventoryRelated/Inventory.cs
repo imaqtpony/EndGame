@@ -18,6 +18,7 @@ public class Inventory
     public static int m_amountTissu;
     public static int m_amountMrcFer;
     public static int m_amountCaillou;
+    public static int m_amountGros_caillou;
 
     public Inventory(Action<Item.ItemType> useItemAction)
     {
@@ -86,6 +87,9 @@ public class Inventory
                     break;
                 case Item.ItemType.caillou:
                     m_amountCaillou = inventoryItem.amount;
+                    break;
+                case Item.ItemType.gros_caillou:
+                    m_amountGros_caillou = inventoryItem.amount;
                     break;
             }
         }

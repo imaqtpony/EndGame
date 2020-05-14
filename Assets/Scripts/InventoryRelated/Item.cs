@@ -12,6 +12,8 @@ public class Item
         tissu,
         mrcFer,
         caillou,
+        gros_caillou,
+
         hache,
         allumette,
         hache_pierre,
@@ -39,6 +41,7 @@ public class Item
             case ItemType.echelle: return ItemAssets.Instance.echelleSprite;
             case ItemType.masse: return ItemAssets.Instance.masseSprite;
             case ItemType.plan_echelle: return ItemAssets.Instance.plan_echelleSprite;
+            case ItemType.gros_caillou: return ItemAssets.Instance.gros_caillouSprite;
         }
     }
 
@@ -51,6 +54,7 @@ public class Item
             case ItemType.tissu:
             case ItemType.mrcFer:
             case ItemType.caillou:
+            case ItemType.gros_caillou:
                 return true;
             case ItemType.hache:
             case ItemType.hache_pierre:

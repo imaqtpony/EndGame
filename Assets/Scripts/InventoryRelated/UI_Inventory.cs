@@ -204,6 +204,14 @@ public class UI_Inventory : MonoBehaviour
             m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
 
         }
+        else if (Inventory.m_amountBaton >= 2 && Inventory.m_amountGros_caillou >= 1)
+        {
+            inventory.AddTools(new Item { itemType = Item.ItemType.masse, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 2 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.gros_caillou, amount = 1 });
+            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+
+        }
         else
         {
             RefreshInventoryRessources();

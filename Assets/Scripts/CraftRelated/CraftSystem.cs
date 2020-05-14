@@ -22,7 +22,7 @@ public class CraftSystem : MonoBehaviour
 
     public void CheckCraftSlot()
     {
-        if (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null /*&& BluePrintObjects.m_ladderBluePrintDiscovered*/)
+        if (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null && BluePrintObjects.m_ladderBluePrintDiscovered)
         {
             m_itemResult.sprite = ItemAssets.Instance.echelleSprite;
             m_craftActive = true;
@@ -51,6 +51,14 @@ public class CraftSystem : MonoBehaviour
             m_itemResult.sprite = ItemAssets.Instance.hache_pierreSprite;
             m_craftActive = true;
             m_itemType = Item.ItemType.hache_pierre;
+            m_craftButton.alpha = 1f;
+
+        }
+        else if (m_craftSlotList.Find(w => string.Equals(w.name, "gros_caillou")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null))
+        {
+            m_itemResult.sprite = ItemAssets.Instance.masseSprite;
+            m_craftActive = true;
+            m_itemType = Item.ItemType.masse;
             m_craftButton.alpha = 1f;
 
         }

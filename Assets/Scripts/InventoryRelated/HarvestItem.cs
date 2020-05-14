@@ -105,7 +105,7 @@ public class HarvestItem : MonoBehaviour
         switch (p_itemType)
         {
             case Item.ItemType.baton:
-                m_lifePlayer.HealingFunc();
+                //m_lifePlayer.HealingFunc();
 
                 break;
             case Item.ItemType.tissu:
