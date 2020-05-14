@@ -52,7 +52,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
                 m_craftSystem.CheckCraftSlot();
 
-                if (m_craftSystem.m_craftSlotList.Count < 2) m_craftSystem.NotEnoughItemToCraft();
+                if (m_craftSystem.m_craftSlotList.Count < 1) m_craftSystem.NotEnoughItemToCraft();
 
                 m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_craftDropItemOnSlotSound);
 

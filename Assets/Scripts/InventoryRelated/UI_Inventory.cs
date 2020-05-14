@@ -168,9 +168,11 @@ public class UI_Inventory : MonoBehaviour
             inventory.AddTools(new Item { itemType = Item.ItemType.hache, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.mrcFer, amount = 1 });
+            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+
         }
         //craft torche
-        if (Inventory.m_amountTissu >= 1 && Inventory.m_amountBaton >= 1 && CraftSystem.m_itemType == Item.ItemType.allumette)
+        else if (Inventory.m_amountTissu >= 1 && Inventory.m_amountBaton >= 1 && CraftSystem.m_itemType == Item.ItemType.allumette)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.allumette, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.tissu, amount = 1 });
@@ -182,9 +184,30 @@ public class UI_Inventory : MonoBehaviour
                 m_questSystem.ChangeQuest("Brulez les plantes.");
 
             }
+            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
 
         }
-        m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+        else if (Inventory.m_amountBaton >= 1 && Inventory.m_amountCaillou >= 2 && CraftSystem.m_itemType == Item.ItemType.hache_pierre)
+        {
+            inventory.AddTools(new Item { itemType = Item.ItemType.hache_pierre, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.caillou, amount = 2 });
+            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+
+        }
+        else if (Inventory.m_amountBaton >= 4)
+        {
+            inventory.AddTools(new Item { itemType = Item.ItemType.echelle, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 4 });
+            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+
+        }
+        else
+        {
+            RefreshInventoryRessources();
+            RefreshInventoryTools();
+            //pas assez de ressources
+        }
 
     }
 
@@ -250,6 +273,13 @@ public class UI_Inventory : MonoBehaviour
     private void UpdateAmountItems()
     {
         m_amountItemsInventory.text = $"{ Inventory.itemList.Count + Inventory.toolsList.Count}/{m_inventorySpace.Value}";
+
+    }
+
+    public void ChestItem(Item.ItemType p_itemType, int p_amount)
+    {
+        inventory.AddItem(new Item { itemType = p_itemType, amount = 1 });
+        UpdateAmountItems();
 
     }
 

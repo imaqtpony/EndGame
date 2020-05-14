@@ -35,7 +35,7 @@ public class HarvestItem : MonoBehaviour
         m_uiInventory.SetInventory(inventory);
 
         // Reset the sync var between the plays in the editor
-        m_inventorySpace.Value = 3;
+        m_inventorySpace.Value = 4;
 
     }
 
@@ -74,7 +74,7 @@ public class HarvestItem : MonoBehaviour
                     }
 
                 }
-                else if (collider.gameObject.tag == "Tools")
+                else if (collider.gameObject.tag == "Tools" && collider.gameObject.tag == "SecondaryObject")
                 {
                     inventory.AddTools(itemWorld.GetItem());
                     itemWorld.DestroySelf();
@@ -114,10 +114,6 @@ public class HarvestItem : MonoBehaviour
                 break;
             case Item.ItemType.mrcFer:
                 Debug.Log("Triangle utilisé");
-
-                break;
-            case Item.ItemType.hache:
-                Debug.Log("Losange utilisé");
 
                 break;
 

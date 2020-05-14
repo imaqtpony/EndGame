@@ -22,7 +22,14 @@ public class CraftSystem : MonoBehaviour
 
     public void CheckCraftSlot()
     {
-        
+        if (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null && BluePrintObjects.m_ladderBluePrintDiscovered)
+        {
+            m_itemResult.sprite = ItemAssets.Instance.echelleSprite;
+            m_craftActive = true;
+            m_itemType = Item.ItemType.echelle;
+            m_craftButton.alpha = 1f;
+            Debug.Log("echelle");
+        }
         if (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "mrcFer")) != null))
         {
             m_itemResult.sprite = ItemAssets.Instance.hacheSprite;
@@ -30,7 +37,7 @@ public class CraftSystem : MonoBehaviour
             m_itemType = Item.ItemType.hache;
             m_craftButton.alpha = 1f;
         }
-        if (m_craftSlotList.Find(w => string.Equals(w.name, "tissu")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null))
+        else if (m_craftSlotList.Find(w => string.Equals(w.name, "tissu")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null))
         {
             m_itemResult.sprite = ItemAssets.Instance.allumetteSprite;
             m_craftActive = true;
@@ -38,6 +45,16 @@ public class CraftSystem : MonoBehaviour
             m_craftButton.alpha = 1f;
 
         }
+
+        else if (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "caillou")) != null))
+        {
+            m_itemResult.sprite = ItemAssets.Instance.hache_pierreSprite;
+            m_craftActive = true;
+            m_itemType = Item.ItemType.hache_pierre;
+            m_craftButton.alpha = 1f;
+
+        }
+        
     }
 
     public void NotEnoughItemToCraft()

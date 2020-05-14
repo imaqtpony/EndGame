@@ -30,6 +30,7 @@ public class DropItemZone : MonoBehaviour, IDropHandler
             m_uiInventory.DropItemFunction(DragDrop.itemType, DragDrop.m_amountItemToDrop);
 
         }
+
         else if (!DragDrop.m_isRessource)
         {
             for (int i = 0; i < m_tools.Count + 1; i++)
