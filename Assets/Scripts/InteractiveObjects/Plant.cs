@@ -31,6 +31,9 @@ public class Plant : EnvironementObject, IFireReact
     [SerializeField] AudioManager m_audioManager;
     [SerializeField] AudioSource m_audioSource;
 
+    [SerializeField]
+    private ParticleSystem m_fireVFX;
+
     //private animator m_thisAnim;
 
     //private void Awake()
@@ -40,6 +43,7 @@ public class Plant : EnvironementObject, IFireReact
     //}
     private void Awake()
     {
+
         m_audioSource.PlayOneShot(m_audioManager.m_fireSound);
         m_audioSource.Pause();
 
@@ -118,6 +122,7 @@ public class Plant : EnvironementObject, IFireReact
     {
         ParticleSystem pSys = GetComponent<ParticleSystem>();
         pSys.Play();
+        m_fireVFX.Play();
 
         DropMaterialOnDeath(true, 2.0f, 0, 0);
         m_audioSource.Play();
