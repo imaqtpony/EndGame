@@ -24,7 +24,6 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(m_data.m_player);
 
         //m_agent.SetDestination(m_player.transform.position);
         if (m_enemyDetect.m_inLight == true)
