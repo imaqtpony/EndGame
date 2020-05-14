@@ -36,7 +36,6 @@ public class Chest : MonoBehaviour
                 Debug.Log("give");
 
             }
-
             Destroy(this);
         }
     }
@@ -63,6 +62,9 @@ public class Chest : MonoBehaviour
                 break;
             case "mrcFer":
                 m_image.sprite = ItemAssets.Instance.mrcFerSprite;
+                break;
+            case "plan_echelle":
+                m_image.sprite = ItemAssets.Instance.plan_echelleSprite;
                 break;
         }
     }

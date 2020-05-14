@@ -18,6 +18,8 @@ public class ItemAssets : MonoBehaviour
     public Sprite mrcFerSprite;
     public Sprite caillouSprite;
 
+    public Sprite plan_echelleSprite;
+
     public Sprite hacheSprite;
     public Sprite allumetteSprite;
     public Sprite hache_pierreSprite;
