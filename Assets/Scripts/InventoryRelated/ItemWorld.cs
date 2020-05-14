@@ -40,7 +40,6 @@ public class ItemWorld : MonoBehaviour
 
     private void Start()
     {
-
         if(item.itemType == Item.ItemType.hache || item.itemType == Item.ItemType.allumette || item.itemType == Item.ItemType.hache_pierre)
         {
             gameObject.tag = "Tools";

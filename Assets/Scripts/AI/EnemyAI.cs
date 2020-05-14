@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-
     private NavMeshAgent m_agent;
 
     private DetectLight m_enemyDetect;

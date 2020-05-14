@@ -62,7 +62,7 @@ public class HarvestItem : MonoBehaviour
 
             if (itemWorld != null)
             {
-                if(collider.gameObject.tag != "Tools")
+                if(collider.gameObject.tag == "Untagged")
                 {
 
                     inventory.AddItem(itemWorld.GetItem());
@@ -74,7 +74,7 @@ public class HarvestItem : MonoBehaviour
                     }
 
                 }
-                else if (collider.gameObject.tag == "Tools" && collider.gameObject.tag == "SecondaryObject")
+                else if (collider.gameObject.tag == "Tools" || collider.gameObject.tag == "SecondaryObject")
                 {
                     inventory.AddTools(itemWorld.GetItem());
                     itemWorld.DestroySelf();

@@ -187,6 +187,7 @@ public class UI_Inventory : MonoBehaviour
             m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
 
         }
+        //craft hache pierre
         else if (Inventory.m_amountBaton >= 1 && Inventory.m_amountCaillou >= 2 && CraftSystem.m_itemType == Item.ItemType.hache_pierre)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.hache_pierre, amount = 1 });
@@ -195,6 +196,7 @@ public class UI_Inventory : MonoBehaviour
             m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
 
         }
+        //craft echelle
         else if (Inventory.m_amountBaton >= 4)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.echelle, amount = 1 });

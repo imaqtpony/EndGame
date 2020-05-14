@@ -21,11 +21,17 @@ public class InventoryButton : MonoBehaviour
     [SerializeField] Animator m_animatorInventory;
 
 
+    private void Awake()
+    {
+        DisableInventory();
+    }
+
     public void OpenInventory()
     {
         m_InventoryEnabled = !m_InventoryEnabled;
         if (m_InventoryEnabled)
         {
+            m_Inventory.SetActive(true);
 
             m_animatorInventory.SetTrigger("OpenInventory");
             m_audioSource.PlayOneShot(m_audioManager.m_openInventorySound);
@@ -34,6 +40,7 @@ public class InventoryButton : MonoBehaviour
         }
         else if(!m_InventoryEnabled)
         {
+            Invoke("DisableInventory", .33f);
             m_animatorInventory.SetTrigger("CloseInventory");
 
             m_menuButton.alpha = 1f;
@@ -67,6 +74,11 @@ public class InventoryButton : MonoBehaviour
 
         m_audioSource.PlayOneShot(m_audioManager.m_openToolsInventorySound, 8f);
 
+    }
+
+    private void DisableInventory()
+    {
+        m_Inventory.SetActive(false);
     }
 
 }
