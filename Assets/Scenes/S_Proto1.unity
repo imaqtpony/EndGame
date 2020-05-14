@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 940f97e30a233c5458a91bce786606b4,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1909,7 +1909,7 @@ Transform:
   m_LocalScale: {x: 0.864692, y: 0.864692, z: 0.864692}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &41716954
 PrefabInstance:
@@ -3537,12 +3537,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77374010}
-  m_LocalRotation: {x: 0.004614039, y: -0.0428695, z: 0.02745738, w: 0.99869263}
-  m_LocalPosition: {x: -8.08, y: 1.933, z: 46.98}
-  m_LocalScale: {x: 1.7597, y: 1, z: 14.953185}
+  m_LocalRotation: {x: 0.0047170394, y: -0.03912165, z: 0.027439876, w: 0.99884653}
+  m_LocalPosition: {x: 14.480286, y: -8.320153, z: 37.593117}
+  m_LocalScale: {x: 1.7597001, y: 1, z: 14.953186}
   m_Children: []
-  m_Father: {fileID: 414218745}
-  m_RootOrder: 44
+  m_Father: {fileID: 1767077933}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0.66300005, y: -4.8980002, z: 3.121}
 --- !u!208 &77374012
 NavMeshObstacle:
@@ -4171,7 +4171,7 @@ Transform:
   - {fileID: 1745579529}
   - {fileID: 927465146}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &87630471
 MonoBehaviour:
@@ -5156,7 +5156,7 @@ Transform:
   - {fileID: 916636915}
   - {fileID: 3393088511463451040}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &117685070
 PrefabInstance:
@@ -5883,7 +5883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &134474594
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -5972,7 +5972,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 20.15457}
   m_Children: []
   m_Father: {fileID: 1767077933}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &135457264
 PrefabInstance:
@@ -9952,7 +9952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &234840478
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -10041,7 +10041,7 @@ Transform:
   m_LocalScale: {x: 7.310965, y: 1, z: 3.4502935}
   m_Children: []
   m_Father: {fileID: 1767077933}
-  m_RootOrder: 13
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &237990428
 PrefabInstance:
@@ -10724,6 +10724,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herb_flam (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
@@ -11892,6 +11897,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herb_flam (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
@@ -14217,6 +14227,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herb_flam (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
 --- !u!4 &348771054 stripped
@@ -16076,6 +16091,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herb_flam (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
 --- !u!4 &407657813 stripped
@@ -16235,9 +16255,6 @@ Transform:
   - {fileID: 345556780}
   - {fileID: 26854547}
   - {fileID: 515905299}
-  - {fileID: 77374011}
-  - {fileID: 776711375}
-  - {fileID: 1613230308}
   m_Father: {fileID: 1861757249}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0.43, z: 0}
@@ -19546,7 +19563,7 @@ PrefabInstance:
     - target: {fileID: 6773045642307990631, guid: b419b4e1d9fd7924c83215416130225e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6773045642307990631, guid: b419b4e1d9fd7924c83215416130225e,
         type: 3}
@@ -22354,7 +22371,7 @@ Transform:
   m_Children:
   - {fileID: 289527097}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &591042584
 Animator:
@@ -22961,6 +22978,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herb_flam (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
@@ -24450,6 +24472,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herb_flam (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
 --- !u!4 &633729312 stripped
@@ -25080,6 +25107,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herb_flam (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
 --- !u!4 &642381371 stripped
@@ -25334,6 +25366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herb_flam
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
@@ -25995,6 +26032,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herb_flam (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
 --- !u!4 &671162518 stripped
@@ -26511,7 +26553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &684729927
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -26600,7 +26642,7 @@ Transform:
   m_LocalScale: {x: 4.499277, y: 1, z: 1.7746676}
   m_Children: []
   m_Father: {fileID: 1767077933}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 30.000002, z: 0}
 --- !u!1001 &686897252
 PrefabInstance:
@@ -27342,6 +27384,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herb_flam (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
 --- !u!4 &706103979 stripped
@@ -27449,7 +27496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &710180199
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -27538,7 +27585,7 @@ Transform:
   m_LocalScale: {x: 8.172714, y: 1, z: 1.485591}
   m_Children: []
   m_Father: {fileID: 1767077933}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &710718598
 PrefabInstance:
@@ -29714,6 +29761,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herb_flam (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
 --- !u!4 &753270316 stripped
@@ -30571,12 +30623,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776711374}
-  m_LocalRotation: {x: 0.01426788, y: 0.06692902, z: 0.023908697, w: 0.9973692}
-  m_LocalPosition: {x: -8.7, y: 1.9, z: 51.45}
-  m_LocalScale: {x: 1.7597, y: 1, z: 4.4911013}
+  m_LocalRotation: {x: 0.014357495, y: 0.07067113, z: 0.02385499, w: 0.997111}
+  m_LocalPosition: {x: 13.89385, y: -8.353153, z: 42.067642}
+  m_LocalScale: {x: 1.7597001, y: 1, z: 4.4911017}
   m_Children: []
-  m_Father: {fileID: 414218745}
-  m_RootOrder: 45
+  m_Father: {fileID: 1767077933}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 1.447, y: 7.714, z: 2.844}
 --- !u!208 &776711376
 NavMeshObstacle:
@@ -33587,7 +33639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &827950837
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -33676,7 +33728,7 @@ Transform:
   m_LocalScale: {x: 4.715243, y: 1, z: 2.1927512}
   m_Children: []
   m_Father: {fileID: 1767077933}
-  m_RootOrder: 9
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: -40.051003, z: 0}
 --- !u!1 &833177235
 GameObject:
@@ -33860,7 +33912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &835608226
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -33949,7 +34001,7 @@ Transform:
   m_LocalScale: {x: 8.619833, y: 1, z: 1.7746676}
   m_Children: []
   m_Father: {fileID: 1767077933}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &838224631
 GameObject:
@@ -34582,6 +34634,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herb_flam (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
@@ -42591,6 +42648,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herb_flam
       objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
 --- !u!4 &935475146 stripped
@@ -42698,7 +42760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &936086763
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -42787,7 +42849,7 @@ Transform:
   m_LocalScale: {x: 8.3987665, y: 1, z: 1.7746676}
   m_Children: []
   m_Father: {fileID: 1767077933}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &937100179
 PrefabInstance:
@@ -44157,7 +44219,7 @@ Transform:
   - {fileID: 1215761792}
   - {fileID: 704354880}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963672877
 GameObject:
@@ -44319,7 +44381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &965118342
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -44408,7 +44470,7 @@ Transform:
   m_LocalScale: {x: 1.7080973, y: 1, z: 12.332567}
   m_Children: []
   m_Father: {fileID: 1767077933}
-  m_RootOrder: 12
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &967396982
 PrefabInstance:
@@ -45656,7 +45718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &1002466395
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -45745,7 +45807,7 @@ Transform:
   m_LocalScale: {x: 1.7637409, y: 1, z: 4.391678}
   m_Children: []
   m_Father: {fileID: 1767077933}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1002889459
 GameObject:
@@ -52905,7 +52967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &1075829796
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -52994,7 +53056,7 @@ Transform:
   m_LocalScale: {x: 8.172714, y: 1, z: 1.485591}
   m_Children: []
   m_Father: {fileID: 1767077933}
-  m_RootOrder: 10
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1082806952
 PrefabInstance:
@@ -55791,6 +55853,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herb_flam (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
 --- !u!4 &1187527577 stripped
@@ -55964,6 +56031,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herb_flam (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
@@ -57304,7 +57376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &1236064659
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -57393,7 +57465,7 @@ Transform:
   m_LocalScale: {x: 6.954318, y: 1, z: 1.485591}
   m_Children: []
   m_Father: {fileID: 1767077933}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1236241849
 PrefabInstance:
@@ -57923,6 +57995,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herb_flam (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
@@ -59392,7 +59469,7 @@ PrefabInstance:
     - target: {fileID: 7715719221113452859, guid: 36c17e82138441a4995a16ecf1d4f065,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7715719221113452859, guid: 36c17e82138441a4995a16ecf1d4f065,
         type: 3}
@@ -60337,7 +60414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &1308545020
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -60426,7 +60503,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 3.4433718}
   m_Children: []
   m_Father: {fileID: 1767077933}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -13.408001, z: 0}
 --- !u!1001 &1309106200
 PrefabInstance:
@@ -61363,6 +61440,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herb_flam (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
@@ -62997,6 +63079,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herb_flam (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
 --- !u!4 &1382521589 stripped
@@ -63643,6 +63730,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herb_flam (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
@@ -66510,7 +66602,7 @@ Transform:
   m_Children:
   - {fileID: 123255382659960724}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1482689833
 Animator:
@@ -75637,12 +75729,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613230307}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.74, y: 3.556, z: 18.29}
-  m_LocalScale: {x: 1.7597, y: 3.473, z: 14.953185}
+  m_LocalRotation: {x: -0, y: 0.003752458, z: -0, w: 0.99999297}
+  m_LocalPosition: {x: -3.3945312, y: -6.697153, z: 9.036461}
+  m_LocalScale: {x: 1.7597001, y: 3.473, z: 14.953186}
   m_Children: []
-  m_Father: {fileID: 414218745}
-  m_RootOrder: 46
+  m_Father: {fileID: 1767077933}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!208 &1613230309
 NavMeshObstacle:
@@ -80354,6 +80446,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herb_flam (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
 --- !u!4 &1735878232 stripped
@@ -80626,7 +80723,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: bdac91fa05aeca749b9921b8b8242c6a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bdac91fa05aeca749b9921b8b8242c6a,
         type: 3}
@@ -86422,6 +86519,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1846726097}
+  - {fileID: 77374011}
+  - {fileID: 776711375}
+  - {fileID: 1613230308}
   - {fileID: 1308545024}
   - {fileID: 134474598}
   - {fileID: 2022001592}
@@ -88596,7 +88696,7 @@ PrefabInstance:
     - target: {fileID: 2532612635152508465, guid: ebbe62c6d2eacef4996844b686a9372d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2532612635152508465, guid: ebbe62c6d2eacef4996844b686a9372d,
         type: 3}
@@ -89204,7 +89304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &1846726093
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -91171,7 +91271,7 @@ PrefabInstance:
     - target: {fileID: 6773045642307990631, guid: b419b4e1d9fd7924c83215416130225e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6773045642307990631, guid: b419b4e1d9fd7924c83215416130225e,
         type: 3}
@@ -94359,6 +94459,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herb_flam (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
 --- !u!4 &1971700116 stripped
@@ -95886,7 +95991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &2022001588
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -95975,7 +96080,7 @@ Transform:
   m_LocalScale: {x: 1.138, y: 1, z: 19.045013}
   m_Children: []
   m_Father: {fileID: 1767077933}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2024125579
 PrefabInstance:
@@ -96398,6 +96503,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herb_flam (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
@@ -98411,6 +98521,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herb_flam (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a2c3800eb92cb408cd86de63224972, type: 3}
 --- !u!4 &2099351788 stripped
@@ -99854,7 +99969,7 @@ RectTransform:
   m_Children:
   - {fileID: 1441284051}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -100163,7 +100278,7 @@ PrefabInstance:
     - target: {fileID: 5640390475651859945, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5640390475651859945, guid: 1a0c51af4fc788b4788d5b9bb6410df3,
         type: 3}
@@ -120228,7 +120343,7 @@ PrefabInstance:
     - target: {fileID: 6773045642307990631, guid: b419b4e1d9fd7924c83215416130225e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6773045642307990631, guid: b419b4e1d9fd7924c83215416130225e,
         type: 3}
