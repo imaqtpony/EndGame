@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7939552109858063339}
   - component: {fileID: 1402293125913000413}
   - component: {fileID: 4632369207975068964}
+  - component: {fileID: 5699560181675178864}
   m_Layer: 0
   m_Name: Canette
   m_TagString: Untagged
@@ -79,3 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!208 &5699560181675178864
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6374191393306178040}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.14500001, y: 0.143, z: 0.15300001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.15}
+  m_TimeToStationary: 0.5
