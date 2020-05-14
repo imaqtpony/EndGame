@@ -9,7 +9,7 @@ using System.Collections;
 /// If its a tree it will fall on its X axis (right)
 /// Child of EnvironementObject
 /// </summary>
-public class Crate : EnvironementObject, IFireReact
+public class InteractiveObject : EnvironementObject, IFireReact
 {
 
     [SerializeField]
@@ -90,7 +90,7 @@ public class Crate : EnvironementObject, IFireReact
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Axe" && m_cutThePlant)
+        if(other.gameObject.tag == "Masse" && m_cutThePlant)
         {
             Debug.Log("Bye bye plant");
             // plant anim here
@@ -98,7 +98,13 @@ public class Crate : EnvironementObject, IFireReact
             DropMaterialOnDeathCrate(m_attachedObject);
         }
 
-        if(other.gameObject.tag == "Torch" && m_burnThings)
+        if (other.gameObject.tag == "Axe" && m_cutThePlant && gameObject.name == "Tronc")
+        {
+            var m_animator = GetComponent<Animator>();
+            m_animator.SetTrigger("Activate");
+        }
+
+        if (other.gameObject.tag == "Torch" && m_burnThings)
         {
             Debug.Log("burning af");
             OnFire();

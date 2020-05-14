@@ -11,6 +11,8 @@ public class LifePlayer : MonoBehaviour
 
     [SerializeField] Collider m_collider;
 
+    [SerializeField] Transform m_respawnPoint;
+
     private Inventory m_inventory;
     [SerializeField] UI_Inventory m_uiInventory;
 
@@ -53,6 +55,7 @@ public class LifePlayer : MonoBehaviour
                 m_uiInventory.DropAllItemFunction();
                 m_uiInventory.RemoveItemFromCraftSlot();
                 m_lifeValue.Value = 3;
+                transform.position = m_respawnPoint.position;
             }
         }
     }

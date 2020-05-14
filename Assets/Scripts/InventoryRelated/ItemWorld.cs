@@ -23,7 +23,7 @@ public class ItemWorld : MonoBehaviour
     public static ItemWorld DropItem(Vector3 dropPosition, Item item)
     {
         Vector3 randomDir = UtilsClass.GetRandomDir();
-        ItemWorld itemworld = SpawnItemWorld(dropPosition + randomDir * 2f, item);
+        ItemWorld itemworld = SpawnItemWorld(dropPosition + randomDir, item);
         itemworld.GetComponent<Rigidbody>().AddForce(randomDir * 3f, ForceMode.Impulse);
         return itemworld;
     }
