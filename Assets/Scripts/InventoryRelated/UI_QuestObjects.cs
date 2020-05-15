@@ -14,6 +14,7 @@ public class UI_QuestObjects : MonoBehaviour
     private void Awake()
     {
         m_canvasLevier.SetActive(false);
+        m_activateLevier = false;
 
     }
 
@@ -23,6 +24,7 @@ public class UI_QuestObjects : MonoBehaviour
         {
             default:
             case "m_Levier":
+                Debug.Log("SET ACTIVE");
                 m_canvasLevier.SetActive(true);
                 break;
         }
@@ -36,7 +38,7 @@ public class UI_QuestObjects : MonoBehaviour
             {
                 default:
                 case "Levier":
-                    m_canvasLevier.SetActive(false);
+                    m_canvasLevier.SetActive(true);
                     m_activateLevier = true;
                     break;
             }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4188340240806534536}
   - component: {fileID: 3266076527345095463}
   - component: {fileID: 182661285215193213}
+  - component: {fileID: 6757306292175671966}
   m_Layer: 0
   m_Name: Levier
   m_TagString: QuestObject
@@ -44,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2187131429396505972}
-  m_Mesh: {fileID: 1357915828172125928, guid: 3b605d733e797db46b4c4e6cd17835b7, type: 3}
+  m_Mesh: {fileID: -8202766422458954681, guid: 3b605d733e797db46b4c4e6cd17835b7, type: 3}
 --- !u!23 &3013939614915551300
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -95,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3397262, y: 1.2377652, z: 0.25441432}
-  m_Center: {x: 0.10989809, y: -0.45562512, z: 0.07329104}
+  m_Size: {x: 0.3397262, y: 0.83730346, z: 0.2809863}
+  m_Center: {x: 0.10989809, y: -0.45562512, z: 0.08657704}
 --- !u!114 &977624694298079052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +137,7 @@ Rigidbody:
   m_Mass: 800
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -160,3 +161,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &6757306292175671966
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187131429396505972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.23207563, y: 0.8465619, z: 0.09336203}
+  m_Center: {x: 0.13226418, y: -0.45676243, z: 0.00000016018753}

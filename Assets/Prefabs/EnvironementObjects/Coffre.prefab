@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4159144915395507707}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 8563824744493577677}
   - component: {fileID: 4933986621646861236}
   - component: {fileID: 8423258401210950810}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Box382
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 9131839811747289123}
   - component: {fileID: 1673138026642253508}
   - component: {fileID: 409029346662442416}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Box383
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 7756862087394002551}
   - component: {fileID: 7756862087394002550}
   - component: {fileID: 3952141289178467680}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coffre
   m_TagString: Untagged
   m_Icon: {fileID: 0}

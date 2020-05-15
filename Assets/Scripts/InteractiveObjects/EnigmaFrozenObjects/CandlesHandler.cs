@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 using GD2Lib;
 using System.Runtime.InteropServices.ComTypes;
 
@@ -14,6 +15,8 @@ public class CandlesHandler : MonoBehaviour
     private ParticleSystem[] m_pSysArray;
 
     [SerializeField] Animator[] m_animatorVolet;
+
+    [SerializeField] NavMeshObstacle[] m_navMeshObsVolets;
 
     [Tooltip("nb candles to solve the puzzle (add 1 to the actual number ) to fit how the checking is done")]
     private int m_nbCandles = 5;
@@ -61,6 +64,11 @@ public class CandlesHandler : MonoBehaviour
                     foreach (Animator animator in m_animatorVolet)
                     {
                         animator.SetTrigger("Activate");
+
+                        foreach (NavMeshObstacle navMeshObs in m_navMeshObsVolets)
+                        {
+                            navMeshObs.enabled = false;
+                        }
                     }
 
                 } else

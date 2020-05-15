@@ -60,7 +60,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / 0.25f;
+        rectTransform.anchoredPosition += eventData.delta / 2.5f;
 
     }
 
@@ -151,13 +151,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 SelectTools(itemType);
 
                 break;
-            case "masse":
-                itemType = Item.ItemType.masse;
-                m_amountItemToDrop = 1;
-                m_isRessource = false;
-                SelectTools(itemType);
 
-                break;
             case "echelle":
                 itemType = Item.ItemType.echelle;
                 m_amountItemToDrop = 1;

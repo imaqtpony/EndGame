@@ -18,7 +18,6 @@ public class Item
         allumette,
         hache_pierre,
         echelle,
-        masse,
         plan_echelle,
 
     }
@@ -39,7 +38,6 @@ public class Item
             case ItemType.allumette: return ItemAssets.Instance.allumetteSprite;
             case ItemType.hache_pierre: return ItemAssets.Instance.hache_pierreSprite;
             case ItemType.echelle: return ItemAssets.Instance.echelleSprite;
-            case ItemType.masse: return ItemAssets.Instance.masseSprite;
             case ItemType.plan_echelle: return ItemAssets.Instance.plan_echelleSprite;
             case ItemType.gros_caillou: return ItemAssets.Instance.gros_caillouSprite;
         }
@@ -60,7 +58,6 @@ public class Item
             case ItemType.hache_pierre:
             case ItemType.allumette:
             case ItemType.echelle:
-            case ItemType.masse:
             case ItemType.plan_echelle:
                 return false;
         }

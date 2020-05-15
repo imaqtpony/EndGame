@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 2077274761875520006}
   - component: {fileID: -3409223125063469402}
   - component: {fileID: 1872998494139362473}
-  - component: {fileID: 3639288105785568541}
   - component: {fileID: 286314862960405684}
   - component: {fileID: 5827241504687496052}
   - component: {fileID: 3703861366158514664}
   - component: {fileID: 7213647193611564798}
   - component: {fileID: 3368582359224410101}
-  m_Layer: 5
+  - component: {fileID: 9206165204817393050}
+  m_Layer: 2
   m_Name: Herb_flam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,19 +82,6 @@ MonoBehaviour:
   m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
   m_audioSource: {fileID: 3368582359224410101}
   m_fireVFX: {fileID: 3623774686747409773}
---- !u!65 &3639288105785568541
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077274761875520007}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6431869, y: 1.6923988, z: 0.6565853}
-  m_Center: {x: -0.09, y: 0.37, z: -0.17}
 --- !u!65 &286314862960405684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4942,6 +4929,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &9206165204817393050
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077274761875520007}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.90520674, y: 1.6997993, z: 1.1594778}
+  m_Center: {x: -0.10020221, y: 0.4661156, z: -0.14878301}
 --- !u!1 &9216859551445745118
 GameObject:
   m_ObjectHideFlags: 0
@@ -4953,7 +4953,7 @@ GameObject:
   - component: {fileID: 817710948547597280}
   - component: {fileID: 1452751339543537213}
   - component: {fileID: 3623774686747409773}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FlameFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9790,7 +9790,7 @@ PrefabInstance:
     - target: {fileID: 2945010462846360903, guid: 5d2b9b044883f2749a3732b8342bf964,
         type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d2b9b044883f2749a3732b8342bf964, type: 3}
@@ -9885,7 +9885,7 @@ PrefabInstance:
     - target: {fileID: 7405878306897513257, guid: dcc076d8dd906c640b7865bccc8d7871,
         type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc076d8dd906c640b7865bccc8d7871, type: 3}
@@ -9980,7 +9980,7 @@ PrefabInstance:
     - target: {fileID: 2945010462846360903, guid: 5d2b9b044883f2749a3732b8342bf964,
         type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d2b9b044883f2749a3732b8342bf964, type: 3}
@@ -10075,7 +10075,7 @@ PrefabInstance:
     - target: {fileID: 7405878306897513257, guid: dcc076d8dd906c640b7865bccc8d7871,
         type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc076d8dd906c640b7865bccc8d7871, type: 3}
@@ -10170,7 +10170,7 @@ PrefabInstance:
     - target: {fileID: 6981498504272012912, guid: 620748a8d635bb245b0e2b15450743b3,
         type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 620748a8d635bb245b0e2b15450743b3, type: 3}
@@ -10270,7 +10270,7 @@ PrefabInstance:
     - target: {fileID: 8863577522216284175, guid: 1073b3c3c8cdbd349877054bcb9d88d4,
         type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1073b3c3c8cdbd349877054bcb9d88d4, type: 3}
@@ -10370,7 +10370,7 @@ PrefabInstance:
     - target: {fileID: 8863577522216284175, guid: 1073b3c3c8cdbd349877054bcb9d88d4,
         type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1073b3c3c8cdbd349877054bcb9d88d4, type: 3}

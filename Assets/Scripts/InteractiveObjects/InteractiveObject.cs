@@ -94,41 +94,31 @@ public class InteractiveObject : EnvironementObject, IFireReact
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Masse" && m_cutThePlant)
+        if(other.gameObject.tag == "StoneAxe" && m_cutThePlant)
         {
-            Debug.Log("Bye bye plant");
             // plant anim here
             //m_thisAnim.play();
             DropMaterialOnDeathCrate(m_attachedObject);
+            Debug.Log("TA MERE");
         }
-        else
-        {
-            m_notification.SetActive(true);
-            m_textNotification.text = "Il me faut un outil lourd.";
-        }
+
 
         if (other.gameObject.tag == "Axe" && m_cutThePlant && gameObject.name == "Tronc")
         {
-            var m_animator = GetComponent<Animator>();
-            m_animator.SetTrigger("Activate");
-        }
-        else
-        {
-            m_notification.SetActive(true);
-            m_textNotification.text = "Une hache en fer serait plus adaptee...";
-        }
+            Debug.Log("TOMBE ARBRE");
+            GetComponent<Animator>().SetTrigger("Activate");
 
+        }
+ 
         if (other.gameObject.tag == "Torch" && m_burnThings)
         {
+            
             Debug.Log("burning af");
             OnFire();
+            return;
 
         }
-        else
-        {
-            m_notification.SetActive(true);
-            m_textNotification.text = "Je ne peux pas le bruler.";
-        }
+
     }
 
 

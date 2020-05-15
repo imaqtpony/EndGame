@@ -162,7 +162,7 @@ public class UI_Inventory : MonoBehaviour
 
     public void CraftTools()
     {
-        //craft hache
+        //craft hache en fer
         if (Inventory.m_amountBaton >= 1 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType == Item.ItemType.hache)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.hache, amount = 1 });
@@ -171,7 +171,7 @@ public class UI_Inventory : MonoBehaviour
             m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
 
         }
-        //craft torche
+        //craft allumette
         else if (Inventory.m_amountTissu >= 1 && Inventory.m_amountBaton >= 1 && CraftSystem.m_itemType == Item.ItemType.allumette)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.allumette, amount = 1 });
@@ -201,14 +201,6 @@ public class UI_Inventory : MonoBehaviour
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.echelle, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 4 });
-            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
-
-        }
-        else if (Inventory.m_amountBaton >= 2 && Inventory.m_amountGros_caillou >= 1)
-        {
-            inventory.AddTools(new Item { itemType = Item.ItemType.masse, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 2 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.gros_caillou, amount = 1 });
             m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
 
         }

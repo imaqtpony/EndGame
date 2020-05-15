@@ -34,7 +34,7 @@ public class EnvironementObject : MonoBehaviour
     {
         if (!m_hasDropObject)
         {
-            Instantiate(p_attachedObject, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            Instantiate(p_attachedObject, new Vector3(transform.position.x, transform.position.y +.5f, transform.position.z), Quaternion.Euler(-90, 0f, 0f));
             m_hasDropObject = true;
         }
         Destroy(gameObject);

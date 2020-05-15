@@ -29,7 +29,11 @@ public class Chest : MonoBehaviour
             int p_amount = m_amountItemGiven;
             for (int i = 0; i < m_itemTypeGiven.Length; i++)
             {
-                m_uiInventory.ChestItem(m_itemTypeGiven[i], p_amount);
+                if (m_itemTypeGiven[i] != Item.ItemType.plan_echelle)
+                {
+                    m_uiInventory.ChestItem(m_itemTypeGiven[i], p_amount);
+                }
+
                 m_image = m_itemsUnlockedSlots[m_itemTypeGiven.Length - 1].GetChild(i).GetComponent<Image>();
                 m_image.sprite.name = m_itemTypeGiven[i].ToString();
                 AssociateSprite();

@@ -17,15 +17,15 @@ public class ActivateQuestObject : MonoBehaviour
     {
         m_animator = GetComponent<Animator>();
         m_meshRenderer = GetComponent<Renderer>();
+        m_canUseItem = false;
     }
 
 
     private void OnTriggerStay(Collider collider)
     {
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") && m_canUseItem)
         {
             m_animatorSlotLevier.SetTrigger("FlashingQuestObject");
-            m_canUseItem = true;
             if (UI_QuestObjects.m_activateLevier)
             {
                 m_meshRenderer.enabled = true;
