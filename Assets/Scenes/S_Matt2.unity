@@ -49685,6 +49685,8 @@ MonoBehaviour:
   tissuSprite: {fileID: 21300000, guid: 933ae2b9df0c26a469e2a0b993d236a1, type: 3}
   mrcFerSprite: {fileID: 21300000, guid: 81f1e4a704eeb1446851a409ff1a9ea9, type: 3}
   caillouSprite: {fileID: 0}
+  gros_caillouSprite: {fileID: 0}
+  plan_echelleSprite: {fileID: 0}
   hacheSprite: {fileID: 21300000, guid: e55e274abaae20f40be138bcba1dc0f7, type: 3}
   allumetteSprite: {fileID: 21300000, guid: 9d9c3564ce996074a972ea469481ed57, type: 3}
   hache_pierreSprite: {fileID: 0}
@@ -95019,6 +95021,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1854894701}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1854894703 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3623774686747409773, guid: 57a2c3800eb92cb408cd86de63224972,
+    type: 3}
+  m_PrefabInstance: {fileID: 1854894701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1854894704 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3368582359224410101, guid: 57a2c3800eb92cb408cd86de63224972,
+    type: 3}
+  m_PrefabInstance: {fileID: 1854894701}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1855329015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116666,3 +116680,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bec550a3523984640a9863ba08ad21bc, type: 3}
+--- !u!1001 &7642912455874915676
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 436582173762595378, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 436582173762595378, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436582173762595378, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 436582173762595378, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 436582173762595378, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436582173762595378, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436582173762595378, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 436582173762595378, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 436582173762595378, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 436582173762595378, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436582173762595378, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403632010221347908, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_questSystem
+      value: 
+      objectReference: {fileID: 1986978487}
+    - target: {fileID: 2403632010221347908, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_audioSource
+      value: 
+      objectReference: {fileID: 1854894704}
+    - target: {fileID: 2403632010221347908, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_fireVFX
+      value: 
+      objectReference: {fileID: 1854894703}
+    - target: {fileID: 3482501820590708769, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Touffe_Herbe
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 414fd3c3e6cbfc848a0a13e62d41d6eb, type: 3}
