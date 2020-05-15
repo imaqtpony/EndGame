@@ -14,11 +14,6 @@ public class AutoDisableNotification : MonoBehaviour
         Debug.Log("NOTIFICATION");
     }
 
-    public void SetNotificationText(string p_text)
-    {
-        m_notificationText.text = p_text;
-    }
-
     private void Update()
     {
         m_timer += Time.deltaTime;
