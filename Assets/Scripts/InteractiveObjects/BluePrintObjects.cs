@@ -9,6 +9,11 @@ public class BluePrintObjects : MonoBehaviour
 
     [SerializeField] Item.ItemType m_blueprintType;
 
+    private void OnEnable()
+    {
+        m_ladderBluePrintDiscovered = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && m_blueprintType == Item.ItemType.plan_echelle)

@@ -13,6 +13,8 @@ public class HarvestItem : MonoBehaviour
     private LifePlayer m_lifePlayer;
 
     public IntVar m_inventorySpace;
+    [SerializeField] GameObject m_notification;
+    [SerializeField] TextMeshProUGUI m_textNotification;
 
     [SerializeField] QuestManager m_questManager;
 
@@ -84,6 +86,12 @@ public class HarvestItem : MonoBehaviour
             }
             m_amounItemsInventory.text = $"{ Inventory.itemList.Count + Inventory.toolsList.Count }/{m_inventorySpace.Value}";
 
+        }
+        else if(Inventory.itemList.Count >= m_inventorySpace.Value)
+        {
+            Debug.Log("INVENTAIRE PLEIN");
+            m_notification.SetActive(true);
+            m_textNotification.text = "Inventaire Plein !";
         }
 
         if (collider.CompareTag("QuestObject"))

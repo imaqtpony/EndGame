@@ -3,6 +3,7 @@ using UnityEngine;
 using GD2Lib;
 using System;
 using System.Collections;
+using TMPro;
 
 /// <summary>
 /// Attach to a plant gameObject to play its animation when the player cuts it with the axe
@@ -11,6 +12,9 @@ using System.Collections;
 /// </summary>
 public class InteractiveObject : EnvironementObject, IFireReact
 {
+
+    [SerializeField] GameObject m_notification;
+    [SerializeField] TextMeshProUGUI m_textNotification;
 
     [SerializeField]
     private GD2Lib.Event m_onCutWithAxe;
@@ -97,11 +101,21 @@ public class InteractiveObject : EnvironementObject, IFireReact
             //m_thisAnim.play();
             DropMaterialOnDeathCrate(m_attachedObject);
         }
+        else
+        {
+            m_notification.SetActive(true);
+            m_textNotification.text = "Il me faut un outil lourd.";
+        }
 
         if (other.gameObject.tag == "Axe" && m_cutThePlant && gameObject.name == "Tronc")
         {
             var m_animator = GetComponent<Animator>();
             m_animator.SetTrigger("Activate");
+        }
+        else
+        {
+            m_notification.SetActive(true);
+            m_textNotification.text = "Une hache en fer serait plus adaptee...";
         }
 
         if (other.gameObject.tag == "Torch" && m_burnThings)
@@ -109,6 +123,11 @@ public class InteractiveObject : EnvironementObject, IFireReact
             Debug.Log("burning af");
             OnFire();
 
+        }
+        else
+        {
+            m_notification.SetActive(true);
+            m_textNotification.text = "Je ne peux pas le bruler.";
         }
     }
 
