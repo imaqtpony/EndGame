@@ -10,6 +10,9 @@ public class ActivateQuestObject : MonoBehaviour
     [SerializeField] Animator m_animatorMusicBox;
     public static bool m_canUseItem;
 
+    [SerializeField] QuestSystem m_questSystem;
+    [SerializeField] QuestManager m_questManager;
+
     private Renderer m_meshRenderer;
 
 
@@ -20,6 +23,15 @@ public class ActivateQuestObject : MonoBehaviour
         m_canUseItem = false;
     }
 
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.CompareTag("Player") && !m_questManager.m_levierEnigmaDone)
+        {
+            m_questSystem.ChangeQuest("Trouvez un levier.");
+            m_questManager.m_levierEnigmaDone = true;
+
+        }
+    }
 
     private void OnTriggerStay(Collider collider)
     {
@@ -31,6 +43,9 @@ public class ActivateQuestObject : MonoBehaviour
                 m_meshRenderer.enabled = true;
                 m_animator.SetTrigger("Activate");
                 m_animatorMusicBox.SetTrigger("Activate");
+                m_questSystem.ChangeQuest("Allumez les bougies.");
+                m_questManager.m_candleEnigmaDone = true;
+
             }
         }
         

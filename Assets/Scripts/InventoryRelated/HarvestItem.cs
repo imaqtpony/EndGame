@@ -51,8 +51,8 @@ public class HarvestItem : MonoBehaviour
         m_questManager.m_craftToolDone = false;
         m_questManager.m_destroyPlantDone = false;
         m_questManager.m_findDungeonDone = false;
-        m_questManager.m_firstEnigmaDone = false;
-        m_questManager.m_secondEnigmaDone = false;
+        m_questManager.m_levierEnigmaDone = false;
+        m_questManager.m_candleEnigmaDone = false;
     }
 
 
@@ -69,10 +69,10 @@ public class HarvestItem : MonoBehaviour
 
                     inventory.AddItem(itemWorld.GetItem());
                     itemWorld.DestroySelf();
-                    if (!m_questManager.m_craftToolDone)
+                    if (!m_questManager.m_craftToolDone && Inventory.itemList.Count == 2)
                     {
                         m_questSystem.ChangeQuest("Construisez un outil");
-                        
+                        m_questManager.m_craftToolDone = true;
                     }
 
                 }

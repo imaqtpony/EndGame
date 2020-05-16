@@ -24,12 +24,13 @@ public class InventoryButton : MonoBehaviour
     private void Awake()
     {
         DisableInventory();
+        DisableToolsInventory();
     }
 
     public void OpenInventory()
     {
         m_InventoryEnabled = !m_InventoryEnabled;
-        if (m_InventoryEnabled)
+        if (!m_Inventory.activeInHierarchy && m_toolsInventory.activeInHierarchy)
         {
             m_Inventory.SetActive(true);
 
@@ -38,7 +39,20 @@ public class InventoryButton : MonoBehaviour
             m_menuButton.alpha = 0.3f;
 
         }
-        else if(!m_InventoryEnabled)
+        else if (!m_Inventory.activeInHierarchy && !m_toolsInventory.activeInHierarchy)
+        {
+            m_Inventory.SetActive(true);
+
+            m_animatorInventory.SetTrigger("OpenInventory");
+            m_audioSource.PlayOneShot(m_audioManager.m_openInventorySound);
+            m_menuButton.alpha = 0.3f;
+
+            m_toolsInventory.SetActive(true);
+
+            m_animatorTools.SetTrigger("OpenTools");
+        }
+
+        else if(m_Inventory.activeInHierarchy && m_toolsInventory.activeInHierarchy)
         {
             Invoke("DisableInventory", .33f);
             m_animatorInventory.SetTrigger("CloseInventory");
@@ -48,25 +62,41 @@ public class InventoryButton : MonoBehaviour
 
             m_uiInventory.RefreshInventoryRessources();
             m_uiInventory.RemoveItemFromCraftSlot();
+            Invoke("DisableToolsInventory", .33f);
 
+            m_animatorTools.SetTrigger("CloseTools");
+
+        }
+        else if (m_Inventory.activeInHierarchy && !m_toolsInventory.activeInHierarchy)
+        {
+            Invoke("DisableInventory", .33f);
+            m_animatorInventory.SetTrigger("CloseInventory");
+
+            m_menuButton.alpha = 1f;
+            m_audioSource.PlayOneShot(m_audioManager.m_closeInventorySound);
+
+            m_uiInventory.RefreshInventoryRessources();
+            m_uiInventory.RemoveItemFromCraftSlot();
         }
         
     }
-
     public void OpenToolsInventory()
     {
 
         m_toolsInventoryEnabled = !m_toolsInventoryEnabled;
 
-        if (m_toolsInventoryEnabled)
+        if (!m_toolsInventory.activeInHierarchy)
         {
+            m_toolsInventory.SetActive(true);
+
             m_animatorTools.SetTrigger("OpenTools");
 
         }
-        else
+        else if(m_toolsInventory.activeInHierarchy)
         {
-            m_animatorTools.SetTrigger("CloseTools");
+            Invoke("DisableToolsInventory", .33f);
 
+            m_animatorTools.SetTrigger("CloseTools");
             m_uiInventory.RefreshInventoryTools();
             m_dragDrop.ReplaceIndicator();
 
@@ -81,4 +111,8 @@ public class InventoryButton : MonoBehaviour
         m_Inventory.SetActive(false);
     }
 
+    private void DisableToolsInventory()
+    {
+        m_toolsInventory.SetActive(false);
+    }
 }

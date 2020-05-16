@@ -29,6 +29,8 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] AudioManager m_audioManager;
     [SerializeField] AudioSource m_audioSource;
 
+    [SerializeField] GameObject m_crossHit;
+
     private void Awake()
     {
         m_data.m_player = gameObject;
@@ -106,7 +108,7 @@ public class MovePlayer : MonoBehaviour
                 if (Physics.Raycast(castPoint, out RaycastHit hit, Mathf.Infinity, m_ignoreRaycastMask) && hit.transform.gameObject.layer == (m_blockRaycastMask & (1 << hit.transform.gameObject.layer)))
                 {
                     Vector3 navMeshLoc = ClosestNavmeshLocation(hit.point, m_range);
-                    if (navMeshLoc!=Vector3.zero)
+                    if (navMeshLoc != Vector3.zero) { }
                         m_agent.destination = ClosestNavmeshLocation(hit.point, m_range);
 
                     Vector3 direction = hit.point - transform.position;
@@ -116,6 +118,8 @@ public class MovePlayer : MonoBehaviour
 
                     m_audioSource.Play();
                     StartCoroutine(checkPlayerPos());
+                    m_crossHit.transform.position = hit.transform.position;
+                    Debug.Log(hit.transform.position);
 
                 }
             }

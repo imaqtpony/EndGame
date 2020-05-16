@@ -9,7 +9,7 @@ public class QuestManager : ScriptableObject
     public bool m_craftToolDone;
     public bool m_destroyPlantDone;
     public bool m_findDungeonDone;
-    public bool m_firstEnigmaDone;
-    public bool m_secondEnigmaDone;
+    public bool m_levierEnigmaDone;
+    public bool m_candleEnigmaDone;
 
 }
