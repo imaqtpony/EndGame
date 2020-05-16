@@ -118,7 +118,7 @@ public class MovePlayer : MonoBehaviour
 
                     m_audioSource.Play();
                     StartCoroutine(checkPlayerPos());
-                    m_crossHit.transform.position = hit.transform.position;
+                    m_crossHit.transform.position = new Vector3(hit.point.x, hit.point.y + .1f, hit.point.z);
                     Debug.Log(hit.transform.position);
 
                 }
