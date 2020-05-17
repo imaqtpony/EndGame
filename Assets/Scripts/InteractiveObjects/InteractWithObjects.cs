@@ -14,7 +14,7 @@ public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
     [SerializeField] TextMeshProUGUI m_interactText;
 
     string m_initialText;
-    private bool m_canShow;
+    public static bool m_canShow;
 
     public static bool m_gotInteracted;
 
@@ -35,12 +35,9 @@ public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
             m_goToShow.SetActive(true);
             m_gotInteracted = true;
         }
-        else
-        {
-            m_goToShow.SetActive(false);
-
-        }
+ 
     }
+
 
     private void OnTriggerStay(Collider collider)
     {
@@ -57,6 +54,7 @@ public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
         {
             m_canShow = false;
             m_interactText.text = m_initialText;
+            m_goToShow.SetActive(false);
 
         }
     }

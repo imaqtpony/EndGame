@@ -16,8 +16,14 @@ public class CloseClueButton : MonoBehaviour
         else
         {
             m_clue.SetActive(false);
-
+            Invoke("DisableGotInteracted", 0.1f);
         }
+
+    }
+
+    public void DisableGotInteracted()
+    {
+        InteractWithObjects.m_gotInteracted = false;
 
     }
 
