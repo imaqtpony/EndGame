@@ -130,6 +130,5 @@ public class HarvestItem : MonoBehaviour
                 break;
 
         }
-        inventory.RemoveItem(new Item { itemType = p_itemType, amount = 1 });
     }
 }

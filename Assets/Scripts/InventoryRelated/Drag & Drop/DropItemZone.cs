@@ -17,6 +17,7 @@ public class DropItemZone : MonoBehaviour, IDropHandler
 
     [SerializeField] List<GameObject> m_tools;
 
+    [SerializeField] BoxCollider m_colliderPlayer;
 
     public void SetPlayer(HarvestItem player)
     {
@@ -49,6 +50,15 @@ public class DropItemZone : MonoBehaviour, IDropHandler
             
         }
 
+        m_colliderPlayer.enabled = false;
+        StartCoroutine(DeactivateCollider());
+
+    }
+
+    private IEnumerator DeactivateCollider()
+    {
+        yield return new WaitForSeconds(1);
+        m_colliderPlayer.enabled = true;
 
     }
 

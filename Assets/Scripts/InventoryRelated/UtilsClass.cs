@@ -11,7 +11,7 @@ namespace InventoryNS.Utils {
         // Generate random normalized direction
         public static Vector3 GetRandomDir()
         {
-            return new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-.5f, .5f));
+            return new Vector3(UnityEngine.Random.Range(-1f, 1f), .5f);
         }
 
     }

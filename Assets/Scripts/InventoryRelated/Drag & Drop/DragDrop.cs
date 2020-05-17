@@ -48,7 +48,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-
+        //on le met par dessus les autres pour ne pas qu'il soit caché par les autres slots
         itemSlot.transform.SetSiblingIndex(Inventory.itemList.Count);
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
