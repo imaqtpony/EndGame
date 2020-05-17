@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1509630914094998473}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Herb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,6 +119,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herbe_4 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7405878306897513257, guid: dcc076d8dd906c640b7865bccc8d7871,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc076d8dd906c640b7865bccc8d7871, type: 3}
 --- !u!4 &4931133302624370482 stripped
@@ -208,6 +213,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herbe_2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945010462846360903, guid: 5d2b9b044883f2749a3732b8342bf964,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d2b9b044883f2749a3732b8342bf964, type: 3}
@@ -299,6 +309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herbe_1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8863577522216284175, guid: 1073b3c3c8cdbd349877054bcb9d88d4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1073b3c3c8cdbd349877054bcb9d88d4, type: 3}
 --- !u!4 &6460924123339445580 stripped
@@ -388,6 +403,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herbe_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863577522216284175, guid: 1073b3c3c8cdbd349877054bcb9d88d4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1073b3c3c8cdbd349877054bcb9d88d4, type: 3}
@@ -479,6 +499,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herbe_3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6981498504272012912, guid: 620748a8d635bb245b0e2b15450743b3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 620748a8d635bb245b0e2b15450743b3, type: 3}
 --- !u!4 &4777003569850245535 stripped
@@ -569,6 +594,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herbe_2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2945010462846360903, guid: 5d2b9b044883f2749a3732b8342bf964,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d2b9b044883f2749a3732b8342bf964, type: 3}
 --- !u!4 &754027345587788535 stripped
@@ -658,6 +688,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Herbe_4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7405878306897513257, guid: dcc076d8dd906c640b7865bccc8d7871,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc076d8dd906c640b7865bccc8d7871, type: 3}

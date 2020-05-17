@@ -18,10 +18,10 @@ public class Chest : MonoBehaviour
     [SerializeField] int m_amountItemGiven;
 
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerStay(Collider collider)
     {
 
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") && InteractWithObjects.m_gotInteracted)
         {
             m_itemsUnlockedSlots[m_itemTypeGiven.Length - 1].gameObject.SetActive(true);
             Invoke("DisableSlot", 5f);
@@ -39,7 +39,7 @@ public class Chest : MonoBehaviour
                 AssociateSprite();
 
             }
-
+            InteractWithObjects.m_gotInteracted = false;
             Destroy(this, 5.1f);
         }
     }

@@ -270,9 +270,10 @@ GameObject:
   - component: {fileID: 952635527330422319}
   - component: {fileID: 850235941918466619}
   - component: {fileID: 86335158}
+  - component: {fileID: 182076600}
   m_Layer: 2
   m_Name: Etabli
-  m_TagString: Untagged
+  m_TagString: Workbench
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -395,3 +396,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.639377, y: 1.507424, z: 0.5380792}
   m_Center: {x: 0.5891216, y: 0.00000243341, z: 0.26132268}
+--- !u!114 &182076600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952635527330422316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79c388869951925488cbb444eb423646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_goToShow: {fileID: 0}
+  m_inventoryButton: {fileID: 0}
+  m_interactText: {fileID: 1866328372}
