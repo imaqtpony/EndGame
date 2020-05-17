@@ -21,6 +21,11 @@ public class Axe : MonoBehaviour
             m_isCurrentlyCutting = false;
             transform.rotation = Quaternion.LookRotation(new Vector3(0, transform.parent.position.y, 0));
 
+            if (gameObject.CompareTag("StoneAxe"))
+            {
+                transform.rotation = Quaternion.LookRotation(new Vector3(0, -transform.parent.position.y, 0));
+
+            }
         }
     }
 
@@ -58,13 +63,24 @@ public class Axe : MonoBehaviour
     {
         Quaternion rota;
 
-        if (p_sData.endPosition.x - p_sData.startPosition.x < 0)
+        if (p_sData.endPosition.x - p_sData.startPosition.x < 0 && gameObject.CompareTag("StoneAxe"))
+        {
+            return rota = transform.parent.rotation * Quaternion.Euler(180, 0, 90);
+
+        }
+        else if (p_sData.endPosition.x - p_sData.startPosition.x > 0 && gameObject.CompareTag("StoneAxe"))
+        {
+            //Right
+            return rota = transform.parent.rotation * Quaternion.Euler(180, 0, -90);
+        }
+
+        if (p_sData.endPosition.x - p_sData.startPosition.x < 0 && gameObject.CompareTag("Axe"))
         {
             //left
             return rota = transform.parent.rotation * Quaternion.Euler(0, 0, 180);
 
         }
-        else 
+        else
         {
             //Right
             return rota = transform.parent.rotation;

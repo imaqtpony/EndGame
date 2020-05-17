@@ -60,7 +60,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / 2.5f;
+        rectTransform.anchoredPosition += eventData.delta / 2.7f;
 
     }
 
@@ -123,7 +123,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 itemType = Item.ItemType.caillou;
                 m_amountItemToDrop = Inventory.m_amountCaillou;
                 m_isRessource = true;
-
                 break;
             case "gros_caillou":
                 itemType = Item.ItemType.gros_caillou;
@@ -177,7 +176,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void SelectTools(Item.ItemType p_toolsType)
     {
-        Debug.Log(p_toolsType);
         if (!InventoryButton.m_InventoryEnabled)
         {
             for (int i = 0; i < m_tools.Count + 1; i++)

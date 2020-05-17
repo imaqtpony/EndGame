@@ -27,6 +27,9 @@ public class UI_Inventory : MonoBehaviour
 
     [SerializeField] CraftSystem m_craftSystem;
 
+    [SerializeField] GameObject m_notification;
+    [SerializeField] TextMeshProUGUI m_textNotification;
+
     public List<Transform> m_itemForCraft;
 
     public IntVar m_inventorySpace;
@@ -95,6 +98,11 @@ public class UI_Inventory : MonoBehaviour
                     UpdateAmountItems();
                     RemoveItemFromCraftSlot();
 
+                }
+                else
+                {
+                    m_notification.SetActive(true);
+                    m_textNotification.text = "Inventaire Plein !";
                 }
 
             }
@@ -187,7 +195,7 @@ public class UI_Inventory : MonoBehaviour
             m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
 
         }
-        //craft hache pierre
+        //craft hache en pierre
         else if (Inventory.m_amountBaton >= 1 && Inventory.m_amountCaillou >= 2 && CraftSystem.m_itemType == Item.ItemType.hache_pierre)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.hache_pierre, amount = 1 });
@@ -197,7 +205,7 @@ public class UI_Inventory : MonoBehaviour
 
         }
         //craft echelle
-        else if (Inventory.m_amountBaton >= 4)
+        else if (Inventory.m_amountBaton >= 4 && m_craftSystem.m_craftSlotList.Count == 1)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.echelle, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 4 });
@@ -208,6 +216,8 @@ public class UI_Inventory : MonoBehaviour
         {
             RefreshInventoryRessources();
             RefreshInventoryTools();
+            m_notification.SetActive(true);
+            m_textNotification.text = "Ressources insuffisantes";
             //pas assez de ressources
         }
 
@@ -224,14 +234,20 @@ public class UI_Inventory : MonoBehaviour
 
     public void DropToolFunction(Item.ItemType itemTypeToDrop, int p_amount)
     {
-        Debug.Log(itemTypeToDrop);
-        Item duplicateItem = new Item { itemType = itemTypeToDrop, amount = p_amount };
-        inventory.RemoveTools(new Item { itemType = itemTypeToDrop, amount = p_amount });
-        ItemWorld.DropItem(player.GetPosition(), duplicateItem);
-        UpdateAmountItems();
+        if(itemTypeToDrop != Item.ItemType.echelle)
+        {
+            Debug.Log(itemTypeToDrop);
+            Item duplicateItem = new Item { itemType = itemTypeToDrop, amount = p_amount };
+            inventory.RemoveTools(new Item { itemType = itemTypeToDrop, amount = p_amount });
+            ItemWorld.DropItem(player.GetPosition(), duplicateItem);
+            UpdateAmountItems();
+        }
+        else if(itemTypeToDrop == Item.ItemType.echelle)
+        {
+            inventory.RemoveTools(new Item { itemType = itemTypeToDrop, amount = p_amount });
+
+        }
     }
-
-
 
     public void UseItemFunction(Item.ItemType p_itemTypeToUse)
     {

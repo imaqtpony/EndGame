@@ -17,7 +17,7 @@ public class ReplaceItem : MonoBehaviour, IDropHandler
             //we check if the item slot has already an item on it 
             if (gameObject.transform.Find("Item") == null)
             {
-                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().position;
                 m_uiInventory.RemoveItemFromCraftSlot();
             }
 

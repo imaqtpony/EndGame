@@ -17,8 +17,7 @@ public class CluePanel : MonoBehaviour
     {
         m_cluePhoto.enabled = false;
         m_textClueUI.enabled = false;
-        m_cluePhoto.sprite = m_clueSprite;
-        m_textClueUI.text = m_text;
+        
     }
 
     private void OnTriggerStay(Collider other)
@@ -27,8 +26,15 @@ public class CluePanel : MonoBehaviour
         {
             m_cluePhoto.enabled = true;
             m_textClueUI.enabled = true;
+            m_cluePhoto.sprite = m_clueSprite;
+            m_textClueUI.text = m_text;
         }
-        else
+        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
             m_cluePhoto.enabled = false;
             m_textClueUI.enabled = false;

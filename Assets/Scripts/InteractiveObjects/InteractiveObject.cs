@@ -99,13 +99,11 @@ public class InteractiveObject : EnvironementObject, IFireReact
             // plant anim here
             //m_thisAnim.play();
             DropMaterialOnDeathCrate(m_attachedObject);
-            Debug.Log("TA MERE");
         }
 
 
         if (other.gameObject.tag == "Axe" && m_cutThePlant && gameObject.name == "Tronc")
         {
-            Debug.Log("TOMBE ARBRE");
             GetComponent<Animator>().SetTrigger("Activate");
 
         }
@@ -126,7 +124,6 @@ public class InteractiveObject : EnvironementObject, IFireReact
 
     public void OnFire()
     {
-        Debug.Log("agzelaguze");
         // play the right pSys
         ParticleSystem pSys = GetComponent<ParticleSystem>();
         pSys.Play();

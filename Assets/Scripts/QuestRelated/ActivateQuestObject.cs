@@ -10,6 +10,8 @@ public class ActivateQuestObject : MonoBehaviour
     [SerializeField] Animator m_animatorMusicBox;
     public static bool m_canUseItem;
 
+    [SerializeField] GameObject m_slotLevier;
+
     [SerializeField] QuestSystem m_questSystem;
     [SerializeField] QuestManager m_questManager;
 
@@ -45,6 +47,7 @@ public class ActivateQuestObject : MonoBehaviour
                 m_animatorMusicBox.SetTrigger("Activate");
                 m_questSystem.ChangeQuest("Allumez les bougies.");
                 m_questManager.m_candleEnigmaDone = true;
+                m_slotLevier.SetActive(false);
 
             }
         }

@@ -37,10 +37,10 @@ public class Chest : MonoBehaviour
                 m_image = m_itemsUnlockedSlots[m_itemTypeGiven.Length - 1].GetChild(i).GetComponent<Image>();
                 m_image.sprite.name = m_itemTypeGiven[i].ToString();
                 AssociateSprite();
-                Debug.Log("give");
 
             }
-            Destroy(this);
+
+            Destroy(this, 5.1f);
         }
     }
 

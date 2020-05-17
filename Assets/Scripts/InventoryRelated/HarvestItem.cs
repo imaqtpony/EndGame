@@ -58,7 +58,7 @@ public class HarvestItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (Inventory.itemList.Count < m_inventorySpace.Value)
+        if (Inventory.itemList.Count + Inventory.toolsList.Count < m_inventorySpace.Value)
         {
             ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
 
@@ -87,11 +87,14 @@ public class HarvestItem : MonoBehaviour
             m_amounItemsInventory.text = $"{ Inventory.itemList.Count + Inventory.toolsList.Count }/{m_inventorySpace.Value}";
 
         }
-        else if(Inventory.itemList.Count >= m_inventorySpace.Value)
+        else if(Inventory.itemList.Count + Inventory.toolsList.Count >= m_inventorySpace.Value)
         {
-            Debug.Log("INVENTAIRE PLEIN");
-            m_notification.SetActive(true);
-            m_textNotification.text = "Inventaire Plein !";
+            ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
+            if (itemWorld != null)
+            {
+                m_notification.SetActive(true);
+                m_textNotification.text = "Inventaire Plein !";
+            }
         }
 
         if (collider.CompareTag("QuestObject"))
