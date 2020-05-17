@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2403632010221347908}
   - component: {fileID: 1894563254728209366}
   - component: {fileID: 8133773444850229190}
+  - component: {fileID: 343529670}
   m_Layer: 2
   m_Name: Touffe_Herbe
   m_TagString: Untagged
@@ -4819,7 +4820,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.355, y: 0.845, z: 0.33}
+  m_Extents: {x: 0.54, y: 0.145, z: 0.33}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -4940,7 +4941,7 @@ MonoBehaviour:
   m_itemType: 0
   m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
   m_audioSource: {fileID: 0}
-  m_fireVFX: {fileID: 0}
+  m_fireVFX: {fileID: 7596373350006307280}
 --- !u!54 &1894563254728209366
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4968,8 +4969,21 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.47668907, y: 0.4769731, z: 0.6858383}
-  m_Center: {x: 0, y: 0, z: 0.35}
+  m_Size: {x: 0.79787815, y: 0.80407256, z: 0.6858383}
+  m_Center: {x: -0.06, y: 0, z: 0.35}
+--- !u!65 &343529670
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3482501820590708769}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2814226, y: 1.2821862, z: 1.2959012}
+  m_Center: {x: -0.06900105, y: -0.014315639, z: 0.3920142}
 --- !u!1 &3743129170572139021
 GameObject:
   m_ObjectHideFlags: 0

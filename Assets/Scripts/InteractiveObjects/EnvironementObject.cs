@@ -18,8 +18,14 @@ public class EnvironementObject : MonoBehaviour
                 //Item item = GenerateItem(transform.position, p_item.ItemType);
                 Destroy(gameObject, p_destroyTime);
 
-                Item duplicateItem = new Item { itemType = p_itemType, amount = p_amountItem };
-                ItemWorld.DropItem(gameObject.transform.position, duplicateItem);
+                int randNumb = Random.Range(0, 2);
+
+                if(randNumb == 1)
+                {
+                    Item duplicateItem = new Item { itemType = p_itemType, amount = p_amountItem };
+                    ItemWorld.DropItem(gameObject.transform.position, duplicateItem);
+                }
+                
             }
             else
             {
@@ -30,12 +36,24 @@ public class EnvironementObject : MonoBehaviour
         
     }
 
-    protected void DropMaterialOnDeathCrate(GameObject p_attachedObject)
+    protected void DropMaterialOnDeathCrate(GameObject p_attachedObject, Item.ItemType p_itemType)
     {
         if (!m_hasDropObject)
         {
-            Instantiate(p_attachedObject, new Vector3(transform.position.x, transform.position.y +.5f, transform.position.z), Quaternion.Euler(-90, 0f, 0f));
-            m_hasDropObject = true;
+            int randNumb = Random.Range(0, 2);
+            if (randNumb == 1)
+            {
+                Instantiate(p_attachedObject, new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z), Quaternion.Euler(-90, 0f, 0f));
+                m_hasDropObject = true;
+
+            }
+            else
+            {
+                Item duplicateItem = new Item { itemType = p_itemType, amount = 1 };
+                ItemWorld.DropItem(gameObject.transform.position, duplicateItem);
+
+            }
+
         }
         Destroy(gameObject);
 

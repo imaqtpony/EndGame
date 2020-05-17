@@ -108,8 +108,8 @@ public class MovePlayer : MonoBehaviour
                 if (Physics.Raycast(castPoint, out RaycastHit hit, Mathf.Infinity, m_ignoreRaycastMask) && hit.transform.gameObject.layer == (m_blockRaycastMask & (1 << hit.transform.gameObject.layer)) && !InteractWithObjects.m_gotInteracted)
                 {
                     Vector3 navMeshLoc = ClosestNavmeshLocation(hit.point, m_range);
-                    if (navMeshLoc != Vector3.zero) { }
-                        m_agent.destination = ClosestNavmeshLocation(hit.point, m_range);
+                    if (navMeshLoc != Vector3.zero) { m_agent.destination = ClosestNavmeshLocation(hit.point, m_range); }
+                        
 
                     Vector3 direction = hit.point - transform.position;
                     direction = Vector3.ProjectOnPlane(direction, Vector3.up).normalized;
@@ -119,7 +119,6 @@ public class MovePlayer : MonoBehaviour
                     m_audioSource.Play();
                     StartCoroutine(checkPlayerPos());
                     m_crossHit.transform.position = new Vector3(hit.point.x, hit.point.y + .1f, hit.point.z);
-                    Debug.Log(hit.transform.position);
 
                 }
             }

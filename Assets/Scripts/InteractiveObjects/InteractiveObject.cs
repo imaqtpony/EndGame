@@ -25,7 +25,7 @@ public class InteractiveObject : EnvironementObject, IFireReact
     private bool m_burnThings;
     private bool m_cutThePlant;
 
-    private Item m_attachedItem;
+    [SerializeField] Item.ItemType m_attachedItem;
 
     [SerializeField] GameObject m_attachedObject;
 
@@ -98,14 +98,21 @@ public class InteractiveObject : EnvironementObject, IFireReact
         {
             // plant anim here
             //m_thisAnim.play();
-            DropMaterialOnDeathCrate(m_attachedObject);
+            DropMaterialOnDeathCrate(m_attachedObject, m_attachedItem);
+            
+        }
+        else if (gameObject.name == "Caisse" && other.CompareTag("Player"))
+        {
+            m_notification.SetActive(true);
+            m_textNotification.text = "Il me faudrait une hache pour la casser.";
         }
 
 
         if (other.gameObject.tag == "Axe" && m_cutThePlant && gameObject.name == "Tronc")
         {
             GetComponent<Animator>().SetTrigger("Activate");
-
+            m_notification.SetActive(true);
+            m_textNotification.text = "Il me faut une hache plus solide...";
         }
  
         if (other.gameObject.tag == "Torch" && m_burnThings)

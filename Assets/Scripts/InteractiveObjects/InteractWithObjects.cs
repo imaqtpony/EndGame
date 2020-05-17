@@ -28,14 +28,26 @@ public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
     {
         if (m_canShow)
         {
+            m_gotInteracted = true;
+
             if (gameObject.CompareTag("Workbench"))
             {
                 m_inventoryButton.OpenInventory();
+                m_gotInteracted = false;
+
             }
             m_goToShow.SetActive(true);
-            m_gotInteracted = true;
+            Debug.Log("LOBJET INTERAGIT");
         }
- 
+        else
+        {
+            Debug.Log("LOBJET INTERAGIT PAS");
+
+            m_gotInteracted = false;
+            m_goToShow.SetActive(false);
+
+        }
+
     }
 
 

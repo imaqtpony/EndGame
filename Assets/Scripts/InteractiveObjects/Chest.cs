@@ -17,30 +17,34 @@ public class Chest : MonoBehaviour
     [SerializeField] Item.ItemType[] m_itemTypeGiven;
     [SerializeField] int m_amountItemGiven;
 
+    public void HarvestChestItems()
+    {
+        m_itemsUnlockedSlots[m_itemTypeGiven.Length - 1].gameObject.SetActive(true);
+        Invoke("DisableSlot", 5f);
 
-    private void OnTriggerStay(Collider collider)
+        int p_amount = m_amountItemGiven;
+        for (int i = 0; i < m_itemTypeGiven.Length; i++)
+        {
+            if (m_itemTypeGiven[i] != Item.ItemType.plan_echelle)
+            {
+                m_uiInventory.ChestItem(m_itemTypeGiven[i], p_amount);
+            }
+
+            m_image = m_itemsUnlockedSlots[m_itemTypeGiven.Length - 1].GetChild(i).GetComponent<Image>();
+            m_image.sprite.name = m_itemTypeGiven[i].ToString();
+            AssociateSprite();
+
+        }
+        Debug.Log("give");
+        Destroy(this, 5.1f);
+    }
+
+    private void OnTriggerEnter(Collider collider)
     {
 
-        if (collider.CompareTag("Player") && InteractWithObjects.m_gotInteracted)
+        if (collider.CompareTag("Player"))
         {
-            m_itemsUnlockedSlots[m_itemTypeGiven.Length - 1].gameObject.SetActive(true);
-            Invoke("DisableSlot", 5f);
-
-            int p_amount = m_amountItemGiven;
-            for (int i = 0; i < m_itemTypeGiven.Length; i++)
-            {
-                if (m_itemTypeGiven[i] != Item.ItemType.plan_echelle)
-                {
-                    m_uiInventory.ChestItem(m_itemTypeGiven[i], p_amount);
-                }
-
-                m_image = m_itemsUnlockedSlots[m_itemTypeGiven.Length - 1].GetChild(i).GetComponent<Image>();
-                m_image.sprite.name = m_itemTypeGiven[i].ToString();
-                AssociateSprite();
-
-            }
-            InteractWithObjects.m_gotInteracted = false;
-            Destroy(this, 5.1f);
+            HarvestChestItems();
         }
     }
 
@@ -49,6 +53,7 @@ public class Chest : MonoBehaviour
         m_itemsUnlockedSlots[m_itemTypeGiven.Length - 1].gameObject.SetActive(false);
 
     }
+
 
     public void AssociateSprite()
     {
