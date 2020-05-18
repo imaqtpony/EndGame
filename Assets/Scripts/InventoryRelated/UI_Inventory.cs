@@ -171,7 +171,7 @@ public class UI_Inventory : MonoBehaviour
     public void CraftTools()
     {
         //craft hache en fer
-        if (Inventory.m_amountBaton >= 1 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType == Item.ItemType.hache)
+        if (Inventory.m_amountBaton >= 1 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType_1 == Item.ItemType.hache)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.hache, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
@@ -180,7 +180,7 @@ public class UI_Inventory : MonoBehaviour
 
         }
         //craft allumette
-        else if (Inventory.m_amountTissu >= 1 && Inventory.m_amountBaton >= 1 && CraftSystem.m_itemType == Item.ItemType.allumette)
+        else if (Inventory.m_amountTissu >= 1 && Inventory.m_amountBaton >= 1 && CraftSystem.m_itemType_1 == Item.ItemType.allumette)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.allumette, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.tissu, amount = 1 });
@@ -196,7 +196,7 @@ public class UI_Inventory : MonoBehaviour
 
         }
         //craft hache en pierre
-        else if (Inventory.m_amountBaton >= 1 && Inventory.m_amountCaillou >= 2 && CraftSystem.m_itemType == Item.ItemType.hache_pierre)
+        else if (Inventory.m_amountBaton >= 1 && Inventory.m_amountCaillou >= 2 && CraftSystem.m_itemType_1 == Item.ItemType.hache_pierre)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.hache_pierre, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
@@ -205,11 +205,20 @@ public class UI_Inventory : MonoBehaviour
 
         }
         //craft echelle
-        else if (Inventory.m_amountBaton >= 4 && m_craftSystem.m_craftSlotList.Count == 1)
+        else if (Inventory.m_amountBaton >= 4 && m_craftSystem.m_craftSlotList.Count == 1 && CraftSystem.m_itemType_1 == Item.ItemType.echelle)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.echelle, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 4 });
             m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+
+        }
+        else if (CraftSystem.m_itemType_1 == Item.ItemType.baton && CraftSystem.m_itemType_2 == Item.ItemType.tissu)
+        {
+            inventory.RemoveTools(new Item { itemType = Item.ItemType.allumette, amount = 1 });
+            inventory.AddItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
+            inventory.AddItem(new Item { itemType = Item.ItemType.tissu, amount = 1 });
+            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+            RemoveItemFromCraftSlot();
 
         }
         else
@@ -274,18 +283,25 @@ public class UI_Inventory : MonoBehaviour
     
     public void RemoveItemFromCraftSlot()
     {
-        if(m_craftSystem.m_craftSlotList.Count > 0)
+        if (m_craftSystem.m_craftSlotList.Count > 0)
         {
-            foreach (Transform craftSlot in m_craftSlot)
+
+            if (m_craftSlot[0].childCount > 2)
             {
                 m_craftSystem.m_craftSlotList.Clear();
                 m_craftSystem.NotEnoughItemToCraft();
-                Destroy(craftSlot.transform.GetChild(2).gameObject);
-
+                Destroy(m_craftSlot[0].transform.GetChild(2).gameObject);
+                UpdateAmountItems();
+            }
+            if (m_craftSlot[1].childCount > 2)
+            {
+                m_craftSystem.m_craftSlotList.Clear();
+                m_craftSystem.NotEnoughItemToCraft();
+                Destroy(m_craftSlot[1].transform.GetChild(2).gameObject);
+                UpdateAmountItems();
             }
         }
         
-        UpdateAmountItems();
     }
 
     private void UpdateAmountItems()

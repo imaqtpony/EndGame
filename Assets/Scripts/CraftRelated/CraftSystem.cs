@@ -14,7 +14,8 @@ public class CraftSystem : MonoBehaviour
 
     public List<Transform> m_craftSlotList;
 
-    public static Item.ItemType m_itemType;
+    public static Item.ItemType m_itemType_1;
+    public static Item.ItemType m_itemType_2;
 
     public bool m_craftActive;
 
@@ -27,14 +28,14 @@ public class CraftSystem : MonoBehaviour
         {
             m_itemResult.sprite = ItemAssets.Instance.hacheSprite;
             m_craftActive = true;
-            m_itemType = Item.ItemType.hache;
+            m_itemType_1 = Item.ItemType.hache;
             m_craftButton.alpha = 1f;
         }
         else if (m_craftSlotList.Find(w => string.Equals(w.name, "tissu")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null))
         {
             m_itemResult.sprite = ItemAssets.Instance.allumetteSprite;
             m_craftActive = true;
-            m_itemType = Item.ItemType.allumette;
+            m_itemType_1 = Item.ItemType.allumette;
             m_craftButton.alpha = 1f;
 
         }
@@ -42,20 +43,29 @@ public class CraftSystem : MonoBehaviour
         {
             m_itemResult.sprite = ItemAssets.Instance.hache_pierreSprite;
             m_craftActive = true;
-            m_itemType = Item.ItemType.hache_pierre;
+            m_itemType_1 = Item.ItemType.hache_pierre;
             m_craftButton.alpha = 1f;
         }
         else if (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null && BluePrintObjects.m_ladderBluePrintDiscovered)
         {
             m_itemResult.sprite = ItemAssets.Instance.echelleSprite;
             m_craftActive = true;
-            m_itemType = Item.ItemType.echelle;
+            m_itemType_1 = Item.ItemType.echelle;
+            m_craftButton.alpha = 1f;
+        }
+        else if (m_craftSlotList.Find(w => string.Equals(w.name, "allumette")) != null)
+        {
+            m_itemResult.sprite = ItemAssets.Instance.batonSprite;
+            m_craftActive = true;
+            m_itemType_1 = Item.ItemType.baton;
+            m_itemType_2 = Item.ItemType.tissu;
             m_craftButton.alpha = 1f;
         }
         else
         {
             NotEnoughItemToCraft();
         }
+        
 
     }
 
