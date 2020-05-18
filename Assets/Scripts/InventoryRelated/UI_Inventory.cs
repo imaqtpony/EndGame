@@ -171,7 +171,7 @@ public class UI_Inventory : MonoBehaviour
     public void CraftTools()
     {
         //craft hache en fer
-        if (Inventory.m_amountBaton >= 1 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType_1 == Item.ItemType.hache)
+        if (Inventory.m_amountBaton >= 2 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType_1 == Item.ItemType.hache)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.hache, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
@@ -180,10 +180,10 @@ public class UI_Inventory : MonoBehaviour
 
         }
         //craft allumette
-        else if (Inventory.m_amountTissu >= 1 && Inventory.m_amountBaton >= 1 && CraftSystem.m_itemType_1 == Item.ItemType.allumette)
+        else if (Inventory.m_amountPoudre >= 1 && Inventory.m_amountBaton >= 1 && CraftSystem.m_itemType_1 == Item.ItemType.allumette)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.allumette, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.tissu, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.poudre, amount = 1 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
 
             m_questManager.m_craftToolDone = true;
@@ -212,11 +212,39 @@ public class UI_Inventory : MonoBehaviour
             m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
 
         }
+
+        //decraft
         else if (CraftSystem.m_itemType_1 == Item.ItemType.baton && CraftSystem.m_itemType_2 == Item.ItemType.tissu)
         {
             inventory.RemoveTools(new Item { itemType = Item.ItemType.allumette, amount = 1 });
             inventory.AddItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
-            inventory.AddItem(new Item { itemType = Item.ItemType.tissu, amount = 1 });
+            inventory.AddItem(new Item { itemType = Item.ItemType.poudre, amount = 1 });
+            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+            RemoveItemFromCraftSlot();
+
+        }
+        else if (CraftSystem.m_itemType_1 == Item.ItemType.baton && CraftSystem.m_itemType_2 == Item.ItemType.caillou)
+        {
+            inventory.RemoveTools(new Item { itemType = Item.ItemType.hache_pierre, amount = 1 });
+            inventory.AddItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
+            inventory.AddItem(new Item { itemType = Item.ItemType.caillou, amount = 1 });
+            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+            RemoveItemFromCraftSlot();
+
+        }
+        else if (CraftSystem.m_itemType_1 == Item.ItemType.baton && CraftSystem.m_itemType_2 == Item.ItemType.mrcFer)
+        {
+            inventory.RemoveTools(new Item { itemType = Item.ItemType.hache, amount = 1 });
+            inventory.AddItem(new Item { itemType = Item.ItemType.baton, amount = 2 });
+            inventory.AddItem(new Item { itemType = Item.ItemType.mrcFer, amount = 1 });
+            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+            RemoveItemFromCraftSlot();
+
+        }
+        else if (CraftSystem.m_itemType_1 == Item.ItemType.baton)
+        {
+            inventory.RemoveTools(new Item { itemType = Item.ItemType.echelle, amount = 1 });
+            inventory.AddItem(new Item { itemType = Item.ItemType.baton, amount = 4 });
             m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
             RemoveItemFromCraftSlot();
 

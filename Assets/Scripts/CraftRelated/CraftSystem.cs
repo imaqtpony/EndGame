@@ -31,7 +31,7 @@ public class CraftSystem : MonoBehaviour
             m_itemType_1 = Item.ItemType.hache;
             m_craftButton.alpha = 1f;
         }
-        else if (m_craftSlotList.Find(w => string.Equals(w.name, "tissu")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null))
+        else if (m_craftSlotList.Find(w => string.Equals(w.name, "poudre")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null))
         {
             m_itemResult.sprite = ItemAssets.Instance.allumetteSprite;
             m_craftActive = true;
@@ -55,10 +55,33 @@ public class CraftSystem : MonoBehaviour
         }
         else if (m_craftSlotList.Find(w => string.Equals(w.name, "allumette")) != null)
         {
-            m_itemResult.sprite = ItemAssets.Instance.batonSprite;
+            m_itemResult.sprite = ItemAssets.Instance.decraftAllumetteSprite;
             m_craftActive = true;
             m_itemType_1 = Item.ItemType.baton;
             m_itemType_2 = Item.ItemType.tissu;
+            m_craftButton.alpha = 1f;
+        }
+        else if (m_craftSlotList.Find(w => string.Equals(w.name, "hache")) != null)
+        {
+            m_itemResult.sprite = ItemAssets.Instance.decraftHacheFerSprite;
+            m_craftActive = true;
+            m_itemType_1 = Item.ItemType.baton;
+            m_itemType_2 = Item.ItemType.mrcFer;
+            m_craftButton.alpha = 1f;
+        }
+        else if (m_craftSlotList.Find(w => string.Equals(w.name, "hache_pierre")) != null)
+        {
+            m_itemResult.sprite = ItemAssets.Instance.decraftHachePierreSprite;
+            m_craftActive = true;
+            m_itemType_1 = Item.ItemType.baton;
+            m_itemType_2 = Item.ItemType.caillou;
+            m_craftButton.alpha = 1f;
+        }
+        else if (m_craftSlotList.Find(w => string.Equals(w.name, "echelle")) != null)
+        {
+            m_itemResult.sprite = ItemAssets.Instance.batonSprite;
+            m_craftActive = true;
+            m_itemType_1 = Item.ItemType.baton;
             m_craftButton.alpha = 1f;
         }
         else

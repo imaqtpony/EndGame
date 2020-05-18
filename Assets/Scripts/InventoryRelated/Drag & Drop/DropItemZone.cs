@@ -59,6 +59,7 @@ public class DropItemZone : MonoBehaviour, IDropHandler
     {
         yield return new WaitForSeconds(1);
         m_colliderPlayer.enabled = true;
+        StopCoroutine(DeactivateCollider());
 
     }
 
