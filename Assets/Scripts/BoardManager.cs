@@ -1,7 +1,9 @@
 ﻿
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using GD2Lib;
+using System.Collections;
 
 /// <summary>
 /// Attach this script to any GameObject. Handles the event onBoardChange for both the camera and the player
@@ -26,6 +28,12 @@ public class BoardManager : MonoBehaviour
 
     private SpawnPlayer m_spawnScript;
 
+    //black fading screen
+    private float fadeTime = 5f;
+    private float currentFadeTime = 0f;
+    [SerializeField]
+    private Image fadeImage;
+
     private void Awake()
     {
         //temp nb boards
@@ -36,6 +44,23 @@ public class BoardManager : MonoBehaviour
 
         InitializeBoardArray();
 
+        fadeImage.enabled = true;
+        fadeImage.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
+
+        StartCoroutine(FadeScreen());
+
+    }
+
+    //not working
+    private IEnumerator FadeScreen()
+    {
+        while (currentFadeTime <= fadeTime)
+        {
+            currentFadeTime += Time.deltaTime;
+            fadeImage.color = new Color(0, 0, 0, 1 - currentFadeTime / fadeTime);
+        }
+
+        yield return null;
     }
 
     /// <summary>
