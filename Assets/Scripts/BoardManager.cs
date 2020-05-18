@@ -44,9 +44,9 @@ public class BoardManager : MonoBehaviour
 
         InitializeBoardArray();
 
-        fadeImage.enabled = true;
+        //WIP Set back to true if needed
+        fadeImage.enabled = false;
         fadeImage.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
-
         StartCoroutine(FadeScreen());
 
     }
@@ -57,8 +57,11 @@ public class BoardManager : MonoBehaviour
         while (currentFadeTime <= fadeTime)
         {
             currentFadeTime += Time.deltaTime;
-            fadeImage.color = new Color(0, 0, 0, 1 - currentFadeTime / fadeTime);
+            fadeImage.color = new Color(0, 0, 0, 1 - (currentFadeTime / fadeTime));
         }
+
+        if (currentFadeTime >= fadeTime)
+            fadeImage.enabled = false;
 
         yield return null;
     }
