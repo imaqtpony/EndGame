@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using GD2Lib;
 using System.Runtime.InteropServices.ComTypes;
+using TMPro;
 
 public class CandlesHandler : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class CandlesHandler : MonoBehaviour
     private GD2Lib.Event m_onLightenCandles;
 
     private int[] m_orderArray;
+
+    [SerializeField] GameObject m_notification;
+    [SerializeField] TextMeshProUGUI m_textNotification;
 
     private ParticleSystem[] m_pSysArray;
 
@@ -70,6 +74,7 @@ public class CandlesHandler : MonoBehaviour
                             navMeshObs.enabled = false;
                         }
                     }
+                    StartCoroutine(TutoEnemies());
 
                 } else
                 {
@@ -95,6 +100,18 @@ public class CandlesHandler : MonoBehaviour
         {
             Debug.LogError("Invalid type of argument !");
         }
+    }
+
+    private IEnumerator TutoEnemies()
+    {
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 0.2f;
+        m_notification.SetActive(true);
+        m_textNotification.text = "Les ennemies sont sensibles a la lumiere, et aux coups.";
+
+        yield return new WaitForSeconds(0.6f);
+        Time.timeScale = 1f;
+
     }
 
     /// <summary>

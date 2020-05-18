@@ -14,6 +14,7 @@ public class DetectLight : MonoBehaviour
             //m_inLight = true;
             StartCoroutine(EnterLightCoroutine());
         }
+        
     }
 
     void OnTriggerExit(Collider collision)
@@ -38,4 +39,6 @@ public class DetectLight : MonoBehaviour
 
         m_inLight = true;
     }
+
+
 }

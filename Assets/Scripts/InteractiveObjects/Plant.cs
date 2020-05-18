@@ -99,7 +99,7 @@ public class Plant : EnvironementObject, IFireReact
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Axe" && m_cutThePlant)
+        if(other.gameObject.tag == "Axe" || other.gameObject.tag == "StoneAxe" && m_cutThePlant)
         {
             Debug.Log("Bye bye plant");
             // plant anim here

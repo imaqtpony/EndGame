@@ -37,7 +37,7 @@ public class LifePlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && EnemyAI.m_tagCollision == "Player")
         {
             StartCoroutine(InvFrame());
             m_lifeValue.Value -= 1;
@@ -58,6 +58,7 @@ public class LifePlayer : MonoBehaviour
                 transform.position = m_respawnPoint.position;
             }
         }
+        Debug.Log(collision.gameObject.tag);
     }
 
     public void InstantiateHearts()
