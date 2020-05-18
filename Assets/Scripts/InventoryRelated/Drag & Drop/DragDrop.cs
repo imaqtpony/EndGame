@@ -130,6 +130,12 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 m_isRessource = true;
 
                 break;
+            case "poudre":
+                itemType = Item.ItemType.poudre;
+                m_amountItemToDrop = Inventory.m_amountGros_caillou;
+                m_isRessource = true;
+
+                break;
             case "hache":
                 itemType = Item.ItemType.hache;
                 m_amountItemToDrop = 1;

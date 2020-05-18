@@ -1,9 +1,9 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using GD2Lib;
 using System;
 using System.Collections;
 using TMPro;
+using UnityEngine.AI;
 
 /// <summary>
 /// Attach to a plant gameObject to play its animation when the player cuts it with the axe
@@ -15,6 +15,8 @@ public class InteractiveObject : EnvironementObject, IFireReact
 
     [SerializeField] GameObject m_notification;
     [SerializeField] TextMeshProUGUI m_textNotification;
+
+    [SerializeField] NavMeshObstacle m_navMeshTronc;
 
     [SerializeField]
     private GD2Lib.Event m_onCutWithAxe;
@@ -94,7 +96,21 @@ public class InteractiveObject : EnvironementObject, IFireReact
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "StoneAxe" && m_cutThePlant)
+        Debug.Log("TA GROSSE MERE");
+        if (other.gameObject.tag == "Axe" && m_cutThePlant)
+        {
+            GetComponent<Animator>().SetTrigger("Activate");
+            m_navMeshTronc.enabled = false;
+            Debug.Log("tronc tombe");
+
+        }
+        else if (other.gameObject.tag == "StoneAxe" && m_cutThePlant && gameObject.name == "Tronc")
+        {
+            m_notification.SetActive(true);
+            m_textNotification.text = "Il me faut une hache plus solide...";
+        }
+
+        if (other.gameObject.tag == "StoneAxe" && m_cutThePlant && gameObject.name != "Tronc")
         {
             // plant anim here
             //m_thisAnim.play();
@@ -107,14 +123,6 @@ public class InteractiveObject : EnvironementObject, IFireReact
             m_textNotification.text = "Il me faudrait une hache pour la casser.";
         }
 
-
-        if (other.gameObject.tag == "Axe" && m_cutThePlant && gameObject.name == "Tronc")
-        {
-            GetComponent<Animator>().SetTrigger("Activate");
-            m_notification.SetActive(true);
-            m_textNotification.text = "Il me faut une hache plus solide...";
-        }
- 
         if (other.gameObject.tag == "Torch" && m_burnThings)
         {
             
