@@ -108,7 +108,7 @@ public class MovePlayer : MonoBehaviour
                 if (Physics.Raycast(castPoint, out RaycastHit hit, Mathf.Infinity, m_ignoreRaycastMask) && hit.transform.gameObject.layer == (m_blockRaycastMask & (1 << hit.transform.gameObject.layer)) && !InteractWithObjects.m_gotInteracted)
                 {
                     Vector3 navMeshLoc = ClosestNavmeshLocation(hit.point, m_range);
-                    if (navMeshLoc != Vector3.zero) { m_agent.destination = ClosestNavmeshLocation(hit.point, m_range); }
+                    if (navMeshLoc != Vector3.zero) { m_agent.destination = navMeshLoc; }
                         
 
                     Vector3 direction = hit.point - transform.position;
