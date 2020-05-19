@@ -19,6 +19,8 @@ public class DropItemZone : MonoBehaviour, IDropHandler
 
     [SerializeField] BoxCollider m_colliderPlayer;
 
+    [SerializeField] Animator m_animatorPlayer;
+
     public void SetPlayer(HarvestItem player)
     {
         this.player = player;
@@ -40,13 +42,19 @@ public class DropItemZone : MonoBehaviour, IDropHandler
 
                 if (m_tools[i].name == DragDrop.itemType.ToString())
                 {
+                    if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils"))
+                    {
+                        m_animatorPlayer.SetTrigger("Idle");
+                        Debug.Log("DAZCA");
+                    }
+
+                    else if(m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils")) m_animatorPlayer.SetTrigger("Course");
                     m_tools[i].SetActive(false);
                     break;
                 }
 
             }
             m_uiInventory.DropToolFunction(DragDrop.itemType, DragDrop.m_amountItemToDrop);
-
             
         }
 

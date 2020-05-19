@@ -96,7 +96,6 @@ public class InteractiveObject : EnvironementObject, IFireReact
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("TA GROSSE MERE");
         if (other.gameObject.tag == "Axe" && m_cutThePlant)
         {
             GetComponent<Animator>().SetTrigger("Activate");

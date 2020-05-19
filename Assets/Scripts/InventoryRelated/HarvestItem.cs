@@ -28,6 +28,9 @@ public class HarvestItem : MonoBehaviour
 
     [SerializeField] UI_QuestObjects m_uiQuestObjects;
 
+    [SerializeField] Animator m_animatorPlayer;
+
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -62,9 +65,21 @@ public class HarvestItem : MonoBehaviour
         {
             ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
 
+            
+
             if (itemWorld != null)
             {
-                if(collider.gameObject.tag == "Untagged")
+                if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils") || m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils"))
+                {
+                    StartCoroutine(PickUpAnim(false));
+                }
+                else if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("Course") || m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                {
+                    StartCoroutine(PickUpAnim(true));
+
+                }
+
+                if (collider.gameObject.tag == "Untagged")
                 {
 
                     inventory.AddItem(itemWorld.GetItem());
@@ -110,6 +125,21 @@ public class HarvestItem : MonoBehaviour
     {
         m_uiQuestObjects.UI_ShowObject();
         Debug.Log("LEVIER BORDEL");
+    }
+
+    private IEnumerator PickUpAnim(bool playerwasIdle)
+    {
+        m_animatorPlayer.SetTrigger("PickUp");
+        yield return new WaitForSeconds(0.75f);
+        if (playerwasIdle)
+        {
+            m_animatorPlayer.SetTrigger("Idle");
+        }
+        else
+        {
+            m_animatorPlayer.SetTrigger("IdleOutils");
+        }
+        StopAllCoroutines();
     }
 
     private void UseItem(Item.ItemType p_itemType)

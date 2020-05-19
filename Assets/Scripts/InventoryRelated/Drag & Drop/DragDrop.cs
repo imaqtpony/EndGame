@@ -37,6 +37,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     [SerializeField] AudioManager m_audioManager;
     [SerializeField] AudioSource m_audioSource;
 
+    [SerializeField] Animator m_animatorPlayer;
+
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -182,6 +184,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void SelectTools(Item.ItemType p_toolsType)
     {
+        if(!m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils")) m_animatorPlayer.SetTrigger("IdleOutils");
+
         if (!InventoryButton.m_InventoryEnabled)
         {
             for (int i = 0; i < m_tools.Count + 1; i++)

@@ -30,6 +30,8 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] private AudioManager m_audioManager;
     [SerializeField] private AudioSource m_audioSource;
 
+    [SerializeField] Animator m_animatorPlayer;
+
     [SerializeField] private GameObject m_crossHit;
 
     private void Awake()
@@ -97,32 +99,37 @@ public class MovePlayer : MonoBehaviour
             // if le tel marche plus
             //if (Input.GetMouseButtonDown(0)) {
 
-            if (!m_agent.hasPath)
+        if (!m_agent.hasPath)
+        {
+            //if le tel marche
+            Ray castPoint = Camera.main.ScreenPointToRay(p_touch.position);
+
+            ////if le tel marche plus
+            //Vector3 mouse = Input.mousePosition;
+            //Ray castPoint = Camera.main.ScreenPointToRay(mouse);
+
+            if (Physics.Raycast(castPoint, out RaycastHit hit, Mathf.Infinity, m_ignoreRaycastMask) && hit.transform.gameObject.layer == (m_blockRaycastMask & (1 << hit.transform.gameObject.layer)) && !InteractWithObjects.m_gotInteracted)
             {
-                //if le tel marche
-                Ray castPoint = Camera.main.ScreenPointToRay(p_touch.position);
-
-                ////if le tel marche plus
-                //Vector3 mouse = Input.mousePosition;
-                //Ray castPoint = Camera.main.ScreenPointToRay(mouse);
-
-                if (Physics.Raycast(castPoint, out RaycastHit hit, Mathf.Infinity, m_ignoreRaycastMask) && hit.transform.gameObject.layer == (m_blockRaycastMask & (1 << hit.transform.gameObject.layer)) && !InteractWithObjects.m_gotInteracted)
-                {
-                    Vector3 navMeshLoc = ClosestNavmeshLocation(hit.point, m_range);
-                    if (navMeshLoc != Vector3.zero) { m_agent.destination = navMeshLoc; }
+                Vector3 navMeshLoc = ClosestNavmeshLocation(hit.point, m_range);
+                if (navMeshLoc != Vector3.zero) { m_agent.destination = navMeshLoc; }
                         
 
-                    Vector3 direction = hit.point - transform.position;
-                    direction = Vector3.ProjectOnPlane(direction, Vector3.up).normalized;
+                Vector3 direction = hit.point - transform.position;
+                direction = Vector3.ProjectOnPlane(direction, Vector3.up).normalized;
 
-                    gameObject.transform.LookAt(transform.position + direction);
+                gameObject.transform.LookAt(transform.position + direction);
 
-                    m_audioSource.Play();
-                    StartCoroutine(checkPlayerPos());
-                    m_crossHit.transform.position = new Vector3(hit.point.x, hit.point.y + .1f, hit.point.z);
+                
+                if(m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("Idle")) m_animatorPlayer.SetTrigger("Course");
+                else if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils")) m_animatorPlayer.SetTrigger("CourseOutils");
 
-                }
+
+                m_audioSource.Play();
+                StartCoroutine(checkPlayerPos());
+                m_crossHit.transform.position = new Vector3(hit.point.x, hit.point.y + .1f, hit.point.z);
+
             }
+        }
 
         //}
     }
@@ -161,6 +168,8 @@ public class MovePlayer : MonoBehaviour
             m_audioSource.Pause();
 
             StopCoroutine(checkPlayerPos());
+            if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("Course")) m_animatorPlayer.SetTrigger("Idle");
+            else if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils")) m_animatorPlayer.SetTrigger("IdleOutils");
         }
         else if (actualPos != finalPos)
         {

@@ -14,6 +14,7 @@ public class BoardBoundsScript : MonoBehaviour
     {
         if(p_other.gameObject.tag == "Player" && !p_other.isTrigger)
         {
+            Debug.Log("CONTACT PLAYER");
             m_boardChangeEvent.Raise(gameObject.name);
         }
 
