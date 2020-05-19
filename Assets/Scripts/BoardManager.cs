@@ -29,10 +29,10 @@ public class BoardManager : MonoBehaviour
     private SpawnPlayer m_spawnScript;
 
     //black fading screen
-    private float fadeTime = 5f;
-    private float currentFadeTime = 0f;
+    private float m_fadeTime = 5f;
+    private float m_currentFadeTime = 0f;
     [SerializeField]
-    private Image fadeImage;
+    private Image m_fadeImage;
 
     private void Awake()
     {
@@ -45,8 +45,9 @@ public class BoardManager : MonoBehaviour
         InitializeBoardArray();
 
         //WIP Set back to true if needed
-        fadeImage.enabled = false;
-        fadeImage.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
+        // and reactivate its gameobject
+        m_fadeImage.enabled = false;
+        m_fadeImage.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
         StartCoroutine(FadeScreen());
 
     }
@@ -54,14 +55,14 @@ public class BoardManager : MonoBehaviour
     //not working
     private IEnumerator FadeScreen()
     {
-        while (currentFadeTime <= fadeTime)
+        while (m_currentFadeTime <= m_fadeTime)
         {
-            currentFadeTime += Time.deltaTime;
-            fadeImage.color = new Color(0, 0, 0, 1 - (currentFadeTime / fadeTime));
+            m_currentFadeTime += Time.deltaTime;
+            m_fadeImage.color = new Color(0, 0, 0, 1 - (m_currentFadeTime / m_fadeTime));
         }
 
-        if (currentFadeTime >= fadeTime)
-            fadeImage.enabled = false;
+        if (m_currentFadeTime >= m_fadeTime)
+            m_fadeImage.enabled = false;
 
         yield return null;
     }

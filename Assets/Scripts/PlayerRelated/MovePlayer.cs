@@ -5,12 +5,13 @@ using UnityEngine.UIElements;
 using UnityEngine.EventSystems;
 using System.Collections;
 
-
-
 public class MovePlayer : MonoBehaviour
 {
     [SerializeField]
     private Data m_data;
+
+    [SerializeField]
+    private GD2Lib.Event m_onLadderClimb;
 
     // Component NavMeshAgent
     private NavMeshAgent m_agent;
@@ -26,10 +27,10 @@ public class MovePlayer : MonoBehaviour
 
     [SerializeField] private LayerMask m_ignoreRaycastMask;
 
-    [SerializeField] AudioManager m_audioManager;
-    [SerializeField] AudioSource m_audioSource;
+    [SerializeField] private AudioManager m_audioManager;
+    [SerializeField] private AudioSource m_audioSource;
 
-    [SerializeField] GameObject m_crossHit;
+    [SerializeField] private GameObject m_crossHit;
 
     private void Awake()
     {
@@ -167,6 +168,35 @@ public class MovePlayer : MonoBehaviour
         }
 
     }
+
+    #region ONLADDERCLIMB
+    private void OnEnable()
+    {
+        if (m_onLadderClimb != null)
+            m_onLadderClimb.Register(HandleLadderClimb);
+    }
+    
+    private void OnDisable()
+    {
+        if (m_onLadderClimb != null)
+            m_onLadderClimb.Unregister(HandleLadderClimb);
+    }
+
+    private void HandleLadderClimb(GD2Lib.Event p_event, object[] p_params)
+    {
+        if (GD2Lib.Event.TryParseArgs(out Vector3 p_pos, p_params))
+        {
+            m_agent.enabled = false;
+            transform.position = ClosestNavmeshLocation(p_pos, m_range*4);
+            m_agent.enabled = true;
+
+        }
+        else
+        {
+            Debug.LogError("Invalid type of argument !");
+        }
+    }
+    #endregion
 
 }
 

@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_data: {fileID: 11400000, guid: d68a4a27d7455254980868e0118b612a, type: 2}
+  m_onLadderClimb: {fileID: 11400000, guid: 5844f853704b15f41ab85b468d646591, type: 2}
   m_blockRaycastMask:
     serializedVersion: 2
     m_Bits: 256

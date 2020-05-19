@@ -41,8 +41,8 @@ public class Pushable_Object : MonoBehaviour
         if (m_pushThisOne && m_playerWithinRange)
         {
             //maybe instead get a forward from the player pos to the mouse pos
-            m_rb.AddForce(new Vector3(m_forceDirection.transform.forward.x,0, m_forceDirection.transform.forward.z) * 5f, ForceMode.Impulse);
-            //Debug.Log("Successfully pushed obj");
+            m_rb.AddForce(new Vector3(m_forceDirection.transform.forward.x, 0, m_forceDirection.transform.forward.z) * 5f, ForceMode.Impulse);
+            Debug.Log("Successfully pushed obj");
         }
 
     }
@@ -50,13 +50,16 @@ public class Pushable_Object : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
+        {
             m_playerWithinRange = true;
 
 
-        m_forceDirection.transform.position = other.gameObject.transform.position;
-        m_forceDirection.transform.rotation = other.gameObject.transform.rotation;
-        // push to center of the object
-        m_forceDirection.transform.LookAt(transform);
+            m_forceDirection.transform.position = other.gameObject.transform.position;
+            m_forceDirection.transform.rotation = other.gameObject.transform.rotation;
+            // push to center of the object
+            m_forceDirection.transform.LookAt(transform);
+        }
+            
     }
 
     private void OnTriggerExit(Collider other)
