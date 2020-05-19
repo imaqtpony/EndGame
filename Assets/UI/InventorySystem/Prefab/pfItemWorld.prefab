@@ -348,6 +348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enemiesSpawner: {fileID: 7715719221113452857, guid: 36c17e82138441a4995a16ecf1d4f065,
     type: 3}
+  m_pollutionAnim: {fileID: 584712352231548, guid: 625809a56bfb73e4d94c7644458c5b20,
+    type: 3}
   m_toxicShader: {fileID: -6465566751694194690, guid: 727655a01e36a754ebf7c7f0d25147b4,
     type: 3}
 --- !u!95 &924241363851159828
