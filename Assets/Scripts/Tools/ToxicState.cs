@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class ToxicState : MonoBehaviour
 {
-    //timer ? au bout d'un moment si le joueur n'est plus sur ce board on lance les effets visuels et spawn le portail 
-    // il faut recuperer le board courant pour faire que les ennemis ne vont vers le joueur que s'il est sur le board
-    // permettra aussi de savoir quand devoiler la pollution
-
-    // une sync var pour le decompte des obj pollués? 
 
     [SerializeField]
     private GameObject m_enemiesSpawner;
 
+    [SerializeField]
+    private GameObject m_pollutionAnim;
+
     private float m_timerBeforeToxicState = 0.0f;
 
-    private float m_spawningTime = 120f;
+    private float m_spawningTime = 3f;
 
     private bool m_polluted = false;
 
@@ -58,9 +56,13 @@ public class ToxicState : MonoBehaviour
     {
 
         // spawn/ lance l'effet visuel
-        GameObject thisSpawner = Instantiate(m_enemiesSpawner, gameObject.transform);
+        GameObject thisPollutedCreep = Instantiate(m_pollutionAnim);
+        thisPollutedCreep.transform.parent = transform;
+        thisPollutedCreep.transform.position = new Vector3(transform.position.x, 0.016f, transform.position.z);
+
+        GameObject thisSpawner = Instantiate(m_enemiesSpawner, transform);
         // set as child so whenever the player picks the item it destroys the spawner as well
-        thisSpawner.transform.parent = gameObject.transform;
+        thisSpawner.transform.parent = transform;
         m_polluted = true;
 
     }
