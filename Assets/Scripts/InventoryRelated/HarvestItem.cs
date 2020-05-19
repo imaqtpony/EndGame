@@ -115,6 +115,7 @@ public class HarvestItem : MonoBehaviour
         if (collider.CompareTag("QuestObject"))
         {
             ActivateQuestObject.m_canUseItem = true;
+            Key.m_canUseItem = true;
             Invoke("UI_ShowObject", .1f);
             Destroy(collider.gameObject, .5f);
         }

@@ -58,7 +58,7 @@ public class LifePlayer : MonoBehaviour
                 transform.position = m_respawnPoint.position;
             }
         }
-        Debug.Log(collision.gameObject.tag);
+        //Debug.Log(collision.gameObject.tag);
     }
 
     public void InstantiateHearts()
