@@ -77,7 +77,7 @@ public class Ladder : MonoBehaviour
             }
         }
 
-        if (other.CompareTag("Player") && m_ladderPlaced && gameObject.CompareTag("LadderOnSameBoard") && !m_alreadyUsedLadder)
+        if (other.CompareTag("Player") && m_ladderPlaced && gameObject.CompareTag("LadderOnSameBoard") && !m_alreadyUsedLadder && transform.childCount>0)
         {
             float distToLadder1 = Vector3.Distance(transform.GetChild(0).position, other.transform.position);
             float distToLadder2 = Vector3.Distance(m_ladder2.position, other.transform.position);
