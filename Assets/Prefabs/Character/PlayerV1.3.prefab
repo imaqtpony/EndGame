@@ -199,6 +199,7 @@ MonoBehaviour:
     m_Bits: 4
   m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
   m_audioSource: {fileID: 1673995438}
+  m_animatorPlayer: {fileID: 0}
   m_crossHit: {fileID: 0}
 --- !u!54 &1315066270232433449
 Rigidbody:
