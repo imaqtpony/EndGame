@@ -19,8 +19,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public Image image;
 
     [SerializeField] UI_Inventory m_uiInventory;
-
     [SerializeField] Transform m_selectedIndicator;
+
+    [SerializeField] GameObject m_notification;
+    [SerializeField] TextMeshProUGUI m_textNotification;
 
     public static int m_amountItemToDrop;
 
@@ -185,6 +187,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void SelectTools(Item.ItemType p_toolsType)
     {
         if(!m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils")) m_animatorPlayer.SetTrigger("IdleOutils");
+
+        bool tutoToolsDone = false;
+
+        if (!tutoToolsDone)
+        {
+
+        }
 
         if (!InventoryButton.m_InventoryEnabled)
         {

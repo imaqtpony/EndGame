@@ -8,8 +8,8 @@ public class ToxicState : MonoBehaviour
     [SerializeField]
     private GameObject m_enemiesSpawner;
 
-    [SerializeField]
-    private GameObject m_pollutionAnim;
+
+    [SerializeField] GameObject m_pollutionAnim;
 
     private float m_timerBeforeToxicState = 0.0f;
 
