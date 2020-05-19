@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_data: {fileID: 11400000, guid: d68a4a27d7455254980868e0118b612a, type: 2}
+  m_onLadderClimb: {fileID: 11400000, guid: 5844f853704b15f41ab85b468d646591, type: 2}
   m_blockRaycastMask:
     serializedVersion: 2
     m_Bits: 256
@@ -197,6 +198,7 @@ MonoBehaviour:
     m_Bits: 4
   m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
   m_audioSource: {fileID: 1673995438}
+  m_crossHit: {fileID: 0}
 --- !u!54 &1315066270232433449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -240,6 +242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_inventorySpace: {fileID: 11400000, guid: 7c44a541d593c3540bd485ee13a744e8, type: 2}
+  m_notification: {fileID: 0}
+  m_textNotification: {fileID: 0}
   m_questManager: {fileID: 11400000, guid: 0c4c3e7d11b2a384b8e40af431899763, type: 2}
   m_questSystem: {fileID: 0}
   m_uiInventory: {fileID: 0}
@@ -311,6 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_lifeValue: {fileID: 11400000, guid: d6b9ce34b3693a046a8a76a91ec41ed7, type: 2}
   m_collider: {fileID: 9199537855417092853}
+  m_respawnPoint: {fileID: 0}
   m_uiInventory: {fileID: 0}
   m_invDuration: 1
   m_vieMax: 3

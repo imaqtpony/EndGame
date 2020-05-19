@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using GD2Lib;
 
 public class Ladder : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Ladder : MonoBehaviour
 
     private bool m_ladderPlaced;
 
+    private bool m_alreadyUsedLadder;
+
     [SerializeField] Material m_material;
 
     public static bool m_ladderUsing;
@@ -25,10 +28,14 @@ public class Ladder : MonoBehaviour
     private MeshRenderer m_meshLadder2;
     private NavMeshObstacle m_navMeshObs2;
 
+    [SerializeField]
+    private GD2Lib.Event m_onLadderClimb;
+
     public void Start()
     {
         m_meshLadder.enabled = false;
         m_navMeshObs.enabled = true;
+        m_alreadyUsedLadder = false;
 
         if (transform.childCount > 0)
         {
@@ -47,7 +54,7 @@ public class Ladder : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        BluePrintObjects.m_ladderBluePrintDiscovered = true;
+        //BluePrintObjects.m_ladderBluePrintDiscovered = true;
         if (other.CompareTag("Player") && BluePrintObjects.m_ladderBluePrintDiscovered && !m_ladderPlaced)
         {
             m_meshLadder.enabled = true;
@@ -70,7 +77,7 @@ public class Ladder : MonoBehaviour
             }
         }
 
-        if (other.CompareTag("Player") && m_ladderPlaced && gameObject.CompareTag("LadderOnSameBoard"))
+        if (other.CompareTag("Player") && m_ladderPlaced && gameObject.CompareTag("LadderOnSameBoard") && !m_alreadyUsedLadder)
         {
             float distToLadder1 = Vector3.Distance(transform.GetChild(0).position, other.transform.position);
             float distToLadder2 = Vector3.Distance(m_ladder2.position, other.transform.position);
@@ -82,12 +89,15 @@ public class Ladder : MonoBehaviour
                 {
                     //raise position de la ladder 2 car on s'y rend
                     Debug.Log("ladder 1");
+                    m_onLadderClimb.Raise(m_ladder2.position);
                 }
                 else if (distToLadder1 > distToLadder2)
                 {
                     // l'inverse
                     Debug.Log("ladder 2");
+                    m_onLadderClimb.Raise(transform.GetChild(0).position);
                 }
+                m_alreadyUsedLadder = true;
             }
 
         }
@@ -101,5 +111,9 @@ public class Ladder : MonoBehaviour
             m_meshLadder.enabled = false;
 
         }
+
+        if (other.CompareTag("Player"))
+            m_alreadyUsedLadder = false;
+
     }
 }
