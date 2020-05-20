@@ -192,6 +192,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
         if (!tutoToolsDone)
         {
+            m_notification.SetActive(true);
+            m_textNotification.text = "Glisser le doigt sur l'ecran pour utiliser l'outil.";
+            tutoToolsDone = true;
 
         }
 

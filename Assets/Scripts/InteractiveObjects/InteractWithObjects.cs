@@ -21,6 +21,8 @@ public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
     private void Start()
     {
         m_initialText = m_interactText.text;
+        gameObject.layer = 2;
+
     }
 
     // Start is called before the first frame update
@@ -55,6 +57,8 @@ public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
     {
         if (collider.CompareTag("Player"))
         {
+            gameObject.layer = 0;
+
             m_canShow = true;
             m_interactText.text = "Interagir";
         }
@@ -67,6 +71,7 @@ public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
             m_canShow = false;
             m_interactText.text = m_initialText;
             m_goToShow.SetActive(false);
+            gameObject.layer = 2;
 
         }
     }

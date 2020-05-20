@@ -15,6 +15,7 @@ public class UI_QuestObjects : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log(gameObject.name);
         m_canvasLevier.SetActive(false);
         m_activateLevier = false;
         m_activateKey = false;
