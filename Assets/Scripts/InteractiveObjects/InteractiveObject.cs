@@ -46,7 +46,6 @@ public class InteractiveObject : EnvironementObject, IFireReact
         m_audioManager.m_audioSource = GetComponent<AudioSource>();
     }
 
-
     private void OnEnable()
     {
         if (m_onCutWithAxe != null)

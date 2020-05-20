@@ -16,6 +16,8 @@ public class CandlesHandler : MonoBehaviour
     [SerializeField] GameObject m_notification;
     [SerializeField] TextMeshProUGUI m_textNotification;
 
+    [SerializeField] ParticleSystem m_fxFire;
+
     private ParticleSystem[] m_pSysArray;
 
     [SerializeField] Animator[] m_animatorVolet;
@@ -74,6 +76,7 @@ public class CandlesHandler : MonoBehaviour
                             navMeshObs.enabled = false;
                         }
                     }
+                    m_fxFire.Play();
                     StartCoroutine(TutoEnemies());
 
                 } else
