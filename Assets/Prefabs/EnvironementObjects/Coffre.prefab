@@ -83,6 +83,7 @@ MonoBehaviour:
   - {fileID: 0}
   m_itemTypeGiven: 0300000003000000
   m_amountItemGiven: 1
+  m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
 --- !u!208 &3952141289178467680
 NavMeshObstacle:
   m_ObjectHideFlags: 0

@@ -28,11 +28,15 @@ public class Ladder : MonoBehaviour
     private MeshRenderer m_meshLadder2;
     private NavMeshObstacle m_navMeshObs2;
 
+    [SerializeField] AudioManager m_audioManager;
+
     [SerializeField]
     private GD2Lib.Event m_onLadderClimb;
 
     public void Start()
     {
+        m_audioManager.m_audioSource = GetComponent<AudioSource>();
+
         m_meshLadder.enabled = false;
         m_navMeshObs.enabled = true;
         m_alreadyUsedLadder = false;
@@ -60,6 +64,8 @@ public class Ladder : MonoBehaviour
             m_meshLadder.enabled = true;
             if (m_ladderOnPlayer.activeInHierarchy)
             {
+                m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_dropLadderSound);
+
                 m_renderer.material = m_material;
                 m_navMeshObs.enabled = false;
                 m_ladderOnPlayer.SetActive(false);

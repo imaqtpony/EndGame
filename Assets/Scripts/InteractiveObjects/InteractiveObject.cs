@@ -25,11 +25,13 @@ public class InteractiveObject : EnvironementObject, IFireReact
     private GD2Lib.Event m_onUseTorch;
 
     private bool m_burnThings;
-    private bool m_cutThePlant;
+    public static bool m_cutThePlant;
 
     [SerializeField] Item.ItemType m_attachedItem;
 
     [SerializeField] GameObject m_attachedObject;
+
+    [SerializeField] AudioManager m_audioManager;
 
     //private animator m_thisAnim;
 
@@ -39,12 +41,10 @@ public class InteractiveObject : EnvironementObject, IFireReact
     //    m_attachedItem = new Item {truc machin avec les bonnes infos? randomize l'amount}
     //}
 
-    /*private void Awake()
+    private void Awake()
     {
-        m_audioSource.PlayOneShot(m_audioManager.m_fireSound);
-        m_audioSource.Pause();
-
-    }*/
+        m_audioManager.m_audioSource = GetComponent<AudioSource>();
+    }
 
 
     private void OnEnable()
@@ -99,8 +99,9 @@ public class InteractiveObject : EnvironementObject, IFireReact
         if (other.gameObject.tag == "Axe" && m_cutThePlant)
         {
             GetComponent<Animator>().SetTrigger("Activate");
+            m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_fallingTreeSound);
             m_navMeshTronc.enabled = false;
-            Debug.Log("tronc tombe");
+            
 
         }
         else if (other.gameObject.tag == "StoneAxe" && m_cutThePlant && gameObject.name == "Tronc")
@@ -114,8 +115,11 @@ public class InteractiveObject : EnvironementObject, IFireReact
             // plant anim here
             //m_thisAnim.play();
             DropMaterialOnDeathCrate(m_attachedObject, m_attachedItem);
-            
+            m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_destroyingCrateSound);
+            m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
+
         }
+
         else if (gameObject.name == "Caisse" && other.CompareTag("Player"))
         {
             m_notification.SetActive(true);

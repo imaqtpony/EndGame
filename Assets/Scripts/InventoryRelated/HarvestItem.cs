@@ -17,23 +17,24 @@ public class HarvestItem : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_textNotification;
 
     [SerializeField] QuestManager m_questManager;
-
     [SerializeField] QuestSystem m_questSystem;
-
-    [SerializeField] UI_Inventory m_uiInventory;
-
-    [SerializeField] DropItemZone m_dropItemZone;
-
-    [SerializeField] TextMeshProUGUI m_amounItemsInventory;
-
     [SerializeField] UI_QuestObjects m_uiQuestObjects;
 
+    [SerializeField] UI_Inventory m_uiInventory;
+    [SerializeField] DropItemZone m_dropItemZone;
+    [SerializeField] TextMeshProUGUI m_amounItemsInventory;
+
+    [SerializeField] AudioManager m_audioManager;
+ 
     [SerializeField] Animator m_animatorPlayer;
 
 
     // Start is called before the first frame update
     private void Awake()
     {
+
+        m_audioManager.m_audioSource = GetComponent<AudioSource>();
+
         m_lifePlayer = GetComponent<LifePlayer>();
         inventory = new Inventory(UseItem);
         m_uiInventory.SetPlayer(this);
@@ -65,10 +66,10 @@ public class HarvestItem : MonoBehaviour
         {
             ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
 
-            
-
             if (itemWorld != null)
             {
+                m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_pickUpSound);
+
                 if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils") || m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils"))
                 {
                     StartCoroutine(PickUpAnim(false));

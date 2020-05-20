@@ -10,6 +10,8 @@ public class ActivateQuestObject : MonoBehaviour
     [SerializeField] Animator m_animatorMusicBox;
     public static bool m_canUseItem;
 
+    [SerializeField] AudioManager m_audioManager;
+
     [SerializeField] GameObject m_slotLevier;
 
     [SerializeField] QuestSystem m_questSystem;
@@ -20,6 +22,8 @@ public class ActivateQuestObject : MonoBehaviour
 
     private void Start()
     {
+
+        m_audioManager.m_audioSource = GetComponent<AudioSource>();
         m_animator = GetComponent<Animator>();
         m_meshRenderer = GetComponent<Renderer>();
         m_canUseItem = false;
@@ -42,6 +46,8 @@ public class ActivateQuestObject : MonoBehaviour
             m_animatorSlotLevier.SetTrigger("FlashingQuestObject");
             if (UI_QuestObjects.m_activateLevier)
             {
+                m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_musicBoxSound);
+
                 m_meshRenderer.enabled = true;
                 m_animator.SetTrigger("Activate");
                 m_animatorMusicBox.SetTrigger("Activate");

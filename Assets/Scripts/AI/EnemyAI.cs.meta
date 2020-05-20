@@ -4,6 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - m_animatorEnemy: {instanceID: 0}
+  - m_ColliderEnemy: {instanceID: 0}
+  - m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
   - m_data: {fileID: 11400000, guid: d68a4a27d7455254980868e0118b612a, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}

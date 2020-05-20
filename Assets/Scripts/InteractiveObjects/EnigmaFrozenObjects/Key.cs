@@ -12,11 +12,14 @@ public class Key : MonoBehaviour
     [SerializeField] QuestSystem m_questSystem;
     [SerializeField] QuestManager m_questManager;
 
+    [SerializeField] AudioManager m_audioManager;
+
     private Renderer m_meshRenderer;
 
 
     private void Start()
     {
+        m_audioManager.m_audioSource = GetComponent<AudioSource>();
         m_meshRenderer = GetComponent<Renderer>();
         m_canUseItem = false;
         m_questManager.m_keyEnigmaDone = false;
@@ -41,7 +44,7 @@ public class Key : MonoBehaviour
                 m_meshRenderer.enabled = true;
                 m_questManager.m_keyEnigmaDone = true;
                 m_slotKey.SetActive(false);
-
+                m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_LockpickSound);
             }
 
             //m_questSystem.ChangeQuest("Allumez le feuuuuuuuuuu");
