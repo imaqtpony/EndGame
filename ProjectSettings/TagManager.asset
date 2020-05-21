@@ -19,6 +19,8 @@ TagManager:
   - LadderOnSameBoard
   - Levier
   - Clef
+  - LevierCaisse
+  - BasicCaisse
   layers:
   - Default
   - TransparentFX

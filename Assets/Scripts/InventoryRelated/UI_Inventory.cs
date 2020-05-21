@@ -41,8 +41,6 @@ public class UI_Inventory : MonoBehaviour
 
     [SerializeField] AudioSource m_audioSource;
 
-    //[SerializeField] Transform m_yellowStar;
-
     public void SetPlayer(HarvestItem player)
     {
         this.player = player;
@@ -75,19 +73,6 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
-    /*private IEnumerator YellowStar()
-    {
-        yield return new WaitForSeconds(.1f);
-
-        m_yellowStar.GetComponent<Animator>().SetTrigger("Activate");
-        m_yellowStar.GetComponent<Animator>().enabled = true;
-        m_yellowStar.GetComponent<Image>().enabled = true;
-        yield return new WaitForSeconds(1f);
-
-        m_yellowStar.GetComponent<Image>().enabled = false;
-        m_yellowStar.GetComponent<Animator>().SetTrigger("DeActivate");
-
-    }*/
 
     public void RefreshInventoryRessources()
     {
@@ -111,7 +96,6 @@ public class UI_Inventory : MonoBehaviour
                     CraftTools();
                     UpdateAmountItems();
                     RemoveItemFromCraftSlot();
-                    //StartCoroutine(YellowStar());
                 }
                 else
                 {
@@ -172,12 +156,6 @@ public class UI_Inventory : MonoBehaviour
             itemSlotRectTransform.gameObject.SetActive(true);
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
             Image image = itemSlotRectTransform.Find("Tools").GetComponent<Image>();
-
-            //RectTransform yellowStartRectransform = Instantiate(m_yellowStar, m_toolsSlotContainer).GetComponent<RectTransform>();
-            //yellowStartRectransform.GetComponent<Image>().enabled = false;
-            //yellowStartRectransform.position = itemSlotRectTransform.position;
-            //yellowStartRectransform.parent = itemSlotRectTransform;
-            //yellowStartRectransform.transform.SetSiblingIndex(2);
 
             image.sprite = item.GetSprite();
 

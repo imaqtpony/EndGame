@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Chest : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class Chest : MonoBehaviour
     [SerializeField] int m_amountItemGiven;
 
     [SerializeField] AudioManager m_audioManager;
+
+    [SerializeField] GameObject m_donjonNotif;
+    [SerializeField] TextMeshProUGUI m_donjonNotifText;
 
     private void Start()
     {
@@ -45,8 +49,21 @@ public class Chest : MonoBehaviour
             AssociateSprite();
 
         }
-        Debug.Log("give");
+
+        if(gameObject.name == "PremierCoffreDonjon")
+        {
+            m_donjonNotif.SetActive(true);
+            StartCoroutine(DisableDonjonNotif());
+        }
+        
         Destroy(this, 5.1f);
+    }
+
+    private IEnumerator DisableDonjonNotif()
+    {
+        yield return new WaitForSeconds(4);
+        m_donjonNotif.SetActive(false);
+
     }
 
     private void OnTriggerEnter(Collider collider)
