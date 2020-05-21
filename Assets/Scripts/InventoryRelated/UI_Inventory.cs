@@ -73,6 +73,15 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
+    private IEnumerator InventoryFullNotification()
+    {
+        m_notification.SetActive(true);
+        m_textNotification.text = "Inventaire Plein !";
+        m_amountItemsInventory.GetComponent<Animator>().SetTrigger("Activate");
+        yield return new WaitForSeconds(1);
+        m_amountItemsInventory.GetComponent<Animator>().SetTrigger("DeActivate");
+
+    }
 
     public void RefreshInventoryRessources()
     {
@@ -99,8 +108,7 @@ public class UI_Inventory : MonoBehaviour
                 }
                 else
                 {
-                    m_notification.SetActive(true);
-                    m_textNotification.text = "Inventaire Plein !";
+                    StartCoroutine(InventoryFullNotification());
                 }
 
             }
