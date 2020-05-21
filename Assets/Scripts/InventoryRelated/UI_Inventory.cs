@@ -35,13 +35,13 @@ public class UI_Inventory : MonoBehaviour
     public IntVar m_inventorySpace;
     [SerializeField] TextMeshProUGUI m_amountItemsInventory;
 
-    [SerializeField] TextMeshProUGUI m_inventoryFull;
-
     private HarvestItem player;
 
     [SerializeField] AudioManager m_audioManager;
 
     [SerializeField] AudioSource m_audioSource;
+
+    [SerializeField] Transform m_yellowStar;
 
     public void SetPlayer(HarvestItem player)
     {
@@ -75,6 +75,18 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
+    private IEnumerator YellowStar()
+    {
+        m_yellowStar.GetComponent<Animator>().SetTrigger("Activate");
+        m_yellowStar.GetComponent<Animator>().enabled = true;
+        m_yellowStar.GetComponent<Image>().enabled = true;
+        yield return new WaitForSeconds(1f);
+
+        m_yellowStar.GetComponent<Image>().enabled = false;
+        m_yellowStar.GetComponent<Animator>().SetTrigger("DeActivate");
+
+    }
+
     public void RefreshInventoryRessources()
     {
         foreach (Transform child in m_ressourcesSlotContainer)
@@ -97,7 +109,7 @@ public class UI_Inventory : MonoBehaviour
                     CraftTools();
                     UpdateAmountItems();
                     RemoveItemFromCraftSlot();
-
+                    StartCoroutine(YellowStar());
                 }
                 else
                 {
@@ -108,6 +120,8 @@ public class UI_Inventory : MonoBehaviour
             }
 
         };
+
+        
 
         foreach (Item item in inventory.GetItemList())
         {
@@ -157,7 +171,11 @@ public class UI_Inventory : MonoBehaviour
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
             Image image = itemSlotRectTransform.Find("Tools").GetComponent<Image>();
 
+            m_yellowStar.parent = itemSlotRectTransform;
+            m_yellowStar.transform.SetSiblingIndex(2);
 
+            m_yellowStar.position = image.transform.position;
+            Debug.Log("fzzdadada");
             image.sprite = item.GetSprite();
 
             x++;
