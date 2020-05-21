@@ -34,7 +34,6 @@ MonoBehaviour:
     type: 3}
   m_dropLadderSound: {fileID: 8300000, guid: d4182a74ce522e24a89988c9eb3e3a85, type: 3}
   m_fallingTreeSound: {fileID: 8300000, guid: 9e1a0419f448b63468e7ea4941da22e7, type: 3}
-  m_insectSound: {fileID: 8300000, guid: ff496259dc4b41a48bfc87d72ab1bc2f, type: 3}
   m_LockpickSound: {fileID: 8300000, guid: b3bb529d809c0f6409ac74ba4cc818d7, type: 3}
   m_musicBoxSound: {fileID: 8300000, guid: 9126a63f0cf5cca438513d635c157f42, type: 3}
   m_openingChestSound: {fileID: 8300000, guid: b8072470346a8f3488d50896da4a6d6e, type: 3}
@@ -44,4 +43,3 @@ MonoBehaviour:
   m_PlayerDamageSound: {fileID: 8300000, guid: b832550a8f1e3a4468c2e18b24948415, type: 3}
   m_rollingObjectSound: {fileID: 8300000, guid: 45905aaf5e52a734892fe018e24ee7bd,
     type: 3}
-  m_riverSound: {fileID: 8300000, guid: 144f8aef97ad14346a8cf7b39962260c, type: 3}

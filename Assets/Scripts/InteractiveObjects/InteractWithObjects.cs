@@ -13,14 +13,14 @@ public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
 
     [SerializeField] TextMeshProUGUI m_interactText;
 
-    string m_initialText;
     public static bool m_canShow;
 
     public static bool m_gotInteracted;
 
+    public Color m_colorText;
+
     private void Start()
     {
-        m_initialText = m_interactText.text;
         gameObject.layer = 2;
 
     }
@@ -60,7 +60,7 @@ public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
             gameObject.layer = 0;
 
             m_canShow = true;
-            m_interactText.text = "Interagir";
+            m_interactText.color = m_colorText;
         }
     }
 
@@ -69,7 +69,8 @@ public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
         if (collider.CompareTag("Player"))
         {
             m_canShow = false;
-            m_interactText.text = m_initialText;
+            m_interactText.color = Color.white;
+
             m_goToShow.SetActive(false);
             gameObject.layer = 2;
 

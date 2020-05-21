@@ -188,14 +188,12 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         if(!m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils")) m_animatorPlayer.SetTrigger("IdleOutils");
 
-        bool tutoToolsDone = false;
 
-        if (!tutoToolsDone)
+        if (!UI_Inventory.tutoToolsDone)
         {
             m_notification.SetActive(true);
             m_textNotification.text = "Glisser le doigt sur l'ecran pour utiliser l'outil.";
-            tutoToolsDone = true;
-
+            UI_Inventory.tutoToolsDone = true;
         }
 
         if (!InventoryButton.m_InventoryEnabled)

@@ -11,6 +11,8 @@ public class CraftTable : MonoBehaviour
     [SerializeField] GameObject m_notification;
     [SerializeField] TextMeshProUGUI m_textNotification;
 
+    bool tutoDecraftDone = false;
+
     private void Awake()
     {
         m_craftcanvas.SetActive(false);
@@ -25,17 +27,19 @@ public class CraftTable : MonoBehaviour
             m_craftcanvas.SetActive(true);
             m_craftText.SetActive(false);
             gameObject.layer = 0;
-        }
 
-        if (BluePrintObjects.m_ladderBluePrintDiscovered)
-        {
-            bool tutoDecraftDone = false;
-            if (!tutoDecraftDone)
+            if (BluePrintObjects.m_ladderBluePrintDiscovered)
             {
-                m_notification.SetActive(true);
-                m_textNotification.text = "Il est aussi possible de demanteler les outils.";
+                if (!tutoDecraftDone)
+                {
+                    m_notification.SetActive(true);
+                    m_textNotification.text = "Il est aussi possible de demanteler les outils.";
+                    tutoDecraftDone = true;
+                }
             }
         }
+
+        
     }
 
     public void OnTriggerExit(Collider other)

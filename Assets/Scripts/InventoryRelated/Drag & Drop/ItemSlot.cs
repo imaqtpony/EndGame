@@ -28,11 +28,15 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     private void OnEnable()
     {
         if(gameObject.tag == "CraftSlot") m_uiInventory.m_itemForCraft.Add(transform);
+        m_audioManager.m_audioSource = GetComponent<AudioSource>();
+
     }
 
     private void OnDisable()
     {
         if (gameObject.tag == "CraftSlot") m_uiInventory.m_itemForCraft.Remove(transform);
+        m_audioManager.m_audioSource = GetComponent<AudioSource>();
+
     }
 
     private void Start()

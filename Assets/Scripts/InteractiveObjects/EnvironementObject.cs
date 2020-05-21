@@ -55,7 +55,7 @@ public class EnvironementObject : MonoBehaviour
             }
 
         }
-        Destroy(gameObject);
+        Destroy(gameObject, .5f);
 
     }
 

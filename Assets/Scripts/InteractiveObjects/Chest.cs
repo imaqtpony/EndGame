@@ -20,12 +20,14 @@ public class Chest : MonoBehaviour
 
     [SerializeField] AudioManager m_audioManager;
 
+    private AudioSource m_audioSource;
+
     [SerializeField] GameObject m_donjonNotif;
     [SerializeField] TextMeshProUGUI m_donjonNotifText;
 
     private void Start()
     {
-        m_audioManager.m_audioSource = GetComponent<AudioSource>();
+        m_audioSource = GetComponent<AudioSource>();
     }
 
     public void HarvestChestItems()
@@ -33,7 +35,7 @@ public class Chest : MonoBehaviour
         m_itemsUnlockedSlots[m_itemTypeGiven.Length - 1].gameObject.SetActive(true);
         Invoke("DisableSlot", 5f);
 
-        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_openingChestSound);
+        m_audioSource.PlayOneShot(m_audioManager.m_openingChestSound);
         Destroy(GetComponent<AudioSource>(), 2);
 
         int p_amount = m_amountItemGiven;
@@ -52,7 +54,6 @@ public class Chest : MonoBehaviour
 
         if(gameObject.name == "PremierCoffreDonjon")
         {
-            m_donjonNotif.SetActive(true);
             StartCoroutine(DisableDonjonNotif());
         }
         
@@ -61,6 +62,8 @@ public class Chest : MonoBehaviour
 
     private IEnumerator DisableDonjonNotif()
     {
+        yield return new WaitForSeconds(4);
+        m_donjonNotif.SetActive(true);
         yield return new WaitForSeconds(4);
         m_donjonNotif.SetActive(false);
 

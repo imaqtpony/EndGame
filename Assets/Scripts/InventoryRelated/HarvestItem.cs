@@ -25,6 +25,8 @@ public class HarvestItem : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_amounItemsInventory;
 
     [SerializeField] AudioManager m_audioManager;
+
+    private AudioSource m_audioSource;
  
     [SerializeField] Animator m_animatorPlayer;
 
@@ -35,7 +37,7 @@ public class HarvestItem : MonoBehaviour
     private void Awake()
     {
 
-        m_audioManager.m_audioSource = GetComponent<AudioSource>();
+        m_audioSource = GetComponent<AudioSource>();
 
         m_lifePlayer = GetComponent<LifePlayer>();
         inventory = new Inventory(UseItem);
@@ -70,6 +72,7 @@ public class HarvestItem : MonoBehaviour
 
             if (itemWorld != null)
             {
+                m_audioSource.PlayOneShot(m_audioManager.m_pickUpSound);
 
                 if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils") || m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils"))
                 {
@@ -99,7 +102,6 @@ public class HarvestItem : MonoBehaviour
                     itemWorld.DestroySelf();
 
                 }
-                m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_pickUpSound);
 
             }
             m_amounItemsInventory.text = $"{ Inventory.itemList.Count + Inventory.toolsList.Count }/{m_inventorySpace.Value}";
@@ -117,7 +119,7 @@ public class HarvestItem : MonoBehaviour
 
         if (collider.CompareTag("Levier"))
         {
-            ActivateQuestObject.m_canUseItem = true;
+            ActivateQuestObject.m_gotLever = true;
             m_activateQuestObject.ShowSlot(collider.tag.ToString());
             Destroy(collider.gameObject, .5f);
         }

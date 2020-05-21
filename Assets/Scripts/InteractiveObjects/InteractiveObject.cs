@@ -33,6 +33,8 @@ public class InteractiveObject : EnvironementObject, IFireReact
 
     [SerializeField] AudioManager m_audioManager;
 
+    private AudioSource m_audioSource;
+
     //private animator m_thisAnim;
 
     //private void Awake()
@@ -43,7 +45,7 @@ public class InteractiveObject : EnvironementObject, IFireReact
 
     private void Awake()
     {
-        m_audioManager.m_audioSource = GetComponent<AudioSource>();
+        m_audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -95,11 +97,11 @@ public class InteractiveObject : EnvironementObject, IFireReact
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Axe" && m_cutThePlant)
+        if (other.gameObject.tag == "Axe" && m_cutThePlant && gameObject.name == "Tronc")
         {
+            m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
+            m_audioSource.PlayOneShot(m_audioManager.m_fallingTreeSound);
             GetComponent<Animator>().SetTrigger("Activate");
-            m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
-            m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_fallingTreeSound);
             m_navMeshTronc.enabled = false;
             
 
@@ -114,18 +116,21 @@ public class InteractiveObject : EnvironementObject, IFireReact
         {
             // plant anim here
             //m_thisAnim.play();
+            m_audioSource.PlayOneShot(m_audioManager.m_destroyingCrateSound);
+            m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
             DropMaterialOnDeathCrate(m_attachedObject, m_attachedItem);
-            m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_destroyingCrateSound);
-            m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
+            
 
         }
         else if (other.gameObject.tag == "StoneAxe" || other.gameObject.tag == "Axe" && m_cutThePlant && gameObject.CompareTag("BasicCaisse"))
         {
             // plant anim here
             //m_thisAnim.play();
+            Debug.Log("zdfscrevgtbhy");
+            m_audioSource.PlayOneShot(m_audioManager.m_destroyingCrateSound);
+            m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
             DropMaterialOnDeath(false, .5f, 1, m_attachedItem);
-            m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_destroyingCrateSound);
-            m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
+            
 
         }
 

@@ -31,7 +31,7 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_textNotification;
 
     public List<Transform> m_itemForCraft;
-
+    public static bool tutoToolsDone;
     public IntVar m_inventorySpace;
     [SerializeField] TextMeshProUGUI m_amountItemsInventory;
 

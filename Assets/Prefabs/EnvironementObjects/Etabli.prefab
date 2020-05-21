@@ -427,3 +427,4 @@ MonoBehaviour:
   m_goToShow: {fileID: 0}
   m_inventoryButton: {fileID: 0}
   m_interactText: {fileID: 1866328372}
+  m_colorText: {r: 1, g: 0.85797274, b: 0, a: 1}
