@@ -75,32 +75,15 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
-    private IEnumerator YellowStarFeedBack()
+    private IEnumerator YellowStar()
     {
-        //on active son animation qui tourne
         m_yellowStar.GetComponent<Animator>().SetTrigger("Activate");
-        //quand on desactive l'inventaire des outils, l'animator et image de l'etoile se desactivent sans raison
-        //donc on les reactive
         m_yellowStar.GetComponent<Animator>().enabled = true;
         m_yellowStar.GetComponent<Image>().enabled = true;
-
-        //on attend 1seconde soit la fin de l'anim pour continuer
         yield return new WaitForSeconds(1f);
 
-        //on desactive le visuel de l'étoile
         m_yellowStar.GetComponent<Image>().enabled = false;
-        //on revient à l'etat de base de l'animation de l'etoile
         m_yellowStar.GetComponent<Animator>().SetTrigger("DeActivate");
-
-    }
-
-    private IEnumerator InventoryFull()
-    {
-        m_notification.SetActive(true);
-        m_amountItemsInventory.GetComponent<Animator>().SetTrigger("Activate");
-        m_textNotification.text = "Inventaire Plein !";
-        yield return new WaitForSeconds(1);
-        m_amountItemsInventory.GetComponent<Animator>().SetTrigger("DeActivate");
 
     }
 
@@ -126,11 +109,12 @@ public class UI_Inventory : MonoBehaviour
                     CraftTools();
                     UpdateAmountItems();
                     RemoveItemFromCraftSlot();
-                    StartCoroutine(YellowStarFeedBack());
+                    StartCoroutine(YellowStar());
                 }
                 else
                 {
-                    StartCoroutine(InventoryFull());
+                    m_notification.SetActive(true);
+                    m_textNotification.text = "Inventaire Plein !";
                 }
 
             }
