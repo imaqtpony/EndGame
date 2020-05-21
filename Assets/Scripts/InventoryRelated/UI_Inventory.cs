@@ -41,7 +41,7 @@ public class UI_Inventory : MonoBehaviour
 
     [SerializeField] AudioSource m_audioSource;
 
-    [SerializeField] Transform m_yellowStar;
+    //[SerializeField] Transform m_yellowStar;
 
     public void SetPlayer(HarvestItem player)
     {
@@ -75,8 +75,10 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
-    private IEnumerator YellowStar()
+    /*private IEnumerator YellowStar()
     {
+        yield return new WaitForSeconds(.1f);
+
         m_yellowStar.GetComponent<Animator>().SetTrigger("Activate");
         m_yellowStar.GetComponent<Animator>().enabled = true;
         m_yellowStar.GetComponent<Image>().enabled = true;
@@ -85,7 +87,7 @@ public class UI_Inventory : MonoBehaviour
         m_yellowStar.GetComponent<Image>().enabled = false;
         m_yellowStar.GetComponent<Animator>().SetTrigger("DeActivate");
 
-    }
+    }*/
 
     public void RefreshInventoryRessources()
     {
@@ -109,7 +111,7 @@ public class UI_Inventory : MonoBehaviour
                     CraftTools();
                     UpdateAmountItems();
                     RemoveItemFromCraftSlot();
-                    StartCoroutine(YellowStar());
+                    //StartCoroutine(YellowStar());
                 }
                 else
                 {
@@ -171,11 +173,12 @@ public class UI_Inventory : MonoBehaviour
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
             Image image = itemSlotRectTransform.Find("Tools").GetComponent<Image>();
 
-            m_yellowStar.parent = itemSlotRectTransform;
-            m_yellowStar.transform.SetSiblingIndex(2);
+            //RectTransform yellowStartRectransform = Instantiate(m_yellowStar, m_toolsSlotContainer).GetComponent<RectTransform>();
+            //yellowStartRectransform.GetComponent<Image>().enabled = false;
+            //yellowStartRectransform.position = itemSlotRectTransform.position;
+            //yellowStartRectransform.parent = itemSlotRectTransform;
+            //yellowStartRectransform.transform.SetSiblingIndex(2);
 
-            m_yellowStar.position = image.transform.position;
-            Debug.Log("fzzdadada");
             image.sprite = item.GetSprite();
 
             x++;

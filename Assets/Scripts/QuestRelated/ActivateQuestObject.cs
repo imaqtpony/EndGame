@@ -54,12 +54,19 @@ public class ActivateQuestObject : MonoBehaviour
                 m_questSystem.ChangeQuest("Allumez les bougies.");
                 m_questManager.m_candleEnigmaDone = true;
                 m_slotLevier.SetActive(false);
-
+                UI_QuestObjects.m_activateLevier = false;
             }
         }
         
     }
 
+    public void ShowSlot(string p_nameObject)
+    {
+        if(p_nameObject == "Levier")
+        {
+            m_slotLevier.SetActive(true);
+        }
+    }
 
     private void OnTriggerExit(Collider collider)
     {

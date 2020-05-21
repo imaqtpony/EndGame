@@ -43,7 +43,7 @@ public class EnvironementObject : MonoBehaviour
             int randNumb = Random.Range(0, 2);
             if (randNumb == 1)
             {
-                Instantiate(p_attachedObject, new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z), Quaternion.Euler(-90, 0f, 0f));
+                Instantiate(p_attachedObject, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.Euler(-90, 0f, 0f));
                 m_hasDropObject = true;
 
             }

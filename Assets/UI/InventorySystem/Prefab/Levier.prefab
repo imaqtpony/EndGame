@@ -12,13 +12,12 @@ GameObject:
   - component: {fileID: 889347678073533243}
   - component: {fileID: 3013939614915551300}
   - component: {fileID: 5308593793009116680}
-  - component: {fileID: 977624694298079052}
   - component: {fileID: 3266076527345095463}
   - component: {fileID: 182661285215193213}
   - component: {fileID: 6757306292175671966}
   m_Layer: 0
   m_Name: Levier
-  m_TagString: QuestObject
+  m_TagString: Levier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,20 +96,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3397262, y: 0.83730346, z: 0.2809863}
   m_Center: {x: 0.10989809, y: -0.45562512, z: 0.08657704}
---- !u!114 &977624694298079052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2187131429396505972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c831f5eaeb83b224e9c0f33ae82a89d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_canvasLevier: {fileID: 0}
-  m_nameObject: 
 --- !u!54 &3266076527345095463
 Rigidbody:
   m_ObjectHideFlags: 0

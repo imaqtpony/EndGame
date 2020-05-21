@@ -28,6 +28,8 @@ public class HarvestItem : MonoBehaviour
  
     [SerializeField] Animator m_animatorPlayer;
 
+    [SerializeField] ActivateQuestObject m_activateQuestObject;
+
 
     // Start is called before the first frame update
     private void Awake()
@@ -68,7 +70,6 @@ public class HarvestItem : MonoBehaviour
 
             if (itemWorld != null)
             {
-                m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_pickUpSound);
 
                 if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils") || m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils"))
                 {
@@ -98,6 +99,7 @@ public class HarvestItem : MonoBehaviour
                     itemWorld.DestroySelf();
 
                 }
+                m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_pickUpSound);
 
             }
             m_amounItemsInventory.text = $"{ Inventory.itemList.Count + Inventory.toolsList.Count }/{m_inventorySpace.Value}";
@@ -113,20 +115,17 @@ public class HarvestItem : MonoBehaviour
             }
         }
 
-        if (collider.CompareTag("QuestObject"))
+        if (collider.CompareTag("Levier"))
         {
             ActivateQuestObject.m_canUseItem = true;
-            Key.m_canUseItem = true;
-            Invoke("UI_ShowObject", .1f);
+            m_activateQuestObject.ShowSlot(collider.tag.ToString());
             Destroy(collider.gameObject, .5f);
         }
+        else if (collider.CompareTag("Clef"))
+        {
 
-    }
+        }
 
-    private void UI_ShowObject()
-    {
-        m_uiQuestObjects.UI_ShowObject();
-        Debug.Log("LEVIER BORDEL");
     }
 
     private IEnumerator PickUpAnim(bool playerwasIdle)
