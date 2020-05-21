@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Chest : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class Chest : MonoBehaviour
     [SerializeField] int m_amountItemGiven;
 
     [SerializeField] AudioManager m_audioManager;
+
+    [SerializeField] GameObject m_notificationDungeon;
+    [SerializeField] TextMeshProUGUI m_notificationDungeonText;
 
     private void Start()
     {
@@ -45,8 +49,27 @@ public class Chest : MonoBehaviour
             AssociateSprite();
 
         }
-        Debug.Log("give");
+        if(gameObject.name == "FirstGoldenChest")
+        {
+            StartCoroutine(DungeonFinished());
+            m_notificationDungeonText.text = "Premiere Zone depolluee";
+        }
+        else if (gameObject.name == "SecondGoldenChest")
+        {
+            StartCoroutine(DungeonFinished());
+            m_notificationDungeonText.text = "Derniere Zone depolluee";
+        }
+
         Destroy(this, 5.1f);
+    }
+
+    private IEnumerator DungeonFinished()
+    {
+        yield return new WaitForSeconds(5f);
+        m_notificationDungeon.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        m_notificationDungeon.SetActive(false);
+
     }
 
     private void OnTriggerEnter(Collider collider)
