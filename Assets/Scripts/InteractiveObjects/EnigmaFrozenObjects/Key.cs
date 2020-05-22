@@ -6,11 +6,14 @@ public class Key : MonoBehaviour
 {
 
     public static bool m_canUseItem;
+    public static bool m_gotKey;
 
     [SerializeField] private GameObject m_slotKey;
 
     [SerializeField] QuestSystem m_questSystem;
     [SerializeField] QuestManager m_questManager;
+
+    [SerializeField] Animator m_animatorSlotKey;
 
     [SerializeField] AudioManager m_audioManager;
 
@@ -37,14 +40,18 @@ public class Key : MonoBehaviour
 
     private void OnTriggerStay(Collider collider)
     {
-        if (collider.CompareTag("Player") && m_canUseItem)
+        if (collider.CompareTag("Player") && m_gotKey)
         {
+            m_animatorSlotKey.SetTrigger("FlashingQuestObject");
+
+            m_canUseItem = true;
             if (UI_QuestObjects.m_activateKey)
             {
                 m_meshRenderer.enabled = true;
                 m_questManager.m_keyEnigmaDone = true;
                 m_slotKey.SetActive(false);
                 m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_LockpickSound);
+                UI_QuestObjects.m_activateKey = false;
             }
 
             //m_questSystem.ChangeQuest("Allumez le feuuuuuuuuuu");
@@ -60,7 +67,8 @@ public class Key : MonoBehaviour
     {
         if (collider.CompareTag("Player") && m_questManager.m_keyEnigmaDone)
         {
-            m_canUseItem = false;
+            m_animatorSlotKey.SetTrigger("DisplayQuestObject");
+
         }
     }
 

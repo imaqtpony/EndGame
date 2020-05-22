@@ -39,6 +39,7 @@ public class UI_QuestObjects : MonoBehaviour
         }
     }
 
+    //c'est cette fonction qu'on utilise
     public void ClicOnUIQuestObject(string p_nameGO)
     {
         if (ActivateQuestObject.m_canUseItem || Key.m_canUseItem)

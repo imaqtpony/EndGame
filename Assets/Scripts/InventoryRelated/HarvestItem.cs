@@ -125,6 +125,9 @@ public class HarvestItem : MonoBehaviour
         }
         else if (collider.CompareTag("Clef"))
         {
+            Key.m_gotKey = true;
+            m_activateQuestObject.ShowSlot(collider.tag.ToString());
+            Destroy(collider.gameObject, .5f);
 
         }
 
