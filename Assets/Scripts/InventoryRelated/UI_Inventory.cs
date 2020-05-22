@@ -182,7 +182,7 @@ public class UI_Inventory : MonoBehaviour
         if (Inventory.m_amountBaton >= 2 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType_1 == Item.ItemType.hache)
         {
             inventory.AddTools(new Item { itemType = Item.ItemType.hache, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
+            inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 2 });
             inventory.RemoveItem(new Item { itemType = Item.ItemType.mrcFer, amount = 1 });
             m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
 
@@ -221,7 +221,7 @@ public class UI_Inventory : MonoBehaviour
 
         }
 
-        //decraft
+        //decraft allumette
         else if (CraftSystem.m_itemType_1 == Item.ItemType.baton && CraftSystem.m_itemType_2 == Item.ItemType.tissu)
         {
             inventory.RemoveTools(new Item { itemType = Item.ItemType.allumette, amount = 1 });
@@ -231,6 +231,7 @@ public class UI_Inventory : MonoBehaviour
             RemoveItemFromCraftSlot();
 
         }
+        //decraft hache en pierre
         else if (CraftSystem.m_itemType_1 == Item.ItemType.baton && CraftSystem.m_itemType_2 == Item.ItemType.caillou)
         {
             inventory.RemoveTools(new Item { itemType = Item.ItemType.hache_pierre, amount = 1 });
@@ -240,6 +241,7 @@ public class UI_Inventory : MonoBehaviour
             RemoveItemFromCraftSlot();
 
         }
+        //decraft hache
         else if (CraftSystem.m_itemType_1 == Item.ItemType.baton && CraftSystem.m_itemType_2 == Item.ItemType.mrcFer)
         {
             inventory.RemoveTools(new Item { itemType = Item.ItemType.hache, amount = 1 });
@@ -249,6 +251,7 @@ public class UI_Inventory : MonoBehaviour
             RemoveItemFromCraftSlot();
 
         }
+        //decraft echelle
         else if (CraftSystem.m_itemType_1 == Item.ItemType.baton)
         {
             inventory.RemoveTools(new Item { itemType = Item.ItemType.echelle, amount = 1 });
@@ -257,13 +260,14 @@ public class UI_Inventory : MonoBehaviour
             RemoveItemFromCraftSlot();
 
         }
+        //pas assez de ressources
         else
         {
             RefreshInventoryRessources();
             RefreshInventoryTools();
             m_notification.SetActive(true);
             m_textNotification.text = "Ressources insuffisantes";
-            //pas assez de ressources
+            
         }
 
     }

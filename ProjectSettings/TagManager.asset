@@ -21,6 +21,7 @@ TagManager:
   - Clef
   - LevierCaisse
   - BasicCaisse
+  - Barrel
   layers:
   - Default
   - TransparentFX
