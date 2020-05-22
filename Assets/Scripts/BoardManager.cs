@@ -32,7 +32,6 @@ public class BoardManager : MonoBehaviour
     private float m_fadeTime = 5f;
     private float m_currentFadeTime = 0f;
     [SerializeField]
-    private Image m_fadeImage;
 
     private void Awake()
     {
@@ -44,27 +43,6 @@ public class BoardManager : MonoBehaviour
 
         InitializeBoardArray();
 
-        //WIP Set back to true if needed
-        // and reactivate its gameobject
-        m_fadeImage.enabled = false;
-        m_fadeImage.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
-        StartCoroutine(FadeScreen());
-
-    }
-
-    //not working
-    private IEnumerator FadeScreen()
-    {
-        while (m_currentFadeTime <= m_fadeTime)
-        {
-            m_currentFadeTime += Time.deltaTime;
-            m_fadeImage.color = new Color(0, 0, 0, 1 - (m_currentFadeTime / m_fadeTime));
-        }
-
-        if (m_currentFadeTime >= m_fadeTime)
-            m_fadeImage.enabled = false;
-
-        yield return null;
     }
 
     /// <summary>

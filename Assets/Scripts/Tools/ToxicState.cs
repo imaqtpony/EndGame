@@ -13,7 +13,7 @@ public class ToxicState : MonoBehaviour
 
     private float m_timerBeforeToxicState = 0.0f;
 
-    private float m_spawningTime = 3f;
+    private float m_spawningTime = 15f;
 
     private bool m_polluted = false;
 

@@ -25,12 +25,16 @@ public class LifePlayer : MonoBehaviour
     [SerializeField] private Transform m_lifeHeartContainer;
     [SerializeField] private Transform m_lifeHeartSprite;
 
+    [SerializeField] AudioManager m_audioManager;
+    private AudioSource m_audioSource;
+
     private int x = 0;
     private int y = 0;
 
     private void Start()
     {
         //m_lifeValue.Value = m_vieMax;
+        m_audioSource = GetComponent<AudioSource>();
         InstantiateHearts();
         UpdateWidthBackgroundLife();
     }
@@ -41,6 +45,7 @@ public class LifePlayer : MonoBehaviour
         {
             StartCoroutine(InvFrame());
             m_lifeValue.Value -= 1;
+            m_audioSource.PlayOneShot(m_audioManager.m_PlayerDamageSound);
             x--;
 
             //on recupere le dernier coeur

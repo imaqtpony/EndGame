@@ -17,23 +17,28 @@ public class HarvestItem : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_textNotification;
 
     [SerializeField] QuestManager m_questManager;
-
     [SerializeField] QuestSystem m_questSystem;
-
-    [SerializeField] UI_Inventory m_uiInventory;
-
-    [SerializeField] DropItemZone m_dropItemZone;
-
-    [SerializeField] TextMeshProUGUI m_amounItemsInventory;
-
     [SerializeField] UI_QuestObjects m_uiQuestObjects;
 
+    [SerializeField] UI_Inventory m_uiInventory;
+    [SerializeField] DropItemZone m_dropItemZone;
+    [SerializeField] TextMeshProUGUI m_amounItemsInventory;
+
+    [SerializeField] AudioManager m_audioManager;
+
+    private AudioSource m_audioSource;
+ 
     [SerializeField] Animator m_animatorPlayer;
+
+    [SerializeField] ActivateQuestObject m_activateQuestObject;
 
 
     // Start is called before the first frame update
     private void Awake()
     {
+
+        m_audioSource = GetComponent<AudioSource>();
+
         m_lifePlayer = GetComponent<LifePlayer>();
         inventory = new Inventory(UseItem);
         m_uiInventory.SetPlayer(this);
@@ -65,10 +70,10 @@ public class HarvestItem : MonoBehaviour
         {
             ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
 
-            
-
             if (itemWorld != null)
             {
+                m_audioSource.PlayOneShot(m_audioManager.m_pickUpSound);
+
                 if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils") || m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils"))
                 {
                     StartCoroutine(PickUpAnim(false));
@@ -112,20 +117,20 @@ public class HarvestItem : MonoBehaviour
             }
         }
 
-        if (collider.CompareTag("QuestObject"))
+        if (collider.CompareTag("Levier"))
         {
-            ActivateQuestObject.m_canUseItem = true;
-            Key.m_canUseItem = true;
-            Invoke("UI_ShowObject", .1f);
+            ActivateQuestObject.m_gotLever = true;
+            m_activateQuestObject.ShowSlot(collider.tag.ToString());
             Destroy(collider.gameObject, .5f);
         }
+        else if (collider.CompareTag("Clef"))
+        {
+            Key.m_gotKey = true;
+            m_activateQuestObject.ShowSlot(collider.tag.ToString());
+            Destroy(collider.gameObject, .5f);
 
-    }
+        }
 
-    private void UI_ShowObject()
-    {
-        m_uiQuestObjects.UI_ShowObject();
-        Debug.Log("LEVIER BORDEL");
     }
 
     private IEnumerator PickUpAnim(bool playerwasIdle)

@@ -13,6 +13,8 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] CapsuleCollider m_ColliderEnemy;
 
+    [SerializeField] AudioManager m_audioManager;
+
     [SerializeField]
     private Data m_data;
 
@@ -25,6 +27,7 @@ public class EnemyAI : MonoBehaviour
         m_agent = GetComponent<NavMeshAgent>();
         m_enemyDetect = GetComponent<DetectLight>();
 
+        m_audioManager.m_audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -51,7 +54,7 @@ public class EnemyAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Axe" || collision.gameObject.tag == "StoneAxe")
+        if (collision.gameObject.tag == "Axe" || collision.gameObject.tag == "StoneAxe" && InteractiveObject.m_cutThePlant)
         {
             KillFunc();
         }
@@ -61,7 +64,7 @@ public class EnemyAI : MonoBehaviour
 
     private void KillFunc()
     {
-
+        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_deathEnemySound);
         m_animatorEnemy.SetTrigger("Activate");
         Destroy(m_ColliderEnemy);
         Destroy(gameObject, 1);

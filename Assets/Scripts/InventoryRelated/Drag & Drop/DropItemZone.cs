@@ -63,6 +63,12 @@ public class DropItemZone : MonoBehaviour, IDropHandler
 
     }
 
+    private void OnDisable()
+    {
+        m_colliderPlayer.enabled = true;
+
+    }
+
     private IEnumerator DeactivateCollider()
     {
         yield return new WaitForSeconds(1);

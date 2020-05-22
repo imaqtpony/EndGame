@@ -9,9 +9,10 @@ public class Spawn : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        var nb_enemies = 2;
+        var nb_enemies = 4;
+        int randNumbEnemies = Random.Range(1, nb_enemies);
 
-        for (int i = 1; i < nb_enemies; i++)
+        for (int i = 1; i < randNumbEnemies; i++)
         {
             Instantiate(m_prefab, RandomizeSpawn(), transform.rotation);
         }

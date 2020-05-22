@@ -29,7 +29,6 @@ public class Plant : EnvironementObject, IFireReact
     [SerializeField] Item.ItemType m_itemType;
 
     [SerializeField] AudioManager m_audioManager;
-    [SerializeField] AudioSource m_audioSource;
 
     [SerializeField]
     private ParticleSystem m_fireVFX;
@@ -44,8 +43,6 @@ public class Plant : EnvironementObject, IFireReact
     private void Awake()
     {
 
-        m_audioSource.PlayOneShot(m_audioManager.m_fireSound);
-        m_audioSource.Pause();
 
     }
 
@@ -125,7 +122,6 @@ public class Plant : EnvironementObject, IFireReact
         m_fireVFX.Play();
 
         DropMaterialOnDeath(true, 2.0f, 0, 0);
-        m_audioSource.Play();
         m_questManager.m_destroyPlantDone = true;
         if (!m_questManager.m_findDungeonDone)
         {

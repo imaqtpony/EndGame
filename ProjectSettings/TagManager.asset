@@ -17,6 +17,10 @@ TagManager:
   - Workbench
   - Chest
   - LadderOnSameBoard
+  - Levier
+  - Clef
+  - LevierCaisse
+  - BasicCaisse
   layers:
   - Default
   - TransparentFX

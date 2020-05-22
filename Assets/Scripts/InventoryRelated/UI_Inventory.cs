@@ -31,11 +31,9 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_textNotification;
 
     public List<Transform> m_itemForCraft;
-
+    public static bool tutoToolsDone;
     public IntVar m_inventorySpace;
     [SerializeField] TextMeshProUGUI m_amountItemsInventory;
-
-    [SerializeField] TextMeshProUGUI m_inventoryFull;
 
     private HarvestItem player;
 
@@ -75,6 +73,16 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
+    private IEnumerator InventoryFullNotification()
+    {
+        m_notification.SetActive(true);
+        m_textNotification.text = "Inventaire Plein !";
+        m_amountItemsInventory.GetComponent<Animator>().SetTrigger("Activate");
+        yield return new WaitForSeconds(1);
+        m_amountItemsInventory.GetComponent<Animator>().SetTrigger("DeActivate");
+
+    }
+
     public void RefreshInventoryRessources()
     {
         foreach (Transform child in m_ressourcesSlotContainer)
@@ -97,17 +105,17 @@ public class UI_Inventory : MonoBehaviour
                     CraftTools();
                     UpdateAmountItems();
                     RemoveItemFromCraftSlot();
-
                 }
                 else
                 {
-                    m_notification.SetActive(true);
-                    m_textNotification.text = "Inventaire Plein !";
+                    StartCoroutine(InventoryFullNotification());
                 }
 
             }
 
         };
+
+        
 
         foreach (Item item in inventory.GetItemList())
         {

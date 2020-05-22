@@ -384,6 +384,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_craftcanvas: {fileID: 0}
   m_craftText: {fileID: 0}
+  m_notification: {fileID: 0}
+  m_textNotification: {fileID: 0}
 --- !u!65 &850235941918466619
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -425,3 +427,4 @@ MonoBehaviour:
   m_goToShow: {fileID: 0}
   m_inventoryButton: {fileID: 0}
   m_interactText: {fileID: 1866328372}
+  m_colorText: {r: 1, g: 0.85797274, b: 0, a: 1}
