@@ -30,8 +30,14 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] GameObject m_notification;
     [SerializeField] TextMeshProUGUI m_textNotification;
 
+    [SerializeField] GameObject m_toolsWind;
+    [SerializeField] GameObject m_toolsButton;
+
     public List<Transform> m_itemForCraft;
-    public static bool tutoToolsDone;
+
+    public static bool m_tutoToolsDone;
+    public static bool m_firstToolsCrafted;
+
     public IntVar m_inventorySpace;
     [SerializeField] TextMeshProUGUI m_amountItemsInventory;
 
@@ -105,6 +111,15 @@ public class UI_Inventory : MonoBehaviour
                     CraftTools();
                     UpdateAmountItems();
                     RemoveItemFromCraftSlot();
+
+                    if (!m_firstToolsCrafted)
+                    {
+                        Debug.Log("fdzfdrvaz");
+                        m_toolsButton.SetActive(true);
+                        m_toolsWind.SetActive(true);
+                        m_toolsWind.GetComponent<Animator>().SetTrigger("OpenTools");
+                        m_firstToolsCrafted = true;
+                    }
                 }
                 else
                 {
