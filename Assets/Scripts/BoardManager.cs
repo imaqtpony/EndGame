@@ -68,17 +68,20 @@ public class BoardManager : MonoBehaviour
             }
         }
 
+        //temp, uncomment this
         int startingBoard = 2;
 
         //begin the game at 2/1 remove -1 if needed
-        m_boardArray[startingBoard, startingBoard-1].isActive = true;
-        m_currentBoard = m_boardArray[startingBoard, startingBoard-1];
+        m_boardArray[startingBoard, startingBoard - 1].isActive = true;
+        m_currentBoard = m_boardArray[startingBoard, startingBoard - 1];
 
         m_cameraOffset = Camera.main.transform.position - m_currentBoard.centerPos;
 
-        Camera.main.transform.position = new Vector3(m_boardArray[startingBoard, startingBoard-1].centerPos.x,
-            m_boardArray[startingBoard, startingBoard-1].centerPos.y + m_cameraOffset.y,
-            m_boardArray[startingBoard, startingBoard-1].centerPos.z + m_cameraOffset.z);
+        Camera.main.transform.position = new Vector3(m_boardArray[startingBoard, startingBoard - 1].centerPos.x,
+            m_boardArray[startingBoard, startingBoard - 1].centerPos.y + m_cameraOffset.y,
+            m_boardArray[startingBoard, startingBoard - 1].centerPos.z + m_cameraOffset.z);
+
+
     }
 
     private void OnEnable()
