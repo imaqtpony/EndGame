@@ -33,6 +33,7 @@ public class ShowText : MonoBehaviour
 
             if (m_isFirstTouch)
                 SceneManager.LoadScene(1);
+                //SceneManager.LoadScene(1, LoadSceneMode.Additive);
 
 
             if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
