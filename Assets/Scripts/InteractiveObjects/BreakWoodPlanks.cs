@@ -21,12 +21,6 @@ public class BreakWoodPlanks : MonoBehaviour
     private bool m_cutTheBranch;
     private bool m_planksDown;
 
-    private void Update()
-    {
-        //if (Key.m_gotKey)
-        //    m_nmObs.enabled = false;
-            
-    }
 
     private void OnTriggerEnter(Collider p_other)
     {
@@ -51,6 +45,7 @@ public class BreakWoodPlanks : MonoBehaviour
     private void OnEnable()
     {
         m_animPlanks.enabled = false;
+        m_nmObs.enabled = true;
 
         if (m_onCutWithAxe != null)
             m_onCutWithAxe.Register(HandleCutPlanks);
