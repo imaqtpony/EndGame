@@ -36,7 +36,7 @@ public class Chest : MonoBehaviour
         Invoke("DisableSlot", 5f);
 
         m_audioSource.PlayOneShot(m_audioManager.m_openingChestSound);
-        Destroy(GetComponent<AudioSource>(), 2);
+        //Destroy(GetComponent<AudioSource>(), 2);
 
         int p_amount = m_amountItemGiven;
         for (int i = 0; i < m_itemTypeGiven.Length; i++)
