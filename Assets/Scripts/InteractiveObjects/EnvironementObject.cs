@@ -15,11 +15,11 @@ public class EnvironementObject : MonoBehaviour
         {
             if (!p_isBurned)
             {
-                //Item item = GenerateItem(transform.position, p_item.ItemType);
                 Destroy(gameObject, p_destroyTime);
 
                 int randNumb = Random.Range(0, 2);
 
+                //50% chance to drop something
                 if(randNumb == 1)
                 {
                     Item duplicateItem = new Item { itemType = p_itemType, amount = p_amountItem };

@@ -83,6 +83,8 @@ public class UI_Inventory : MonoBehaviour
     {
         m_notification.SetActive(true);
         m_textNotification.text = "Inventaire Plein !";
+        m_textNotification.color = new Color(255, 75, 0);
+
         m_amountItemsInventory.GetComponent<Animator>().SetTrigger("Activate");
         yield return new WaitForSeconds(1);
         m_amountItemsInventory.GetComponent<Animator>().SetTrigger("DeActivate");
@@ -114,7 +116,6 @@ public class UI_Inventory : MonoBehaviour
 
                     if (!m_firstToolsCrafted)
                     {
-                        Debug.Log("fdzfdrvaz");
                         m_toolsButton.SetActive(true);
                         m_toolsWind.SetActive(true);
                         m_toolsWind.GetComponent<Animator>().SetTrigger("OpenTools");
@@ -282,7 +283,7 @@ public class UI_Inventory : MonoBehaviour
             RefreshInventoryTools();
             m_notification.SetActive(true);
             m_textNotification.text = "Ressources insuffisantes";
-            
+            m_textNotification.color = new Color(255, 75, 0);
         }
 
     }
