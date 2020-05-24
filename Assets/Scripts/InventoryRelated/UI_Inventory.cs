@@ -377,7 +377,7 @@ public class UI_Inventory : MonoBehaviour
 
     public void ChestItem(Item.ItemType p_itemType, int p_amount)
     {
-        inventory.AddItem(new Item { itemType = p_itemType, amount = 1 });
+        inventory.AddItem(new Item { itemType = p_itemType, amount = p_amount });
         UpdateAmountItems();
 
     }

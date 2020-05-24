@@ -64,7 +64,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / 2.8f;
+        rectTransform.anchoredPosition += eventData.delta / 3f;
 
     }
 

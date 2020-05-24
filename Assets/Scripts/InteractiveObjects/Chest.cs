@@ -41,7 +41,6 @@ public class Chest : MonoBehaviour
         Invoke("DisableSlot", 5f);
 
         m_audioSource.PlayOneShot(m_audioManager.m_openingChestSound);
-        //Destroy(GetComponent<AudioSource>(), 2);
 
         int p_amount = m_amountItemGiven;
         for (int i = 0; i < m_itemTypeGiven.Length; i++)
@@ -62,7 +61,7 @@ public class Chest : MonoBehaviour
             StartCoroutine(DisableDonjonNotif());
         }
 
-        DestroyPollution();
+        //CleaningPollution();
         Destroy(this, 5.1f);
     }
 
@@ -75,19 +74,21 @@ public class Chest : MonoBehaviour
 
     }
 
-    public void DestroyPollution()
+    public void CleaningPollution()
     {
+
         m_pollution.GetComponent<Animator>().SetTrigger("Cleaning");
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-
         if (collider.CompareTag("Player") && !m_chestUsed)
         {
             HarvestChestItems();
             m_chestUsed = true;
+
         }
+
     }
 
     private void DisableSlot()

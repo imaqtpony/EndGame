@@ -15,7 +15,7 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] AudioManager m_audioManager;
 
-    [SerializeField] GameObject m_chestDungeon;
+    [SerializeField] Chest m_chestDungeon;
 
     [SerializeField]
     private Data m_data;
@@ -102,16 +102,16 @@ public class EnemyAI : MonoBehaviour
 
     private void KillFunc()
     {
-        if(gameObject.name == "DungeonEnemy")
+        if (gameObject.name == "DungeonEnemy")
         {
-            m_chestDungeon.GetComponent<Chest>().m_numEnemiesAroundChest -= 1;
-            if (m_chestDungeon.GetComponent<Chest>().m_numEnemiesAroundChest == 0)
+            m_chestDungeon.m_numEnemiesAroundChest -= 1;
+            Debug.Log(m_chestDungeon.m_numEnemiesAroundChest);
+
+            if (m_chestDungeon.m_numEnemiesAroundChest == 0)
             {
-                m_chestDungeon.GetComponent<Chest>().DestroyPollution();
-                m_chestDungeon.GetComponent<Chest>().m_numEnemiesAroundChest = 3;
+                m_chestDungeon.CleaningPollution();
             }
         }
-
 
         m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_deathEnemySound);
         m_animatorEnemy.SetTrigger("Activate");

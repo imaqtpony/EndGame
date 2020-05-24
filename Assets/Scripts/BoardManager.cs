@@ -89,7 +89,7 @@ public class BoardManager : MonoBehaviour
 
     private void OnEnable()
     {
-        SwitchBoards(2, 1, "dazda");
+        SwitchBoards(2, 1, "Start");
         if (m_boardChangeEvent != null)
             m_boardChangeEvent.Register(HandleBoardChange);
     }
