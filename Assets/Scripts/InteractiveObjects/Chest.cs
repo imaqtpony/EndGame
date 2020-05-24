@@ -14,6 +14,8 @@ public class Chest : MonoBehaviour
 
     [SerializeField] GameObject m_pollution;
 
+    [SerializeField] GameObject[] lesmoches;
+
     [Header("ITEM A CHOISIR")]
 
     [SerializeField] Item.ItemType[] m_itemTypeGiven;
@@ -59,6 +61,7 @@ public class Chest : MonoBehaviour
         {
             StartCoroutine(DisableDonjonNotif());
         }
+
         DestroyPollution();
         Destroy(this, 5.1f);
     }

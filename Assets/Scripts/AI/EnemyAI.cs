@@ -100,6 +100,7 @@ public class EnemyAI : MonoBehaviour
 
     private void KillFunc()
     {
+
         m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_deathEnemySound);
         m_animatorEnemy.SetTrigger("Activate");
         Destroy(m_ColliderEnemy);
