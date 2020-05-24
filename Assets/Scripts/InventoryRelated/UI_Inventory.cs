@@ -332,7 +332,16 @@ public class UI_Inventory : MonoBehaviour
 
         }
 
+        foreach (Item item in inventory.GetToolsList())
+        {
+            Item duplicateItem = new Item { itemType = item.itemType, amount = item.amount };
+            ItemWorld.DropItem(player.GetPosition(), duplicateItem);
+            UpdateAmountItems();
+
+        }
+
         inventory.RemoveAllItems();
+        inventory.RemoveAllTools();
         RemoveItemFromCraftSlot();
     }
 

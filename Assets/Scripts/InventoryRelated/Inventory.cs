@@ -155,6 +155,15 @@ public class Inventory
 
     }
 
+    public void RemoveAllTools()
+    {
+
+        toolsList.Clear();
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        OnToolsListChanged?.Invoke(this, EventArgs.Empty);
+
+    }
+
     public void UseItem(Item.ItemType item)
     {
         useItemAction(item);

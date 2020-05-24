@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using GD2Lib;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class LifePlayer : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class LifePlayer : MonoBehaviour
 
     [SerializeField] AudioManager m_audioManager;
     private AudioSource m_audioSource;
+
+    [SerializeField] BoardManager m_boardManager;
+
+    [SerializeField] GameObject[] m_toolsOnPlayer;
 
     private int x = 0;
     private int y = 0;
@@ -59,8 +64,21 @@ public class LifePlayer : MonoBehaviour
             {
                 m_uiInventory.DropAllItemFunction();
                 m_uiInventory.RemoveItemFromCraftSlot();
+
                 m_lifeValue.Value = 3;
+
+                foreach (GameObject tools in m_toolsOnPlayer)
+                {
+                    tools.SetActive(false);
+                }
+
+                m_boardManager.enabled = false;
+                m_boardManager.enabled = true;
+
+                GetComponent<NavMeshAgent>().enabled = false;
                 transform.position = m_respawnPoint.position;
+                GetComponent<NavMeshAgent>().enabled = true;
+
             }
         }
         //Debug.Log(collision.gameObject.tag);

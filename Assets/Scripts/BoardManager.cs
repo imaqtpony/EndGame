@@ -31,6 +31,9 @@ public class BoardManager : MonoBehaviour
     //black fading screen
     private float m_fadeTime = 5f;
     private float m_currentFadeTime = 0f;
+
+    Vector3 m_startingCameraPos;
+
     [SerializeField]
 
     private void Awake()
@@ -80,6 +83,8 @@ public class BoardManager : MonoBehaviour
         Camera.main.transform.position = new Vector3(m_boardArray[startingBoard, startingBoard - 1].centerPos.x,
             m_boardArray[startingBoard, startingBoard - 1].centerPos.y + m_cameraOffset.y,
             m_boardArray[startingBoard, startingBoard - 1].centerPos.z + m_cameraOffset.z);
+
+        m_startingCameraPos = Camera.main.transform.position;
     }
 
     private void OnEnable()
