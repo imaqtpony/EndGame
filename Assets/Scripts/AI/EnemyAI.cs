@@ -108,6 +108,7 @@ public class EnemyAI : MonoBehaviour
             if (m_chestDungeon.GetComponent<Chest>().m_numEnemiesAroundChest == 0)
             {
                 m_chestDungeon.GetComponent<Chest>().DestroyPollution();
+                m_chestDungeon.GetComponent<Chest>().m_numEnemiesAroundChest = 3;
             }
         }
 

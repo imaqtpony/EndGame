@@ -77,7 +77,7 @@ public class Chest : MonoBehaviour
 
     public void DestroyPollution()
     {
-        m_pollution.GetComponent<Animator>().SetTrigger("CleaningPollution");
+        m_pollution.GetComponent<Animator>().SetTrigger("Cleaning");
     }
 
     private void OnTriggerEnter(Collider collider)
