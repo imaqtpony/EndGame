@@ -12,6 +12,7 @@ public class Chest : MonoBehaviour
 
     private Image m_image;
 
+    [SerializeField] GameObject m_pollution;
 
     [Header("ITEM A CHOISIR")]
 
@@ -21,6 +22,8 @@ public class Chest : MonoBehaviour
     [SerializeField] AudioManager m_audioManager;
 
     private AudioSource m_audioSource;
+
+    private bool m_chestUsed;
 
     [SerializeField] GameObject m_donjonNotif;
     [SerializeField] TextMeshProUGUI m_donjonNotifText;
@@ -56,7 +59,7 @@ public class Chest : MonoBehaviour
         {
             StartCoroutine(DisableDonjonNotif());
         }
-        
+        DestroyPollution();
         Destroy(this, 5.1f);
     }
 
@@ -69,12 +72,19 @@ public class Chest : MonoBehaviour
 
     }
 
+    private void DestroyPollution()
+    {
+        m_pollution.transform.position = Vector3.down * Time.deltaTime / 10;
+        Destroy(m_pollution, 3);
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
 
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") && !m_chestUsed)
         {
             HarvestChestItems();
+            m_chestUsed = true;
         }
     }
 

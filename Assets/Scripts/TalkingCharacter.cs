@@ -30,7 +30,7 @@ public class TalkingCharacter : MonoBehaviour
     {
         m_text.enabled = true;
         m_text.text = m_textCharacter;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
         m_text.enabled = false;
     }
 }

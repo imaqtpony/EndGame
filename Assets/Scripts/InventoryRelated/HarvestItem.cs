@@ -114,6 +114,7 @@ public class HarvestItem : MonoBehaviour
             {
                 m_notification.SetActive(true);
                 m_textNotification.text = "Inventaire Plein !";
+                m_textNotification.color = new Color(255, 75, 0);
             }
         }
 

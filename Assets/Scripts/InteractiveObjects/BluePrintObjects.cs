@@ -12,7 +12,7 @@ public class BluePrintObjects : MonoBehaviour
 
     private void OnEnable()
     {
-        m_ladderBluePrintDiscovered = false;
+        m_ladderBluePrintDiscovered = true;
     }
 
     private void OnTriggerEnter(Collider other)
