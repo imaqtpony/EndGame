@@ -14,7 +14,7 @@ public class Chest : MonoBehaviour
 
     [SerializeField] GameObject m_pollution;
 
-    [SerializeField] GameObject[] lesmoches;
+    public int m_numEnemiesAroundChest;
 
     [Header("ITEM A CHOISIR")]
 
@@ -75,10 +75,9 @@ public class Chest : MonoBehaviour
 
     }
 
-    private void DestroyPollution()
+    public void DestroyPollution()
     {
-        m_pollution.transform.position = Vector3.down * Time.deltaTime / 10;
-        Destroy(m_pollution, 3);
+        m_pollution.GetComponent<Animator>().SetTrigger("CleaningPollution");
     }
 
     private void OnTriggerEnter(Collider collider)

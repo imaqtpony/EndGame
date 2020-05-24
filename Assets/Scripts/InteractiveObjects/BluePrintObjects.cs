@@ -12,7 +12,7 @@ public class BluePrintObjects : MonoBehaviour
 
     private void OnEnable()
     {
-        m_ladderBluePrintDiscovered = true;
+        m_ladderBluePrintDiscovered = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -20,7 +20,7 @@ public class BluePrintObjects : MonoBehaviour
         if (other.CompareTag("Player") && m_blueprintType == Item.ItemType.plan_echelle)
         {
             m_ladderBluePrintDiscovered = true;
-            m_questSystem.ChangeQuest("Construisez une échelle.");
+            m_questSystem.ChangeQuest("Construisez une echelle.");
             Destroy(gameObject);
         }
     }
