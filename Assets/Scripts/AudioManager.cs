@@ -19,8 +19,6 @@ public class AudioManager : ScriptableObject
     public AudioClip m_clickSound;
     public AudioClip m_grassStepSound;
 
-    public AudioClip m_caveSound;
-
     public AudioClip m_axeHitSound;
     public AudioClip m_deathEnemySound;
     public AudioClip m_destroyingCrateSound;

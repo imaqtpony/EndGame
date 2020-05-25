@@ -30,14 +30,8 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] GameObject m_notification;
     [SerializeField] TextMeshProUGUI m_textNotification;
 
-    [SerializeField] GameObject m_toolsWind;
-    [SerializeField] GameObject m_toolsButton;
-
     public List<Transform> m_itemForCraft;
-
-    public static bool m_tutoToolsDone;
-    public static bool m_firstToolsCrafted;
-
+    public static bool tutoToolsDone;
     public IntVar m_inventorySpace;
     [SerializeField] TextMeshProUGUI m_amountItemsInventory;
 
@@ -83,8 +77,6 @@ public class UI_Inventory : MonoBehaviour
     {
         m_notification.SetActive(true);
         m_textNotification.text = "Inventaire Plein !";
-        m_textNotification.color = new Color(255, 75, 0);
-
         m_amountItemsInventory.GetComponent<Animator>().SetTrigger("Activate");
         yield return new WaitForSeconds(1);
         m_amountItemsInventory.GetComponent<Animator>().SetTrigger("DeActivate");
@@ -113,14 +105,6 @@ public class UI_Inventory : MonoBehaviour
                     CraftTools();
                     UpdateAmountItems();
                     RemoveItemFromCraftSlot();
-
-                    if (!m_firstToolsCrafted)
-                    {
-                        m_toolsButton.SetActive(true);
-                        m_toolsWind.SetActive(true);
-                        m_toolsWind.GetComponent<Animator>().SetTrigger("OpenTools");
-                        m_firstToolsCrafted = true;
-                    }
                 }
                 else
                 {
@@ -283,7 +267,7 @@ public class UI_Inventory : MonoBehaviour
             RefreshInventoryTools();
             m_notification.SetActive(true);
             m_textNotification.text = "Ressources insuffisantes";
-            m_textNotification.color = new Color(255, 75, 0);
+            
         }
 
     }
@@ -332,16 +316,7 @@ public class UI_Inventory : MonoBehaviour
 
         }
 
-        foreach (Item item in inventory.GetToolsList())
-        {
-            Item duplicateItem = new Item { itemType = item.itemType, amount = item.amount };
-            ItemWorld.DropItem(player.GetPosition(), duplicateItem);
-            UpdateAmountItems();
-
-        }
-
         inventory.RemoveAllItems();
-        inventory.RemoveAllTools();
         RemoveItemFromCraftSlot();
     }
 
@@ -377,7 +352,7 @@ public class UI_Inventory : MonoBehaviour
 
     public void ChestItem(Item.ItemType p_itemType, int p_amount)
     {
-        inventory.AddItem(new Item { itemType = p_itemType, amount = p_amount });
+        inventory.AddItem(new Item { itemType = p_itemType, amount = 1 });
         UpdateAmountItems();
 
     }

@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using GD2Lib;
 using UnityEngine.UI;
-using UnityEngine.AI;
 
 public class LifePlayer : MonoBehaviour
 {
@@ -28,10 +27,6 @@ public class LifePlayer : MonoBehaviour
 
     [SerializeField] AudioManager m_audioManager;
     private AudioSource m_audioSource;
-
-    [SerializeField] GameObject m_boardManager;
-
-    [SerializeField] GameObject[] m_toolsOnPlayer;
 
     private int x = 0;
     private int y = 0;
@@ -57,48 +52,18 @@ public class LifePlayer : MonoBehaviour
             GameObject lastHeart = m_lifeHeartContainer.transform.GetChild(m_lifeValue.Value).gameObject;
 
             //on récupère son canvasgroup pour avoir son alpha et on le diminue a 50%
-            lastHeart.GetComponent<Animator>().SetTrigger("DamageAnim");
-
+            lastHeart.GetComponent<CanvasGroup>().alpha = .5f;
 
 
             if (m_lifeValue.Value == 0)
             {
                 m_uiInventory.DropAllItemFunction();
                 m_uiInventory.RemoveItemFromCraftSlot();
-
-                m_boardManager.GetComponent<BoardManager>().enabled = false;
-                m_boardManager.GetComponent<BoardManager>().enabled = true;
-
-
-                GetComponent<NavMeshAgent>().enabled = false;
+                m_lifeValue.Value = 3;
                 transform.position = m_respawnPoint.position;
-                GetComponent<NavMeshAgent>().enabled = true;
-                StartCoroutine(ResetHearts());
-
             }
         }
         //Debug.Log(collision.gameObject.tag);
-    }
-
-    private IEnumerator ResetHearts()
-    {
-        m_lifeValue.Value = 3;
-
-        foreach (GameObject tools in m_toolsOnPlayer)
-        {
-            tools.SetActive(false);
-        }
-
-        yield return new WaitForSeconds(1);
-
-        for (int i = 0; i < m_lifeValue.Value; i++)
-        {
-            m_lifeHeartContainer.GetChild(i).GetComponent<Animator>().SetTrigger("HealAnim");
-            Debug.Log("recup vie");
-            yield return new WaitForSeconds(.2f);
-
-        }
-        StopCoroutine(ResetHearts());
     }
 
     public void InstantiateHearts()

@@ -45,6 +45,7 @@ public class ToxicState : MonoBehaviour
             {
                 Polluted();
                 //ChangeMaterial();
+                Debug.Log("POLLUTION"); 
 
             }
 

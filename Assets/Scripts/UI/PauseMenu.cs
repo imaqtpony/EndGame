@@ -43,8 +43,7 @@ public class PauseMenu : MonoBehaviour
     public void Restart()
     {
 
-        SceneManager.LoadScene("S_Proto1");
-        Time.timeScale = 1f;
+        Debug.Log("RESTART");
 
     }
 

@@ -11,7 +11,6 @@ public class QuestManager : ScriptableObject
     public bool m_findDungeonDone;
     public bool m_levierEnigmaDone;
     public bool m_candleEnigmaDone;
-    public bool m_ladderPlacedDone;
     public bool m_keyEnigmaDone;
 
 }

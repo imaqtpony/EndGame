@@ -18,7 +18,7 @@ public class AutoDisableNotification : MonoBehaviour
     {
         m_timer += Time.deltaTime;
 
-        if(m_timer > 4)
+        if(m_timer > 3)
         {
             m_timer = 0f;
             gameObject.SetActive(false);

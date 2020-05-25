@@ -28,10 +28,6 @@ public class Ladder : MonoBehaviour
     private MeshRenderer m_meshLadder2;
     private NavMeshObstacle m_navMeshObs2;
 
-
-    [SerializeField] QuestSystem m_questSystem;
-    [SerializeField] QuestManager m_questManager;
-
     [SerializeField] AudioManager m_audioManager;
 
     private AudioSource m_audioSource;
@@ -76,12 +72,6 @@ public class Ladder : MonoBehaviour
                 m_navMeshObs.enabled = false;
                 m_ladderOnPlayer.SetActive(false);
                 m_uiInventory.DropToolFunction(Item.ItemType.echelle, 1);
-
-                if (!m_questManager.m_ladderPlacedDone)
-                {
-                    m_questSystem.ChangeQuest("A vous de jouer.");
-                    m_questManager.m_ladderPlacedDone = true;
-                }
 
                 //if its a ladderOnSameBoard prefab
                 if (m_ladder2 != null)

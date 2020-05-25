@@ -24,12 +24,13 @@ public class InventoryButton : MonoBehaviour
     private void Awake()
     {
         DisableInventory();
+        DisableToolsInventory();
     }
 
     public void OpenInventory()
     {
         m_InventoryEnabled = !m_InventoryEnabled;
-        if (!m_Inventory.activeInHierarchy && m_toolsInventory.activeInHierarchy && UI_Inventory.m_firstToolsCrafted)
+        if (!m_Inventory.activeInHierarchy && m_toolsInventory.activeInHierarchy)
         {
             m_Inventory.SetActive(true);
 
@@ -38,7 +39,7 @@ public class InventoryButton : MonoBehaviour
             m_menuButton.alpha = 0.3f;
 
         }
-        else if (!m_Inventory.activeInHierarchy && !m_toolsInventory.activeInHierarchy && UI_Inventory.m_firstToolsCrafted)
+        else if (!m_Inventory.activeInHierarchy && !m_toolsInventory.activeInHierarchy)
         {
             m_Inventory.SetActive(true);
 
@@ -51,7 +52,7 @@ public class InventoryButton : MonoBehaviour
             m_animatorTools.SetTrigger("OpenTools");
         }
 
-        else if(m_Inventory.activeInHierarchy && m_toolsInventory.activeInHierarchy && UI_Inventory.m_firstToolsCrafted)
+        else if(m_Inventory.activeInHierarchy && m_toolsInventory.activeInHierarchy)
         {
             Invoke("DisableInventory", .33f);
             m_animatorInventory.SetTrigger("CloseInventory");
@@ -66,7 +67,7 @@ public class InventoryButton : MonoBehaviour
             m_animatorTools.SetTrigger("CloseTools");
 
         }
-        else if (m_Inventory.activeInHierarchy && !m_toolsInventory.activeInHierarchy && UI_Inventory.m_firstToolsCrafted)
+        else if (m_Inventory.activeInHierarchy && !m_toolsInventory.activeInHierarchy)
         {
             Invoke("DisableInventory", .33f);
             m_animatorInventory.SetTrigger("CloseInventory");
@@ -77,35 +78,11 @@ public class InventoryButton : MonoBehaviour
             m_uiInventory.RefreshInventoryRessources();
             m_uiInventory.RemoveItemFromCraftSlot();
         }
-        if (!UI_Inventory.m_firstToolsCrafted)
-        {
-            if (!m_Inventory.activeInHierarchy)
-            {
-                m_Inventory.SetActive(true);
-
-                m_animatorInventory.SetTrigger("OpenInventory");
-                m_audioSource.PlayOneShot(m_audioManager.m_openInventorySound);
-                m_menuButton.alpha = 0.3f;
-            }
-
-            else if (m_Inventory.activeInHierarchy)
-            {
-                Invoke("DisableInventory", .33f);
-                m_animatorInventory.SetTrigger("CloseInventory");
-
-                m_menuButton.alpha = 1f;
-                m_audioSource.PlayOneShot(m_audioManager.m_closeInventorySound);
-
-                m_uiInventory.RefreshInventoryRessources();
-                m_uiInventory.RemoveItemFromCraftSlot();
-
-            }
-        }
         
     }
     public void OpenToolsInventory()
     {
-        Debug.Log("TOOLS");
+
         m_toolsInventoryEnabled = !m_toolsInventoryEnabled;
 
         if (!m_toolsInventory.activeInHierarchy)

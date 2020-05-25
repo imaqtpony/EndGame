@@ -20,7 +20,7 @@ public class BluePrintObjects : MonoBehaviour
         if (other.CompareTag("Player") && m_blueprintType == Item.ItemType.plan_echelle)
         {
             m_ladderBluePrintDiscovered = true;
-            m_questSystem.ChangeQuest("Construisez une echelle.");
+            m_questSystem.ChangeQuest("Construisez une échelle.");
             Destroy(gameObject);
         }
     }
