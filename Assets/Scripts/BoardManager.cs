@@ -68,6 +68,7 @@ public class BoardManager : MonoBehaviour
             }
         }
 
+
         //temp, uncomment this
         int startingBoard = 2;
 
@@ -197,6 +198,21 @@ public class BoardManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// reset camera pos whenever player dies
+    /// </summary>
+    private void StartCameraPos()
+    {
+
+        m_boardArray[m_currentBoard.indexX, m_currentBoard.indexY].isActive = false;
+        m_boardArray[2, 1].isActive = true;
+        m_currentBoard = m_boardArray[2, 1];
+        // meh
+        Camera.main.transform.position = new Vector3(m_boardArray[2, 1].centerPos.x,
+            m_boardArray[2, 1].centerPos.y + m_cameraOffset.y,
+            m_boardArray[2, 1].centerPos.z + m_cameraOffset.z);
+
+    }
 
     public struct BoardData
     {
