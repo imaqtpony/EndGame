@@ -45,6 +45,7 @@ public class EnemyAI : MonoBehaviour
 
         //float dist = Vector3.Distance(transform.position, m_player.transform.position);
 
+        //detection distance 
         if (Mathf.Abs(dist) < 7f)
         {
             if (m_enemyDetect.m_inLight)
