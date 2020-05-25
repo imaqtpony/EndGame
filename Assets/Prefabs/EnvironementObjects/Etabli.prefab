@@ -386,6 +386,9 @@ MonoBehaviour:
   m_craftText: {fileID: 0}
   m_notification: {fileID: 0}
   m_textNotification: {fileID: 0}
+  m_uiInventory: {fileID: 0}
+  m_cursor: {fileID: 0}
+  m_autoDisableNotification: {fileID: 0}
 --- !u!65 &850235941918466619
 BoxCollider:
   m_ObjectHideFlags: 0

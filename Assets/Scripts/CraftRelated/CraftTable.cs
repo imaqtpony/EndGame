@@ -11,6 +11,14 @@ public class CraftTable : MonoBehaviour
     [SerializeField] GameObject m_notification;
     [SerializeField] TextMeshProUGUI m_textNotification;
 
+    [SerializeField] GameObject m_uiInventory;
+
+    [SerializeField] GameObject m_cursor;
+
+    [SerializeField] AutoDisableNotification m_autoDisableNotification;
+
+    private bool m_tutoCraftDone;
+
     bool tutoDecraftDone = false;
 
     private void Awake()
@@ -20,6 +28,7 @@ public class CraftTable : MonoBehaviour
 
     }
 
+
     public void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -28,18 +37,18 @@ public class CraftTable : MonoBehaviour
             m_craftText.SetActive(false);
             gameObject.layer = 0;
 
-            if (BluePrintObjects.m_ladderBluePrintDiscovered)
+            if (BluePrintObjects.m_ladderBluePrintDiscovered && m_uiInventory.activeInHierarchy)
             {
                 if (!tutoDecraftDone)
                 {
-                    m_notification.SetActive(true);
-                    m_textNotification.text = "Il est aussi possible de demanteler les outils.";
+                    m_cursor.SetActive(true);
+                    m_autoDisableNotification.PlayAnimCursor("Decraft");
                     tutoDecraftDone = true;
                 }
             }
         }
 
-        
+
     }
 
     public void OnTriggerExit(Collider other)
