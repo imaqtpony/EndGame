@@ -28,6 +28,7 @@ MonoBehaviour:
     type: 3}
   m_clickSound: {fileID: 8300000, guid: 6cb07d06fc847704697581ca1cb85044, type: 3}
   m_grassStepSound: {fileID: 8300000, guid: 14065ecf601c3604282cfe1accdf63b8, type: 3}
+  m_caveSound: {fileID: 8300000, guid: 960830e99f80f8242bafcacd6d59ee81, type: 3}
   m_axeHitSound: {fileID: 8300000, guid: ab1bbd3e3f4c3b644b6a041b3c7ecd84, type: 3}
   m_deathEnemySound: {fileID: 8300000, guid: 6a40d776b68d5be4eae42b74d6d067b7, type: 3}
   m_destroyingCrateSound: {fileID: 8300000, guid: 58d8e32094abefe418d94ab35de67ed5,

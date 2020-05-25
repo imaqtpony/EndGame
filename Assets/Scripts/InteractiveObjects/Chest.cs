@@ -12,6 +12,9 @@ public class Chest : MonoBehaviour
 
     private Image m_image;
 
+    [SerializeField] GameObject m_pollution;
+
+    public int m_numEnemiesAroundChest;
 
     [Header("ITEM A CHOISIR")]
 
@@ -21,6 +24,8 @@ public class Chest : MonoBehaviour
     [SerializeField] AudioManager m_audioManager;
 
     private AudioSource m_audioSource;
+
+    private bool m_chestUsed;
 
     [SerializeField] GameObject m_donjonNotif;
     [SerializeField] TextMeshProUGUI m_donjonNotifText;
@@ -36,7 +41,6 @@ public class Chest : MonoBehaviour
         Invoke("DisableSlot", 5f);
 
         m_audioSource.PlayOneShot(m_audioManager.m_openingChestSound);
-        //Destroy(GetComponent<AudioSource>(), 2);
 
         int p_amount = m_amountItemGiven;
         for (int i = 0; i < m_itemTypeGiven.Length; i++)
@@ -56,7 +60,8 @@ public class Chest : MonoBehaviour
         {
             StartCoroutine(DisableDonjonNotif());
         }
-        
+
+        //CleaningPollution();
         Destroy(this, 5.1f);
     }
 
@@ -69,13 +74,21 @@ public class Chest : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider collider)
+    public void CleaningPollution()
     {
 
-        if (collider.CompareTag("Player"))
+        m_pollution.GetComponent<Animator>().SetTrigger("Cleaning");
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.CompareTag("Player") && !m_chestUsed)
         {
             HarvestChestItems();
+            m_chestUsed = true;
+
         }
+
     }
 
     private void DisableSlot()

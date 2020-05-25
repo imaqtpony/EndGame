@@ -9,7 +9,7 @@ public class Spawn : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        var nb_enemies = 4;
+        var nb_enemies = 3;
         int randNumbEnemies = Random.Range(1, nb_enemies);
 
         for (int i = 1; i < randNumbEnemies; i++)

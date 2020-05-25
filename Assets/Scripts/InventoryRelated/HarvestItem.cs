@@ -10,8 +10,6 @@ public class HarvestItem : MonoBehaviour
 
     private Inventory inventory;
 
-    private LifePlayer m_lifePlayer;
-
     public IntVar m_inventorySpace;
     [SerializeField] GameObject m_notification;
     [SerializeField] TextMeshProUGUI m_textNotification;
@@ -39,7 +37,6 @@ public class HarvestItem : MonoBehaviour
 
         m_audioSource = GetComponent<AudioSource>();
 
-        m_lifePlayer = GetComponent<LifePlayer>();
         inventory = new Inventory(UseItem);
         m_uiInventory.SetPlayer(this);
         m_uiInventory.SetInventory(inventory);
@@ -114,6 +111,7 @@ public class HarvestItem : MonoBehaviour
             {
                 m_notification.SetActive(true);
                 m_textNotification.text = "Inventaire Plein !";
+                m_textNotification.color = new Color(255, 75, 0);
             }
         }
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 716305135}
   - component: {fileID: 716305134}
   - component: {fileID: 1703076239}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: CraftTable Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 1866328371}
   - component: {fileID: 1866328373}
   - component: {fileID: 1866328372}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,8 +178,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Etabli
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7ab851469d92d4f4f8254e382790788f, type: 2}
-  m_sharedMaterial: {fileID: -8715250708887365058, guid: 7ab851469d92d4f4f8254e382790788f,
+  m_fontAsset: {fileID: 11400000, guid: af5fd09e46eedf94b9abbfa740a36439, type: 2}
+  m_sharedMaterial: {fileID: -8389619880742728303, guid: af5fd09e46eedf94b9abbfa740a36439,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -301,7 +301,7 @@ Transform:
   m_GameObject: {fileID: 952635527330422316}
   m_LocalRotation: {x: -0.5719889, y: 0.36397532, z: 0.41572684, w: 0.6062359}
   m_LocalPosition: {x: 30.604, y: 5.324, z: -2.923}
-  m_LocalScale: {x: 1.354804, y: 1.3548042, z: 1.8186116}
+  m_LocalScale: {x: 1.3548039, y: 1.3548042, z: 1.8186116}
   m_Children:
   - {fileID: 716305137}
   m_Father: {fileID: 0}
@@ -386,6 +386,9 @@ MonoBehaviour:
   m_craftText: {fileID: 0}
   m_notification: {fileID: 0}
   m_textNotification: {fileID: 0}
+  m_uiInventory: {fileID: 0}
+  m_cursor: {fileID: 0}
+  m_autoDisableNotification: {fileID: 0}
 --- !u!65 &850235941918466619
 BoxCollider:
   m_ObjectHideFlags: 0
