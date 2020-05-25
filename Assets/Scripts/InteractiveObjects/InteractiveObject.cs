@@ -110,12 +110,13 @@ public class InteractiveObject : EnvironementObject, IFireReact
         {
             m_notification.SetActive(true);
             m_textNotification.text = "Il me faut une hache plus solide...";
+            m_textNotification.color = new Color(255, 255, 255);
+
         }
 
         if (other.gameObject.tag == "StoneAxe" && m_cutThePlant && gameObject.CompareTag("LevierCaisse"))
         {
-            // plant anim here
-            //m_thisAnim.play();
+
             m_audioSource.PlayOneShot(m_audioManager.m_destroyingCrateSound);
             m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
             DropMaterialOnDeathCrate(m_attachedObject, m_attachedItem);
@@ -124,8 +125,7 @@ public class InteractiveObject : EnvironementObject, IFireReact
         }
         else if (other.gameObject.tag == "StoneAxe" || other.gameObject.tag == "Axe" && m_cutThePlant && gameObject.CompareTag("BasicCaisse"))
         {
-            // plant anim here
-            //m_thisAnim.play();
+
             Debug.Log("zdfscrevgtbhy");
             m_audioSource.PlayOneShot(m_audioManager.m_destroyingCrateSound);
             m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
@@ -138,6 +138,8 @@ public class InteractiveObject : EnvironementObject, IFireReact
         {
             m_notification.SetActive(true);
             m_textNotification.text = "Il me faudrait une hache pour la casser.";
+            m_textNotification.color = new Color(255, 255, 255);
+
         }
 
         if (other.gameObject.tag == "Torch" && m_burnThings)

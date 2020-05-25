@@ -73,7 +73,7 @@ public class Inventory
         {
             switch (inventoryItem.itemType)
             {
-
+                default:
                 case Item.ItemType.baton:
                     m_amountBaton = inventoryItem.amount;
                     
@@ -95,6 +95,7 @@ public class Inventory
                 case Item.ItemType.poudre:
                     m_amountPoudre = inventoryItem.amount;
                     break;
+                    
             }
         }
     }
@@ -149,6 +150,15 @@ public class Inventory
     {
         
         itemList.Clear();
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        OnToolsListChanged?.Invoke(this, EventArgs.Empty);
+
+    }
+
+    public void RemoveAllTools()
+    {
+
+        toolsList.Clear();
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
         OnToolsListChanged?.Invoke(this, EventArgs.Empty);
 

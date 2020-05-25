@@ -68,7 +68,9 @@ public class Torch : MonoBehaviour
         else
         {
             // Default rotation
-            transform.rotation = Quaternion.LookRotation(new Vector3(0, transform.parent.position.y, 0));
+            transform.localRotation = Quaternion.LookRotation(new Vector3(transform.parent.rotation.x, transform.parent.position.y, transform.parent.rotation.z));
+            //transform.rotation = transform.parent.rotation;
+
         }
 
     }
