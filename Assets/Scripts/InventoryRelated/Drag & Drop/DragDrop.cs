@@ -12,7 +12,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    [SerializeField] Canvas m_canvas;
 
     public Transform itemSlot;
     public Transform m_thisItem;
@@ -42,10 +41,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     [SerializeField] Animator m_animatorPlayer;
 
-    [SerializeField] GameObject m_cursor;
-
-    [SerializeField] AutoDisableNotification m_autoDisableNotification;
-
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -69,7 +64,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / m_canvas.scaleFactor;
+        rectTransform.anchoredPosition += eventData.delta / 3f;
 
     }
 
@@ -196,8 +191,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
         if (!UI_Inventory.m_tutoToolsDone)
         {
-            m_cursor.SetActive(true);
-            m_autoDisableNotification.PlayAnimCursor("Swipe");
+            m_notification.SetActive(true);
+            m_textNotification.text = "Glisser le doigt sur l'ecran pour utiliser l'outil.";
             UI_Inventory.m_tutoToolsDone = true;
         }
 

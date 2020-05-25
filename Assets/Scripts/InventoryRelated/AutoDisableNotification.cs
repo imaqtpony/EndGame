@@ -7,11 +7,11 @@ public class AutoDisableNotification : MonoBehaviour
 {
 
     private float m_timer = 0;
+    [SerializeField] TextMeshProUGUI m_notificationText;
 
-
-    private void OnEnable()
+    private void Start()
     {
-        m_timer = 0f;
+        Debug.Log("NOTIFICATION");
     }
 
     private void Update()
@@ -20,12 +20,8 @@ public class AutoDisableNotification : MonoBehaviour
 
         if(m_timer > 4)
         {
+            m_timer = 0f;
             gameObject.SetActive(false);
         }
-    }
-
-    public void PlayAnimCursor(string p_nameAnim)
-    {
-        GetComponent<Animator>().SetTrigger(p_nameAnim);
     }
 }
