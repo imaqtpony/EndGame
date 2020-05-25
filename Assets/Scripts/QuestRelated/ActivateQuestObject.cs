@@ -50,18 +50,25 @@ public class ActivateQuestObject : MonoBehaviour
             m_animatorSlotLevier.SetTrigger("FlashingQuestObject");
             if (UI_QuestObjects.m_activateLevier)
             {
-                m_audioSource.PlayOneShot(m_audioManager.m_musicBoxSound);
-
-                m_meshRenderer.enabled = true;
-                m_animator.SetTrigger("Activate");
-                m_animatorMusicBox.SetTrigger("Activate");
-                m_questSystem.ChangeQuest("Allumez les bougies.");
-                m_questManager.m_candleEnigmaDone = true;
-                m_slotLevier.SetActive(false);
-                UI_QuestObjects.m_activateLevier = false;
+                StartCoroutine(ActivateObject());
             }
         }
         
+    }
+
+    private IEnumerator ActivateObject()
+    {
+        m_audioSource.PlayOneShot(m_audioManager.m_musicBoxSound);
+
+        m_meshRenderer.enabled = true;
+        m_animator.SetTrigger("Activate");
+        m_animatorMusicBox.SetTrigger("Activate");
+        m_questSystem.ChangeQuest("Allumez les bougies.");
+        m_questManager.m_candleEnigmaDone = true;
+        UI_QuestObjects.m_activateLevier = false;
+
+        yield return new WaitForSeconds(.1f);
+        m_slotLevier.SetActive(false);
     }
 
     public void ShowSlot(string p_nameObject)

@@ -5,9 +5,9 @@ using UnityEngine.AI;
 
 public class BarreQuest : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.CompareTag("Barrel"))
+        if (other.gameObject.tag == "Barrel")
         {
             Destroy(GetComponent<NavMeshObstacle>());
         }

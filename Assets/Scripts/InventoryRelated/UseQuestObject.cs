@@ -12,7 +12,7 @@ public class UseQuestObject : UI_QuestObjects, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         m_nameGO = gameObject.name;
-        ClicOnUIQuestObject(m_nameGO);
+        ClickOnUIQuestObject(m_nameGO);
     }
 
 }
