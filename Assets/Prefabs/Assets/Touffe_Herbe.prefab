@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6d36cf5f5078a8c4b97aa8403d8bd6e1, type: 2}
+  - {fileID: 2100000, guid: 1d2b00ac852c8794a8ffa0e2c7c9d368, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4941,7 +4941,6 @@ MonoBehaviour:
   m_questSystem: {fileID: 0}
   m_itemType: 0
   m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
-  m_audioSource: {fileID: 0}
   m_fireVFX: {fileID: 7596373350006307280}
 --- !u!54 &1894563254728209366
 Rigidbody:
