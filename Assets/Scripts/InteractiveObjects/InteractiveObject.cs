@@ -103,7 +103,8 @@ public class InteractiveObject : EnvironementObject, IFireReact
             m_audioSource.PlayOneShot(m_audioManager.m_fallingTreeSound);
             GetComponent<Animator>().SetTrigger("Activate");
             m_navMeshTronc.enabled = false;
-            
+
+
 
         }
         else if (other.gameObject.tag == "StoneAxe" && m_cutThePlant && gameObject.name == "Tronc")
@@ -111,6 +112,8 @@ public class InteractiveObject : EnvironementObject, IFireReact
             m_notification.SetActive(true);
             m_textNotification.text = "Il me faut une hache plus solide...";
             m_textNotification.color = new Color(255, 255, 255);
+            m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
+
 
         }
 
@@ -120,17 +123,22 @@ public class InteractiveObject : EnvironementObject, IFireReact
             m_audioSource.PlayOneShot(m_audioManager.m_destroyingCrateSound);
             m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
             DropMaterialOnDeathCrate(m_attachedObject, m_attachedItem);
-            
+
 
         }
         else if (other.gameObject.tag == "StoneAxe" || other.gameObject.tag == "Axe" && m_cutThePlant && gameObject.CompareTag("BasicCaisse"))
         {
 
-            Debug.Log("zdfscrevgtbhy");
-            m_audioSource.PlayOneShot(m_audioManager.m_destroyingCrateSound);
-            m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
-            DropMaterialOnDeath(false, .5f, 1, m_attachedItem);
-            
+            if(gameObject.name != "Tronc")
+            {
+                m_audioSource.PlayOneShot(m_audioManager.m_destroyingCrateSound);
+                m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
+                DropMaterialOnDeath(false, .5f, 1, m_attachedItem);
+                m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
+
+            }
+
+
 
         }
 

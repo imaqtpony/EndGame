@@ -31,6 +31,8 @@ public class LifePlayer : MonoBehaviour
 
     [SerializeField] GameObject m_boardManager;
 
+    [SerializeField] GameObject m_blackScreen;
+
     [SerializeField] GameObject[] m_toolsOnPlayer;
 
     private int x = 0;
@@ -63,21 +65,36 @@ public class LifePlayer : MonoBehaviour
 
             if (m_lifeValue.Value == 0)
             {
-                m_uiInventory.DropAllItemFunction();
-                m_uiInventory.RemoveItemFromCraftSlot();
+                m_collider.enabled = false;
 
-                m_boardManager.GetComponent<BoardManager>().enabled = false;
-                m_boardManager.GetComponent<BoardManager>().enabled = true;
+                StartCoroutine(TransitionDeath());
 
-
-                GetComponent<NavMeshAgent>().enabled = false;
-                transform.position = m_respawnPoint.position;
-                GetComponent<NavMeshAgent>().enabled = true;
-                StartCoroutine(ResetHearts());
 
             }
         }
         //Debug.Log(collision.gameObject.tag);
+    }
+
+    private IEnumerator TransitionDeath()
+    {
+        m_blackScreen.SetActive(true);
+        yield return new WaitForSeconds(1);
+
+        m_boardManager.GetComponent<BoardManager>().enabled = false;
+        m_boardManager.GetComponent<BoardManager>().enabled = true;
+
+        m_uiInventory.DropAllItemFunction();
+        m_uiInventory.RemoveItemFromCraftSlot();
+
+        GetComponent<NavMeshAgent>().enabled = false;
+        transform.position = m_respawnPoint.position;
+        GetComponent<NavMeshAgent>().enabled = true;
+        StartCoroutine(ResetHearts());
+
+        yield return new WaitForSeconds(1);
+        m_blackScreen.SetActive(false);
+        m_collider.enabled = true;
+
     }
 
     private IEnumerator ResetHearts()
