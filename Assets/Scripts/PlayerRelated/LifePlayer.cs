@@ -139,13 +139,8 @@ public class LifePlayer : MonoBehaviour
     /// c'est a ce moment la que le joueur est invincible</returns>
     private IEnumerator InvFrame()
     {
-        int temp = 0;
         m_collider.enabled = false;
-        while (temp < m_invDuration)
-        {
-            yield return new WaitForSeconds(m_invDuration);
-            temp++;
-        }
+        yield return new WaitForSeconds(m_invDuration);
         m_collider.enabled = true;
     }
 

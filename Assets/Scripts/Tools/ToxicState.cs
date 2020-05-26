@@ -44,7 +44,6 @@ public class ToxicState : MonoBehaviour
             if (m_timerBeforeToxicState % 60f > m_spawningTime && !m_polluted)
             {
                 Polluted();
-                //ChangeMaterial();
 
             }
 
@@ -64,11 +63,6 @@ public class ToxicState : MonoBehaviour
         thisSpawner.transform.parent = transform;
         m_polluted = true;
 
-    }
-
-    private void ChangeMaterial()
-    {
-        m_renderer.material.shader = m_toxicShader;
     }
 
 

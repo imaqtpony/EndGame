@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 7722859032300699}
   - component: {fileID: 7722859032300700}
   - component: {fileID: 7722859032300701}
+  - component: {fileID: 1976019836}
   - component: {fileID: 7722859032300698}
   - component: {fileID: 7722859032300697}
   - component: {fileID: 2145075311}
   - component: {fileID: 2145075312}
-  - component: {fileID: 1976019836}
   - component: {fileID: 7932256030672694766}
   m_Layer: 0
   m_Name: Capsule
@@ -101,6 +101,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &1976019836
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722859032300703}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.41
+  m_Height: 1.85
+  m_Direction: 1
+  m_Center: {x: 0.0000019073486, y: 0, z: 0}
 --- !u!195 &7722859032300698
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -138,7 +152,9 @@ MonoBehaviour:
   m_animatorEnemy: {fileID: 491438706}
   m_ColliderEnemy: {fileID: 1976019836}
   m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
+  m_chestDungeon: {fileID: 0}
   m_data: {fileID: 11400000, guid: d68a4a27d7455254980868e0118b612a, type: 2}
+  m_lifeValue: {fileID: 11400000, guid: d6b9ce34b3693a046a8a76a91ec41ed7, type: 2}
 --- !u!54 &2145075311
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -168,20 +184,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_inLight: 0
---- !u!136 &1976019836
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7722859032300703}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.41
-  m_Height: 1.85
-  m_Direction: 1
-  m_Center: {x: 0.0000019073486, y: 0, z: 0}
 --- !u!82 &7932256030672694766
 AudioSource:
   m_ObjectHideFlags: 0

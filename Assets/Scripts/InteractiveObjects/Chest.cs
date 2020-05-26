@@ -14,8 +14,6 @@ public class Chest : MonoBehaviour
 
     [SerializeField] GameObject m_pollution;
 
-    public int m_numEnemiesAroundChest;
-
     [Header("ITEM A CHOISIR")]
 
     [SerializeField] Item.ItemType[] m_itemTypeGiven;
@@ -74,11 +72,7 @@ public class Chest : MonoBehaviour
 
     }
 
-    public void CleaningPollution()
-    {
 
-        m_pollution.GetComponent<Animator>().SetTrigger("Cleaning");
-    }
 
     private void OnTriggerEnter(Collider collider)
     {
