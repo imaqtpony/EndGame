@@ -22,7 +22,11 @@ public class DropItemZone : MonoBehaviour, IDropHandler
 
     private void OnDisable()
     {
-        m_colliderPlayer.enabled = true;
+        if(m_colliderPlayer != null)
+        {
+            m_colliderPlayer.enabled = true;
+
+        }
 
     }
 
