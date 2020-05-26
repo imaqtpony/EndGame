@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
+using GD2Lib;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -20,13 +21,19 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private Data m_data;
 
+    public IntVar m_lifeValue;
+
     public static string m_tagCollision;
+
+    private Vector3 m_startingPos;
 
     //[SerializeField]
     //public GameObject m_player;
 
     private void OnEnable()
     {
+        m_startingPos = transform.position;
+
         m_agent = GetComponent<NavMeshAgent>();
         m_enemyDetect = GetComponent<DetectLight>();
 
@@ -74,7 +81,12 @@ public class EnemyAI : MonoBehaviour
         } else
         {
             //m_agent.ResetPath();
-           
+            if (m_lifeValue.Value == 0)
+                transform.position = m_startingPos;
+
+            float step = 0.5f * Time.deltaTime; // calculate distance to move
+            transform.position = Vector3.MoveTowards(transform.position, m_startingPos, step);
+
         }
 
         //if (m_agent.velocity.magnitude == 0f && m_agent.pathStatus == NavMeshPathStatus.PathPartial)
