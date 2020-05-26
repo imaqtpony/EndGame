@@ -31,5 +31,4 @@ public class ItemAssets : MonoBehaviour
     public Sprite allumetteSprite;
     public Sprite hache_pierreSprite;
     public Sprite echelleSprite;
-    public Sprite masseSprite;
 }

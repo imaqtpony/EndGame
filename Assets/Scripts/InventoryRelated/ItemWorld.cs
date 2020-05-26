@@ -72,6 +72,16 @@ public class ItemWorld : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            GetComponent<BoxCollider>().isTrigger = true;
+            GetComponent<Rigidbody>().isKinematic = true;
+
+        }
+    }
+
     public Item GetItem()
     {
         return item;

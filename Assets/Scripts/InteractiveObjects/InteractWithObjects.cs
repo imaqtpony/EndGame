@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
+using InventoryNS.Utils;
 
 
-public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
+public class InteractWithObjects : MonoBehaviour
 {
 
     [SerializeField] GameObject m_goToShow;
@@ -25,7 +26,7 @@ public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
 
     }
 
-    // Start is called before the first frame update
+
     public void OnPointerDown(PointerEventData eventData)
     {
         if (m_canShow)

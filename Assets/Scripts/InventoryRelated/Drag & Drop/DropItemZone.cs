@@ -13,17 +13,17 @@ public class DropItemZone : MonoBehaviour, IDropHandler
 
     [SerializeField] UI_Inventory m_uiInventory;
 
-    [SerializeField] HarvestItem player;
-
     [SerializeField] List<GameObject> m_tools;
 
     [SerializeField] BoxCollider m_colliderPlayer;
 
     [SerializeField] Animator m_animatorPlayer;
 
-    public void SetPlayer(HarvestItem player)
+
+    private void OnDisable()
     {
-        this.player = player;
+        m_colliderPlayer.enabled = true;
+
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -63,11 +63,7 @@ public class DropItemZone : MonoBehaviour, IDropHandler
 
     }
 
-    private void OnDisable()
-    {
-        m_colliderPlayer.enabled = true;
-
-    }
+    
 
     private IEnumerator DeactivateCollider()
     {

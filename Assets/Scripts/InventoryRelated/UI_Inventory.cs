@@ -79,6 +79,12 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
+    //private void OnEnable()
+    //{
+    //    RefreshInventoryRessources();
+    //    RemoveItemFromCraftSlot();
+    //}
+
     private IEnumerator InventoryFullNotification()
     {
         m_notification.SetActive(true);
