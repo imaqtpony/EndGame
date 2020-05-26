@@ -16,7 +16,7 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] AudioManager m_audioManager;
 
-    [SerializeField] Chest m_chestDungeon;
+    [SerializeField] CleaningPollution m_cleaningPollution;
 
     [SerializeField]
     private Data m_data;
@@ -105,9 +105,13 @@ public class EnemyAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Axe" || collision.gameObject.tag == "StoneAxe" && InteractiveObject.m_cutThePlant)
+        if (collision.gameObject.tag == "Axe" || collision.gameObject.tag == "StoneAxe")
         {
-            KillFunc();
+            if (InteractiveObject.m_cutThePlant)
+            {
+                KillFunc();
+
+            }
         }
 
         m_tagCollision = collision.gameObject.tag.ToString();
@@ -117,12 +121,23 @@ public class EnemyAI : MonoBehaviour
     {
         if (gameObject.name == "DungeonEnemy")
         {
-            m_chestDungeon.m_numEnemiesAroundChest -= 1;
-            Debug.Log(m_chestDungeon.m_numEnemiesAroundChest);
+            m_cleaningPollution.m_enemiesAround -= 1;
+            Debug.Log(m_cleaningPollution.m_enemiesAround);
 
-            if (m_chestDungeon.m_numEnemiesAroundChest == 0)
+            if (m_cleaningPollution.m_enemiesAround == 0)
             {
-                m_chestDungeon.CleaningPollution();
+                m_cleaningPollution.TriggerAnimPollution();
+            }
+        }
+        else if (gameObject.name == "Dungeon2Enemy")
+        {
+            m_cleaningPollution.m_enemiesAround -= 1;
+            Debug.Log(m_cleaningPollution.m_enemiesAround);
+
+            if (m_cleaningPollution.m_enemiesAround == 0)
+            {
+                m_cleaningPollution.TriggerAnimPollution();
+
             }
         }
 
