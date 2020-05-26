@@ -69,7 +69,7 @@ public class InteractiveObject : EnvironementObject, IFireReact
     {
         if (GD2Lib.Event.TryParseArgs(out bool axeCutting, out SwipeData sData, p_params))
         {
-            Debug.Log("Cut !");
+            //Debug.Log("Cut !");
             // maybe need sData otherwise c'est ciao
             m_cutThePlant = axeCutting;
 

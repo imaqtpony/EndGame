@@ -28,7 +28,7 @@ public class RotatePlayer : MonoBehaviour
 
         if (GD2Lib.Event.TryParseArgs(out SwipeData sData, p_params))
         {
-            Debug.Log("swipe!");
+            //Debug.Log("swipe!");
             // the line renderer stuff
             //Vector3[] positions = new Vector3[2];
             //positions[0] = Camera.main.ScreenToWorldPoint(new Vector3(sData.startPosition.x, sData.startPosition.y, 10));

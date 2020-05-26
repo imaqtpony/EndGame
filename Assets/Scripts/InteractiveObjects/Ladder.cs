@@ -62,10 +62,10 @@ public class Ladder : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider p_other)
     {
         //BluePrintObjects.m_ladderBluePrintDiscovered = true;
-        if (other.CompareTag("Player") && BluePrintObjects.m_ladderBluePrintDiscovered && !m_ladderPlaced)
+        if (p_other.CompareTag("Player") && BluePrintObjects.m_ladderBluePrintDiscovered && !m_ladderPlaced)
         {
             m_meshLadder.enabled = true;
             if (m_ladderOnPlayer.activeInHierarchy)
@@ -92,16 +92,17 @@ public class Ladder : MonoBehaviour
                 }
 
                 m_ladderPlaced = true;
+                StartCoroutine(WaitForSec());
             }
         }
 
-        if (other.CompareTag("Player") && m_ladderPlaced && gameObject.CompareTag("LadderOnSameBoard") && !m_alreadyUsedLadder && transform.childCount>0)
+        if (p_other.CompareTag("Player") && m_ladderPlaced && gameObject.CompareTag("LadderOnSameBoard") && !m_alreadyUsedLadder && transform.childCount>0)
         {
-            float distToLadder1 = Vector3.Distance(transform.GetChild(0).position, other.transform.position);
-            float distToLadder2 = Vector3.Distance(m_ladder2.position, other.transform.position);
+            float distToLadder1 = Vector3.Distance(transform.GetChild(0).position, p_other.transform.position);
+            float distToLadder2 = Vector3.Distance(m_ladder2.position, p_other.transform.position);
 
             // 1 is the distance in which the player will teleport from a ladder to the other
-            if (distToLadder1 < 2 || distToLadder2 < 2)
+            if (distToLadder1 < 1.75f || distToLadder2 < 1.75f)
             {
                 if (distToLadder1 < distToLadder2)
                 {
@@ -122,16 +123,43 @@ public class Ladder : MonoBehaviour
 
     }
 
-    private void OnTriggerExit(Collider other)
+    /// <summary>
+    /// Wait half a sec so that the player doesnt get tped at the same frame he uses the ladder
+    /// makes it easier to understand and less surprising
+    /// </summary>
+    private IEnumerator WaitForSec()
     {
-        if (other.CompareTag("Player") && BluePrintObjects.m_ladderBluePrintDiscovered && !m_ladderPlaced)
+        m_alreadyUsedLadder = true;
+        yield return new WaitForSeconds(0.7f);
+        m_alreadyUsedLadder = false;
+    }
+
+    private void OnTriggerEnter(Collider p_other)
+    {
+        if (p_other.CompareTag("Player") && m_alreadyUsedLadder)
+        {
+            //Debug.Log("Entered while being in");
+            m_alreadyUsedLadder = false;
+
+        }
+    }
+
+    private void OnTriggerExit(Collider p_other)
+    {
+        if (p_other.CompareTag("Player") && BluePrintObjects.m_ladderBluePrintDiscovered && !m_ladderPlaced)
         {
             m_meshLadder.enabled = false;
 
         }
 
-        if (other.CompareTag("Player"))
-            m_alreadyUsedLadder = false;
+        //if (p_other.CompareTag("Player"))
+        //{
+        //    Debug.LogWarning("left");
+        //    m_alreadyUsedLadder = false;
+
+        //}
 
     }
+
+   
 }
