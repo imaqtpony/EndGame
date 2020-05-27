@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using InventoryNS.Utils;
+using System.Security.Cryptography;
 
 public class CraftSystem : MonoBehaviour
 {

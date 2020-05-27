@@ -3,7 +3,23 @@ guid: 220ecb780fb897141a1b0e4f5b8533e9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - pfItemWorld: {instanceID: 0}
+  - batonSprite: {instanceID: 0}
+  - tissuSprite: {instanceID: 0}
+  - mrcFerSprite: {instanceID: 0}
+  - caillouSprite: {fileID: 21300000, guid: 9774f8bc3abeff6499a9fe1b599fbfd6, type: 3}
+  - gros_caillouSprite: {instanceID: 0}
+  - poudreSprite: {instanceID: 0}
+  - decraftHacheFerSprite: {instanceID: 0}
+  - decraftAllumetteSprite: {instanceID: 0}
+  - decraftTorcheSprite: {instanceID: 0}
+  - decraftHachePierreSprite: {instanceID: 0}
+  - plan_echelleSprite: {instanceID: 0}
+  - hacheSprite: {instanceID: 0}
+  - allumetteSprite: {instanceID: 0}
+  - hache_pierreSprite: {instanceID: 0}
+  - echelleSprite: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -47,8 +47,7 @@ public class CraftTable : MonoBehaviour
                 if (!m_questManager.tutoDecraftDone)
                 {
                     m_notification.SetActive(true);
-                    m_textNotification.text = "Vous pouvez aussi démenteler les outils.";
-
+                    m_textNotification.text = "Vous pouvez aussi demanteler les outils.";
                     m_cursor.SetActive(true);
                     m_autoDisableNotification.PlayAnimCursor("Decraft");
                     m_questManager.tutoDecraftDone = true;
