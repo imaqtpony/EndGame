@@ -14,4 +14,9 @@ public class QuestManager : ScriptableObject
     public bool m_ladderPlacedDone;
     public bool m_keyEnigmaDone;
 
+    //tutos
+
+    public bool m_tutoToolsDone;
+    public bool tutoDecraftDone;
+
 }

@@ -145,7 +145,7 @@ public class InteractiveObject : EnvironementObject, IFireReact
         else if (gameObject.name == "Caisse" && other.CompareTag("Player"))
         {
             m_notification.SetActive(true);
-            m_textNotification.text = "Il me faudrait une hache pour la casser.";
+            m_textNotification.text = "Il me faudrait une hache pour la casser";
             m_textNotification.color = new Color(255, 255, 255);
 
         }

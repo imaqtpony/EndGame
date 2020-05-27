@@ -17,12 +17,17 @@ public class CraftTable : MonoBehaviour
 
     [SerializeField] AutoDisableNotification m_autoDisableNotification;
 
+    [SerializeField] QuestManager m_questManager;
+
     private bool m_tutoCraftDone;
 
     bool tutoDecraftDone = false;
 
     private void Awake()
     {
+
+        m_questManager.tutoDecraftDone = false;
+
         m_craftcanvas.SetActive(false);
         gameObject.layer = 2;
 
@@ -39,13 +44,14 @@ public class CraftTable : MonoBehaviour
 
             if (BluePrintObjects.m_ladderBluePrintDiscovered && m_uiInventory.activeInHierarchy)
             {
-                if (!tutoDecraftDone)
+                if (!m_questManager.tutoDecraftDone)
                 {
                     m_notification.SetActive(true);
                     m_textNotification.text = "Vous pouvez aussi démenteler les outils.";
+
                     m_cursor.SetActive(true);
                     m_autoDisableNotification.PlayAnimCursor("Decraft");
-                    tutoDecraftDone = true;
+                    m_questManager.tutoDecraftDone = true;
                 }
             }
         }

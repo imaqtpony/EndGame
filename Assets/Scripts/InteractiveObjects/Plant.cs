@@ -33,19 +33,6 @@ public class Plant : EnvironementObject, IFireReact
     [SerializeField]
     private ParticleSystem m_fireVFX;
 
-    //private animator m_thisAnim;
-
-    //private void Awake()
-    //{
-    //    m_thisAnim = GetComponent<Animator>();
-    //    m_attachedItem = new Item {truc machin avec les bonnes infos? randomize l'amount}
-    //}
-    private void Awake()
-    {
-
-
-    }
-
 
     private void OnEnable()
     {
