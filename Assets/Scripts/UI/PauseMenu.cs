@@ -48,35 +48,6 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-    /*public void Menu()
-    {
-        SceneManager.LoadScene("s_MenuChaos");
-        Time.timeScale = 1f;
-        CheckPointID.m_currentRespawnIndex = 0;
-        ValidateTuto.m_Check1 = false;
-        ValidateTuto.m_Check2 = false;
-	}
-
-    public void ShowInputs()
-    {
-        PauseMenuUI.SetActive(false);
-        InputsImage.SetActive(true);
-        m_showInputs = false;
-        m_BackButtonActive = true;
-
-	}
-
-    public void HideInputs()
-    {
-        PauseMenuUI.SetActive(true);
-        InputsImage.SetActive(false);
-        m_showInputs = true;
-        m_BackButtonActive = false;
-
-
-	}*/
-
-
     public void QuitGame()
     {
         Application.Quit();

@@ -26,7 +26,7 @@ public class CraftTable : MonoBehaviour
     private void Awake()
     {
 
-        m_questManager.tutoDecraftDone = false;
+        m_questManager.m_tutoDecraftDone = false;
 
         m_craftcanvas.SetActive(false);
         gameObject.layer = 2;
@@ -44,13 +44,13 @@ public class CraftTable : MonoBehaviour
 
             if (BluePrintObjects.m_ladderBluePrintDiscovered && m_uiInventory.activeInHierarchy)
             {
-                if (!m_questManager.tutoDecraftDone)
+                if (!m_questManager.m_tutoDecraftDone)
                 {
                     m_notification.SetActive(true);
                     m_textNotification.text = "Vous pouvez aussi demanteler les outils.";
                     m_cursor.SetActive(true);
                     m_autoDisableNotification.PlayAnimCursor("Decraft");
-                    m_questManager.tutoDecraftDone = true;
+                    m_questManager.m_tutoDecraftDone = true;
                 }
             }
         }

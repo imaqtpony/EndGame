@@ -17,6 +17,7 @@ public class QuestManager : ScriptableObject
     //tutos
 
     public bool m_tutoToolsDone;
-    public bool tutoDecraftDone;
+    public bool m_tutoDecraftDone;
+    public bool m_tutoLadderDone;
 
 }
