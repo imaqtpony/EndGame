@@ -34,8 +34,6 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] GameObject m_toolsButton;
 
     public List<Transform> m_itemForCraft;
-
-    public static bool m_tutoToolsDone;
     public static bool m_firstToolsCrafted;
 
     public IntVar m_inventorySpace;
@@ -242,7 +240,7 @@ public class UI_Inventory : MonoBehaviour
                 m_questManager.m_craftToolDone = true;
                 if (!m_questManager.m_destroyPlantDone)
                 {
-                    m_questSystem.ChangeQuest("Brulez les plantes.");
+                    m_questSystem.ChangeQuest("Brulez les plantes");
 
                 }
                 m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);

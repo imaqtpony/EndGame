@@ -14,6 +14,8 @@ public class Chest : MonoBehaviour
 
     [SerializeField] GameObject m_pollution;
 
+    [SerializeField] Animator m_chestAnimator;
+
     [Header("ITEM A CHOISIR")]
 
     [SerializeField] Item.ItemType[] m_itemTypeGiven;
@@ -37,7 +39,7 @@ public class Chest : MonoBehaviour
     {
         m_itemsUnlockedSlots[m_itemTypeGiven.Length - 1].gameObject.SetActive(true);
         Invoke("DisableSlot", 5f);
-
+        m_chestAnimator.SetTrigger("Open");
         m_audioSource.PlayOneShot(m_audioManager.m_openingChestSound);
 
         int p_amount = m_amountItemGiven;

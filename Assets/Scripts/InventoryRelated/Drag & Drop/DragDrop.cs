@@ -46,6 +46,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     [SerializeField] AutoDisableNotification m_autoDisableNotification;
 
+    [SerializeField] QuestManager m_questManager;
+
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -194,13 +196,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         if(!m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils")) m_animatorPlayer.SetTrigger("IdleOutils");
 
 
-        if (!UI_Inventory.m_tutoToolsDone)
+        if (!m_questManager.m_tutoToolsDone)
         {
             m_notification.SetActive(true);
             m_textNotification.text = "Glissez votre doigt pour utiliser l'outil.";
             m_cursor.SetActive(true);
             m_autoDisableNotification.PlayAnimCursor("Swipe");
-            UI_Inventory.m_tutoToolsDone = true;
+            m_questManager.m_tutoToolsDone = true;
         }
 
         if (!InventoryButton.m_InventoryEnabled)
