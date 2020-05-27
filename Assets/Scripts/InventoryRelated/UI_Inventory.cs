@@ -114,24 +114,24 @@ public class UI_Inventory : MonoBehaviour
         {
             if (m_craftSystem.m_craftActive)
             {
-                if(Inventory.itemList.Count + Inventory.toolsList.Count < m_inventorySpace.Value)
-                {
+                //if(Inventory.itemList.Count + Inventory.toolsList.Count < m_inventorySpace.Value)
+                //{
                     CraftTools();
-                    UpdateAmountItems();
-                    RemoveItemFromCraftSlot();
+                //UpdateAmountItems();
+                //RemoveItemFromCraftSlot();
 
-                    if (!m_firstToolsCrafted)
-                    {
-                        m_toolsButton.SetActive(true);
-                        m_toolsWind.SetActive(true);
-                        m_toolsWind.GetComponent<Animator>().SetTrigger("OpenTools");
-                        m_firstToolsCrafted = true;
-                    }
-                }
-                else
-                {
-                    StartCoroutine(InventoryFullNotification());
-                }
+                //if (!m_firstToolsCrafted)
+                //{
+                //    m_toolsButton.SetActive(true);
+                //    m_toolsWind.SetActive(true);
+                //    m_toolsWind.GetComponent<Animator>().SetTrigger("OpenTools");
+                //    m_firstToolsCrafted = true;
+                //}
+                //    }
+                //    else
+                //    {
+                //        StartCoroutine(InventoryFullNotification());
+                //    }
 
             }
 
@@ -198,88 +198,191 @@ public class UI_Inventory : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// craft and decraft tools checker
+    /// </summary>
     public void CraftTools()
     {
         //craft hache en fer
         if (Inventory.m_amountBaton >= 2 && Inventory.m_amountMrcFer >= 1 && CraftSystem.m_itemType_1 == Item.ItemType.hache)
         {
-            inventory.AddTools(new Item { itemType = Item.ItemType.hache, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 2 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.mrcFer, amount = 1 });
-            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+            Item hache = new Item { itemType = Item.ItemType.hache, amount = 1 };
+            Item composHache1 = new Item { itemType = Item.ItemType.baton, amount = 2 };
+            Item composHache2 = new Item { itemType = Item.ItemType.mrcFer, amount = 1 };
 
+            inventory.AddTools(hache);
+            inventory.RemoveItem(composHache1);
+            inventory.RemoveItem(composHache2);
+
+            //if he has enough room
+            if (!IsInventoryFull(hache, composHache1, composHache2, false))
+            {
+                m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+
+            }
+            else
+            {
+                //play fail craft sound here
+            }
         }
         //craft allumette
         else if (Inventory.m_amountPoudre >= 1 && Inventory.m_amountBaton >= 1 && CraftSystem.m_itemType_1 == Item.ItemType.allumette)
         {
-            inventory.AddTools(new Item { itemType = Item.ItemType.allumette, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.poudre, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
+            Item allumette = new Item { itemType = Item.ItemType.allumette, amount = 1 };
+            Item composAllu1 = new Item { itemType = Item.ItemType.poudre, amount = 1 };
+            Item composAllu2 = new Item { itemType = Item.ItemType.baton, amount = 1 };
 
-            m_questManager.m_craftToolDone = true;
-            if (!m_questManager.m_destroyPlantDone)
+            inventory.AddTools(allumette);
+            inventory.RemoveItem(composAllu1);
+            inventory.RemoveItem(composAllu2);
+            
+            //if he has enough room
+            if (!IsInventoryFull(allumette, composAllu1, composAllu2, false))
             {
-                m_questSystem.ChangeQuest("Brulez les plantes.");
+                m_questManager.m_craftToolDone = true;
+                if (!m_questManager.m_destroyPlantDone)
+                {
+                    m_questSystem.ChangeQuest("Brulez les plantes.");
 
+                }
+                m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
             }
-            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
-
+            else
+            {
+                //play fail craft sound here
+            }
         }
         //craft hache en pierre
         else if (Inventory.m_amountBaton >= 1 && Inventory.m_amountCaillou >= 2 && CraftSystem.m_itemType_1 == Item.ItemType.hache_pierre)
         {
-            inventory.AddTools(new Item { itemType = Item.ItemType.hache_pierre, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.caillou, amount = 2 });
-            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+            Item hache_Pierre = new Item { itemType = Item.ItemType.hache_pierre, amount = 1 };
+            Item composHacheP1 = new Item { itemType = Item.ItemType.baton, amount = 1 };
+            Item composHacheP2 = new Item { itemType = Item.ItemType.caillou, amount = 2 };
 
+            inventory.AddTools(hache_Pierre);
+            inventory.RemoveItem(composHacheP1);
+            inventory.RemoveItem(composHacheP2);
+
+            //if he has enough room
+            if (!IsInventoryFull(hache_Pierre, composHacheP1, composHacheP2, false))
+            {
+                m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+
+            }
+            else
+            {
+                //play fail craft sound here
+            }
         }
         //craft echelle
         else if (Inventory.m_amountBaton >= 4 && m_craftSystem.m_craftSlotList.Count == 1 && CraftSystem.m_itemType_1 == Item.ItemType.echelle)
         {
-            inventory.AddTools(new Item { itemType = Item.ItemType.echelle, amount = 1 });
-            inventory.RemoveItem(new Item { itemType = Item.ItemType.baton, amount = 4 });
-            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+            Item echelle = new Item { itemType = Item.ItemType.echelle, amount = 1 };
+            Item composEchelle = new Item { itemType = Item.ItemType.baton, amount = 4 };
+
+            inventory.AddTools(echelle);
+            inventory.RemoveItem(composEchelle);
+
+            //if he has enough room
+            if (!IsInventoryFull(echelle, composEchelle, null, false))
+            {
+                m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+
+            } else
+            {
+                //play fail craft sound here
+            }
 
         }
 
         //decraft allumette
         else if (CraftSystem.m_itemType_1 == Item.ItemType.baton && CraftSystem.m_itemType_2 == Item.ItemType.tissu)
         {
-            inventory.RemoveTools(new Item { itemType = Item.ItemType.allumette, amount = 1 });
-            inventory.AddItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
-            inventory.AddItem(new Item { itemType = Item.ItemType.poudre, amount = 1 });
-            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
-            RemoveItemFromCraftSlot();
+            Item allumette = new Item { itemType = Item.ItemType.allumette, amount = 1 };
+            Item composAllu1 = new Item { itemType = Item.ItemType.poudre, amount = 1 };
+            Item composAllu2 = new Item { itemType = Item.ItemType.baton, amount = 1 };
+
+            inventory.RemoveTools(allumette);
+            inventory.AddItem(composAllu2);
+            inventory.AddItem(composAllu1);
+
+            //if he has enough room
+            if (!IsInventoryFull(allumette, composAllu1, composAllu2, true))
+            {
+                m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+
+            }
+            else
+            {
+                //play fail craft sound here
+            }
 
         }
         //decraft hache en pierre
         else if (CraftSystem.m_itemType_1 == Item.ItemType.baton && CraftSystem.m_itemType_2 == Item.ItemType.caillou)
         {
-            inventory.RemoveTools(new Item { itemType = Item.ItemType.hache_pierre, amount = 1 });
-            inventory.AddItem(new Item { itemType = Item.ItemType.baton, amount = 1 });
-            inventory.AddItem(new Item { itemType = Item.ItemType.caillou, amount = 1 });
-            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
-            RemoveItemFromCraftSlot();
+            Item hache_Pierre = new Item { itemType = Item.ItemType.hache_pierre, amount = 1 };
+            Item composHacheP1 = new Item { itemType = Item.ItemType.baton, amount = 1 };
+            Item composHacheP2 = new Item { itemType = Item.ItemType.caillou, amount = 2 };
+
+            inventory.RemoveTools(hache_Pierre);
+            inventory.AddItem(composHacheP1);
+            inventory.AddItem(composHacheP2);
+
+            //if he has enough room
+            if (!IsInventoryFull(hache_Pierre, composHacheP1, composHacheP2, true))
+            {
+                m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+
+            }
+            else
+            {
+                //play fail craft sound here
+            }
 
         }
         //decraft hache
         else if (CraftSystem.m_itemType_1 == Item.ItemType.baton && CraftSystem.m_itemType_2 == Item.ItemType.mrcFer)
         {
-            inventory.RemoveTools(new Item { itemType = Item.ItemType.hache, amount = 1 });
-            inventory.AddItem(new Item { itemType = Item.ItemType.baton, amount = 2 });
-            inventory.AddItem(new Item { itemType = Item.ItemType.mrcFer, amount = 1 });
-            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
-            RemoveItemFromCraftSlot();
+            Item hache = new Item { itemType = Item.ItemType.hache, amount = 1 };
+            Item composHache1 = new Item { itemType = Item.ItemType.baton, amount = 2 };
+            Item composHache2 = new Item { itemType = Item.ItemType.mrcFer, amount = 1 };
+
+            inventory.RemoveTools(hache);
+            inventory.AddItem(composHache1);
+            inventory.AddItem(composHache2);
+
+            //if he has enough room
+            if (!IsInventoryFull(hache, composHache1, composHache2, true))
+            {
+                m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+
+            }
+            else
+            {
+                //play fail craft sound here
+            }
 
         }
         //decraft echelle
         else if (CraftSystem.m_itemType_1 == Item.ItemType.baton)
         {
-            inventory.RemoveTools(new Item { itemType = Item.ItemType.echelle, amount = 1 });
-            inventory.AddItem(new Item { itemType = Item.ItemType.baton, amount = 4 });
-            m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
-            RemoveItemFromCraftSlot();
+            Item echelle = new Item { itemType = Item.ItemType.echelle, amount = 1 };
+            Item composEchelle = new Item { itemType = Item.ItemType.baton, amount = 4 };
+
+            inventory.RemoveTools(echelle);
+            inventory.AddItem(composEchelle);
+
+            //if he has enough room
+            if (!IsInventoryFull(echelle, composEchelle, null, true))
+            {
+                m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
+
+            }
+            else
+            {
+                //play fail craft sound here
+            }
 
         }
         //pas assez de ressources
@@ -293,6 +396,51 @@ public class UI_Inventory : MonoBehaviour
         }
 
     }
+
+    private bool IsInventoryFull(Item p_tool, Item p_mat1, Item p_mat2, bool p_isDecraft)
+    {
+        if (Inventory.itemList.Count + Inventory.toolsList.Count <= m_inventorySpace.Value)
+        {
+            // c'est bon y'a la place
+            UpdateAmountItems();
+            RemoveItemFromCraftSlot();
+
+            if (!m_firstToolsCrafted)
+            {
+                m_toolsButton.SetActive(true);
+                m_toolsWind.SetActive(true);
+                m_toolsWind.GetComponent<Animator>().SetTrigger("OpenTools");
+                m_firstToolsCrafted = true;
+            }
+
+            return false;
+
+        } else
+        {
+            StartCoroutine(InventoryFullNotification());
+
+            if (!p_isDecraft)
+            {
+                inventory.AddItem(p_mat1);
+                if (p_mat2 != null)
+                    inventory.AddItem(p_mat2);
+                inventory.RemoveTools(p_tool);
+            } else
+            {
+                //inverse cause its a decraft
+                inventory.AddTools(p_tool);
+                inventory.RemoveItem(p_mat1);
+                inventory.RemoveItem(p_mat2);
+
+                RemoveItemFromCraftSlot();
+            }
+
+
+            return true;
+
+        }
+    }
+
 
     public void DropItemFunction(Item.ItemType itemTypeToDrop, int p_amount)
     {

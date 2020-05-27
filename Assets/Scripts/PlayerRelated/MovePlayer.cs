@@ -99,8 +99,8 @@ public class MovePlayer : MonoBehaviour
             // if le tel marche plus
             //if (Input.GetMouseButtonDown(0)) {
 
-        if (!m_agent.hasPath)
-        {
+        //if (!m_agent.hasPath)
+        //{
             //if le tel marche
             Ray castPoint = Camera.main.ScreenPointToRay(p_touch.position);
 
@@ -129,7 +129,7 @@ public class MovePlayer : MonoBehaviour
                 m_crossHit.transform.position = new Vector3(hit.point.x, hit.point.y + .1f, hit.point.z);
 
             }
-        }
+        //}
 
         //}
     }
