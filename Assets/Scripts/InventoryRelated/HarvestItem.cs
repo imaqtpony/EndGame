@@ -53,7 +53,8 @@ public class HarvestItem : MonoBehaviour
 
     private void OnEnable()
     {
-        m_questManager.m_craftToolDone = false;
+        if (!PauseMenu.m_restarted)
+            m_questManager.m_craftToolDone = false;
         m_questManager.m_destroyPlantDone = false;
         m_questManager.m_findDungeonDone = false;
         m_questManager.m_levierEnigmaDone = false;

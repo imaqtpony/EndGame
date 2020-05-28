@@ -928,6 +928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_data: {fileID: 11400000, guid: d68a4a27d7455254980868e0118b612a, type: 2}
   m_onLadderClimb: {fileID: 11400000, guid: 5844f853704b15f41ab85b468d646591, type: 2}
+  m_agent: {fileID: 2538710310245440244}
   m_blockRaycastMask:
     serializedVersion: 2
     m_Bits: 256
@@ -1018,6 +1019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479b1e564f963d040a65a856d44ee6c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_agent: {fileID: 2538710310245440244}
 --- !u!65 &8655329798545946619
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1054,6 +1056,7 @@ MonoBehaviour:
   m_lifeHeartSprite: {fileID: 0}
   m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
   m_boardManager: {fileID: 0}
+  m_blackScreen: {fileID: 0}
   m_toolsOnPlayer:
   - {fileID: 7629964342533364502}
   - {fileID: 7937806879911965835}

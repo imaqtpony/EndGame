@@ -53,6 +53,7 @@ public class UI_Inventory : MonoBehaviour
     private void Awake()
     {
         m_audioManager.m_audioSource = GetComponent<AudioSource>();
+        m_toolsButton.SetActive(false);
 
     }
 
@@ -428,7 +429,8 @@ public class UI_Inventory : MonoBehaviour
                 //inverse cause its a decraft
                 inventory.AddTools(p_tool);
                 inventory.RemoveItem(p_mat1);
-                inventory.RemoveItem(p_mat2);
+                if (p_mat2 != null)
+                    inventory.RemoveItem(p_mat2);
 
                 RemoveItemFromCraftSlot();
             }
