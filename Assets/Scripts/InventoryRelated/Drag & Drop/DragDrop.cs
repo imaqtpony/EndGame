@@ -48,6 +48,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     [SerializeField] QuestManager m_questManager;
 
+    private Sprite m_imgRockAtRuntime;
+
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -55,6 +57,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
         //the name of the item is the name of his sprite
         gameObject.name = image.sprite.name;
+
+        if (image.sprite.name == "caillou")
+        {
+            m_imgRockAtRuntime = image.sprite;
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -103,6 +110,18 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         }
     }
 
+    private IEnumerator YouAreARock()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5);
+
+            Debug.Log(m_imgRockAtRuntime.name);
+
+            gameObject.name = m_imgRockAtRuntime.name;
+        }
+    }
+
 
     public Item.ItemType DetectItem()
     {
@@ -133,6 +152,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 itemType = Item.ItemType.caillou;
                 m_amountItemToDrop = Inventory.m_amountCaillou;
                 m_isRessource = true;
+
+                StartCoroutine(YouAreARock());
+
                 break;
             case "gros_caillou":
                 itemType = Item.ItemType.gros_caillou;
