@@ -57,6 +57,8 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
+    
+
     public void SetInventory(Inventory inventory)
     {
         this.inventory = inventory;
