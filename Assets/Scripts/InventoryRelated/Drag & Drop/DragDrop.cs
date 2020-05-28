@@ -80,7 +80,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
 
-
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -193,7 +192,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void SelectTools(Item.ItemType p_toolsType)
     {
-        if(!m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils")) m_animatorPlayer.SetTrigger("IdleOutils");
+        if (!m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils") || !m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils")) m_animatorPlayer.SetTrigger("IdleOutils"); 
 
 
         if (!m_questManager.m_tutoToolsDone)

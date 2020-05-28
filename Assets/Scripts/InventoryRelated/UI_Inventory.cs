@@ -54,10 +54,7 @@ public class UI_Inventory : MonoBehaviour
     {
         m_audioManager.m_audioSource = GetComponent<AudioSource>();
         m_toolsButton.SetActive(false);
-
     }
-
-    
 
     public void SetInventory(Inventory inventory)
     {

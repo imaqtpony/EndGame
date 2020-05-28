@@ -17,6 +17,8 @@ public class Torch : MonoBehaviour
 
     [SerializeField] AudioManager m_audioManager;
 
+    [SerializeField] Animator m_playerAnimator;
+
     private void Awake()
     {
         m_audioManager.m_audioSource = GetComponent<AudioSource>();
@@ -54,22 +56,28 @@ public class Torch : MonoBehaviour
 
     private void TorchIgnited(bool p_useTorch)
     {
+        m_onUseTorch.Raise(p_useTorch);
         //anim flamme de la torche en loop si equipée
         if (p_useTorch)
         {
             Debug.Log("Salameche attaque flammeche !");
 
-            m_onUseTorch.Raise(p_useTorch);
 
-            transform.rotation = transform.parent.rotation;
+            //transform.rotation = transform.parent.rotation;
 
+            //anim tend la torche
+            m_playerAnimator.SetTrigger("ToolsSwing");
 
         }
         else
         {
             // Default rotation
-            transform.localRotation = Quaternion.LookRotation(new Vector3(transform.parent.rotation.x, transform.parent.position.y, transform.parent.rotation.z));
+            //transform.localRotation = Quaternion.LookRotation(new Vector3(transform.parent.rotation.x, transform.parent.position.y, transform.parent.rotation.z));
             //transform.rotation = transform.parent.rotation;
+
+
+            //anim idleoutils
+            m_playerAnimator.SetTrigger("IdleOutils");
 
         }
 

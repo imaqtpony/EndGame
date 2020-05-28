@@ -50,7 +50,6 @@ public class InteractWithObjects : MonoBehaviour
 
                         }
                         m_goToShow.SetActive(true);
-                        Debug.Log("LOBJET INTERAGIT");
                     }
                 }
             }

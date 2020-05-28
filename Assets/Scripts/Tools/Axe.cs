@@ -12,12 +12,18 @@ public class Axe : MonoBehaviour
     [SerializeField]
     private GD2Lib.Event m_onSwipe;
 
+    [SerializeField] Animator m_playerAnimator;
+
+
     private bool m_isCurrentlyCutting;
 
     private void Update()
     {
         if (Input.touchCount == 0)
         {
+            //anim idleoutils
+            m_playerAnimator.SetTrigger("IdleOutils");
+
             m_isCurrentlyCutting = false;
             transform.rotation = Quaternion.LookRotation(new Vector3(0, transform.parent.position.y, 0));
 
@@ -26,12 +32,13 @@ public class Axe : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(new Vector3(0, -transform.parent.position.y, 0));
 
             }
+
         }
     }
 
     private void OnEnable()
     {
-
+        
         if (m_onSwipe != null)
             m_onSwipe.Register(HandleCutOnSwipe);
     }
@@ -50,7 +57,10 @@ public class Axe : MonoBehaviour
             m_isCurrentlyCutting = true;
             m_onCutWithAxe.Raise(m_isCurrentlyCutting, sData);
 
-            transform.rotation = RotateAxe(sData);
+            //transform.rotation = RotateAxe(sData);
+            //anim hache
+
+            m_playerAnimator.SetTrigger("ToolsSwing");
 
         }
         else

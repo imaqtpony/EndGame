@@ -57,7 +57,6 @@ public class MovePlayer : MonoBehaviour
         if ((transform.position.x < m_agent.destination.x + 0.2f && transform.position.x > m_agent.destination.x - 0.2f) && (transform.position.z < m_agent.destination.z + 0.2f && transform.position.z > m_agent.destination.z - 0.2f))
             m_agent.ResetPath();
 
-
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -168,8 +167,10 @@ public class MovePlayer : MonoBehaviour
         if (actualPos == finalPos)
         {
             m_audioSource.Pause();
+            Debug.Log("jfezfzfzf");
 
             StopCoroutine(checkPlayerPos());
+
             if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("Course")) m_animatorPlayer.SetTrigger("Idle");
             else if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils")) m_animatorPlayer.SetTrigger("IdleOutils");
         }
