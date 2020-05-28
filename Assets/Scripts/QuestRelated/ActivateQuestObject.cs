@@ -63,7 +63,6 @@ public class ActivateQuestObject : MonoBehaviour
         m_meshRenderer.enabled = true;
         m_animator.SetTrigger("Activate");
         m_animatorMusicBox.SetTrigger("Activate");
-        m_questSystem.ChangeQuest("Allumez les bougies.");
         m_questManager.m_candleEnigmaDone = true;
         UI_QuestObjects.m_activateLevier = false;
 

@@ -6,20 +6,33 @@ public class CaveSoundEffect : MonoBehaviour
 {
     [SerializeField] AudioManager m_audioManager;
 
-    [SerializeField] Light m_directionalLight;
-    [SerializeField] Light m_dinamicLight;
+    [SerializeField] GameObject m_dinamicLight;
+
+    [SerializeField] QuestSystem m_questSystem;
+
+    bool m_CandleQuestDisplayed;
+
+    private void Start()
+    {
+        Camera.main.GetComponent<AudioSource>().clip = m_audioManager.m_caveSound;
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Camera.main.GetComponent<AudioSource>().PlayOneShot(m_audioManager.m_caveSound);
-            if(m_directionalLight != null)
-            {
-                m_directionalLight.enabled = false;
 
+            Camera.main.GetComponent<AudioSource>().Play();
+
+            m_dinamicLight.SetActive(true);
+
+            if(m_questSystem != null && !m_CandleQuestDisplayed)
+            {
+                m_questSystem.ChangeQuest("Allumez les bougies.");
+                m_CandleQuestDisplayed = true;
             }
-            m_dinamicLight.enabled = true;
+
         }
     }
 
@@ -28,12 +41,9 @@ public class CaveSoundEffect : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Camera.main.GetComponent<AudioSource>().Pause();
-            if (m_directionalLight != null)
-            {
-                m_directionalLight.enabled = true;
+            m_dinamicLight.SetActive(false);
 
-            }
-            m_dinamicLight.enabled = false;
+            Camera.main.GetComponent<AudioSource>().Pause();
 
         }
     }

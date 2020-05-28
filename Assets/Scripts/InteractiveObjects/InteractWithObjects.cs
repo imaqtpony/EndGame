@@ -6,7 +6,7 @@ using TMPro;
 using InventoryNS.Utils;
 
 
-public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
+public class InteractWithObjects : MonoBehaviour
 {
 
     [SerializeField] GameObject m_goToShow;
@@ -14,7 +14,7 @@ public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
 
     [SerializeField] TextMeshProUGUI m_interactText;
 
-    public static bool m_canShow;
+    bool m_canShow;
 
     public static bool m_gotInteracted;
 
@@ -26,36 +26,42 @@ public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
 
     }
 
-
-    public void OnPointerDown(PointerEventData eventData)
+    private void Update()
     {
-        if (m_canShow)
+        if (Input.touchCount > 0 && m_canShow)
         {
-            m_gotInteracted = true;
+            Touch touch = Input.GetTouch(0);
 
-            if (gameObject.CompareTag("Workbench"))
+            if (touch.phase == TouchPhase.Began)
             {
-                m_inventoryButton.OpenInventory();
-                m_gotInteracted = false;
+                RaycastHit hit;
+                Ray castRay = Camera.main.ScreenPointToRay(touch.position);
 
+                if (Physics.Raycast(castRay, out hit, Mathf.Infinity))
+                {
+                    if (hit.transform != null && hit.collider.gameObject.CompareTag("Workbench"))
+                    {
+                        m_gotInteracted = true;
+
+                        if (gameObject.CompareTag("Workbench"))
+                        {
+                            m_inventoryButton.OpenInventory();
+                            m_gotInteracted = false;
+
+                        }
+                        m_goToShow.SetActive(true);
+                        Debug.Log("LOBJET INTERAGIT");
+                    }
+                }
             }
-            m_goToShow.SetActive(true);
-            Debug.Log("LOBJET INTERAGIT");
-        }
-        else
-        {
-            Debug.Log("LOBJET INTERAGIT PAS");
-
-            m_gotInteracted = false;
-            m_goToShow.SetActive(false);
 
         }
-
     }
-
 
     private void OnTriggerStay(Collider collider)
     {
+
+
         if (collider.CompareTag("Player"))
         {
             gameObject.layer = 0;

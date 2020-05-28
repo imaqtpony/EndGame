@@ -7,6 +7,7 @@ public class InventoryButton : MonoBehaviour
 {
     public static bool m_InventoryEnabled;
     public static bool m_toolsInventoryEnabled;
+
     [SerializeField] GameObject m_Inventory;
     [SerializeField] GameObject m_toolsInventory;
     [SerializeField] UI_Inventory m_uiInventory;
