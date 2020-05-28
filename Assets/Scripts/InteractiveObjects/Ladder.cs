@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using GD2Lib;
+using TMPro;
 
 public class Ladder : MonoBehaviour
 {
@@ -28,6 +28,8 @@ public class Ladder : MonoBehaviour
     private MeshRenderer m_meshLadder2;
     private NavMeshObstacle m_navMeshObs2;
 
+    [SerializeField] GameObject m_notification;
+    [SerializeField] TextMeshProUGUI m_notificationText;
 
     [SerializeField] QuestSystem m_questSystem;
     [SerializeField] QuestManager m_questManager;
@@ -67,6 +69,15 @@ public class Ladder : MonoBehaviour
         //BluePrintObjects.m_ladderBluePrintDiscovered = true;
         if (p_other.CompareTag("Player") && BluePrintObjects.m_ladderBluePrintDiscovered && !m_ladderPlaced)
         {
+
+            if (!m_questManager.m_tutoLadderDone && m_notification != null)
+            {
+                m_notification.SetActive(true);
+                m_notificationText.text = "Utilisez l'echelle dans votre inventaire en appuyant dessus.";
+                m_questManager.m_tutoLadderDone = true;
+
+            }
+
             m_meshLadder.enabled = true;
             if (m_ladderOnPlayer.activeInHierarchy)
             {
