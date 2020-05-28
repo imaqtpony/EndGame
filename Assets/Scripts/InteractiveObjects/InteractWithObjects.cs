@@ -6,7 +6,7 @@ using TMPro;
 using InventoryNS.Utils;
 
 
-public class InteractWithObjects : MonoBehaviour
+public class InteractWithObjects : MonoBehaviour, IPointerDownHandler
 {
 
     [SerializeField] GameObject m_goToShow;
