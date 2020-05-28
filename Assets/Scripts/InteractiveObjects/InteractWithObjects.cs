@@ -26,23 +26,6 @@ public class InteractWithObjects : MonoBehaviour
 
     }
 
-
-    //public void OnPointerDown(PointerEventData eventData)
-    //{
-    //    if (m_canShow)
-    //    {
-
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("LOBJET INTERAGIT PAS");
-
-
-
-    //    }
-
-    //}
-
     private void Update()
     {
         if (Input.touchCount > 0 && m_canShow)

@@ -53,7 +53,7 @@ public class UI_Inventory : MonoBehaviour
     private void Awake()
     {
         m_audioManager.m_audioSource = GetComponent<AudioSource>();
-
+        Debug.Log("AwakeUI_Inventory");
     }
 
     public void SetInventory(Inventory inventory)
