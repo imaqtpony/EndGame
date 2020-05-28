@@ -14,6 +14,7 @@ public class MovePlayer : MonoBehaviour
     private GD2Lib.Event m_onLadderClimb;
 
     // Component NavMeshAgent
+    [SerializeField]
     private NavMeshAgent m_agent;
 
     // range in which it detects a hit on the navmesh, from the touch on screen
@@ -38,7 +39,6 @@ public class MovePlayer : MonoBehaviour
     {
         m_data.m_player = gameObject;
 
-        m_agent = GetComponent<NavMeshAgent>();
 
         m_audioSource.clip = m_audioManager.m_grassStepSound;
 

@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
 
     public bool m_isPaused;
 
+    public static bool m_restarted;
+
     public GameObject m_pauseMenuUI;
 
     void OnEnable()
@@ -42,11 +44,10 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
-        
+        m_restarted = true;
         //SceneManager.LoadScene("S_Proto1");
         SceneManager.LoadScene("S_Matt2");
         Time.timeScale = 1f;
-        Debug.Log("Restart");
 
     }
 

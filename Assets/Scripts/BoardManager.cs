@@ -34,19 +34,13 @@ public class BoardManager : MonoBehaviour
 
     Vector3 m_startingCameraPos;
 
-    [SerializeField]
+    //[SerializeField]
 
-    private void Awake()
-    {
-        //temp nb boards
-        m_nbBoards = 7;
-        m_boardArray = new BoardData[m_nbBoards, m_nbBoards];
+    //private void Awake()
+    //{
+        
 
-        m_spawnScript = m_player.GetComponent<SpawnPlayer>();
-
-        InitializeBoardArray();
-
-    }
+    //}
 
     /// <summary>
     /// Sets up the array containing the boards data, place camera/player on the starting board
@@ -89,6 +83,14 @@ public class BoardManager : MonoBehaviour
 
     private void OnEnable()
     {
+        //temp nb boards
+        m_nbBoards = 7;
+        m_boardArray = new BoardData[m_nbBoards, m_nbBoards];
+
+        m_spawnScript = m_player.GetComponent<SpawnPlayer>();
+
+        InitializeBoardArray();
+
         if (m_boardChangeEvent != null)
             m_boardChangeEvent.Register(HandleBoardChange);
     }

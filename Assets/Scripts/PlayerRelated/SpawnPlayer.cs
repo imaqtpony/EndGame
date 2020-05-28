@@ -12,13 +12,11 @@ public class SpawnPlayer : MonoBehaviour
     //[SerializeField]
     //public GD2Lib.Event m_boardChangeEvent;
 
+    [SerializeField]
     private NavMeshAgent m_agent;
 
 
-    private void Awake()
-    {
-        m_agent = GetComponent<NavMeshAgent>();
-    }
+    
 
     //private void OnEnable()
     //{
