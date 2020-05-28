@@ -169,10 +169,12 @@ public class MovePlayer : MonoBehaviour
             m_audioSource.Pause();
             Debug.Log("jfezfzfzf");
 
-            StopCoroutine(checkPlayerPos());
 
             if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("Course")) m_animatorPlayer.SetTrigger("Idle");
             else if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils")) m_animatorPlayer.SetTrigger("IdleOutils");
+
+            StopCoroutine(checkPlayerPos());
+
         }
         else if (actualPos != finalPos)
         {

@@ -22,7 +22,7 @@ public class Axe : MonoBehaviour
         if (Input.touchCount == 0)
         {
             //anim idleoutils
-            m_playerAnimator.SetTrigger("IdleOutils");
+            if (m_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Tools")) m_playerAnimator.SetTrigger("IdleOutils");
 
             m_isCurrentlyCutting = false;
             transform.rotation = Quaternion.LookRotation(new Vector3(0, transform.parent.position.y, 0));
@@ -60,7 +60,7 @@ public class Axe : MonoBehaviour
             //transform.rotation = RotateAxe(sData);
             //anim hache
 
-            m_playerAnimator.SetTrigger("ToolsSwing");
+            if (m_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils")) m_playerAnimator.SetTrigger("ToolsSwing");
 
         }
         else

@@ -29,7 +29,6 @@ public class DropItemZone : MonoBehaviour, IDropHandler
         }
 
     }
-
     public void OnDrop(PointerEventData eventData)
     {
         if (DragDrop.m_isRessource)
@@ -46,13 +45,13 @@ public class DropItemZone : MonoBehaviour, IDropHandler
 
                 if (m_tools[i].name == DragDrop.itemType.ToString())
                 {
-                    if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils"))
+                    if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils") || m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils") || m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("Tools"))
                     {
                         m_animatorPlayer.SetTrigger("Idle");
                         Debug.Log("DAZCA");
-                    }
 
-                    else if(m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils")) m_animatorPlayer.SetTrigger("Course");
+                    }
+                    else if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils")) m_animatorPlayer.SetTrigger("Course");
                     m_tools[i].SetActive(false);
                     break;
                 }

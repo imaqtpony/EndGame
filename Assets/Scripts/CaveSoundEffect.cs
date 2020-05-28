@@ -6,7 +6,7 @@ public class CaveSoundEffect : MonoBehaviour
 {
     [SerializeField] AudioManager m_audioManager;
 
-    [SerializeField] GameObject m_dinamicLight;
+    [SerializeField] GameObject m_dynamicLight;
 
     [SerializeField] QuestSystem m_questSystem;
 
@@ -25,7 +25,7 @@ public class CaveSoundEffect : MonoBehaviour
 
             Camera.main.GetComponent<AudioSource>().Play();
 
-            m_dinamicLight.SetActive(true);
+            m_dynamicLight.SetActive(true);
 
             if(m_questSystem != null && !m_CandleQuestDisplayed)
             {
@@ -41,7 +41,7 @@ public class CaveSoundEffect : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Camera.main.GetComponent<AudioSource>().Pause();
-            m_dinamicLight.SetActive(false);
+            m_dynamicLight.SetActive(false);
 
             Camera.main.GetComponent<AudioSource>().Pause();
 

@@ -15,21 +15,7 @@ public class Torch : MonoBehaviour
 
     private int m_nbFramesElapsed = 0;
 
-    [SerializeField] AudioManager m_audioManager;
-
     [SerializeField] Animator m_playerAnimator;
-
-    private void Awake()
-    {
-        m_audioManager.m_audioSource = GetComponent<AudioSource>();
-
-    }
-
-    private void OnEnable()
-    {
-        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_wooshFireTorchSound);
-        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_fireTorchSound);
-    }
 
     private void Update()
     {
@@ -66,7 +52,7 @@ public class Torch : MonoBehaviour
             //transform.rotation = transform.parent.rotation;
 
             //anim tend la torche
-            m_playerAnimator.SetTrigger("ToolsSwing");
+            if (m_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils")) m_playerAnimator.SetTrigger("ToolsSwing");
 
         }
         else
@@ -77,7 +63,8 @@ public class Torch : MonoBehaviour
 
 
             //anim idleoutils
-            m_playerAnimator.SetTrigger("IdleOutils");
+            if (m_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Tools")) m_playerAnimator.SetTrigger("IdleOutils");
+
 
         }
 

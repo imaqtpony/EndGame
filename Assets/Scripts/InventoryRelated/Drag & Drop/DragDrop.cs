@@ -214,7 +214,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void SelectTools(Item.ItemType p_toolsType)
     {
-        if (!m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils") || !m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils")) m_animatorPlayer.SetTrigger("IdleOutils"); 
+        if(!m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils") || !m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils")) m_animatorPlayer.SetTrigger("IdleOutils"); 
 
 
         if (!m_questManager.m_tutoToolsDone)
@@ -232,6 +232,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
             {
                 if (m_tools[i].name == p_toolsType.ToString())
                 {
+
                     foreach (GameObject tools in m_tools)
                     {
                         tools.SetActive(false);
