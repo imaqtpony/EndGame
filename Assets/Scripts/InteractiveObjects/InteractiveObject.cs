@@ -168,7 +168,11 @@ public class InteractiveObject : EnvironementObject, IFireReact
     {
         // play the right pSys
         ParticleSystem pSys = GetComponent<ParticleSystem>();
-        pSys.Play();
+        if(pSys != null)
+        {
+            pSys.Play();
+
+        }
         // tweaker ce temps la si on veut donner le temps au joueur pour arreter le feu
         //if(pSys.time > 5f)
         //// m_attachedItem and time before the object is destroyed
