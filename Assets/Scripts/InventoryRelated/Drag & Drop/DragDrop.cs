@@ -156,12 +156,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 StartCoroutine(YouAreARock());
 
                 break;
-            case "gros_caillou":
-                itemType = Item.ItemType.gros_caillou;
-                m_amountItemToDrop = Inventory.m_amountGros_caillou;
-                m_isRessource = true;
 
-                break;
             case "poudre":
                 itemType = Item.ItemType.poudre;
                 m_amountItemToDrop = Inventory.m_amountPoudre;
