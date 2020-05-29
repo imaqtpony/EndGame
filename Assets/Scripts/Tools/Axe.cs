@@ -25,13 +25,13 @@ public class Axe : MonoBehaviour
             if (m_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Tools")) m_playerAnimator.SetTrigger("IdleOutils");
 
             m_isCurrentlyCutting = false;
-            transform.rotation = Quaternion.LookRotation(new Vector3(0, transform.parent.position.y, 0));
+            //transform.rotation = Quaternion.LookRotation(new Vector3(0, transform.parent.position.y, 0));
 
-            if (gameObject.CompareTag("StoneAxe"))
-            {
-                transform.rotation = Quaternion.LookRotation(new Vector3(0, -transform.parent.position.y, 0));
+            //if (gameObject.CompareTag("StoneAxe"))
+            //{
+            //    transform.rotation = Quaternion.LookRotation(new Vector3(0, -transform.parent.position.y, 0));
 
-            }
+            //}
 
         }
     }

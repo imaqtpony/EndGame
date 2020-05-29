@@ -57,10 +57,9 @@ public class EnemyAI : MonoBehaviour
         {
             if (m_enemyDetect.m_inLight)
             {
-                Debug.Log(m_enemyDetect.m_inLight);
                 //m_agent.SetDestination(m_back.transform.position);
-                transform.position += Vector3.back * Time.deltaTime * 2;
-                transform.LookAt(-transform.position + direction);
+                transform.position += -direction * Time.deltaTime * 2;
+                transform.LookAt(transform.position - direction );
 
                 //transform.forward += new Vector3(0,0,-Time.deltaTime * 10);
                 //m_agent.SetDestination(transform.forward * -10);
