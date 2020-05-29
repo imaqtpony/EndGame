@@ -54,6 +54,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        m_questManager.m_tutoToolsDone = false;
 
         //the name of the item is the name of his sprite
         gameObject.name = image.sprite.name;

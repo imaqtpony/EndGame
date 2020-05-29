@@ -4,28 +4,22 @@ using UnityEngine;
 
 public class CaveSoundEffect : MonoBehaviour
 {
-    [SerializeField] AudioManager m_audioManager;
 
     [SerializeField] GameObject m_dynamicLight;
 
     [SerializeField] QuestSystem m_questSystem;
 
+    [SerializeField] AudioSource m_audioSource;
+ 
     bool m_CandleQuestDisplayed;
 
-    private void Start()
-    {
-        Camera.main.GetComponent<AudioSource>().clip = m_audioManager.m_caveSound;
-
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
 
-            Camera.main.GetComponent<AudioSource>().Play();
-
-            m_dynamicLight.SetActive(true);
+            m_audioSource.Play();
 
             if(m_questSystem != null && !m_CandleQuestDisplayed)
             {
@@ -36,14 +30,22 @@ public class CaveSoundEffect : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            m_dynamicLight.SetActive(true);
+
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             Camera.main.GetComponent<AudioSource>().Pause();
             m_dynamicLight.SetActive(false);
-
-            Camera.main.GetComponent<AudioSource>().Pause();
+            m_audioSource.Pause();
 
         }
     }

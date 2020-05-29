@@ -69,12 +69,10 @@ public class MovePlayer : MonoBehaviour
             }
 
             m_audioSourceEnemyMusic.volume += 0.01f;
-            if (m_audioSourceEnemyMusic.volume >= 1)
+            if (m_audioSourceEnemyMusic.volume >= .5)
             {
-                m_audioSourceEnemyMusic.volume = 1f;
+                m_audioSourceEnemyMusic.volume = .5f;
             }
-
-            Debug.Log("MUSIC");
         }
         else if (!EnemyAI.m_activeEnemyMusic && m_audioSourceEnemyMusic.isPlaying)
         {
@@ -85,10 +83,8 @@ public class MovePlayer : MonoBehaviour
                 m_audioSourceEnemyMusic.Pause();
 
             }
-            Debug.Log("PAS MUSIC");
 
         }
-
 
         if (Input.touchCount > 0)
         {

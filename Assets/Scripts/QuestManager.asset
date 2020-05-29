@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eaf57b3c741c2645a263b873984ec21, type: 3}
   m_Name: QuestManager
   m_EditorClassIdentifier: 
-  m_craftToolDone: 0
+  m_craftToolDone: 1
   m_destroyPlantDone: 0
   m_findDungeonDone: 0
-  m_firstEnigmaDone: 0
-  m_secondEnigmaDone: 0
+  m_levierEnigmaDone: 0
+  m_candleEnigmaDone: 0
+  m_ladderPlacedDone: 0
+  m_keyEnigmaDone: 0
+  m_tutoToolsDone: 0
+  m_tutoDecraftDone: 0
+  m_tutoLadderDone: 0
