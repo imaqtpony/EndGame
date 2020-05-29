@@ -34,6 +34,7 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] GameObject m_toolsButton;
 
     public List<Transform> m_itemForCraft;
+
     public static bool m_firstToolsCrafted;
 
     public IntVar m_inventorySpace;
@@ -294,7 +295,7 @@ public class UI_Inventory : MonoBehaviour
         }
 
         //decraft allumette
-        else if (CraftSystem.m_itemType_1 == Item.ItemType.baton && CraftSystem.m_itemType_2 == Item.ItemType.tissu)
+        else if (CraftSystem.m_itemType_1 == Item.ItemType.baton && CraftSystem.m_itemType_2 == Item.ItemType.poudre)
         {
             Item allumette = new Item { itemType = Item.ItemType.allumette, amount = 1 };
             Item composAllu1 = new Item { itemType = Item.ItemType.poudre, amount = 1 };
@@ -323,6 +324,9 @@ public class UI_Inventory : MonoBehaviour
             Item composHacheP1 = new Item { itemType = Item.ItemType.baton, amount = 1 };
             Item composHacheP2 = new Item { itemType = Item.ItemType.caillou, amount = 2 };
 
+            Debug.Log("DECRAFT HACHE EN PIERRE");
+
+
             inventory.RemoveTools(hache_Pierre);
             inventory.AddItem(composHacheP1);
             inventory.AddItem(composHacheP2);
@@ -346,6 +350,8 @@ public class UI_Inventory : MonoBehaviour
             Item composHache1 = new Item { itemType = Item.ItemType.baton, amount = 2 };
             Item composHache2 = new Item { itemType = Item.ItemType.mrcFer, amount = 1 };
 
+            Debug.Log("DECRAFT HACHE EN FER");
+
             inventory.RemoveTools(hache);
             inventory.AddItem(composHache1);
             inventory.AddItem(composHache2);
@@ -363,10 +369,12 @@ public class UI_Inventory : MonoBehaviour
 
         }
         //decraft echelle
-        else if (CraftSystem.m_itemType_1 == Item.ItemType.baton)
+        else if (CraftSystem.m_itemType_1 == Item.ItemType.baton && CraftSystem.m_itemType_2 == Item.ItemType.plan_echelle)
         {
             Item echelle = new Item { itemType = Item.ItemType.echelle, amount = 1 };
             Item composEchelle = new Item { itemType = Item.ItemType.baton, amount = 4 };
+
+            Debug.Log("DECRAFT ECHELLE");
 
             inventory.RemoveTools(echelle);
             inventory.AddItem(composEchelle);

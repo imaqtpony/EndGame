@@ -44,23 +44,20 @@ public class HarvestItem : MonoBehaviour
         // Reset the sync var between the plays in the editor
         m_inventorySpace.Value = 4;
 
+        if (!PauseMenu.m_restarted)
+            m_questManager.m_craftToolDone = false;
+
+        m_questManager.m_destroyPlantDone = false;
+        m_questManager.m_findDungeonDone = false;
+        m_questManager.m_levierEnigmaDone = false;
+        m_questManager.m_candleEnigmaDone = false;
+
     }
 
     public Vector3 GetPosition()
     {
         return transform.position;
     }
-
-    private void OnEnable()
-    {
-        if (!PauseMenu.m_restarted)
-            m_questManager.m_craftToolDone = false;
-        m_questManager.m_destroyPlantDone = false;
-        m_questManager.m_findDungeonDone = false;
-        m_questManager.m_levierEnigmaDone = false;
-        m_questManager.m_candleEnigmaDone = false;
-    }
-
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -155,21 +152,6 @@ public class HarvestItem : MonoBehaviour
 
     private void UseItem(Item.ItemType p_itemType)
     {
-        switch (p_itemType)
-        {
-            case Item.ItemType.baton:
-                //m_lifePlayer.HealingFunc();
 
-                break;
-            case Item.ItemType.tissu:
-                Debug.Log("Carré utilisé");
-
-                break;
-            case Item.ItemType.mrcFer:
-                Debug.Log("Triangle utilisé");
-
-                break;
-
-        }
     }
 }

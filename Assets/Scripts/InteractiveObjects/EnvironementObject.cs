@@ -49,7 +49,7 @@ public class EnvironementObject : MonoBehaviour
             }
             else
             {
-                Instantiate(p_attachedObject, new Vector3(transform.position.x, .3f, transform.position.z), Quaternion.Euler(-90, 0f, 0f));
+                Instantiate(p_attachedObject, new Vector3(transform.position.x, 0.01f, transform.position.z), Quaternion.Euler(-90, 0f, 0f));
                 m_hasDropObject = true;
                 Debug.Log("DROP LEVIER");
 

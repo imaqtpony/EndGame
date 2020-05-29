@@ -10,7 +10,7 @@ public class LifePlayer : MonoBehaviour
 {
     public IntVar m_lifeValue;
 
-    [SerializeField] Collider m_collider;
+    [SerializeField] Collider[] m_collider;
 
     [SerializeField] Transform m_respawnPoint;
 
@@ -65,7 +65,8 @@ public class LifePlayer : MonoBehaviour
 
             if (m_lifeValue.Value == 0)
             {
-                m_collider.enabled = false;
+                m_collider[0].enabled = false;
+                m_collider[1].enabled = false;
 
                 StartCoroutine(TransitionDeath());
 
@@ -93,7 +94,8 @@ public class LifePlayer : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         m_blackScreen.SetActive(false);
-        m_collider.enabled = true;
+        m_collider[0].enabled = true;
+        m_collider[1].enabled = true;
 
     }
 
@@ -156,9 +158,12 @@ public class LifePlayer : MonoBehaviour
     /// c'est a ce moment la que le joueur est invincible</returns>
     private IEnumerator InvFrame()
     {
-        m_collider.enabled = false;
+        m_collider[0].enabled = false;
+        m_collider[1].enabled = false;
         yield return new WaitForSeconds(m_invDuration);
-        m_collider.enabled = true;
+        m_collider[0].enabled = true;
+        m_collider[1].enabled = true;
+
     }
 
     public void UpdateWidthBackgroundLife()
