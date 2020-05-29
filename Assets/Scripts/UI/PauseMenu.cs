@@ -45,8 +45,8 @@ public class PauseMenu : MonoBehaviour
     public void Restart()
     {
         m_restarted = true;
-        //SceneManager.LoadScene("S_Proto1");
-        SceneManager.LoadScene("S_Matt2");
+        SceneManager.LoadScene("S_Proto1");
+        //SceneManager.LoadScene("S_Matt2");
         Time.timeScale = 1f;
 
     }

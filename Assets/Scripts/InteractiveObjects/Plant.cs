@@ -85,7 +85,7 @@ public class Plant : EnvironementObject, IFireReact
     {
         if(other.gameObject.tag == "Axe" || other.gameObject.tag == "StoneAxe" && m_cutThePlant)
         {
-            Debug.Log("Bye bye plant");
+            //Debug.Log("Bye bye plant");
             // plant anim here
             //m_thisAnim.play();
             DropMaterialOnDeath(false, 0f, 1, m_itemType);
@@ -93,7 +93,7 @@ public class Plant : EnvironementObject, IFireReact
 
         if(other.gameObject.tag == "Torch" && m_burnThings)
         {
-            Debug.Log("burning af");
+            //Debug.Log("burning af");
             OnFire();
 
         }

@@ -32,7 +32,7 @@ public class ShowText : MonoBehaviour
             Touch touch = Input.GetTouch(0);
 
             if (m_isFirstTouch)
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(2);
                 //SceneManager.LoadScene(1, LoadSceneMode.Additive);
 
 
