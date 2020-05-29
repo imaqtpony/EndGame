@@ -90,6 +90,7 @@ public class HarvestItem : MonoBehaviour
                     if (!m_questManager.m_craftToolDone && Inventory.itemList.Count == 2)
                     {
                         m_questSystem.ChangeQuest("Construisez un outil");
+
                         m_questManager.m_craftToolDone = true;
                     }
 
@@ -121,9 +122,14 @@ public class HarvestItem : MonoBehaviour
             ActivateQuestObject.m_gotLever = true;
             m_activateQuestObject.ShowSlot(collider.tag.ToString());
             Destroy(collider.gameObject, .5f);
+
+            m_audioSource.PlayOneShot(m_audioManager.m_pickUpQuestObjectSound);
+
         }
         else if (collider.CompareTag("Clef"))
         {
+            m_audioSource.PlayOneShot(m_audioManager.m_pickUpQuestObjectSound);
+
             Key.m_gotKey = true;
             m_activateQuestObject.ShowSlot(collider.tag.ToString());
             Destroy(collider.gameObject, .5f);

@@ -11,7 +11,6 @@ public class InventoryButton : MonoBehaviour
     [SerializeField] GameObject m_Inventory;
     [SerializeField] GameObject m_toolsInventory;
     [SerializeField] UI_Inventory m_uiInventory;
-    [SerializeField] CanvasGroup m_menuButton;
     [SerializeField] DragDrop m_dragDrop;
 
     [SerializeField] AudioManager m_audioManager;
@@ -36,7 +35,6 @@ public class InventoryButton : MonoBehaviour
 
             m_animatorInventory.SetTrigger("OpenInventory");
             m_audioSource.PlayOneShot(m_audioManager.m_openInventorySound);
-            m_menuButton.alpha = 0.3f;
 
         }
         else if (!m_Inventory.activeInHierarchy && !m_toolsInventory.activeInHierarchy && UI_Inventory.m_firstToolsCrafted)
@@ -45,7 +43,6 @@ public class InventoryButton : MonoBehaviour
 
             m_animatorInventory.SetTrigger("OpenInventory");
             m_audioSource.PlayOneShot(m_audioManager.m_openInventorySound);
-            m_menuButton.alpha = 0.3f;
 
             m_toolsInventory.SetActive(true);
 
@@ -57,7 +54,6 @@ public class InventoryButton : MonoBehaviour
             Invoke("DisableInventory", .33f);
             m_animatorInventory.SetTrigger("CloseInventory");
 
-            m_menuButton.alpha = 1f;
             m_audioSource.PlayOneShot(m_audioManager.m_closeInventorySound);
 
             m_uiInventory.RefreshInventoryRessources();
@@ -72,7 +68,6 @@ public class InventoryButton : MonoBehaviour
             Invoke("DisableInventory", .33f);
             m_animatorInventory.SetTrigger("CloseInventory");
 
-            m_menuButton.alpha = 1f;
             m_audioSource.PlayOneShot(m_audioManager.m_closeInventorySound);
 
             m_uiInventory.RefreshInventoryRessources();
@@ -86,7 +81,6 @@ public class InventoryButton : MonoBehaviour
 
                 m_animatorInventory.SetTrigger("OpenInventory");
                 m_audioSource.PlayOneShot(m_audioManager.m_openInventorySound);
-                m_menuButton.alpha = 0.3f;
             }
 
             else if (m_Inventory.activeInHierarchy)
@@ -94,7 +88,6 @@ public class InventoryButton : MonoBehaviour
                 Invoke("DisableInventory", .33f);
                 m_animatorInventory.SetTrigger("CloseInventory");
 
-                m_menuButton.alpha = 1f;
                 m_audioSource.PlayOneShot(m_audioManager.m_closeInventorySound);
 
                 m_uiInventory.RefreshInventoryRessources();

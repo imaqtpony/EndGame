@@ -44,3 +44,6 @@ MonoBehaviour:
   m_PlayerDamageSound: {fileID: 8300000, guid: b832550a8f1e3a4468c2e18b24948415, type: 3}
   m_rollingObjectSound: {fileID: 8300000, guid: 45905aaf5e52a734892fe018e24ee7bd,
     type: 3}
+  m_questSuccessSound: {fileID: 8300000, guid: 2e0d33554b647a549917562d6972cb70, type: 3}
+  m_pickUpQuestObjectSound: {fileID: 8300000, guid: 0809d9044c904d249b8bdcc8b91844dc,
+    type: 3}

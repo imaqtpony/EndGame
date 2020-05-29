@@ -91,6 +91,7 @@ public class Ladder : MonoBehaviour
                 if (!m_questManager.m_ladderPlacedDone)
                 {
                     m_questSystem.ChangeQuest("A vous de jouer.");
+
                     m_questManager.m_ladderPlacedDone = true;
                 }
 

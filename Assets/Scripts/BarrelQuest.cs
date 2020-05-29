@@ -1,0 +1,20 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class BarrelQuest : MonoBehaviour
+{
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Barrel")
+        {
+            Destroy(GetComponent<NavMeshObstacle>());
+        }
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        Debug.Log($"{other.gameObject.name} {gameObject.name}");
+    }
+}

@@ -33,6 +33,8 @@ public class AudioManager : ScriptableObject
     public AudioClip m_platformFallingSound;
     public AudioClip m_PlayerDamageSound;
     public AudioClip m_rollingObjectSound;
+    public AudioClip m_questSuccessSound;
+    public AudioClip m_pickUpQuestObjectSound;
 
 
 }

@@ -171,12 +171,12 @@ public class InteractiveObject : EnvironementObject, IFireReact
         if(pSys != null)
         {
             pSys.Play();
+            DropMaterialOnDeath(true, 2.0f, 0, 0);
 
         }
         // tweaker ce temps la si on veut donner le temps au joueur pour arreter le feu
         //if(pSys.time > 5f)
         //// m_attachedItem and time before the object is destroyed
-        DropMaterialOnDeath(true, 2.0f, 0, 0);
         //m_audioSource.Play();
 
 

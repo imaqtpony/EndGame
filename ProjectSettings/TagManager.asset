@@ -22,6 +22,7 @@ TagManager:
   - LevierCaisse
   - BasicCaisse
   - Barrel
+  - CluePannel
   layers:
   - Default
   - TransparentFX

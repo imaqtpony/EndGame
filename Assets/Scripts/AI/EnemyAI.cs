@@ -145,6 +145,5 @@ public class EnemyAI : MonoBehaviour
         m_animatorEnemy.SetTrigger("Activate");
         Destroy(m_ColliderEnemy);
         Destroy(gameObject, 1);
-        Debug.Log("tue l'ennemi");
     }
 }
