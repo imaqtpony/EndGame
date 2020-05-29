@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Key : MonoBehaviour
 {
@@ -23,7 +24,8 @@ public class Key : MonoBehaviour
     [SerializeField] GameObject m_goToDisable;
     [SerializeField] GameObject m_blackScreen;
 
-
+    [SerializeField] GameObject m_donjonNotif;
+    [SerializeField] TextMeshProUGUI m_donjonNotifText;
     private void Start()
     {
         m_audioManager.m_audioSource = GetComponent<AudioSource>();
@@ -59,9 +61,6 @@ public class Key : MonoBehaviour
                 StartCoroutine(Transition());
             }
 
-            //m_questSystem.ChangeQuest("Allumez le feuuuuuuuuuu");
-
-            //m_slotKey.SetActive(true);
 
         }
 
@@ -70,11 +69,21 @@ public class Key : MonoBehaviour
     private IEnumerator Transition()
     {
         m_blackScreen.SetActive(true);
+
         yield return new WaitForSeconds(1);
+
         m_goToEnable.SetActive(true);
         m_goToDisable.SetActive(false);
+
         yield return new WaitForSeconds(1);
+
         m_blackScreen.SetActive(false);
+        m_donjonNotif.SetActive(true);
+        m_donjonNotifText.text = "Deuxieme Zone Depolluee";
+
+        yield return new WaitForSeconds(4);
+        m_donjonNotif.SetActive(false);
+
 
     }
 

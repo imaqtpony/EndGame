@@ -49,7 +49,11 @@ public class InteractWithObjects : MonoBehaviour
                             m_gotInteracted = false;
 
                         }
+                    }
+                    else if (hit.transform != null && hit.collider.gameObject.CompareTag("CluePannel"))
+                    {
                         m_goToShow.SetActive(true);
+
                     }
                 }
             }

@@ -37,6 +37,7 @@ public class ActivateQuestObject : MonoBehaviour
         if (collider.CompareTag("Player") && !m_questManager.m_levierEnigmaDone)
         {
             m_questSystem.ChangeQuest("Trouvez un levier.");
+
             m_questManager.m_levierEnigmaDone = true;
 
         }
