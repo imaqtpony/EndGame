@@ -39,7 +39,7 @@ public class Key : MonoBehaviour
         // here ?
         if (collider.CompareTag("Player") && !m_questManager.m_keyEnigmaDone)
         {
-            m_questSystem.ChangeQuest("OUVRE CE CADENAS");
+            m_questSystem.ChangeQuest("Deverouille le cadenas");
 
         }
     }

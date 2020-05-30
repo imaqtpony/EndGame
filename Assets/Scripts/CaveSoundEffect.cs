@@ -19,7 +19,7 @@ public class CaveSoundEffect : MonoBehaviour
         if (other.CompareTag("Player"))
         {
 
-            m_audioSource.Play();
+            //m_audioSource.Play();
 
             if(m_questSystem != null && !m_CandleQuestDisplayed)
             {
@@ -45,7 +45,7 @@ public class CaveSoundEffect : MonoBehaviour
         {
             Camera.main.GetComponent<AudioSource>().Pause();
             m_dynamicLight.SetActive(false);
-            m_audioSource.Pause();
+            //m_audioSource.Pause();
 
         }
     }

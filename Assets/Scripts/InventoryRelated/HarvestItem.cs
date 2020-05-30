@@ -118,19 +118,33 @@ public class HarvestItem : MonoBehaviour
         {
             ActivateQuestObject.m_gotLever = true;
             m_activateQuestObject.ShowSlot(collider.tag.ToString());
-            Destroy(collider.gameObject, .5f);
+            Destroy(collider.GetComponent<MeshRenderer>());
+            Destroy(collider.gameObject, 2f);
 
-            m_audioSource.PlayOneShot(m_audioManager.m_pickUpQuestObjectSound);
+            bool soundPlayed = false;
+
+            if (!soundPlayed)
+            {
+                m_audioSource.PlayOneShot(m_audioManager.m_pickUpQuestObjectSound);
+                soundPlayed = true;
+            }
 
         }
         else if (collider.CompareTag("Clef"))
         {
-            m_audioSource.PlayOneShot(m_audioManager.m_pickUpQuestObjectSound);
-
             Key.m_gotKey = true;
             m_activateQuestObject.ShowSlot(collider.tag.ToString());
-            Destroy(collider.gameObject, .5f);
+            Destroy(collider.GetComponent<MeshRenderer>());
 
+            Destroy(collider.gameObject, 2f);
+
+            bool soundPlayed = false;
+
+            if (!soundPlayed)
+            {
+                m_audioSource.PlayOneShot(m_audioManager.m_pickUpQuestObjectSound);
+                soundPlayed = true;
+            }
         }
 
     }

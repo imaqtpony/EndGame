@@ -56,9 +56,10 @@ public class Chest : MonoBehaviour
 
         }
 
-        if(gameObject.name == "PremierCoffreDonjon")
+        if(gameObject.name == "PremierCoffreDonjon" && CleaningPollution.m_zoneDepolluted)
         {
             StartCoroutine(DisableDonjonNotif());
+            CleaningPollution.m_zoneDepolluted = false;
         }
 
         Destroy(this, 5.1f);
@@ -68,6 +69,7 @@ public class Chest : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
         m_donjonNotif.SetActive(true);
+        m_audioSource.PlayOneShot(m_audioManager.m_depollutedZoneSound);
         yield return new WaitForSeconds(4);
         m_donjonNotif.SetActive(false);
 

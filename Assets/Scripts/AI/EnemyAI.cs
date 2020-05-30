@@ -144,7 +144,7 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_deathEnemySound);
+        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_hitEnemySound);
         m_animatorEnemy.SetTrigger("Activate");
         Destroy(m_ColliderEnemy);
         Destroy(gameObject, 1);
