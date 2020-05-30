@@ -25,6 +25,7 @@ public class AudioManager : ScriptableObject
     public AudioClip m_hitEnemySound;
     public AudioClip m_musicEnemy;
     public AudioClip m_depollutedZoneSound;
+    public AudioClip m_plantDestroyedSound;
     public AudioClip m_destroyingCrateSound;
     public AudioClip m_dropLadderSound;
     public AudioClip m_fallingTreeSound;

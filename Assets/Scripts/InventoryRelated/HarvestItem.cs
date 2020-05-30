@@ -121,12 +121,9 @@ public class HarvestItem : MonoBehaviour
             Destroy(collider.GetComponent<MeshRenderer>());
             Destroy(collider.gameObject, 2f);
 
-            bool soundPlayed = false;
-
-            if (!soundPlayed)
+            if (!m_audioSource.isPlaying)
             {
                 m_audioSource.PlayOneShot(m_audioManager.m_pickUpQuestObjectSound);
-                soundPlayed = true;
             }
 
         }
@@ -137,13 +134,9 @@ public class HarvestItem : MonoBehaviour
             Destroy(collider.GetComponent<MeshRenderer>());
 
             Destroy(collider.gameObject, 2f);
-
-            bool soundPlayed = false;
-
-            if (!soundPlayed)
+            if (!m_audioSource.isPlaying)
             {
                 m_audioSource.PlayOneShot(m_audioManager.m_pickUpQuestObjectSound);
-                soundPlayed = true;
             }
         }
 

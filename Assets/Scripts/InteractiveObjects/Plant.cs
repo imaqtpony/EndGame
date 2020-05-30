@@ -28,6 +28,7 @@ public class Plant : EnvironementObject, IFireReact
     [SerializeField] Item.ItemType m_itemType;
 
     [SerializeField] AudioManager m_audioManager;
+    [SerializeField] AudioSource m_audioSource;
 
     [SerializeField]
     private ParticleSystem m_fireVFX;
@@ -41,6 +42,7 @@ public class Plant : EnvironementObject, IFireReact
         if (m_onUseTorch != null)
             m_onUseTorch.Register(HandleBurnThis);
     }
+
     private void OnDisable()
     {
         if (m_onCutWithAxe != null)
@@ -103,6 +105,12 @@ public class Plant : EnvironementObject, IFireReact
         m_fireVFX.Play();
 
         DropMaterialOnDeath(true, 2.0f, 0, 0);
+
+        if (m_audioSource != null && !m_audioSource.isPlaying)
+        {
+            m_audioSource.PlayOneShot(m_audioManager.m_plantDestroyedSound);
+
+        }
         m_questManager.m_destroyPlantDone = true;
         if (!m_questManager.m_findDungeonDone)
         {

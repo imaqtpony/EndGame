@@ -12,17 +12,14 @@ public class QuestSystem : MonoBehaviour
     [SerializeField] Animator m_animator;
 
     [SerializeField] AudioManager m_audioManager;
-
-    private void Start()
-    {
-        m_audioManager.m_audioSource = GetComponent<AudioSource>();
-    }
+    [SerializeField] AudioSource m_audioSource;
 
     public void ChangeQuest(string p_description)
     {
+
         m_quests.text = p_description;
         m_animator.SetTrigger("DisplayQuest");
-        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_questSuccessSound);
+        m_audioSource.PlayOneShot(m_audioManager.m_questSuccessSound);
 
     }
 }

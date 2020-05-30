@@ -36,7 +36,6 @@ public class Key : MonoBehaviour
 
     private void Start()
     {
-        m_audioSource = GetComponent<AudioSource>();
         m_meshRenderer = GetComponent<Renderer>();
         m_canUseItem = false;
         m_questManager.m_keyEnigmaDone = false;

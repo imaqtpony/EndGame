@@ -29,6 +29,7 @@ public class CandlesHandler : MonoBehaviour
     [SerializeField] Animator[] m_animatorVolet;
 
     [SerializeField] AudioManager m_audioManager;
+    [SerializeField] AudioSource m_audioSource;
 
     [SerializeField] NavMeshObstacle[] m_navMeshObsVolets;
 
@@ -37,11 +38,6 @@ public class CandlesHandler : MonoBehaviour
 
     private int m_currentArrayIndex = 0;
 
-    private void Awake()
-    {
-        m_audioManager.m_audioSource = GetComponent<AudioSource>();
-
-    }
 
     private void OnEnable()
     {
@@ -129,7 +125,7 @@ public class CandlesHandler : MonoBehaviour
 
         m_notification.SetActive(true);
         m_textNotification.text = "Les ennemis sont sensibles a la lumiere, et aux coups.";
-        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_fallingShuttersSound);
+        m_audioSource.PlayOneShot(m_audioManager.m_fallingShuttersSound);
 
     }
 

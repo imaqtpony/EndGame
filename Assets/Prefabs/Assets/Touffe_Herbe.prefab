@@ -4940,6 +4940,7 @@ MonoBehaviour:
   m_questSystem: {fileID: 0}
   m_itemType: 0
   m_audioManager: {fileID: 11400000, guid: eb9be8feae4689a42a94df48cf9bb9d4, type: 2}
+  m_audioSource: {fileID: 5812122458128347161}
   m_fireVFX: {fileID: 7596373350006307280}
 --- !u!54 &1894563254728209366
 Rigidbody:

@@ -34,6 +34,8 @@ MonoBehaviour:
   m_musicEnemy: {fileID: 8300000, guid: 7a096f1bba45528499f5cceb21acffdf, type: 3}
   m_depollutedZoneSound: {fileID: 8300000, guid: 503813fea6ed8f044a2b75f6c2fbb1fc,
     type: 3}
+  m_plantDestroyedSound: {fileID: 8300000, guid: 8600f62c18bd82f4d9542d4abf63df0f,
+    type: 3}
   m_destroyingCrateSound: {fileID: 8300000, guid: 58d8e32094abefe418d94ab35de67ed5,
     type: 3}
   m_dropLadderSound: {fileID: 8300000, guid: d4182a74ce522e24a89988c9eb3e3a85, type: 3}

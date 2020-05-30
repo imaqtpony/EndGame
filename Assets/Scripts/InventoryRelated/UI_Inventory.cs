@@ -78,11 +78,12 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
-    //private void OnEnable()
-    //{
-    //    RefreshInventoryRessources();
-    //    RemoveItemFromCraftSlot();
-    //}
+    private void OnEnable()
+    {
+        RefreshInventoryRessources();
+        RefreshInventoryTools();
+        RemoveItemFromCraftSlot();
+    }
 
     private IEnumerator InventoryFullNotification()
     {
@@ -243,7 +244,7 @@ public class UI_Inventory : MonoBehaviour
                 m_questManager.m_craftToolDone = true;
                 if (!m_questManager.m_destroyPlantDone)
                 {
-                    m_questSystem.ChangeQuest("Brulez les plantes");
+                    m_questSystem.ChangeQuest("Debarrassez-vous des plantes");
 
                 }
                 m_audioSource.PlayOneShot(m_audioManager.m_craftingSound);
@@ -427,6 +428,7 @@ public class UI_Inventory : MonoBehaviour
         } else
         {
             StartCoroutine(InventoryFullNotification());
+            UpdateAmountItems();
 
             if (!p_isDecraft)
             {

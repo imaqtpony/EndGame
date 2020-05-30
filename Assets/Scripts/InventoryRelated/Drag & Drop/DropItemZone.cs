@@ -34,7 +34,6 @@ public class DropItemZone : MonoBehaviour, IDropHandler
         if (DragDrop.m_isRessource)
         {
             m_uiInventory.DropItemFunction(DragDrop.itemType, DragDrop.m_amountItemToDrop);
-            Debug.Log(DragDrop.itemType);
 
         }
 
@@ -48,7 +47,6 @@ public class DropItemZone : MonoBehaviour, IDropHandler
                     if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils") || m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils") || m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("Tools"))
                     {
                         m_animatorPlayer.SetTrigger("Idle");
-                        Debug.Log("DAZCA");
 
                     }
                     else if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils")) m_animatorPlayer.SetTrigger("Course");

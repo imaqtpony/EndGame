@@ -32,12 +32,10 @@ public class RollingSound : MonoBehaviour
             }
             else if (actualPos != finalPos)
             {
-                bool playOnce = false;
 
-                if (!playOnce)
+                if (!m_audioSource.isPlaying)
                 {
                     m_audioSource.Play();
-                    playOnce = true;
                 }
 
 
