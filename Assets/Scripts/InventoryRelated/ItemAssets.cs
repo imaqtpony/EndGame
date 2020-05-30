@@ -17,7 +17,6 @@ public class ItemAssets : MonoBehaviour
     public Sprite tissuSprite;
     public Sprite mrcFerSprite;
     public Sprite caillouSprite;
-    public Sprite gros_caillouSprite;
     public Sprite poudreSprite;
 
     public Sprite decraftHacheFerSprite;

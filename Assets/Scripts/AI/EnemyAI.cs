@@ -25,6 +25,8 @@ public class EnemyAI : MonoBehaviour
 
     public static string m_tagCollision;
 
+    public static bool m_activeEnemyMusic;
+
     private Vector3 m_startingPos;
 
     //[SerializeField]
@@ -55,6 +57,7 @@ public class EnemyAI : MonoBehaviour
         //detection distance 
         if (Mathf.Abs(dist) < 7f)
         {
+            m_activeEnemyMusic = true;
             if (m_enemyDetect.m_inLight)
             {
                 //m_agent.SetDestination(m_back.transform.position);
@@ -79,6 +82,7 @@ public class EnemyAI : MonoBehaviour
             }
         } else
         {
+            m_activeEnemyMusic = false;
             //m_agent.ResetPath();
             if (m_lifeValue.Value == 0)
                 transform.position = m_startingPos;
@@ -140,7 +144,7 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_deathEnemySound);
+        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_hitEnemySound);
         m_animatorEnemy.SetTrigger("Activate");
         Destroy(m_ColliderEnemy);
         Destroy(gameObject, 1);

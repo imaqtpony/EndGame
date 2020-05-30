@@ -22,6 +22,8 @@ public class CandlesHandler : MonoBehaviour
 
     [SerializeField] Animator[] m_animatorVolet;
 
+    [SerializeField] AudioManager m_audioManager;
+
     [SerializeField] NavMeshObstacle[] m_navMeshObsVolets;
 
     [Tooltip("nb candles to solve the puzzle (add 1 to the actual number ) to fit how the checking is done")]
@@ -41,6 +43,8 @@ public class CandlesHandler : MonoBehaviour
 
         if (m_onLightenCandles != null)
             m_onLightenCandles.Register(HandleCandleOrder);
+
+        m_audioManager.m_audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -108,12 +112,10 @@ public class CandlesHandler : MonoBehaviour
     private IEnumerator TutoEnemies()
     {
         yield return new WaitForSeconds(2f);
-        Time.timeScale = 0.2f;
+
         m_notification.SetActive(true);
         m_textNotification.text = "Les ennemies sont sensibles a la lumiere, et aux coups.";
-
-        yield return new WaitForSeconds(0.6f);
-        Time.timeScale = 1f;
+        m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_fallingShuttersSound);
 
     }
 

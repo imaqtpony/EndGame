@@ -44,23 +44,20 @@ public class HarvestItem : MonoBehaviour
         // Reset the sync var between the plays in the editor
         m_inventorySpace.Value = 4;
 
+        if (!PauseMenu.m_restarted)
+            m_questManager.m_craftToolDone = false;
+
+        m_questManager.m_destroyPlantDone = false;
+        m_questManager.m_findDungeonDone = false;
+        m_questManager.m_levierEnigmaDone = false;
+        m_questManager.m_candleEnigmaDone = false;
+
     }
 
     public Vector3 GetPosition()
     {
         return transform.position;
     }
-
-    private void OnEnable()
-    {
-        if (!PauseMenu.m_restarted)
-            m_questManager.m_craftToolDone = false;
-        m_questManager.m_destroyPlantDone = false;
-        m_questManager.m_findDungeonDone = false;
-        m_questManager.m_levierEnigmaDone = false;
-        m_questManager.m_candleEnigmaDone = false;
-    }
-
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -121,19 +118,33 @@ public class HarvestItem : MonoBehaviour
         {
             ActivateQuestObject.m_gotLever = true;
             m_activateQuestObject.ShowSlot(collider.tag.ToString());
-            Destroy(collider.gameObject, .5f);
+            Destroy(collider.GetComponent<MeshRenderer>());
+            Destroy(collider.gameObject, 2f);
 
-            m_audioSource.PlayOneShot(m_audioManager.m_pickUpQuestObjectSound);
+            bool soundPlayed = false;
+
+            if (!soundPlayed)
+            {
+                m_audioSource.PlayOneShot(m_audioManager.m_pickUpQuestObjectSound);
+                soundPlayed = true;
+            }
 
         }
         else if (collider.CompareTag("Clef"))
         {
-            m_audioSource.PlayOneShot(m_audioManager.m_pickUpQuestObjectSound);
-
             Key.m_gotKey = true;
             m_activateQuestObject.ShowSlot(collider.tag.ToString());
-            Destroy(collider.gameObject, .5f);
+            Destroy(collider.GetComponent<MeshRenderer>());
 
+            Destroy(collider.gameObject, 2f);
+
+            bool soundPlayed = false;
+
+            if (!soundPlayed)
+            {
+                m_audioSource.PlayOneShot(m_audioManager.m_pickUpQuestObjectSound);
+                soundPlayed = true;
+            }
         }
 
     }
@@ -141,35 +152,20 @@ public class HarvestItem : MonoBehaviour
     private IEnumerator PickUpAnim(bool playerwasIdle)
     {
         m_animatorPlayer.SetTrigger("PickUp");
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(.5f);
         if (playerwasIdle)
         {
-            m_animatorPlayer.SetTrigger("Idle");
+            m_animatorPlayer.SetTrigger("Course");
         }
         else
         {
-            m_animatorPlayer.SetTrigger("IdleOutils");
+            m_animatorPlayer.SetTrigger("CourseOutils");
         }
         StopAllCoroutines();
     }
 
     private void UseItem(Item.ItemType p_itemType)
     {
-        switch (p_itemType)
-        {
-            case Item.ItemType.baton:
-                //m_lifePlayer.HealingFunc();
 
-                break;
-            case Item.ItemType.tissu:
-                Debug.Log("Carré utilisé");
-
-                break;
-            case Item.ItemType.mrcFer:
-                Debug.Log("Triangle utilisé");
-
-                break;
-
-        }
     }
 }

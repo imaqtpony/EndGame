@@ -40,17 +40,18 @@ public class EnvironementObject : MonoBehaviour
     {
         if (!m_hasDropObject)
         {
-            int randNumb = Random.Range(0, 2);
-            if (randNumb == 1)
-            {
-                Instantiate(p_attachedObject, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.Euler(-90, 0f, 0f));
-                m_hasDropObject = true;
-
-            }
-            else
+            int randNumb = Random.Range(0, 3);
+            if (randNumb == 0)
             {
                 Item duplicateItem = new Item { itemType = p_itemType, amount = 1 };
                 ItemWorld.DropItem(gameObject.transform.position, duplicateItem);
+                Debug.Log("DROP PAS LEVIER");
+            }
+            else
+            {
+                Instantiate(p_attachedObject, new Vector3(transform.position.x, 0.01f, transform.position.z), Quaternion.Euler(-90, 0f, 0f));
+                m_hasDropObject = true;
+                Debug.Log("DROP LEVIER");
 
             }
 

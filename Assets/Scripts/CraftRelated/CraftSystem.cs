@@ -71,7 +71,7 @@ public class CraftSystem : MonoBehaviour
             m_itemResult.sprite = ItemAssets.Instance.decraftAllumetteSprite;
             m_craftActive = true;
             m_itemType_1 = Item.ItemType.baton;
-            m_itemType_2 = Item.ItemType.tissu;
+            m_itemType_2 = Item.ItemType.poudre;
             m_craftButton.alpha = 1f;
             m_craftButtonSprite.sprite = m_uncraftSprite;
         }
@@ -103,6 +103,7 @@ public class CraftSystem : MonoBehaviour
             m_itemResult.sprite = ItemAssets.Instance.batonSprite;
             m_craftActive = true;
             m_itemType_1 = Item.ItemType.baton;
+            m_itemType_2 = Item.ItemType.plan_echelle;
             m_craftButtonSprite.sprite = m_uncraftSprite;
             m_craftButton.alpha = 1f;
         }

@@ -97,17 +97,16 @@ public class InteractiveObject : EnvironementObject, IFireReact
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Axe" && m_cutThePlant && gameObject.name == "Tronc")
+        if (other.gameObject.tag == "Axe" || other.gameObject.tag == "StoneAxe" && m_cutThePlant && gameObject.name == "Tronc")
         {
             m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
+
             m_audioSource.PlayOneShot(m_audioManager.m_fallingTreeSound);
             GetComponent<Animator>().SetTrigger("Activate");
             m_navMeshTronc.enabled = false;
 
-
-
         }
-        else if (other.gameObject.tag == "StoneAxe" && m_cutThePlant && gameObject.name == "Tronc")
+        if (other.gameObject.tag == "StoneAxe" && m_cutThePlant && gameObject.name == "Tronc")
         {
             m_notification.SetActive(true);
             m_textNotification.text = "Il me faut une hache plus solide...";

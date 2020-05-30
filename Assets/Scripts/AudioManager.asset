@@ -30,11 +30,16 @@ MonoBehaviour:
   m_grassStepSound: {fileID: 8300000, guid: 14065ecf601c3604282cfe1accdf63b8, type: 3}
   m_caveSound: {fileID: 8300000, guid: 960830e99f80f8242bafcacd6d59ee81, type: 3}
   m_axeHitSound: {fileID: 8300000, guid: ab1bbd3e3f4c3b644b6a041b3c7ecd84, type: 3}
-  m_deathEnemySound: {fileID: 8300000, guid: 6a40d776b68d5be4eae42b74d6d067b7, type: 3}
+  m_hitEnemySound: {fileID: 8300000, guid: 8d9010c27419e754c90b0c0521a04f0c, type: 3}
+  m_musicEnemy: {fileID: 8300000, guid: 7a096f1bba45528499f5cceb21acffdf, type: 3}
+  m_depollutedZoneSound: {fileID: 8300000, guid: 503813fea6ed8f044a2b75f6c2fbb1fc,
+    type: 3}
   m_destroyingCrateSound: {fileID: 8300000, guid: 58d8e32094abefe418d94ab35de67ed5,
     type: 3}
   m_dropLadderSound: {fileID: 8300000, guid: d4182a74ce522e24a89988c9eb3e3a85, type: 3}
   m_fallingTreeSound: {fileID: 8300000, guid: 9e1a0419f448b63468e7ea4941da22e7, type: 3}
+  m_fallingShuttersSound: {fileID: 8300000, guid: e92394c36e3a4644784137aa7e546100,
+    type: 3}
   m_LockpickSound: {fileID: 8300000, guid: b3bb529d809c0f6409ac74ba4cc818d7, type: 3}
   m_musicBoxSound: {fileID: 8300000, guid: 9126a63f0cf5cca438513d635c157f42, type: 3}
   m_openingChestSound: {fileID: 8300000, guid: b8072470346a8f3488d50896da4a6d6e, type: 3}

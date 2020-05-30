@@ -22,10 +22,13 @@ public class AudioManager : ScriptableObject
     public AudioClip m_caveSound;
 
     public AudioClip m_axeHitSound;
-    public AudioClip m_deathEnemySound;
+    public AudioClip m_hitEnemySound;
+    public AudioClip m_musicEnemy;
+    public AudioClip m_depollutedZoneSound;
     public AudioClip m_destroyingCrateSound;
     public AudioClip m_dropLadderSound;
     public AudioClip m_fallingTreeSound;
+    public AudioClip m_fallingShuttersSound;
     public AudioClip m_LockpickSound;
     public AudioClip m_musicBoxSound;
     public AudioClip m_openingChestSound;

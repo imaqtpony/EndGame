@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
 
     [SerializeField] private Canvas canvas;
@@ -48,20 +48,17 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     [SerializeField] QuestManager m_questManager;
 
-    private Sprite m_imgRockAtRuntime;
+    //private Sprite m_imgRockAtRuntime;
 
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        m_questManager.m_tutoToolsDone = false;
 
         //the name of the item is the name of his sprite
         gameObject.name = image.sprite.name;
 
-        if (image.sprite.name == "caillou")
-        {
-            m_imgRockAtRuntime = image.sprite;
-        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -95,32 +92,32 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     }
 
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        if (Input.GetMouseButtonUp(0) && m_isRessource)
-        {
-            float timeSinceLastClick = Time.time - lastClickTime;
+    //public void OnPointerUp(PointerEventData eventData)
+    //{
+    //    if (Input.GetMouseButtonUp(0) && m_isRessource)
+    //    {
+    //        float timeSinceLastClick = Time.time - lastClickTime;
 
-            lastClickTime = Time.time;
-            if (timeSinceLastClick < 0.2f)
-            {
-                m_uiInventory.UseItemFunction(itemType);
-                m_uiInventory.RefreshInventoryRessources();
-            }
-        }
-    }
+    //        lastClickTime = Time.time;
+    //        if (timeSinceLastClick < 0.2f)
+    //        {
+    //            m_uiInventory.UseItemFunction(itemType);
+    //            m_uiInventory.RefreshInventoryRessources();
+    //        }
+    //    }
+    //}
 
-    private IEnumerator YouAreARock()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(5);
+    //private IEnumerator YouAreARock()
+    //{
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(5);
 
-            Debug.Log(m_imgRockAtRuntime.name);
+    //        Debug.Log(m_imgRockAtRuntime.name);
 
-            gameObject.name = m_imgRockAtRuntime.name;
-        }
-    }
+    //        gameObject.name = m_imgRockAtRuntime.name;
+    //    }
+    //}
 
 
     public Item.ItemType DetectItem()
@@ -153,15 +150,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 m_amountItemToDrop = Inventory.m_amountCaillou;
                 m_isRessource = true;
 
-                StartCoroutine(YouAreARock());
+                //StartCoroutine(YouAreARock());
 
                 break;
-            case "gros_caillou":
-                itemType = Item.ItemType.gros_caillou;
-                m_amountItemToDrop = Inventory.m_amountGros_caillou;
-                m_isRessource = true;
 
-                break;
             case "poudre":
                 itemType = Item.ItemType.poudre;
                 m_amountItemToDrop = Inventory.m_amountPoudre;
@@ -217,13 +209,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         if(!m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils") || !m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils")) m_animatorPlayer.SetTrigger("IdleOutils"); 
 
 
-        if (!m_questManager.m_tutoToolsDone)
+        if (!UI_Inventory.m_firstToolsCrafted)
         {
             m_notification.SetActive(true);
             m_textNotification.text = "Glissez votre doigt pour utiliser l'outil.";
             m_cursor.SetActive(true);
             m_autoDisableNotification.PlayAnimCursor("Swipe");
-            m_questManager.m_tutoToolsDone = true;
+            UI_Inventory.m_firstToolsCrafted = true;
         }
 
         if (!InventoryButton.m_InventoryEnabled)

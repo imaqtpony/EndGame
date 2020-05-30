@@ -28,19 +28,6 @@ public class BoardManager : MonoBehaviour
 
     private SpawnPlayer m_spawnScript;
 
-    //black fading screen
-    private float m_fadeTime = 5f;
-    private float m_currentFadeTime = 0f;
-
-    Vector3 m_startingCameraPos;
-
-    //[SerializeField]
-
-    //private void Awake()
-    //{
-        
-
-    //}
 
     /// <summary>
     /// Sets up the array containing the boards data, place camera/player on the starting board
@@ -78,7 +65,6 @@ public class BoardManager : MonoBehaviour
             m_boardArray[startingBoard, startingBoard - 1].centerPos.y + m_cameraOffset.y,
             m_boardArray[startingBoard, startingBoard - 1].centerPos.z + m_cameraOffset.z);
 
-        m_startingCameraPos = Camera.main.transform.position;
     }
 
     private void OnEnable()
