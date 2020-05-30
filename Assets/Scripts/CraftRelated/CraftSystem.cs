@@ -35,6 +35,7 @@ public class CraftSystem : MonoBehaviour
             m_craftActive = true;
             m_itemType_1 = Item.ItemType.hache;
             m_craftButton.alpha = 1f;
+            m_craftButtonSprite.sprite = m_craftSprite;
 
         }
 
@@ -44,6 +45,8 @@ public class CraftSystem : MonoBehaviour
             m_craftActive = true;
             m_itemType_1 = Item.ItemType.allumette;
             m_craftButton.alpha = 1f;
+            m_craftButtonSprite.sprite = m_craftSprite;
+
         }
 
         else if (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "caillou")) != null))
@@ -52,6 +55,7 @@ public class CraftSystem : MonoBehaviour
             m_craftActive = true;
             m_itemType_1 = Item.ItemType.hache_pierre;
             m_craftButton.alpha = 1f;
+            m_craftButtonSprite.sprite = m_craftSprite;
 
 
         }
@@ -62,6 +66,7 @@ public class CraftSystem : MonoBehaviour
             m_craftActive = true;
             m_itemType_1 = Item.ItemType.echelle;
             m_craftButton.alpha = 1f;
+            m_craftButtonSprite.sprite = m_craftSprite;
 
 
         }
@@ -111,7 +116,6 @@ public class CraftSystem : MonoBehaviour
         else
         {
             NotEnoughItemToCraft();
-            m_craftButtonSprite.sprite = m_craftSprite;
 
         }
 
@@ -124,6 +128,7 @@ public class CraftSystem : MonoBehaviour
         m_itemResult.sprite = mask;
         m_craftActive = false;
         m_craftButton.alpha = .5f;
+        m_craftButtonSprite.sprite = m_craftSprite;
 
     }
 

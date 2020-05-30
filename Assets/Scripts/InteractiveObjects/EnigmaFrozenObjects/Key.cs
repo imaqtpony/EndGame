@@ -17,6 +17,7 @@ public class Key : MonoBehaviour
     [SerializeField] Animator m_animatorSlotKey;
 
     [SerializeField] AudioManager m_audioManager;
+    [SerializeField] AudioSource m_audioSource;
 
     private Renderer m_meshRenderer;
 
@@ -28,7 +29,7 @@ public class Key : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_donjonNotifText;
     private void Start()
     {
-        m_audioManager.m_audioSource = GetComponent<AudioSource>();
+        m_audioSource = GetComponent<AudioSource>();
         m_meshRenderer = GetComponent<Renderer>();
         m_canUseItem = false;
         m_questManager.m_keyEnigmaDone = false;
@@ -56,14 +57,11 @@ public class Key : MonoBehaviour
                 m_meshRenderer.enabled = true;
                 m_questManager.m_keyEnigmaDone = true;
                 m_slotKey.SetActive(false);
-                m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_LockpickSound);
+                m_audioSource.PlayOneShot(m_audioManager.m_LockpickSound);
                 UI_QuestObjects.m_activateKey = false;
                 StartCoroutine(Transition());
             }
-
-
         }
-
     }
 
     private IEnumerator Transition()
@@ -84,9 +82,7 @@ public class Key : MonoBehaviour
         yield return new WaitForSeconds(4);
         m_donjonNotif.SetActive(false);
 
-
     }
-
 
     private void OnTriggerExit(Collider collider)
     {

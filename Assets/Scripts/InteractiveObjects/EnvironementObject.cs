@@ -44,8 +44,10 @@ public class EnvironementObject : MonoBehaviour
             if (randNumb == 0)
             {
                 Item duplicateItem = new Item { itemType = p_itemType, amount = 1 };
+
                 ItemWorld.DropItem(gameObject.transform.position, duplicateItem);
                 Debug.Log("DROP PAS LEVIER");
+
             }
             else
             {

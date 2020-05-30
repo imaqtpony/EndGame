@@ -97,7 +97,7 @@ public class InteractiveObject : EnvironementObject, IFireReact
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Axe" || other.gameObject.tag == "StoneAxe" && m_cutThePlant && gameObject.name == "Tronc")
+        if (other.gameObject.tag == "Axe" && m_cutThePlant && gameObject.name == "Tronc")
         {
             m_audioSource.PlayOneShot(m_audioManager.m_axeHitSound);
 

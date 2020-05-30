@@ -35,6 +35,8 @@ public class LifePlayer : MonoBehaviour
 
     [SerializeField] GameObject[] m_toolsOnPlayer;
 
+    [SerializeField] CaveSoundEffect m_caveSoundEffect;
+
     private int x = 0;
     private int y = 0;
 
@@ -91,6 +93,8 @@ public class LifePlayer : MonoBehaviour
         transform.position = m_respawnPoint.position;
         GetComponent<NavMeshAgent>().enabled = true;
         StartCoroutine(ResetHearts());
+
+        m_caveSoundEffect.DeActivateLight();
 
         yield return new WaitForSeconds(1);
         m_blackScreen.SetActive(false);

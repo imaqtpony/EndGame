@@ -398,6 +398,7 @@ public class UI_Inventory : MonoBehaviour
         {
             RefreshInventoryRessources();
             RefreshInventoryTools();
+            RemoveItemFromCraftSlot();
             m_notification.SetActive(true);
             m_textNotification.text = "Ressources insuffisantes";
             m_textNotification.color = new Color(255, 75, 0);

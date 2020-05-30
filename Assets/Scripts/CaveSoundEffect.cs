@@ -18,10 +18,13 @@ public class CaveSoundEffect : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if(m_audioSource != null)
+            {
+                m_audioSource.Play();
 
-            //m_audioSource.Play();
+            }
 
-            if(m_questSystem != null && !m_CandleQuestDisplayed)
+            if (m_questSystem != null && !m_CandleQuestDisplayed)
             {
                 m_questSystem.ChangeQuest("Allumez les bougies.");
                 m_CandleQuestDisplayed = true;
@@ -43,10 +46,19 @@ public class CaveSoundEffect : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Camera.main.GetComponent<AudioSource>().Pause();
-            m_dynamicLight.SetActive(false);
-            //m_audioSource.Pause();
+            DeActivateLight();
 
+        }
+    }
+
+    public void DeActivateLight()
+    {
+
+        m_dynamicLight.SetActive(false);
+
+        if (m_audioSource != null)
+        {
+            m_audioSource.Pause();
         }
     }
 }

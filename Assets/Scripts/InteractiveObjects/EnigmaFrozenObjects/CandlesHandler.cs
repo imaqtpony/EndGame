@@ -31,6 +31,11 @@ public class CandlesHandler : MonoBehaviour
 
     private int m_currentArrayIndex = 0;
 
+    private void Awake()
+    {
+        m_audioManager.m_audioSource = GetComponent<AudioSource>();
+
+    }
 
     private void OnEnable()
     {
@@ -44,7 +49,6 @@ public class CandlesHandler : MonoBehaviour
         if (m_onLightenCandles != null)
             m_onLightenCandles.Register(HandleCandleOrder);
 
-        m_audioManager.m_audioSource = GetComponent<AudioSource>();
 
     }
 

@@ -12,6 +12,8 @@ public class BreakWoodPlanks : MonoBehaviour
     [SerializeField]
     private GD2Lib.Event m_onCutWithAxe;
 
+    [SerializeField] AudioManager m_audioManager;
+
     [SerializeField]
     private Animator m_animPlanks;
 
@@ -21,6 +23,10 @@ public class BreakWoodPlanks : MonoBehaviour
     private bool m_cutTheBranch;
     private bool m_planksDown;
 
+    private void Awake()
+    {
+        m_audioManager.m_audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider p_other)
     {
@@ -31,6 +37,8 @@ public class BreakWoodPlanks : MonoBehaviour
         {
             Debug.Log("Cut down these planks");
             m_planksDown = true;
+
+            m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_fallingTreeSound);
 
             m_animPlanks.enabled = true;
             if (m_animPlanks.GetCurrentAnimatorStateInfo(0).IsName("New State")) m_animPlanks.SetTrigger("Timber");
