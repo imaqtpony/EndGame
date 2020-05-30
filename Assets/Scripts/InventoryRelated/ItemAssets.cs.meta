@@ -4,22 +4,28 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - pfItemWorld: {instanceID: 0}
-  - batonSprite: {instanceID: 0}
-  - tissuSprite: {instanceID: 0}
-  - mrcFerSprite: {instanceID: 0}
+  - pfItemWorld: {fileID: 4834034316151395651, guid: faf6379e1658d314fae15d3ada37e65d,
+      type: 3}
+  - batonSprite: {fileID: 21300000, guid: b18ecc973bbb83042bd7c160c804aee4, type: 3}
+  - tissuSprite: {fileID: 21300000, guid: 47732d69fbe84e148908d18eda8e4e02, type: 3}
+  - mrcFerSprite: {fileID: 21300000, guid: f35045e43671819429c3f591ff0e4f36, type: 3}
   - caillouSprite: {fileID: 21300000, guid: 9774f8bc3abeff6499a9fe1b599fbfd6, type: 3}
-  - gros_caillouSprite: {instanceID: 0}
-  - poudreSprite: {instanceID: 0}
-  - decraftHacheFerSprite: {instanceID: 0}
-  - decraftAllumetteSprite: {instanceID: 0}
-  - decraftTorcheSprite: {instanceID: 0}
-  - decraftHachePierreSprite: {instanceID: 0}
-  - plan_echelleSprite: {instanceID: 0}
-  - hacheSprite: {instanceID: 0}
-  - allumetteSprite: {instanceID: 0}
-  - hache_pierreSprite: {instanceID: 0}
-  - echelleSprite: {instanceID: 0}
+  - poudreSprite: {fileID: 21300000, guid: 00d3fdb46a0cea04f8dfdebd27b7e289, type: 3}
+  - decraftHacheFerSprite: {fileID: 21300000, guid: 43475979d66e4004599a79bad73f825f,
+      type: 3}
+  - decraftAllumetteSprite: {fileID: 21300000, guid: a773f335fa147174c94fec3bd8568c97,
+      type: 3}
+  - decraftTorcheSprite: {fileID: 21300000, guid: c05a22067ee925140a6e9064d3514f4d,
+      type: 3}
+  - decraftHachePierreSprite: {fileID: 21300000, guid: 93fb1c972e8bf0f4cb53e002b003138f,
+      type: 3}
+  - plan_echelleSprite: {fileID: 21300000, guid: fb1069b844a615a4d91b8f7f6f0678e0,
+      type: 3}
+  - hacheSprite: {fileID: 21300000, guid: e55e274abaae20f40be138bcba1dc0f7, type: 3}
+  - allumetteSprite: {fileID: 21300000, guid: 9d9c3564ce996074a972ea469481ed57, type: 3}
+  - hache_pierreSprite: {fileID: 21300000, guid: ec9385f9e32a58947b0d459e3e3ea3b3,
+      type: 3}
+  - echelleSprite: {fileID: 21300000, guid: 8134081f55aae834d947f837bd03a8a1, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

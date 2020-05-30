@@ -61,7 +61,6 @@ public class Chest : MonoBehaviour
             StartCoroutine(DisableDonjonNotif());
         }
 
-        //CleaningPollution();
         Destroy(this, 5.1f);
     }
 
@@ -74,13 +73,12 @@ public class Chest : MonoBehaviour
 
     }
 
-
-
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag("Player") && !m_chestUsed)
         {
             HarvestChestItems();
+            Debug.Log(gameObject.name);
             m_chestUsed = true;
 
         }
@@ -104,9 +102,6 @@ public class Chest : MonoBehaviour
                 break;
             case "caillou":
                 m_image.sprite = ItemAssets.Instance.caillouSprite;
-                break;
-            case "tissu":
-                m_image.sprite = ItemAssets.Instance.tissuSprite;
                 break;
             case "mrcFer":
                 m_image.sprite = ItemAssets.Instance.mrcFerSprite;

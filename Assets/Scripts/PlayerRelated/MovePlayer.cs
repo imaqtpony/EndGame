@@ -145,9 +145,6 @@ public class MovePlayer : MonoBehaviour
                 direction = Vector3.ProjectOnPlane(direction, Vector3.up).normalized;
 
                 gameObject.transform.LookAt(transform.position + direction);
-
-
-                Debug.Log(hit.collider.gameObject.name);
                 
                 if(m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("Idle")) m_animatorPlayer.SetTrigger("Course");
                 else if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils")) m_animatorPlayer.SetTrigger("CourseOutils");

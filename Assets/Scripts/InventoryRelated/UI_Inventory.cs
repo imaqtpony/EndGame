@@ -87,6 +87,8 @@ public class UI_Inventory : MonoBehaviour
     private IEnumerator InventoryFullNotification()
     {
         m_notification.SetActive(true);
+
+        RemoveItemFromCraftSlot();
         m_textNotification.text = "Inventaire Plein !";
         m_textNotification.color = new Color(255, 75, 0);
 

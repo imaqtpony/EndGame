@@ -138,14 +138,14 @@ public class HarvestItem : MonoBehaviour
     private IEnumerator PickUpAnim(bool playerwasIdle)
     {
         m_animatorPlayer.SetTrigger("PickUp");
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(.5f);
         if (playerwasIdle)
         {
-            m_animatorPlayer.SetTrigger("Idle");
+            m_animatorPlayer.SetTrigger("Course");
         }
         else
         {
-            m_animatorPlayer.SetTrigger("IdleOutils");
+            m_animatorPlayer.SetTrigger("CourseOutils");
         }
         StopAllCoroutines();
     }
