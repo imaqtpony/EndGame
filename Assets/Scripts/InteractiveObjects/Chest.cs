@@ -78,7 +78,6 @@ public class Chest : MonoBehaviour
         if (collider.CompareTag("Player") && !m_chestUsed)
         {
             HarvestChestItems();
-            Debug.Log(gameObject.name);
             m_chestUsed = true;
 
         }
