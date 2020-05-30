@@ -1,4 +1,5 @@
-﻿
+﻿//Last Edited : 17/05
+
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -45,17 +46,14 @@ public class BoardManager : MonoBehaviour
                     m_boardArray[i, j].centerPos = go.transform.position;
                     m_boardArray[i, j].indexX = i;
                     m_boardArray[i, j].indexY = j;
-                    //m_boardArray[i, j].attachedScript = go.GetComponent<BoardBoundsScript>();
-                    //m_boardArray[i, j].attachedScript.enabled = false;
                 }
 
             }
         }
 
-        //temp, uncomment this
         int startingBoard = 2;
 
-        //begin the game at 2/1 remove -1 if needed
+        //begin the game at 2/1 
         m_boardArray[startingBoard, startingBoard - 1].isActive = true;
         m_currentBoard = m_boardArray[startingBoard, startingBoard - 1];
 
@@ -69,8 +67,8 @@ public class BoardManager : MonoBehaviour
 
     private void OnEnable()
     {
-        //temp nb boards
         m_nbBoards = 7;
+
         m_boardArray = new BoardData[m_nbBoards, m_nbBoards];
 
         m_spawnScript = m_player.GetComponent<SpawnPlayer>();
@@ -181,22 +179,27 @@ public class BoardManager : MonoBehaviour
         m_boardArray[m_currentBoard.indexX, m_currentBoard.indexY].isActive = false;
         m_boardArray[p_newX, p_newY].isActive = true;
         m_currentBoard = m_boardArray[p_newX, p_newY];
-        // meh
+
+        // Focus the camera on the current new current board
         Camera.main.transform.position = new Vector3(m_boardArray[p_newX, p_newY].centerPos.x,
             m_boardArray[p_newX, p_newY].centerPos.y + m_cameraOffset.y,
             m_boardArray[p_newX, p_newY].centerPos.z + m_cameraOffset.z);
 
+        //Teleport the player depending ont the border hit
         m_spawnScript.PlacePlayer(p_bName);
 
     }
 
+    /// <summary>
+    /// Reset camera to its starting position
+    /// </summary>
     private void StartCameraPos()
     {
 
         m_boardArray[m_currentBoard.indexX, m_currentBoard.indexY].isActive = false;
         m_boardArray[2, 1].isActive = true;
         m_currentBoard = m_boardArray[2, 1];
-        // meh
+        // 
         Camera.main.transform.position = new Vector3(m_boardArray[2, 1].centerPos.x,
             m_boardArray[2, 1].centerPos.y + m_cameraOffset.y,
             m_boardArray[2, 1].centerPos.z + m_cameraOffset.z);
@@ -208,47 +211,10 @@ public class BoardManager : MonoBehaviour
     {
         public Vector3 centerPos;
 
-        //public BoardBoundsScript attachedScript;
-
         public int indexX, indexY;
 
-        //private bool _active;
         public bool isActive;
-        //    {
-        //        get { return _active; }
-
-        //        set
-        //        {
-        //            _active = value;
-        //            //if (value == true)
-        //            //{
-        //            //    //Camera.main.transform.position = new Vector3(centerPos.x, centerPos.y + m_cameraOffset.y, centerPos.z + m_cameraOffset.z);
-        //            //    //attachedScript.enabled = value;
-        //            //}
-        //            //else
-        //            //{
-        //            //    attachedScript.enabled = value;
-        //            //}
-        //        }
-        //    }
+        
     }
 
 }
-
-
-// 1)
-// ontriggerenter :
-// recup coordonnées et lancer changeboard de data
-// changeboard :
-// desactive ancien board et active nouveau
-// data a besoin du tableau 
-// attached script a besoin de data
-
-// 2)
-// ontriggerenter :
-// raise(othercol.pos)
-//register unregister here
-// handleboardchange :
-// enable disable scripts and move player
-// need player here && currBoard
-//BM.cs et BBS.cs ont besoin du SO boardChangeEvent

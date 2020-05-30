@@ -1,7 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//Last Edited : 30/05
+
 using UnityEngine;
 
+/// <summary>
+/// Attach this to every candle from the CandleEnigma GO
+/// </summary>
 public class Candle : MonoBehaviour, IFireReact
 {
     [SerializeField]
@@ -18,7 +21,6 @@ public class Candle : MonoBehaviour, IFireReact
         m_pSys = GetComponent<ParticleSystem>();
     }
 
-    // Second security from onBlazeTorch event ?
     private void OnTriggerEnter(Collider p_other)
     {
         if(p_other.gameObject.tag == "Torch")
@@ -36,7 +38,6 @@ public class Candle : MonoBehaviour, IFireReact
         {
             m_pSys.Play();
 
-            // s'inscrire dans le manager
             m_onLightenCandles.Raise(m_order, m_pSys);
         }
             

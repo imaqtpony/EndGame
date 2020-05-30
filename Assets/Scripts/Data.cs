@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//Last edited : 09/05
+
 using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 
@@ -14,6 +14,5 @@ public class Data : ScriptableObject
     [SerializeField]
     [Tooltip("The player gameobject")]
     public GameObject m_player;
-
 
 }

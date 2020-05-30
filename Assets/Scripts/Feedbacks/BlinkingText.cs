@@ -1,4 +1,4 @@
-﻿// Last edit : Matt
+﻿// Last edit : 30/05
 
 using System.Collections;
 using System.Collections.Generic;
@@ -21,7 +21,6 @@ public class BlinkingText : MonoBehaviour
     private float m_fadingTime = 3f;
 
 
-    // Start is called before the first frame update
     private void Start()
     {
         m_tmp = GetComponent<TextMeshProUGUI>();

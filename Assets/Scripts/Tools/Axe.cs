@@ -1,8 +1,13 @@
-﻿
+﻿//Last Edited : 30/05
+
 using UnityEngine;
 using GD2Lib;
 using System;
 
+/// <summary>
+/// The axe tool behaviour when equipped
+/// Attach this to the children objets of the player that are tagged as Axe
+/// </summary>
 public class Axe : MonoBehaviour
 {
 
@@ -14,7 +19,6 @@ public class Axe : MonoBehaviour
 
     [SerializeField] Animator m_playerAnimator;
 
-
     private bool m_isCurrentlyCutting;
 
     private void Update()
@@ -25,14 +29,6 @@ public class Axe : MonoBehaviour
             if (m_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Tools")) m_playerAnimator.SetTrigger("IdleOutils");
 
             m_isCurrentlyCutting = false;
-            //transform.rotation = Quaternion.LookRotation(new Vector3(0, transform.parent.position.y, 0));
-
-            //if (gameObject.CompareTag("StoneAxe"))
-            //{
-            //    transform.rotation = Quaternion.LookRotation(new Vector3(0, -transform.parent.position.y, 0));
-
-            //}
-
         }
     }
 
@@ -55,9 +51,11 @@ public class Axe : MonoBehaviour
         {
             Debug.Log("Axe is cutting stuff !");
             m_isCurrentlyCutting = true;
+
+            //when this handle triggers the player is using the axe
+            //Raise this event to convey the message to other objets registered
             m_onCutWithAxe.Raise(m_isCurrentlyCutting, sData);
 
-            //transform.rotation = RotateAxe(sData);
             //anim hache
 
             if (m_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils")) m_playerAnimator.SetTrigger("ToolsSwing");
@@ -69,6 +67,10 @@ public class Axe : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Rotate the axe depending on the direction
+    /// NOT USED
+    /// </summary>
     private Quaternion RotateAxe(SwipeData p_sData)
     {
         Quaternion rota;
@@ -96,7 +98,6 @@ public class Axe : MonoBehaviour
             return rota = transform.parent.rotation;
 
         }
-
     }
 
 }

@@ -1,9 +1,15 @@
-﻿using System.Collections;
+﻿//Last Edited : 30/05
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
 
+/// <summary>
+/// Attach this to a Ladder Gameobject
+/// Make sure its disabled
+/// </summary>
 public class Ladder : MonoBehaviour
 {
 
@@ -49,6 +55,9 @@ public class Ladder : MonoBehaviour
         m_navMeshObs.enabled = true;
         m_alreadyUsedLadder = false;
 
+        //if the object is a double ladder (like LadderOnSameBoard GO)
+        // initialize it that way (assign in the inspector the properties of the 1st ladder
+        // the second one is initialized here
         if (transform.childCount > 0)
         {
             m_ladder2 = transform.GetChild(1);
@@ -66,7 +75,7 @@ public class Ladder : MonoBehaviour
 
     private void OnTriggerStay(Collider p_other)
     {
-        //BluePrintObjects.m_ladderBluePrintDiscovered = true;
+        //if the player has discovered the ladder blueprint they will appear on his way
         if (p_other.CompareTag("Player") && BluePrintObjects.m_ladderBluePrintDiscovered && !m_ladderPlaced)
         {
 
@@ -78,11 +87,15 @@ public class Ladder : MonoBehaviour
 
             }
 
+            //Show ladder
             m_meshLadder.enabled = true;
+
+            //use ladder tool
             if (m_ladderOnPlayer.activeInHierarchy)
             {
                 m_audioSource.PlayOneShot(m_audioManager.m_dropLadderSound);
 
+                //Show placed ladder
                 m_renderer.material = m_material;
                 m_navMeshObs.enabled = false;
                 m_ladderOnPlayer.SetActive(false);
@@ -108,12 +121,13 @@ public class Ladder : MonoBehaviour
             }
         }
 
+        //Ladders on same board handler
         if (p_other.CompareTag("Player") && m_ladderPlaced && gameObject.CompareTag("LadderOnSameBoard") && !m_alreadyUsedLadder && transform.childCount>0)
         {
             float distToLadder1 = Vector3.Distance(transform.GetChild(0).position, p_other.transform.position);
             float distToLadder2 = Vector3.Distance(m_ladder2.position, p_other.transform.position);
 
-            // 1 is the distance in which the player will teleport from a ladder to the other
+            // 1.75 is the distance in which the player will teleport from a ladder to the other
             if (distToLadder1 < 1.75f || distToLadder2 < 1.75f)
             {
                 if (distToLadder1 < distToLadder2)
@@ -150,7 +164,6 @@ public class Ladder : MonoBehaviour
     {
         if (p_other.CompareTag("Player") && m_alreadyUsedLadder)
         {
-            //Debug.Log("Entered while being in");
             m_alreadyUsedLadder = false;
 
         }
@@ -158,18 +171,12 @@ public class Ladder : MonoBehaviour
 
     private void OnTriggerExit(Collider p_other)
     {
+        //hide the ladder if not placed 
         if (p_other.CompareTag("Player") && BluePrintObjects.m_ladderBluePrintDiscovered && !m_ladderPlaced)
         {
             m_meshLadder.enabled = false;
 
         }
-
-        //if (p_other.CompareTag("Player"))
-        //{
-        //    Debug.LogWarning("left");
-        //    m_alreadyUsedLadder = false;
-
-        //}
 
     }
 

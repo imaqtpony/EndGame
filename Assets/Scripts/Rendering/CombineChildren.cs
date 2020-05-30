@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//NOT USED
+
 // Copy meshes from children into the parent's Mesh.
 // CombineInstance stores the list of meshes.  These are combined
 // and assigned to the attached Mesh.

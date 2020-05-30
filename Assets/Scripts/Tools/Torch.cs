@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//Last edited : 30/05
+
 using UnityEngine;
 
 /// <summary>
 /// Attach this to the Torch gameObject the player holds when equipped
-/// Ignite your torch and then watch the world burn !
-/// If you have a problem with anything, attach this script to you and watch this thing burn
 /// </summary>
 public class Torch : MonoBehaviour
 {
@@ -36,20 +34,17 @@ public class Torch : MonoBehaviour
             m_nbFramesElapsed = 0;
             TorchIgnited(false);
         }
-            
 
     }
 
     private void TorchIgnited(bool p_useTorch)
     {
+        // raise event to know if the torch is being used or not
         m_onUseTorch.Raise(p_useTorch);
+
         //anim flamme de la torche en loop si equipée
         if (p_useTorch)
         {
-            Debug.Log("Salameche attaque flammeche !");
-
-
-            //transform.rotation = transform.parent.rotation;
 
             //anim tend la torche
             if (m_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils")) m_playerAnimator.SetTrigger("ToolsSwing");
@@ -57,14 +52,9 @@ public class Torch : MonoBehaviour
         }
         else
         {
-            // Default rotation
-            //transform.localRotation = Quaternion.LookRotation(new Vector3(transform.parent.rotation.x, transform.parent.position.y, transform.parent.rotation.z));
-            //transform.rotation = transform.parent.rotation;
-
 
             //anim idleoutils
             if (m_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Tools")) m_playerAnimator.SetTrigger("IdleOutils");
-
 
         }
 

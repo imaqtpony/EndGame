@@ -1,4 +1,5 @@
-﻿
+﻿//Last edited : 30/05
+
 using UnityEngine;
 using GD2Lib;
 using System;
@@ -6,7 +7,6 @@ using System.Collections;
 
 /// <summary>
 /// Attach to a plant gameObject to play its animation when the player cuts it with the axe
-/// If its a tree it will fall on its X axis (right)
 /// Child of EnvironementObject
 /// </summary>
 public class Plant : EnvironementObject, IFireReact
@@ -21,10 +21,9 @@ public class Plant : EnvironementObject, IFireReact
     public QuestManager m_questManager;
     public QuestSystem m_questSystem;
 
+    // check if the player using the corresponding tool
     private bool m_burnThings;
     private bool m_cutThePlant;
-
-    private Item m_attachedItem;
 
     [SerializeField] Item.ItemType m_itemType;
 
@@ -85,17 +84,12 @@ public class Plant : EnvironementObject, IFireReact
     {
         if(other.gameObject.tag == "Axe" || other.gameObject.tag == "StoneAxe" && m_cutThePlant)
         {
-            //Debug.Log("Bye bye plant");
-            // plant anim here
-            //m_thisAnim.play();
             DropMaterialOnDeath(false, 0f, 1, m_itemType);
         }
 
         if(other.gameObject.tag == "Torch" && m_burnThings)
         {
-            //Debug.Log("burning af");
             OnFire();
-
         }
     }
 
@@ -120,19 +114,12 @@ public class Plant : EnvironementObject, IFireReact
 
     }
 
-    //if on envoit de l'eau on call OnKillFire
     public void OnKillFire()
     {
 
     }
 
-    private IEnumerator WaitForObjectToBurn()
-    {
-        yield return new WaitForSeconds(5);
-    }
-
-    // we need a particle that slowly spreads in circle
-    // do we need to stop the pSys before deleting the object ?
+    //spread fire to nearby gameObjects following IFireReact
     private void OnParticleCollision(GameObject other)
     {
         Debug.Log("BURN ANOTHER ONE");

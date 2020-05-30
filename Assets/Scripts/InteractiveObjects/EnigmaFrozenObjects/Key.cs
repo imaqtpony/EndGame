@@ -1,8 +1,13 @@
-﻿using System.Collections;
+﻿//Last Edited : 30/05
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Attach this to the Go Clef_du_cadenas, child of the Cadenas Go
+/// </summary>
 public class Key : MonoBehaviour
 {
 
@@ -26,6 +31,8 @@ public class Key : MonoBehaviour
 
     [SerializeField] GameObject m_donjonNotif;
     [SerializeField] TextMeshProUGUI m_donjonNotifText;
+
+
     private void Start()
     {
         m_audioManager.m_audioSource = GetComponent<AudioSource>();
@@ -36,7 +43,6 @@ public class Key : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        // here ?
         if (collider.CompareTag("Player") && !m_questManager.m_keyEnigmaDone)
         {
             m_questSystem.ChangeQuest("Deverouille le cadenas");

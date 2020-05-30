@@ -1,13 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//Last Edited : 30/05
+
 using UnityEngine;
 
+/// <summary>
+/// Attach this script to a tool object instance when on the ground
+/// After m_spawningTime, pop down the spawner and the toxic state FX
+/// </summary>
 public class ToxicState : MonoBehaviour
 {
 
     [SerializeField]
     private GameObject m_enemiesSpawner;
-
 
     [SerializeField] GameObject m_pollutionAnim;
 
@@ -17,22 +20,6 @@ public class ToxicState : MonoBehaviour
 
     private bool m_polluted = false;
 
-    [SerializeField] Shader m_toxicShader;
-    Renderer m_renderer;
-
-    //private void OnEnable()
-    //{
-    //    // Started polluting
-
-    //    //Polluted();
-
-    //}
-
-    private void Start()
-    {
-        //m_renderer = transform.GetChild(1).GetComponent<Renderer>();
-    }
-
     private void Update()
     {
 
@@ -40,7 +27,7 @@ public class ToxicState : MonoBehaviour
 
         if (gameObject.CompareTag("Tools"))
         {
-            //2 minutes
+            //Wait m_spawningTime seconds
             if (m_timerBeforeToxicState % 60f > m_spawningTime && !m_polluted)
             {
                 Polluted();
@@ -67,9 +54,3 @@ public class ToxicState : MonoBehaviour
 
 
 }
-
-
-// 1) on laisse comme ça on active les ennemis que si le joueur rentre sur le board ou ils se trouvent
-// ça veut dire passer le current board (recuperer le board du joueur) en parametre, et faire en sorte que l'outil sache dans quel board il se trouve
-//
-// 2) on instancie le board ou on les active/desactive a chaque fois
