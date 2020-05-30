@@ -13,6 +13,7 @@ public class DetectLight : MonoBehaviour
 {
     public bool m_inLight = false;
 
+    
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "LightCone")

@@ -57,6 +57,8 @@ public class InventoryButton : MonoBehaviour
             m_audioSource.PlayOneShot(m_audioManager.m_closeInventorySound);
 
             m_uiInventory.RefreshInventoryRessources();
+            m_uiInventory.RefreshInventoryTools();
+
             m_uiInventory.RemoveItemFromCraftSlot();
             Invoke("DisableToolsInventory", .33f);
 
@@ -71,6 +73,8 @@ public class InventoryButton : MonoBehaviour
             m_audioSource.PlayOneShot(m_audioManager.m_closeInventorySound);
 
             m_uiInventory.RefreshInventoryRessources();
+            m_uiInventory.RefreshInventoryTools();
+
             m_uiInventory.RemoveItemFromCraftSlot();
         }
         if (!UI_Inventory.m_firstToolsCrafted)
@@ -91,6 +95,7 @@ public class InventoryButton : MonoBehaviour
                 m_audioSource.PlayOneShot(m_audioManager.m_closeInventorySound);
 
                 m_uiInventory.RefreshInventoryRessources();
+                m_uiInventory.RefreshInventoryTools();
                 m_uiInventory.RemoveItemFromCraftSlot();
 
             }
