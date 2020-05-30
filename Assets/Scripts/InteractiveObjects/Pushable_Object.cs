@@ -1,15 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//Last Edited : 30/05
+
 using UnityEngine;
 
+/// <summary>
+/// Attach this to an object the player can push
+/// Applies an impulse to it when the player collides it 
+/// </summary>
 public class Pushable_Object : MonoBehaviour
 {
 
     private bool m_pushThisOne = false;
     private bool m_playerWithinRange = false;
     private Rigidbody m_rb;
-
-    //private Transform m_playerTransform;
 
     // create a GO to simulate better the directional vector for the force to apply rather than the players forward (cause he takes time to rotate)
     private GameObject m_forceDirection;
@@ -42,7 +44,6 @@ public class Pushable_Object : MonoBehaviour
         {
             //maybe instead get a forward from the player pos to the mouse pos
             m_rb.AddForce(new Vector3(m_forceDirection.transform.forward.x, 0, m_forceDirection.transform.forward.z) * 5f, ForceMode.Impulse);
-            Debug.Log("Successfully pushed obj");
         }
 
     }
@@ -52,7 +53,6 @@ public class Pushable_Object : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             m_playerWithinRange = true;
-
 
             m_forceDirection.transform.position = other.gameObject.transform.position;
             m_forceDirection.transform.rotation = other.gameObject.transform.rotation;

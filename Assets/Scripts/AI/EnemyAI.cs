@@ -1,9 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//Last edited : 30/05
+
 using UnityEngine.AI;
 using UnityEngine;
 using GD2Lib;
 
+/// <summary>
+/// Enemy behavior, attach this to the enemies prefab
+/// </summary>
 public class EnemyAI : MonoBehaviour
 {
     private NavMeshAgent m_agent;
@@ -29,8 +32,6 @@ public class EnemyAI : MonoBehaviour
 
     private Vector3 m_startingPos;
 
-    //[SerializeField]
-    //public GameObject m_player;
 
     private void OnEnable()
     {
@@ -46,36 +47,31 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        //m_agent.SetDestination(m_player.transform.position);
 
         float dist = Vector3.Distance(transform.position, m_data.m_player.transform.position);
         Vector3 direction = m_data.m_player.transform.position - transform.position;
         direction = Vector3.ProjectOnPlane(direction, Vector3.up).normalized;
 
-        //float dist = Vector3.Distance(transform.position, m_player.transform.position);
 
         //detection distance 
         if (Mathf.Abs(dist) < 7f)
         {
             m_activeEnemyMusic = true;
+
+            //if the enemy enters the light radius of the torch
             if (m_enemyDetect.m_inLight)
             {
-                //m_agent.SetDestination(m_back.transform.position);
                 transform.position += -direction * Time.deltaTime * 2;
                 transform.LookAt(transform.position - direction );
 
-                //transform.forward += new Vector3(0,0,-Time.deltaTime * 10);
-                //m_agent.SetDestination(transform.forward * -10);
             }
 
+            //if not then move towards player
             if (!m_enemyDetect.m_inLight)
             {
-                //m_agent.SetDestination(m_data.m_player.transform.position);
-                //m_agent.SetDestination(m_player.transform.position);
 
                 float step = 1f * Time.deltaTime; // calculate distance to move
                 transform.position = Vector3.MoveTowards(transform.position, m_data.m_player.transform.position, step);
-
 
                 transform.LookAt(transform.position + direction);
 
@@ -83,26 +79,16 @@ public class EnemyAI : MonoBehaviour
         } else
         {
             m_activeEnemyMusic = false;
-            //m_agent.ResetPath();
+
             if (m_lifeValue.Value == 0)
                 transform.position = m_startingPos;
 
-            float step = 0.5f * Time.deltaTime; // calculate distance to move
+            // Goes back to his original pos when the player is away
+            float step = 0.5f * Time.deltaTime; 
             transform.position = Vector3.MoveTowards(transform.position, m_startingPos, step);
 
         }
 
-        //if (m_agent.velocity.magnitude == 0f && m_agent.pathStatus == NavMeshPathStatus.PathPartial)
-        //{
-        //    m_agent.ResetPath();
-
-        //    m_agent.enabled = false;
-        //    transform.forward += Vector3.forward;
-        //    m_agent.enabled = true;
-        //    //Debug.Log(m_agent.velocity.magnitude);
-        //    //if (m_agent.autoRepath)
-        //    //    Debug.Log("INVALID");
-        //}
 
     }
 
@@ -120,6 +106,9 @@ public class EnemyAI : MonoBehaviour
         m_tagCollision = collision.gameObject.tag.ToString();
     }
 
+    /// <summary>
+    /// Kills this gameObject
+    /// </summary>
     private void KillFunc()
     {
         if (gameObject.name == "DungeonEnemy")

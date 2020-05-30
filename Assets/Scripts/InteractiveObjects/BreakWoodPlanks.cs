@@ -1,9 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿//Last Edited : 30/05
+
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Attach this to the Planches_qui_tombent GO in the second dungeon
+/// the player has to use the axe to interact
+/// </summary>
 public class BreakWoodPlanks : MonoBehaviour
 {
     [SerializeField]
@@ -30,6 +34,7 @@ public class BreakWoodPlanks : MonoBehaviour
 
     private void OnTriggerEnter(Collider p_other)
     {
+        //blocks the way when the player is in front of this Go
         if (p_other.gameObject.CompareTag("Player") && m_planksDown)
             m_nmObs.enabled = true;
 
@@ -43,6 +48,7 @@ public class BreakWoodPlanks : MonoBehaviour
             m_animPlanks.enabled = true;
             if (m_animPlanks.GetCurrentAnimatorStateInfo(0).IsName("New State")) m_animPlanks.SetTrigger("Timber");
 
+            //the player can pass
             m_nmObs.enabled = false;
 
             m_boxCol.enabled = false;

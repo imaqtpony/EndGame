@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//Last Edited : 30/05
+
+using UnityEngine;
 using GD2Lib;
 using System;
 using System.Collections;
@@ -6,8 +8,7 @@ using TMPro;
 using UnityEngine.AI;
 
 /// <summary>
-/// Attach to a plant gameObject to play its animation when the player cuts it with the axe
-/// If its a tree it will fall on its X axis (right)
+/// attach to a tree? behaves like Plant.cs
 /// Child of EnvironementObject
 /// </summary>
 public class InteractiveObject : EnvironementObject, IFireReact
@@ -35,13 +36,6 @@ public class InteractiveObject : EnvironementObject, IFireReact
 
     private AudioSource m_audioSource;
 
-    //private animator m_thisAnim;
-
-    //private void Awake()
-    //{
-    //    m_thisAnim = GetComponent<Animator>();
-    //    m_attachedItem = new Item {truc machin avec les bonnes infos? randomize l'amount}
-    //}
 
     private void Awake()
     {
@@ -69,8 +63,7 @@ public class InteractiveObject : EnvironementObject, IFireReact
     {
         if (GD2Lib.Event.TryParseArgs(out bool axeCutting, out SwipeData sData, p_params))
         {
-            //Debug.Log("Cut !");
-            // maybe need sData otherwise c'est ciao
+
             m_cutThePlant = axeCutting;
 
         }
@@ -152,7 +145,6 @@ public class InteractiveObject : EnvironementObject, IFireReact
         if (other.gameObject.tag == "Torch" && m_burnThings)
         {
             
-            Debug.Log("burning af");
             OnFire();
             return;
 
@@ -173,30 +165,17 @@ public class InteractiveObject : EnvironementObject, IFireReact
             DropMaterialOnDeath(true, 2.0f, 0, 0);
 
         }
-        // tweaker ce temps la si on veut donner le temps au joueur pour arreter le feu
-        //if(pSys.time > 5f)
-        //// m_attachedItem and time before the object is destroyed
-        //m_audioSource.Play();
-
 
     }
 
-    //if on envoit de l'eau on call OnKillFire
     public void OnKillFire()
     {
 
     }
 
-    private IEnumerator WaitForObjectToBurn()
-    {
-        yield return new WaitForSeconds(5);
-    }
 
-    // we need a particle that slowly spreads in circle
-    // do we need to stop the pSys before deleting the object ?
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("BURN ANOTHER ONE");
         IFireReact burnableObj = other.GetComponent<IFireReact>();
         burnableObj?.OnFire();
     }

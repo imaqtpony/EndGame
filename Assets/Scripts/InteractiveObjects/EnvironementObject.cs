@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//Last Edited : 30/05 
+
 using UnityEngine;
 using InventoryNS.Utils;
 
@@ -8,7 +8,13 @@ public class EnvironementObject : MonoBehaviour
 
     public static bool m_hasDropObject;
 
-    //ce script pour generer les items quand l'objet du world creve, et s'autodetruire
+    /// <summary>
+    /// Handle the death of an environment object
+    /// </summary>
+    /// <param name="p_isBurned"> is it on fire </param>
+    /// <param name="p_destroyTime"> how much time before destroying the object </param>
+    /// <param name="p_amountItem"> amount to drop </param>
+    /// <param name="p_itemType"> what is the loot </param>
     protected void DropMaterialOnDeath(bool p_isBurned, float p_destroyTime, int p_amountItem, Item.ItemType p_itemType)
     {
         if (!MovePlayer.m_stopSwipe)
@@ -36,6 +42,11 @@ public class EnvironementObject : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// When a crate is opened
+    /// </summary>
+    /// <param name="p_attachedObject"> the associated object </param>
+    /// <param name="p_itemType"> and item </param>
     protected void DropMaterialOnDeathCrate(GameObject p_attachedObject, Item.ItemType p_itemType)
     {
         if (!m_hasDropObject)

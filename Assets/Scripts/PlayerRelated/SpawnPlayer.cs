@@ -1,4 +1,5 @@
-﻿
+﻿//Last Edited : 30/05
+
 using UnityEngine;
 using GD2Lib;
 using System;
@@ -9,44 +10,14 @@ using UnityEngine.AI;
 /// </summary>
 public class SpawnPlayer : MonoBehaviour
 {
-    //[SerializeField]
-    //public GD2Lib.Event m_boardChangeEvent;
-
     [SerializeField]
     private NavMeshAgent m_agent;
 
 
-    
-
-    //private void OnEnable()
-    //{
-    //    if (m_boardChangeEvent!=null)
-    //        m_boardChangeEvent.Register(HandlePlacePlayer);
-    //}
-    //private void OnDisable()
-    //{
-    //    if (m_boardChangeEvent!=null)
-    //        m_boardChangeEvent.Register(HandlePlacePlayer);
-    //}
-
-    //private void HandlePlacePlayer(GD2Lib.Event p_event, object[] p_params)
-    //{
-    //    if (GD2Lib.Event.TryParseArgs(out string borderName, out Vector3 borderPos, p_params))
-    //    {
-    //        // do stuff here
-    //        Debug.Log("Works");
-
-    //    }
-    //    else
-    //    {
-    //        Debug.LogError("Invalid type of argument !");
-    //    }
-
-    //}
-
     /// <summary>
     /// Place player at a temporary position on the board he wishes to go
-    /// move 6 units to left/top/bot/right
+    /// move 6.5 units to left/top/bot/right
+    /// This function is called in BoardManager.cs
     /// </summary>
     /// <param name="p_borderName"> which border the player is coming from the last board ?</param>
     public void PlacePlayer(string p_borderName)
@@ -56,7 +27,6 @@ public class SpawnPlayer : MonoBehaviour
         m_agent.enabled = false;
 
         float valueToMovePlayer = 6.5f;
-
 
         switch (p_borderName)
         {

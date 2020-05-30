@@ -1,7 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//Last Edited : 30/05
+
 using UnityEngine;
 
+/// <summary>
+/// The enemies spawner. Appears whenever a tool is left on the ground for too long
+/// </summary>
 public class Spawn : MonoBehaviour
 {
     [SerializeField] private GameObject m_prefab;

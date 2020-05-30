@@ -1,4 +1,4 @@
-﻿// Matt
+﻿// Last Edited : 09/05
 
 using System;
 using UnityEngine;
@@ -15,12 +15,8 @@ public class OneFingerSwipe : MonoBehaviour
     [SerializeField]
     private GD2Lib.Event m_swipeEvent = null;
 
-    //[SerializeField]
-    //private Data m_data = null;
-
     private float m_minDistForSwipe = 15f;
 
-    //public static event Action<SwipeData> OnSwipe = delegate { }
 
     private void Update()
     {
@@ -55,12 +51,8 @@ public class OneFingerSwipe : MonoBehaviour
     {
         if (VerticalMovementDist() > m_minDistForSwipe || HorizontalMovementDist() > m_minDistForSwipe)
         {
-            //m_data.m_isSwiping = true;
             ReturnSwipe();
             m_initialFingerPos = m_currentFingerPos;
-        } else
-        {
-            //m_data.m_isSwiping = false;
         }
     }
 
@@ -74,8 +66,6 @@ public class OneFingerSwipe : MonoBehaviour
         };
 
         m_swipeEvent.Raise(swipeData);
-        //static delegate
-        //OnSwipe(swipeData);
     }
 
     private float VerticalMovementDist()

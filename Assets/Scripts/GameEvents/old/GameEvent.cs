@@ -1,8 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-//namespace GD2
-//{
+//Not used
 
 [CreateAssetMenu(fileName = "NewGameEvent", menuName = "ScriptableObjects/GameEvent")]
 public class GameEvent : ScriptableObject
@@ -29,4 +28,3 @@ public class GameEvent : ScriptableObject
     //}
 }
 
-//}

@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Last Edited : 30/05
+
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,6 +8,10 @@ using GD2Lib;
 using System.Runtime.InteropServices.ComTypes;
 using TMPro;
 
+/// <summary>
+/// Attach this to the parent GO of the candles Enigma GO
+/// Handles the event onLightenCandles and solves the puzzle
+/// </summary>
 public class CandlesHandler : MonoBehaviour
 {
     [SerializeField]
@@ -72,7 +78,7 @@ public class CandlesHandler : MonoBehaviour
             // if the last Index has been filled with a candle order int
             if (m_orderArray[m_nbCandles-1] != 0)
             {
-                // if true then gg
+                // if true then gj
                 if (SolvePuzzle())
                 {
                     foreach (Animator animator in m_animatorVolet)
@@ -92,7 +98,7 @@ public class CandlesHandler : MonoBehaviour
                     // deactivate candles, wrong order
                     Debug.Log("WRONG ORDER");
 
-                    // Set a new one as a negative feedback
+                    // Set a new color as a negative feedback
                     Gradient grad = new Gradient();
                     grad.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.red, 0.0f), new GradientColorKey(Color.black, 1.0f) }, 
                         new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.0f, 1.0f) });
@@ -113,12 +119,16 @@ public class CandlesHandler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Pop down this coroutine after the Enigma is done
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator TutoEnemies()
     {
         yield return new WaitForSeconds(2f);
 
         m_notification.SetActive(true);
-        m_textNotification.text = "Les ennemies sont sensibles a la lumiere, et aux coups.";
+        m_textNotification.text = "Les ennemis sont sensibles a la lumiere, et aux coups.";
         m_audioManager.m_audioSource.PlayOneShot(m_audioManager.m_fallingShuttersSound);
 
     }
@@ -153,6 +163,7 @@ public class CandlesHandler : MonoBehaviour
         // wait for the duration of the animation before changing its color back to normal
         yield return new WaitForSeconds(s+2);
 
+        //Reassign the original color to the last candle
         col.color = oldCol.color;
 
     }

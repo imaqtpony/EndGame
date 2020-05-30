@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Last edited : 30/05
+
+using System;
 using UnityEngine.AI;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -20,6 +22,7 @@ public class MovePlayer : MonoBehaviour
     // range in which it detects a hit on the navmesh, from the touch on screen
     private float m_range = 0.5f;
 
+    //nb frames elapsed to detect if its a swipe or a touch
     private int m_nbFramesElapsed;
 
     public static bool m_stopSwipe;
@@ -39,7 +42,6 @@ public class MovePlayer : MonoBehaviour
     private void Awake()
     {
         m_data.m_player = gameObject;
-
 
         m_audioSourceStepSound.clip = m_audioManager.m_grassStepSound;
 
@@ -104,7 +106,6 @@ public class MovePlayer : MonoBehaviour
             {
                 if (m_nbFramesElapsed > 20)
                 {
-                    //Debug.Log("SWIPE OR W/E");
                     m_stopSwipe = true;
                 }
                 else
@@ -122,45 +123,27 @@ public class MovePlayer : MonoBehaviour
     /// <param name="p_touch"> the touch on the screen </param>
     private void MoveToTouch(Touch p_touch)
     {
-
         //if le tel marche
-        //if (Input.touchCount > 0)
-        //{
-            // if le tel marche plus
-            //if (Input.GetMouseButtonDown(0)) {
+        Ray castPoint = Camera.main.ScreenPointToRay(p_touch.position);
 
-        //if (!m_agent.hasPath)
-        //{
-            //if le tel marche
-            Ray castPoint = Camera.main.ScreenPointToRay(p_touch.position);
-
-            ////if le tel marche plus
-            //Vector3 mouse = Input.mousePosition;
-            //Ray castPoint = Camera.main.ScreenPointToRay(mouse);
-
-            if (Physics.Raycast(castPoint, out RaycastHit hit, Mathf.Infinity, m_ignoreRaycastMask) && hit.transform.gameObject.layer == (m_blockRaycastMask & (1 << hit.transform.gameObject.layer)) && !InteractWithObjects.m_gotInteracted)
-            {
-                Vector3 navMeshLoc = ClosestNavmeshLocation(hit.point, m_range);
-                if (navMeshLoc != Vector3.zero) { m_agent.destination = navMeshLoc; }
+        if (Physics.Raycast(castPoint, out RaycastHit hit, Mathf.Infinity, m_ignoreRaycastMask) && hit.transform.gameObject.layer == (m_blockRaycastMask & (1 << hit.transform.gameObject.layer)) && !InteractWithObjects.m_gotInteracted)
+        {
+            Vector3 navMeshLoc = ClosestNavmeshLocation(hit.point, m_range);
+            if (navMeshLoc != Vector3.zero) { m_agent.destination = navMeshLoc; }
                         
-
-                Vector3 direction = hit.point - transform.position;
-                direction = Vector3.ProjectOnPlane(direction, Vector3.up).normalized;
-
-                gameObject.transform.LookAt(transform.position + direction);
+            Vector3 direction = hit.point - transform.position;
+            direction = Vector3.ProjectOnPlane(direction, Vector3.up).normalized;
+            gameObject.transform.LookAt(transform.position + direction);
                 
-                if(m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("Idle")) m_animatorPlayer.SetTrigger("Course");
-                else if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils")) m_animatorPlayer.SetTrigger("CourseOutils");
+            if(m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("Idle")) m_animatorPlayer.SetTrigger("Course");
+            else if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils")) m_animatorPlayer.SetTrigger("CourseOutils");
 
 
-                m_audioSourceStepSound.Play();
-                StartCoroutine(checkPlayerPos());
-                m_crossHit.transform.position = new Vector3(hit.point.x, hit.point.y + .1f, hit.point.z);
+            m_audioSourceStepSound.Play();
+            StartCoroutine(checkPlayerPos());
+            m_crossHit.transform.position = new Vector3(hit.point.x, hit.point.y + .1f, hit.point.z);
 
-            }
-        //}
-
-        //}
+        }
     }
 
     /// <summary>
@@ -168,7 +151,6 @@ public class MovePlayer : MonoBehaviour
     /// </summary>
     private Vector3 ClosestNavmeshLocation(Vector3 p_v, float p_range)
     {
-        
         NavMeshHit hit;
 
         Vector3 closestPosition = Vector3.zero;
@@ -179,12 +161,13 @@ public class MovePlayer : MonoBehaviour
             closestPosition = hit.position;
         }
 
-
         return closestPosition;
 
     }
 
-
+    /// <summary>
+    /// Animations and sound coroutine
+    /// </summary>
     private IEnumerator checkPlayerPos()
     {
 
@@ -221,7 +204,10 @@ public class MovePlayer : MonoBehaviour
         if (m_onLadderClimb != null)
             m_onLadderClimb.Unregister(HandleLadderClimb);
     }
-
+    
+    /// <summary>
+    /// Teleports the player to the given position whenever the player climbs a ladder
+    /// </summary>
     private void HandleLadderClimb(GD2Lib.Event p_event, object[] p_params)
     {
         if (GD2Lib.Event.TryParseArgs(out Vector3 p_pos, p_params))
