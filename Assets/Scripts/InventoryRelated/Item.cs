@@ -3,21 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// script which manages all the items in the game
+/// </summary>
 [Serializable]
 public class Item
 {
+    /// <summary>
+    /// all the items types
+    /// </summary>
     public enum ItemType
     {
+        //ressources
         baton,
         tissu,
         mrcFer,
         caillou,
         poudre,
 
+        //tools
         hache,
         allumette,
         hache_pierre,
         echelle,
+
+        //blueprint
         plan_echelle,
 
     }
@@ -25,24 +35,32 @@ public class Item
     public ItemType itemType;
     public int amount;
 
+    /// <summary>
+    /// we associate the sprite according to the item type
+    /// </summary>
+    /// <returns></returns>
     public Sprite GetSprite()
     {
         switch (itemType)
         {
             default:
-            case ItemType.baton: return ItemAssets.Instance.batonSprite;
-            case ItemType.tissu: return ItemAssets.Instance.tissuSprite;
-            case ItemType.mrcFer: return ItemAssets.Instance.mrcFerSprite;
-            case ItemType.caillou: return ItemAssets.Instance.caillouSprite;
-            case ItemType.hache: return ItemAssets.Instance.hacheSprite;
-            case ItemType.allumette: return ItemAssets.Instance.allumetteSprite;
-            case ItemType.hache_pierre: return ItemAssets.Instance.hache_pierreSprite;
-            case ItemType.echelle: return ItemAssets.Instance.echelleSprite;
-            case ItemType.plan_echelle: return ItemAssets.Instance.plan_echelleSprite;
-            case ItemType.poudre: return ItemAssets.Instance.poudreSprite;
+            case ItemType.baton: return ItemAssets.Instance.m_batonSprite;
+            case ItemType.tissu: return ItemAssets.Instance.m_tissuSprite;
+            case ItemType.mrcFer: return ItemAssets.Instance.m_mrcFerSprite;
+            case ItemType.caillou: return ItemAssets.Instance.m_caillouSprite;
+            case ItemType.hache: return ItemAssets.Instance.m_hacheSprite;
+            case ItemType.allumette: return ItemAssets.Instance.m_allumetteSprite;
+            case ItemType.hache_pierre: return ItemAssets.Instance.m_hache_pierreSprite;
+            case ItemType.echelle: return ItemAssets.Instance.m_echelleSprite;
+            case ItemType.plan_echelle: return ItemAssets.Instance.m_plan_echelleSprite;
+            case ItemType.poudre: return ItemAssets.Instance.m_poudreSprite;
         }
     }
 
+    /// <summary>
+    /// we set them stackable or not
+    /// </summary>
+    /// <returns></returns>
     public bool IsStackable()
     {
         switch (itemType)

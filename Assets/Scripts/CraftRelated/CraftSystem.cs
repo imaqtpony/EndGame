@@ -40,7 +40,7 @@ public class CraftSystem : MonoBehaviour
         {
             //=> display the axe sprite in the item slot result
             //we get the instance of the sprite
-            m_itemResult.sprite = ItemAssets.Instance.hacheSprite;
+            m_itemResult.sprite = ItemAssets.Instance.m_hacheSprite;
 
             //we can craft now
             m_craftActive = true;
@@ -59,7 +59,7 @@ public class CraftSystem : MonoBehaviour
         //same thing for all crafts
         else if (m_craftSlotList.Find(w => string.Equals(w.name, "poudre")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null))
         {
-            m_itemResult.sprite = ItemAssets.Instance.allumetteSprite;
+            m_itemResult.sprite = ItemAssets.Instance.m_allumetteSprite;
             m_craftActive = true;
             m_itemType_1 = Item.ItemType.allumette;
             m_craftButton.alpha = 1f;
@@ -69,7 +69,7 @@ public class CraftSystem : MonoBehaviour
 
         else if (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null && (m_craftSlotList.Find(w => string.Equals(w.name, "caillou")) != null))
         {
-            m_itemResult.sprite = ItemAssets.Instance.hache_pierreSprite;
+            m_itemResult.sprite = ItemAssets.Instance.m_hache_pierreSprite;
             m_craftActive = true;
             m_itemType_1 = Item.ItemType.hache_pierre;
             m_craftButton.alpha = 1f;
@@ -80,7 +80,7 @@ public class CraftSystem : MonoBehaviour
 
         else if (m_craftSlotList.Find(w => string.Equals(w.name, "baton")) != null && BluePrintObjects.m_ladderBluePrintDiscovered)
         {
-            m_itemResult.sprite = ItemAssets.Instance.echelleSprite;
+            m_itemResult.sprite = ItemAssets.Instance.m_echelleSprite;
             m_craftActive = true;
             m_itemType_1 = Item.ItemType.echelle;
             m_craftButton.alpha = 1f;
@@ -95,7 +95,7 @@ public class CraftSystem : MonoBehaviour
         //for the uncraft, the principle is the same but we check the tool on the slot and give the ressources
         else if (m_craftSlotList.Find(w => string.Equals(w.name, "allumette")) != null)
         {
-            m_itemResult.sprite = ItemAssets.Instance.decraftAllumetteSprite;
+            m_itemResult.sprite = ItemAssets.Instance.m_decraftAllumetteSprite;
             m_craftActive = true;
 
             m_itemType_1 = Item.ItemType.baton;
@@ -109,7 +109,7 @@ public class CraftSystem : MonoBehaviour
 
         else if (m_craftSlotList.Find(w => string.Equals(w.name, "hache")) != null)
         {
-            m_itemResult.sprite = ItemAssets.Instance.decraftHacheFerSprite;
+            m_itemResult.sprite = ItemAssets.Instance.m_decraftHacheFerSprite;
             m_craftActive = true;
 
             m_itemType_1 = Item.ItemType.baton;
@@ -122,7 +122,7 @@ public class CraftSystem : MonoBehaviour
 
         else if (m_craftSlotList.Find(w => string.Equals(w.name, "hache_pierre")) != null)
         {
-            m_itemResult.sprite = ItemAssets.Instance.decraftHachePierreSprite;
+            m_itemResult.sprite = ItemAssets.Instance.m_decraftHachePierreSprite;
             m_craftActive = true;
 
             m_itemType_1 = Item.ItemType.baton;
@@ -135,7 +135,7 @@ public class CraftSystem : MonoBehaviour
 
         else if (m_craftSlotList.Find(w => string.Equals(w.name, "echelle")) != null)
         {
-            m_itemResult.sprite = ItemAssets.Instance.batonSprite;
+            m_itemResult.sprite = ItemAssets.Instance.m_batonSprite;
             m_craftActive = true;
 
             m_itemType_1 = Item.ItemType.baton;

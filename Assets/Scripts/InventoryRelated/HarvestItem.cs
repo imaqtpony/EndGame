@@ -15,26 +15,25 @@ public class HarvestItem : MonoBehaviour
     private Inventory inventory;
     public IntVar m_inventorySpace;
 
+    [Tooltip("NOTIFICATION RELATED")]
     [SerializeField] GameObject m_notification;
     [SerializeField] TextMeshProUGUI m_textNotification;
 
+    [Tooltip("QUEST RELATED")]
     [SerializeField] QuestManager m_questManager;
     [SerializeField] QuestSystem m_questSystem;
     [SerializeField] UI_QuestObjects m_uiQuestObjects;
+    [SerializeField] ActivateQuestObject m_activateQuestObject;
 
+    [Tooltip("INVENTORY RELATED")]
     [SerializeField] UI_Inventory m_uiInventory;
     [SerializeField] DropItemZone m_dropItemZone;
     [SerializeField] TextMeshProUGUI m_amounItemsInventory;
 
     [SerializeField] AudioManager m_audioManager;
-
     private AudioSource m_audioSource;
  
     [SerializeField] Animator m_animatorPlayer;
-
-    [SerializeField] ActivateQuestObject m_activateQuestObject;
-
-
 
     private void Awake()
     {
@@ -48,6 +47,7 @@ public class HarvestItem : MonoBehaviour
         // Reset the sync var between the plays in the editor
         m_inventorySpace.Value = 4;
 
+        //we chose this script to reset the values of the scriptable object Quest Manager
         if (!PauseMenu.m_restarted)
             m_questManager.m_craftToolDone = false;
 
@@ -58,21 +58,28 @@ public class HarvestItem : MonoBehaviour
 
     }
 
+    //position of the player
     public Vector3 GetPosition()
     {
         return transform.position;
     }
 
+
     private void OnTriggerEnter(Collider collider)
     {
+        //if we have enough space in our inventory
         if (Inventory.itemList.Count + Inventory.toolsList.Count < m_inventorySpace.Value)
         {
+
+            //we get the ItemWorld script of the item
             ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
 
+            //if it is an item
             if (itemWorld != null)
             {
                 m_audioSource.PlayOneShot(m_audioManager.m_pickUpSound);
 
+                //we play those animations
                 if (m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils") || m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils"))
                 {
                     StartCoroutine(PickUpAnim(false));
@@ -83,11 +90,14 @@ public class HarvestItem : MonoBehaviour
 
                 }
 
+                //if it is a ressource
                 if (collider.gameObject.tag == "Untagged")
                 {
 
                     inventory.AddItem(itemWorld.GetItem());
                     itemWorld.DestroySelf();
+
+                    //tutorial 
                     if (!m_questManager.m_craftToolDone && Inventory.itemList.Count == 2)
                     {
                         m_questSystem.ChangeQuest("Construisez un outil");
@@ -104,9 +114,12 @@ public class HarvestItem : MonoBehaviour
                 }
 
             }
+
+            //update the amount of items
             m_amounItemsInventory.text = $"{ Inventory.itemList.Count + Inventory.toolsList.Count }/{m_inventorySpace.Value}";
 
         }
+        //if we don't have enough space
         else if(Inventory.itemList.Count + Inventory.toolsList.Count >= m_inventorySpace.Value)
         {
             ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
@@ -118,6 +131,7 @@ public class HarvestItem : MonoBehaviour
             }
         }
 
+        //QUEST OBJECT
         if (collider.CompareTag("Levier"))
         {
             ActivateQuestObject.m_gotLever = true;
@@ -131,6 +145,7 @@ public class HarvestItem : MonoBehaviour
             }
 
         }
+        //QUEST OBJECT
         else if (collider.CompareTag("Clef"))
         {
             Key.m_gotKey = true;
@@ -146,6 +161,11 @@ public class HarvestItem : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// pick up animation
+    /// </summary>
+    /// <param name="playerwasIdle">check the animation of the player when he picks up something</param>
+    /// <returns></returns>
     private IEnumerator PickUpAnim(bool playerwasIdle)
     {
         m_animatorPlayer.SetTrigger("PickUp");

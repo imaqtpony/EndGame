@@ -10,12 +10,12 @@ using InventoryNS.Utils;
 /// </summary>
 public class InteractWithObjects : MonoBehaviour
 {
-    [Header("EACH OBJECT SHOW A CANVAS")]
+    [Tooltip("EACH OBJECT SHOWS A CANVAS")]
     [SerializeField] GameObject m_goToShow;
 
     [SerializeField] InventoryButton m_inventoryButton;
 
-    [Header("CHANGING TEXT COLOR")]
+    [Tooltip("CHANGING TEXT COLOR")]
     [SerializeField] TextMeshProUGUI m_interactText;
     public Color m_colorText;
 

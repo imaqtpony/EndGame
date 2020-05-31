@@ -6,17 +6,19 @@ using UnityEngine.UI;
 public class InventoryButton : MonoBehaviour
 {
     public static bool m_InventoryEnabled;
-    public static bool m_toolsInventoryEnabled;
 
+    [Tooltip("UI INVENTORY RELATED")]
     [SerializeField] GameObject m_Inventory;
     [SerializeField] GameObject m_toolsInventory;
     [SerializeField] UI_Inventory m_uiInventory;
+
     [SerializeField] DragDrop m_dragDrop;
 
+    [Tooltip("SOUND RELATED")]
     [SerializeField] AudioManager m_audioManager;
-
     [SerializeField] AudioSource m_audioSource;
 
+    [Tooltip("ANIMATOR RELATED")]
     [SerializeField] Animator m_animatorTools;
     [SerializeField] Animator m_animatorInventory;
 
@@ -26,9 +28,16 @@ public class InventoryButton : MonoBehaviour
         DisableInventory();
     }
 
+    #region OPEN INVENTORY
+    /// <summary>
+    /// function used in the craft table script
+    /// </summary>
     public void OpenInventory()
     {
+        //used in others scripts to check if the inventory is opened or not
         m_InventoryEnabled = !m_InventoryEnabled;
+
+
         if (!m_Inventory.activeInHierarchy && m_toolsInventory.activeInHierarchy && UI_Inventory.m_firstToolsCrafted)
         {
             m_Inventory.SetActive(true);
@@ -90,9 +99,16 @@ public class InventoryButton : MonoBehaviour
         }
         
     }
+
+    #endregion
+
+    #region OPEN TOOLS INVENTORY
+
+    /// <summary>
+    /// tools window
+    /// </summary>
     public void OpenToolsInventory()
     {
-        m_toolsInventoryEnabled = !m_toolsInventoryEnabled;
 
         if (!m_toolsInventory.activeInHierarchy)
         {
@@ -114,6 +130,7 @@ public class InventoryButton : MonoBehaviour
         m_audioSource.PlayOneShot(m_audioManager.m_openToolsInventorySound, 8f);
 
     }
+    #endregion
 
     private void DisableInventory()
     {
