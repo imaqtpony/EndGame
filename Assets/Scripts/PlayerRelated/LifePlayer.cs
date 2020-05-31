@@ -6,46 +6,47 @@ using GD2Lib;
 using UnityEngine.UI;
 using UnityEngine.AI;
 
+/// <summary>
+/// manage the life of the player and all function related
+/// </summary>
 public class LifePlayer : MonoBehaviour
 {
+
+    [Header("UI RELATED")]
+    [SerializeField] private Transform m_lifeHeartContainer;
+    [SerializeField] private Transform m_lifeHeartSprite;
+    [SerializeField] Image m_backgroundLife;
+    [SerializeField] GameObject m_blackScreen;
+
+
+    [Header("LIFE RELATED")]
     public IntVar m_lifeValue;
+    public float m_invDuration;
+    [SerializeField] public int m_vieMax;
 
     [SerializeField] Collider[] m_collider;
-
     [SerializeField] Transform m_respawnPoint;
 
     private Inventory m_inventory;
     [SerializeField] UI_Inventory m_uiInventory;
-
-    public float m_invDuration;
-
-    [SerializeField] public int m_vieMax;
-
-    [SerializeField] Image m_backgroundLife;
-
-    [SerializeField] private Transform m_lifeHeartContainer;
-    [SerializeField] private Transform m_lifeHeartSprite;
 
     [SerializeField] AudioManager m_audioManager;
     private AudioSource m_audioSource;
 
     [SerializeField] GameObject m_boardManager;
 
-    [SerializeField] GameObject m_blackScreen;
-
     [SerializeField] GameObject[] m_toolsOnPlayer;
 
     [SerializeField] CaveSoundEffect m_caveSoundEffect;
 
-    private int x = 0;
-    private int y = 0;
+    private int X_COLUMNS = 0;
+    private int Y_LINES = 0;
 
     private void Start()
     {
         //m_lifeValue.Value = m_vieMax;
         m_audioSource = GetComponent<AudioSource>();
         InstantiateHearts();
-        UpdateWidthBackgroundLife();
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -55,14 +56,13 @@ public class LifePlayer : MonoBehaviour
             StartCoroutine(InvFrame());
             m_lifeValue.Value -= 1;
             m_audioSource.PlayOneShot(m_audioManager.m_PlayerDamageSound);
-            x--;
+            X_COLUMNS--;
 
-            //on recupere le dernier coeur
+            //we get the last heart
             GameObject lastHeart = m_lifeHeartContainer.transform.GetChild(m_lifeValue.Value).gameObject;
 
-            //on récupère son canvasgroup pour avoir son alpha et on le diminue a 50%
+            //we get its animator to play the animation when the player loses a heart
             lastHeart.GetComponent<Animator>().SetTrigger("DamageAnim");
-
 
 
             if (m_lifeValue.Value == 0)
@@ -75,7 +75,6 @@ public class LifePlayer : MonoBehaviour
 
             }
         }
-        //Debug.Log(collision.gameObject.tag);
     }
 
     private IEnumerator TransitionDeath()
@@ -83,6 +82,7 @@ public class LifePlayer : MonoBehaviour
         m_blackScreen.SetActive(true);
         yield return new WaitForSeconds(1);
 
+        //during the black screen
         m_boardManager.GetComponent<BoardManager>().enabled = false;
         m_boardManager.GetComponent<BoardManager>().enabled = true;
 
@@ -97,12 +97,17 @@ public class LifePlayer : MonoBehaviour
         m_caveSoundEffect.DeActivateLight();
 
         yield return new WaitForSeconds(1);
+
         m_blackScreen.SetActive(false);
         m_collider[0].enabled = true;
         m_collider[1].enabled = true;
 
     }
 
+    /// <summary>
+    /// we reset all the hearts of the player
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator ResetHearts()
     {
         m_lifeValue.Value = 3;
@@ -114,6 +119,7 @@ public class LifePlayer : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
+        //as many time there are heart in the UI
         for (int i = 0; i < m_lifeValue.Value; i++)
         {
             m_lifeHeartContainer.GetChild(i).GetComponent<Animator>().SetTrigger("HealAnim");
@@ -123,42 +129,44 @@ public class LifePlayer : MonoBehaviour
         StopCoroutine(ResetHearts());
     }
 
+    /// <summary>
+    /// at the beginning of the game
+    /// </summary>
     public void InstantiateHearts()
     {
-        
-
         int SPACE_BETWEEN_HEARTS = 70;
 
         for (int i = 0; i < m_vieMax - 1; i++)
         {
-            x++;
+            X_COLUMNS++;
             RectTransform itemSlotRectTransform = Instantiate(m_lifeHeartSprite, m_lifeHeartContainer).GetComponent<RectTransform>();
-            itemSlotRectTransform.anchoredPosition = new Vector2(x * SPACE_BETWEEN_HEARTS, y * SPACE_BETWEEN_HEARTS);
+            itemSlotRectTransform.anchoredPosition = new Vector2(X_COLUMNS * SPACE_BETWEEN_HEARTS, Y_LINES * SPACE_BETWEEN_HEARTS);
 
         }
     }
 
+    /// <summary>
+    /// this function is not used but we will use it in the futur (it works)
+    /// </summary>
     public void HealingFunc()
     {
         if(m_lifeValue.Value < m_vieMax)
         {
             m_lifeValue.Value += 1;
 
-            //on récupère le dernier coeur
+            //we get the las theart
             GameObject lastHeart = m_lifeHeartContainer.transform.GetChild(m_lifeValue.Value - 1).gameObject;
 
-            //on remet son alpha a 100% quand on récupère le point de vie
-            lastHeart.GetComponent<CanvasGroup>().alpha = 1f;
+            lastHeart.GetComponent<Animator>().SetTrigger("HealAnim");
+
 
         }
-        
+
     }
 
     /// <summary>
-    /// on utilise une coroutine pour faire des frame d'invincibilié
+    /// we use coroutine to make invincibility frame
     /// </summary>
-    /// <returns>dans le while, on attend 1s avant d'incrémenter le compteur et de retablir le collider du joueur
-    /// c'est a ce moment la que le joueur est invincible</returns>
     private IEnumerator InvFrame()
     {
         m_collider[0].enabled = false;
@@ -168,12 +176,5 @@ public class LifePlayer : MonoBehaviour
         m_collider[1].enabled = true;
 
     }
-
-    public void UpdateWidthBackgroundLife()
-    {
-        m_backgroundLife.rectTransform.sizeDelta = new Vector2(m_vieMax * 162, 162); 
-    }
-
-    
 
 }

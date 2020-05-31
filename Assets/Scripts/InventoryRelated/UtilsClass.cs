@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// get the random direction when we drop an item
+/// </summary>
+/// 
 namespace InventoryNS.Utils {
 
     public static class UtilsClass

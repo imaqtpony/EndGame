@@ -4,17 +4,14 @@ using UnityEngine;
 using System;
 using GD2Lib;
 
+/// <summary>
+/// maximum life value of the player
+/// </summary>
 public class Vie : MonoBehaviour
 {
     [SerializeField] public int m_vie;
 
     public IntVar m_ScriptableObject;
-
-    private void Awake()
-    {
-        //Debug.Log(m_ScriptableObject.Value);
-    }
-
     
     private void OnEnable()
     {
@@ -34,6 +31,6 @@ public class Vie : MonoBehaviour
 
     public void HandleVie(int m_vie)
     {
-        // life value changed
+        //useless for the moment
     }
 }

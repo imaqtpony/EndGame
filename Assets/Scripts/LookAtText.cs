@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// text above the character looking the camera when he talks
+/// </summary>
 public class LookAtText : MonoBehaviour
 {
 

@@ -4,6 +4,9 @@ using UnityEngine;
 using System;
 using GD2Lib;
 
+/// <summary>
+/// manage the maximum value of the space in the inventory
+/// </summary>
 public class InventorySpace : MonoBehaviour
 {
     [SerializeField] int m_inventorySpace;
@@ -27,8 +30,8 @@ public class InventorySpace : MonoBehaviour
         m_ScriptableObject.Value = m_inventorySpace;
     }
 
-    public void HandleInventorySpace(int m_vie)
+    public void HandleInventorySpace(int m_spaceInventory)
     {
-
+        //useless for the moment
     }
 }

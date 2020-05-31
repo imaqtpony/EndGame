@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used on Key, QuestObject andHarvestItem scripts
+/// </summary>
 public class UI_QuestObjects : MonoBehaviour
 {
-
+    
     public GameObject m_canvasLevier;
     public GameObject m_canvasKey;
 
@@ -21,6 +24,9 @@ public class UI_QuestObjects : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// this function is not used anymore but I let it in case
+    /// </summary>
     public void UI_ShowObject()
     {
         switch (m_nameObject)
@@ -36,7 +42,10 @@ public class UI_QuestObjects : MonoBehaviour
         }
     }
 
-    //c'est cette fonction qu'on utilise
+    /// <summary>
+    /// we use this function
+    /// </summary>
+    /// <param name="p_nameGO">name of the quest object that we harvest</param>
     public void ClickOnUIQuestObject(string p_nameGO)
     {
         if (ActivateQuestObject.m_canUseItem || Key.m_canUseItem)

@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// little script to activate the sound of the cave when the player is in the first dungeon
+/// </summary>
 public class CaveSoundEffect : MonoBehaviour
 {
-
+    /// <summary>
+    /// light behind the camera to not have a level too much dark
+    /// </summary>
     [SerializeField] GameObject m_dynamicLight;
 
     [SerializeField] QuestSystem m_questSystem;
@@ -13,7 +18,10 @@ public class CaveSoundEffect : MonoBehaviour
  
     bool m_CandleQuestDisplayed;
 
-
+    /// <summary>
+    /// we activate the light, we play the sound and we change the quest if the player is a the good place
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -51,6 +59,9 @@ public class CaveSoundEffect : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// used when the player respawn
+    /// </summary>
     public void DeActivateLight()
     {
 

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 
+/// <summary>
+/// regroup all the sounds in the game
+/// </summary>
 [CreateAssetMenu(fileName = "AudioManager", menuName = "ScriptableObjects/AudioManager", order = 1)]
 public class AudioManager : ScriptableObject
 {

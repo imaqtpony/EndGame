@@ -4,12 +4,13 @@ using UnityEngine;
 using GD2Lib;
 using TMPro;
 
+/// <summary>
+/// manages the invotory when the player harvests an item in the world
+/// </summary>
 public class PlayerInventory : MonoBehaviour
 {
 
     private Inventory inventory;
-
-    private LifePlayer m_lifePlayer;
 
     public IntVar m_inventorySpace;
 
@@ -17,16 +18,16 @@ public class PlayerInventory : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI m_amounItemsInventory;
 
-    // Start is called before the first frame update
     private void Awake()
     {
-        m_lifePlayer = GetComponent<LifePlayer>();
-        //inventory = new Inventory(UseItem);
-        //uiInventory.SetPlayer(this);
         uiInventory.SetInventory(inventory);
 
     }
 
+    /// <summary>
+    /// position of the player
+    /// </summary>
+    /// <returns></returns>
     public Vector3 GetPosition()
     {
         return transform.position;
@@ -36,7 +37,6 @@ public class PlayerInventory : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
 
-
         if (Inventory.itemList.Count < m_inventorySpace.Value)
         {
             ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
@@ -44,11 +44,13 @@ public class PlayerInventory : MonoBehaviour
 
             if (itemWorld != null)
             {
+                //add the item at the ressources list 
                 if (collider.gameObject.tag != "Tools")
                 {
                     inventory.AddItem(itemWorld.GetItem());
                     itemWorld.DestroySelf();
                 }
+                //or the tool list
                 else if (collider.gameObject.tag == "Tools")
                 {
                     inventory.AddTools(itemWorld.GetItem());
@@ -61,28 +63,4 @@ public class PlayerInventory : MonoBehaviour
 
     }
 
-    /*private void UseItem(Item.ItemType itemType)
-    {
-        switch (itemType)
-        {
-            case Item.ItemType.baton:
-                m_lifePlayer.HealingFunc();
-
-                break;
-            case Item.ItemType.tissu:
-                Debug.Log("Carré utilisé");
-
-                break;
-            case Item.ItemType.mrcFer:
-                Debug.Log("Triangle utilisé");
-
-                break;
-            case Item.ItemType.hache:
-                Debug.Log("Losange utilisé");
-                break;
-
-        }
-        inventory.RemoveItem(new Item { itemType = itemType, amount = 1 });
-
-    }*/
 }

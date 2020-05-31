@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-
+/// <summary>
+/// replace the item at its initial pos in the inventory
+/// </summary>
 public class ReplaceItem : MonoBehaviour, IDropHandler
 {
 

@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
+/// <summary>
+/// pause menu
+/// </summary>
 public class PauseMenu : MonoBehaviour
 {
 

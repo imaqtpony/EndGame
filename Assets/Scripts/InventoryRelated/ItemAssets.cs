@@ -18,21 +18,23 @@ public class ItemAssets : MonoBehaviour
     //game object with the item type in the world
     public Transform pfItemWorld;
 
-    //ressources
+    [Header("RESSOURCES")]
     public Sprite m_batonSprite;
     public Sprite m_tissuSprite;
     public Sprite m_mrcFerSprite;
     public Sprite m_caillouSprite;
     public Sprite m_poudreSprite;
 
-    //uncraft sprite
+    [Header("UNCRAFT")]
     public Sprite m_decraftHacheFerSprite;
     public Sprite m_decraftAllumetteSprite;
     public Sprite m_decraftTorcheSprite;
     public Sprite m_decraftHachePierreSprite;
 
+    [Header("BLUEPRINT")]
     public Sprite m_plan_echelleSprite;
 
+    [Header("TOOLS")]
     public Sprite m_hacheSprite;
     public Sprite m_allumetteSprite;
     public Sprite m_hache_pierreSprite;

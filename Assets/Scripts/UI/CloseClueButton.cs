@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// button used just for closing the clue
+/// </summary>
 public class CloseClueButton : MonoBehaviour
 {
     [SerializeField] GameObject m_clue;
@@ -23,6 +26,7 @@ public class CloseClueButton : MonoBehaviour
 
     public void DisableGotInteracted()
     {
+ 
         InteractWithObjects.m_gotInteracted = false;
 
     }

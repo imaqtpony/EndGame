@@ -2,22 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// when we use the quest object at the good area
+/// </summary>
 public class ActivateQuestObject : MonoBehaviour
 {
-
+    [Header("ALL THE ANIMATORS")]
     private Animator m_animator;
     [SerializeField] Animator m_animatorSlotLevier;
     [SerializeField] Animator m_animatorMusicBox;
+
     public static bool m_gotLever;
     public static bool m_canUseItem;
 
     [SerializeField] AudioManager m_audioManager;
-
     private AudioSource m_audioSource;
 
+    [Header("SLOT RELATED")]
     [SerializeField] GameObject m_slotLevier;
     [SerializeField] GameObject m_slotKey;
 
+    [Header("QUEST RELATED")]
     [SerializeField] QuestSystem m_questSystem;
     [SerializeField] QuestManager m_questManager;
 
@@ -36,7 +41,7 @@ public class ActivateQuestObject : MonoBehaviour
     {
         if (collider.CompareTag("Player") && !m_questManager.m_levierEnigmaDone)
         {
-            m_questSystem.ChangeQuest("Trouvez un levier.");
+            m_questSystem.ChangeQuest("Trouvez un levier");
 
             m_questManager.m_levierEnigmaDone = true;
 
@@ -57,6 +62,7 @@ public class ActivateQuestObject : MonoBehaviour
         
     }
 
+    
     private IEnumerator ActivateObject()
     {
         m_audioSource.PlayOneShot(m_audioManager.m_musicBoxSound);
@@ -68,6 +74,7 @@ public class ActivateQuestObject : MonoBehaviour
         UI_QuestObjects.m_activateLevier = false;
 
         yield return new WaitForSeconds(.1f);
+        //avoid the player to move when we click on it, that's why there is a little delay
         m_slotLevier.SetActive(false);
     }
 

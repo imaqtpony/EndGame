@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// trigger zone to make the character speak
+/// the string of the text is in the inspector
+/// </summary>
 public class TalkingCharacter : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI m_text;
-
     [SerializeField] string m_textCharacter;
 
     private bool m_displayedText;

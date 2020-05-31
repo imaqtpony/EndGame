@@ -10,21 +10,20 @@ using InventoryNS.Utils;
 /// </summary>
 public class InteractWithObjects : MonoBehaviour
 {
-    [Tooltip("EACH OBJECT SHOWS A CANVAS")]
+    [Header("EACH OBJECT SHOWS A CANVAS")]
     [SerializeField] GameObject m_goToShow;
 
     [SerializeField] InventoryButton m_inventoryButton;
 
-    [Tooltip("CHANGING TEXT COLOR")]
+    [Header("CHANGING TEXT COLOR")]
     [SerializeField] TextMeshProUGUI m_interactText;
     public Color m_colorText;
 
     //check if the player is in the trigger
     bool m_canShow;
 
-    //avoid the player to close the current window and move 
+    //avoid the player to move by closing the window
     public static bool m_gotInteracted;
-
 
     private void Start()
     {

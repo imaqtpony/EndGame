@@ -15,17 +15,17 @@ public class HarvestItem : MonoBehaviour
     private Inventory inventory;
     public IntVar m_inventorySpace;
 
-    [Tooltip("NOTIFICATION RELATED")]
+    [Header("NOTIFICATION RELATED")]
     [SerializeField] GameObject m_notification;
     [SerializeField] TextMeshProUGUI m_textNotification;
 
-    [Tooltip("QUEST RELATED")]
+    [Header("QUEST RELATED")]
     [SerializeField] QuestManager m_questManager;
     [SerializeField] QuestSystem m_questSystem;
     [SerializeField] UI_QuestObjects m_uiQuestObjects;
     [SerializeField] ActivateQuestObject m_activateQuestObject;
 
-    [Tooltip("INVENTORY RELATED")]
+    [Header("INVENTORY RELATED")]
     [SerializeField] UI_Inventory m_uiInventory;
     [SerializeField] DropItemZone m_dropItemZone;
     [SerializeField] TextMeshProUGUI m_amounItemsInventory;
