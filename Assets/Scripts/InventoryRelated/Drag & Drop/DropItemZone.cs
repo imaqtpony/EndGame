@@ -17,18 +17,20 @@ public class DropItemZone : MonoBehaviour, IDropHandler
     [Header("TOOLS ON THE PLAYER")]
     [SerializeField] List<GameObject> m_tools;
 
-    [Header("PLAYER RELATED")]
-    [SerializeField] BoxCollider m_colliderPlayer;
     [SerializeField] Animator m_animatorPlayer;
 
+    public static bool m_canHarvestItem;
+
     //make sure that the collider of the player is activated after closing the inventory
+    private void Start()
+    {
+        m_canHarvestItem = true;
+
+    }
+
     private void OnDisable()
     {
-        if(m_colliderPlayer != null)
-        {
-            m_colliderPlayer.enabled = true;
-
-        }
+        m_canHarvestItem = true;
 
     }
 
@@ -72,7 +74,7 @@ public class DropItemZone : MonoBehaviour, IDropHandler
         }
 
         //we diasble the collider of the player during an amount of times to make sure the item doesn't go on his inventory immediately
-        m_colliderPlayer.enabled = false;
+        m_canHarvestItem = false;
 
         StartCoroutine(DeactivateCollider());
 
@@ -86,7 +88,8 @@ public class DropItemZone : MonoBehaviour, IDropHandler
     private IEnumerator DeactivateCollider()
     {
         yield return new WaitForSeconds(1.5f);
-        m_colliderPlayer.enabled = true;
+        m_canHarvestItem = true;
+
 
         //this line is a security, to make sure that we stop the coroutine
         StopCoroutine(DeactivateCollider());

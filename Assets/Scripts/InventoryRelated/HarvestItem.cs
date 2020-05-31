@@ -31,14 +31,12 @@ public class HarvestItem : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_amounItemsInventory;
 
     [SerializeField] AudioManager m_audioManager;
-    private AudioSource m_audioSource;
+    [SerializeField] AudioSource m_audioSource;
  
     [SerializeField] Animator m_animatorPlayer;
 
     private void Awake()
     {
-
-        m_audioSource = GetComponent<AudioSource>();
 
         inventory = new Inventory(UseItem);
         m_uiInventory.SetPlayer(this);
@@ -68,7 +66,7 @@ public class HarvestItem : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         //if we have enough space in our inventory
-        if (Inventory.itemList.Count + Inventory.toolsList.Count < m_inventorySpace.Value)
+        if (Inventory.itemList.Count + Inventory.toolsList.Count < m_inventorySpace.Value && DropItemZone.m_canHarvestItem)
         {
 
             //we get the ItemWorld script of the item
