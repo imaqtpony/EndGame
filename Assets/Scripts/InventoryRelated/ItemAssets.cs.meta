@@ -10,7 +10,7 @@ MonoImporter:
   - m_tissuSprite: {fileID: 21300000, guid: 47732d69fbe84e148908d18eda8e4e02, type: 3}
   - m_mrcFerSprite: {fileID: 21300000, guid: f35045e43671819429c3f591ff0e4f36, type: 3}
   - m_caillouSprite: {fileID: 21300000, guid: 9774f8bc3abeff6499a9fe1b599fbfd6, type: 3}
-  - m_poudreSprite: {fileID: 21300000, guid: 00d3fdb46a0cea04f8dfdebd27b7e289, type: 3}
+  - m_poudreSprite: {fileID: 21300000, guid: e16cf786bf3fba24b88468e4ce7ef786, type: 3}
   - m_decraftHacheFerSprite: {fileID: 21300000, guid: 43475979d66e4004599a79bad73f825f,
       type: 3}
   - m_decraftAllumetteSprite: {fileID: 21300000, guid: a773f335fa147174c94fec3bd8568c97,
