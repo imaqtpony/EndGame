@@ -10,6 +10,7 @@ using UnityEngine.AI;
 /// </summary>
 public class BreakWoodPlanks : MonoBehaviour
 {
+    [Header("Attached components")]
     [SerializeField]
     private NavMeshObstacle m_nmObs;
 

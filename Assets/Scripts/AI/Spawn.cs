@@ -3,11 +3,13 @@
 using UnityEngine;
 
 /// <summary>
-/// The enemies spawner. Appears whenever a tool is left on the ground for too long
+/// The enemies spawner. Appears whenever a tool is left on the ground for too long, instanciates enemies from their prefab
 /// </summary>
 public class Spawn : MonoBehaviour
 {
-    [SerializeField] private GameObject m_prefab;
+    [SerializeField] 
+    [Tooltip("The enemy prefab")]
+    private GameObject m_prefab;
 
 
     private void SpawnEnemies()

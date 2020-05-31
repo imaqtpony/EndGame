@@ -13,15 +13,17 @@ public class EnemyAI : MonoBehaviour
 
     private DetectLight m_enemyDetect;
 
+    [Header("Enemy prefab components")]
     [SerializeField] Animator m_animatorEnemy;
-
     [SerializeField] CapsuleCollider m_ColliderEnemy;
-
     [SerializeField] AudioManager m_audioManager;
 
-    [SerializeField] CleaningPollution m_cleaningPollution;
+    [SerializeField] 
+    [Tooltip("CleaningPollution script")]
+    private CleaningPollution m_cleaningPollution;
 
     [SerializeField]
+    [Tooltip("Data Scriptable object")]
     private Data m_data;
 
     public IntVar m_lifeValue;

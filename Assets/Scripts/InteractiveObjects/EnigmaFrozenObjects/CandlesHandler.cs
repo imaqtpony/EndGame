@@ -18,20 +18,19 @@ public class CandlesHandler : MonoBehaviour
     private GD2Lib.Event m_onLightenCandles;
 
     private int[] m_orderArray;
+    private ParticleSystem[] m_pSysArray;
 
     [SerializeField] GameObject m_notification;
     [SerializeField] TextMeshProUGUI m_textNotification;
 
     [SerializeField] ParticleSystem m_fxFire;
 
-    private ParticleSystem[] m_pSysArray;
-
-    [SerializeField] Animator[] m_animatorVolet;
+    [SerializeField] [Tooltip("The volet gameobject animator")] Animator[] m_animatorVolet;
 
     [SerializeField] AudioManager m_audioManager;
     [SerializeField] AudioSource m_audioSource;
 
-    [SerializeField] NavMeshObstacle[] m_navMeshObsVolets;
+    [SerializeField] [Tooltip("The volet gameobject navmeshObstacle")]  NavMeshObstacle[] m_navMeshObsVolets;
 
     [Tooltip("nb candles to solve the puzzle (add 1 to the actual number ) to fit how the checking is done")]
     private int m_nbCandles = 5;

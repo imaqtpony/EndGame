@@ -17,6 +17,7 @@ public class ShowText : MonoBehaviour
 
     private void Start()
     {
+        //the attached text component
         m_tmp = GetComponent<TextMeshProUGUI>();
         m_tmp.alpha = 0;
         m_isFirstTouch = false;

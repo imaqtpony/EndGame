@@ -25,12 +25,14 @@ public class Plant : EnvironementObject, IFireReact
     private bool m_burnThings;
     private bool m_cutThePlant;
 
-    [SerializeField] Item.ItemType m_itemType;
+    [SerializeField] [Tooltip("Given itemType of the material dropped on death")] Item.ItemType m_itemType;
 
+    [Header("Audio components")]
     [SerializeField] AudioManager m_audioManager;
     [SerializeField] AudioSource m_audioSource;
 
     [SerializeField]
+    [Tooltip("Attached particle system")]
     private ParticleSystem m_fireVFX;
 
 

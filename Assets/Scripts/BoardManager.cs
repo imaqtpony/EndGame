@@ -25,8 +25,10 @@ public class BoardManager : MonoBehaviour
     private Vector3 m_cameraOffset;
 
     [SerializeField]
+    [Tooltip("The Player instance")] 
     private GameObject m_player;
 
+    [Tooltip("The SpawnPlayer.cs script")]
     private SpawnPlayer m_spawnScript;
 
 

@@ -17,7 +17,7 @@ public class Axe : MonoBehaviour
     [SerializeField]
     private GD2Lib.Event m_onSwipe;
 
-    [SerializeField] Animator m_playerAnimator;
+    [SerializeField] [Tooltip("Attach player animator component")] Animator m_playerAnimator;
 
     private bool m_isCurrentlyCutting;
 

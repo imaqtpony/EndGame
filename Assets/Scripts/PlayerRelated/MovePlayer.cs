@@ -10,13 +10,14 @@ using System.Collections;
 public class MovePlayer : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("The data so")]
     private Data m_data;
 
     [SerializeField]
     private GD2Lib.Event m_onLadderClimb;
 
-    // Component NavMeshAgent
     [SerializeField]
+    [Tooltip("Own component")]
     private NavMeshAgent m_agent;
 
     // range in which it detects a hit on the navmesh, from the touch on screen
@@ -28,7 +29,6 @@ public class MovePlayer : MonoBehaviour
     public static bool m_stopSwipe;
 
     [SerializeField] private LayerMask m_blockRaycastMask;
-
     [SerializeField] private LayerMask m_ignoreRaycastMask;
 
     [SerializeField] private AudioManager m_audioManager;
@@ -37,7 +37,7 @@ public class MovePlayer : MonoBehaviour
 
     [SerializeField] Animator m_animatorPlayer;
 
-    [SerializeField] private GameObject m_crossHit;
+    [SerializeField] [Tooltip("Visual yellow cross gameObject")] private GameObject m_crossHit;
 
     private void Awake()
     {

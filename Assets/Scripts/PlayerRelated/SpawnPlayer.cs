@@ -11,6 +11,7 @@ using UnityEngine.AI;
 public class SpawnPlayer : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("Own component")]
     private NavMeshAgent m_agent;
 
 

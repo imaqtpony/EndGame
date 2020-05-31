@@ -13,7 +13,7 @@ public class Torch : MonoBehaviour
 
     private int m_nbFramesElapsed = 0;
 
-    [SerializeField] Animator m_playerAnimator;
+    [SerializeField] [Tooltip("Attach Player animator component component")] Animator m_playerAnimator;
 
     private void Update()
     {
