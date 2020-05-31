@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// we refer all the sprite of the items in this script
+/// and make an instance of them
+/// </summary>
 public class ItemAssets : MonoBehaviour
 {
     public static ItemAssets Instance { get; private set; }
@@ -11,23 +15,26 @@ public class ItemAssets : MonoBehaviour
         Instance = this;
     }
 
+    //game object with the item type in the world
     public Transform pfItemWorld;
 
-    public Sprite batonSprite;
-    public Sprite tissuSprite;
-    public Sprite mrcFerSprite;
-    public Sprite caillouSprite;
-    public Sprite poudreSprite;
+    //ressources
+    public Sprite m_batonSprite;
+    public Sprite m_tissuSprite;
+    public Sprite m_mrcFerSprite;
+    public Sprite m_caillouSprite;
+    public Sprite m_poudreSprite;
 
-    public Sprite decraftHacheFerSprite;
-    public Sprite decraftAllumetteSprite;
-    public Sprite decraftTorcheSprite;
-    public Sprite decraftHachePierreSprite;
+    //uncraft sprite
+    public Sprite m_decraftHacheFerSprite;
+    public Sprite m_decraftAllumetteSprite;
+    public Sprite m_decraftTorcheSprite;
+    public Sprite m_decraftHachePierreSprite;
 
-    public Sprite plan_echelleSprite;
+    public Sprite m_plan_echelleSprite;
 
-    public Sprite hacheSprite;
-    public Sprite allumetteSprite;
-    public Sprite hache_pierreSprite;
-    public Sprite echelleSprite;
+    public Sprite m_hacheSprite;
+    public Sprite m_allumetteSprite;
+    public Sprite m_hache_pierreSprite;
+    public Sprite m_echelleSprite;
 }

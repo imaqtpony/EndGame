@@ -128,16 +128,16 @@ public class Chest : MonoBehaviour
         switch (m_imageitemUnlocked.sprite.name)
         {
             case "baton":
-                m_imageitemUnlocked.sprite = ItemAssets.Instance.batonSprite;
+                m_imageitemUnlocked.sprite = ItemAssets.Instance.m_batonSprite;
                 break;
             case "caillou":
-                m_imageitemUnlocked.sprite = ItemAssets.Instance.caillouSprite;
+                m_imageitemUnlocked.sprite = ItemAssets.Instance.m_caillouSprite;
                 break;
             case "mrcFer":
-                m_imageitemUnlocked.sprite = ItemAssets.Instance.mrcFerSprite;
+                m_imageitemUnlocked.sprite = ItemAssets.Instance.m_mrcFerSprite;
                 break;
             case "plan_echelle":
-                m_imageitemUnlocked.sprite = ItemAssets.Instance.plan_echelleSprite;
+                m_imageitemUnlocked.sprite = ItemAssets.Instance.m_plan_echelleSprite;
                 break;
         }
     }

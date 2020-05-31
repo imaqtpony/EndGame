@@ -4,22 +4,32 @@ using UnityEngine;
 using System;
 using GD2Lib;
 
+/// <summary>
+/// Manage the inventory of the ressources and tools
+/// </summary>
 public class Inventory
 {
+    //LISTS
     public static List<Item> itemList;
     public static List<Item> toolsList;
 
     private Action<Item.ItemType> useItemAction;
 
+    //UPDATE THE LISTS
     public event EventHandler OnItemListChanged;
     public event EventHandler OnToolsListChanged;
 
+    //THE AMOUNTS
     public static int m_amountBaton;
     public static int m_amountTissu;
     public static int m_amountMrcFer;
     public static int m_amountCaillou;
     public static int m_amountPoudre;
 
+    /// <summary>
+    /// set the list of ressources and tools
+    /// </summary>
+    /// <param name="useItemAction"></param>
     public Inventory(Action<Item.ItemType> useItemAction)
     {
         this.useItemAction = useItemAction;
@@ -28,8 +38,10 @@ public class Inventory
 
     }
 
+
     public void AddItem(Item item)
     {
+        //if the item an be stack on the same slot
         if (item.IsStackable())
         {
             bool itemAlreadyInInventory = false;
@@ -66,6 +78,10 @@ public class Inventory
         AmountItems(item);
     }
 
+    /// <summary>
+    /// we give the good amount of each item
+    /// </summary>
+    /// <param name="item">the item type</param>
     public void AmountItems(Item item)
     {
         foreach (Item inventoryItem in itemList)
@@ -96,6 +112,10 @@ public class Inventory
         }
     }
 
+    /// <summary>
+    /// remove item function
+    /// </summary>
+    /// <param name="item"></param>
     public void RemoveItem(Item item)
     {
         Item itemInInventory = null;
@@ -119,6 +139,10 @@ public class Inventory
 
     }
 
+    /// <summary>
+    /// remove tools function
+    /// </summary>
+    /// <param name="item">item type</param>
     public void RemoveTools(Item item)
     {
         Item itemInInventory = null;
@@ -142,6 +166,9 @@ public class Inventory
 
     }
 
+    /// <summary>
+    /// when we drop all of our items when we die
+    /// </summary>
     public void RemoveAllItems()
     {
         
@@ -151,6 +178,9 @@ public class Inventory
 
     }
 
+    /// <summary>
+    ///when we drop all of our tools when we die
+    /// </summary>
     public void RemoveAllTools()
     {
 
@@ -160,6 +190,10 @@ public class Inventory
 
     }
 
+    /// <summary>
+    /// using items is a futur possibility
+    /// </summary>
+    /// <param name="item">item type</param>
     public void UseItem(Item.ItemType item)
     {
         useItemAction(item);
