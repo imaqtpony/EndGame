@@ -75,8 +75,6 @@ public class MovePlayer : MonoBehaviour
             {
                 m_audioSourceEnemyMusic.volume = .5f;
             }
-
-            Debug.Log("MUSIC");
         }
         else if (!EnemyAI.m_activeEnemyMusic && m_audioSourceEnemyMusic.isPlaying)
         {
@@ -87,7 +85,6 @@ public class MovePlayer : MonoBehaviour
                 m_audioSourceEnemyMusic.Pause();
 
             }
-            Debug.Log("PAS DE MUSIC");
 
         }
 

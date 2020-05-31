@@ -36,7 +36,6 @@ public class BreakWoodPlanks : MonoBehaviour
 
         if (p_other.gameObject.CompareTag("Axe") && m_cutTheBranch)
         {
-            Debug.Log("Cut down these planks");
             m_planksDown = true;
 
             m_audioSource.PlayOneShot(m_audioManager.m_fallingTreeSound);

@@ -114,7 +114,6 @@ public class EnemyAI : MonoBehaviour
         if (gameObject.name == "DungeonEnemy")
         {
             m_cleaningPollution.m_enemiesAround -= 1;
-            Debug.Log(m_cleaningPollution.m_enemiesAround);
 
             if (m_cleaningPollution.m_enemiesAround == 0)
             {
@@ -124,7 +123,6 @@ public class EnemyAI : MonoBehaviour
         else if (gameObject.name == "Dungeon2Enemy")
         {
             m_cleaningPollution.m_enemiesAround -= 1;
-            Debug.Log(m_cleaningPollution.m_enemiesAround);
 
             if (m_cleaningPollution.m_enemiesAround == 0)
             {

@@ -12,9 +12,4 @@ public class BarrelQuest : MonoBehaviour
             Destroy(GetComponent<NavMeshObstacle>());
         }
     }
-
-    private void OnCollisionStay(Collision other)
-    {
-        Debug.Log($"{other.gameObject.name} {gameObject.name}");
-    }
 }

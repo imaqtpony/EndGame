@@ -117,7 +117,6 @@ public class LifePlayer : MonoBehaviour
         for (int i = 0; i < m_lifeValue.Value; i++)
         {
             m_lifeHeartContainer.GetChild(i).GetComponent<Animator>().SetTrigger("HealAnim");
-            Debug.Log("recup vie");
             yield return new WaitForSeconds(.2f);
 
         }

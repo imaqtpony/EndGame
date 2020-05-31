@@ -5,12 +5,16 @@ using UnityEngine.UI;
 using GD2Lib;
 using TMPro;
 
+/// <summary>
+/// This class manage the harvest action and place the items in the inventory
+/// Works with UI_Inventory scripts
+/// </summary>
 public class HarvestItem : MonoBehaviour
 {
 
     private Inventory inventory;
-
     public IntVar m_inventorySpace;
+
     [SerializeField] GameObject m_notification;
     [SerializeField] TextMeshProUGUI m_textNotification;
 
@@ -31,7 +35,7 @@ public class HarvestItem : MonoBehaviour
     [SerializeField] ActivateQuestObject m_activateQuestObject;
 
 
-    // Start is called before the first frame update
+
     private void Awake()
     {
 

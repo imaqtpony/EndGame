@@ -12,36 +12,35 @@ using TMPro;
 /// </summary>
 public class Ladder : MonoBehaviour
 {
-
+    [Header("LADDER VISUAL RELATED")]
+    [SerializeField] Material m_material;
     [SerializeField] MeshRenderer m_meshLadder;
     [SerializeField] NavMeshObstacle m_navMeshObs;
-
-    [SerializeField] UI_Inventory m_uiInventory;
-
     [SerializeField] GameObject m_ladderOnPlayer;
 
     Renderer m_renderer;
 
-    private bool m_ladderPlaced;
-
-    private bool m_alreadyUsedLadder;
-
-    [SerializeField] Material m_material;
-
-    public static bool m_ladderUsing;
-
+    //ladder 2 visual related
     private Transform m_ladder2;
     private MeshRenderer m_meshLadder2;
     private NavMeshObstacle m_navMeshObs2;
 
+    [SerializeField] UI_Inventory m_uiInventory;
+
+    public static bool m_ladderUsing;
+    private bool m_ladderPlaced;
+    private bool m_alreadyUsedLadder;
+
+    [Header("NOTIFICATION RELATED")]
     [SerializeField] GameObject m_notification;
     [SerializeField] TextMeshProUGUI m_notificationText;
 
+    [Header("QUEST RELATED")]
     [SerializeField] QuestSystem m_questSystem;
     [SerializeField] QuestManager m_questManager;
 
+    //sound related
     [SerializeField] AudioManager m_audioManager;
-
     private AudioSource m_audioSource;
 
     [SerializeField]
@@ -99,7 +98,7 @@ public class Ladder : MonoBehaviour
                 m_renderer.material = m_material;
                 m_navMeshObs.enabled = false;
                 m_ladderOnPlayer.SetActive(false);
-                m_uiInventory.DropToolFunction(Item.ItemType.echelle, 1);
+                m_uiInventory.DropItemFunction(Item.ItemType.echelle, 1, false);
 
                 if (!m_questManager.m_ladderPlacedDone)
                 {

@@ -13,7 +13,6 @@ public class QuestObject : UI_QuestObjects
         {
             m_string = $"m_{gameObject.name}".ToString();
             m_nameObject = m_string;
-            Debug.Log(m_string);
             UI_ShowObject();
 
         }

@@ -23,7 +23,6 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseResume()
     {
-        Debug.Log("PAUSE");
 
         m_isPaused = !m_isPaused;
 
@@ -53,7 +52,6 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("QUIT");
 
     }
 }

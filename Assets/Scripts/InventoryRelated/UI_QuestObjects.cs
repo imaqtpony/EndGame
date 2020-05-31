@@ -26,11 +26,9 @@ public class UI_QuestObjects : MonoBehaviour
         switch (m_nameObject)
         {
             case "m_Levier":
-                Debug.Log("SET ACTIVE");
                 m_canvasLevier.SetActive(true);
                 break;
             case "m_Clef":
-                Debug.Log("SET ACTIVE");
                 m_canvasKey.SetActive(true);
                 break;
             default:
