@@ -48,6 +48,9 @@ public class HarvestItem : MonoBehaviour
         //we chose this script to reset the values of the scriptable object Quest Manager
         if (!PauseMenu.m_restarted)
             m_questManager.m_craftToolDone = false;
+            m_questManager.m_tutoToolsDone = false;
+            m_questManager.m_tutoLadderDone = false;
+            m_questManager.m_tutoDecraftDone = false;
 
         m_questManager.m_destroyPlantDone = false;
         m_questManager.m_findDungeonDone = false;

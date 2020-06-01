@@ -26,8 +26,6 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
     public Image m_itemImage;
 
-    [SerializeField] UI_Inventory m_uiInventory;
-
     //used only the the tools section
     [SerializeField] Transform m_selectedIndicator;
 
@@ -68,7 +66,6 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        m_questManager.m_tutoToolsDone = false;
 
         //the name of the item is the name of his sprite
         gameObject.name = m_itemImage.sprite.name;
@@ -234,7 +231,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         if(!m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("IdleOutils") || !m_animatorPlayer.GetCurrentAnimatorStateInfo(0).IsName("CourseOutils")) m_animatorPlayer.SetTrigger("IdleOutils"); 
 
         //tutorial how to use a tool
-        if (!UI_Inventory.m_firstToolsCrafted)
+        if (!m_questManager.m_tutoToolsDone)
         {
             m_notification.SetActive(true);
             m_textNotification.text = "Glissez votre doigt pour utiliser l'outil.";
@@ -243,7 +240,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
             m_autoDisableNotification.PlayAnimCursor("Swipe");
 
             //tutorial done
-            UI_Inventory.m_firstToolsCrafted = true;
+            m_questManager.m_tutoToolsDone = true;
         }
 
         //if the inventory is closed

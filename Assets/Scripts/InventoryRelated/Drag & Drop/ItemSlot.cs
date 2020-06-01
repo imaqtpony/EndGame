@@ -11,7 +11,6 @@ using UnityEngine.Sprites;
 public class ItemSlot : MonoBehaviour, IDropHandler
 {
 
-    [SerializeField] DragDrop m_dragDrop;
     [SerializeField] CraftSystem m_craftSystem;
     [SerializeField] AudioManager m_audioManager;
     public UI_Inventory m_uiInventory;
@@ -19,7 +18,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     private Transform m_itemChild;
     private Image m_itemSprite;
 
-    //when we are close to a workbench, we add the craft slot to a list
+    //when we are close enough to a workbench, we add the craft slot to a list
     private void OnEnable()
     {
         if(gameObject.tag == "CraftSlot") m_uiInventory.m_slotsForCraft.Add(transform);

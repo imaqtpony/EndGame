@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         //load game scene
-        SceneManager.LoadScene("S_Proto1");
+        SceneManager.LoadScene(1);
 
     }
     public void QuitGame()

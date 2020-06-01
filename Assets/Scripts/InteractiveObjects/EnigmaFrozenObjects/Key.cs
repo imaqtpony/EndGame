@@ -76,7 +76,7 @@ public class Key : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         m_goToEnable.SetActive(true);
-        m_goToDisable.SetActive(false);
+        m_goToDisable.transform.position = new Vector3(-100, -100, -100);
 
         yield return new WaitForSeconds(1);
 
@@ -86,6 +86,7 @@ public class Key : MonoBehaviour
 
         yield return new WaitForSeconds(4);
         m_donjonNotif.SetActive(false);
+        m_goToDisable.SetActive(false);
 
     }
 

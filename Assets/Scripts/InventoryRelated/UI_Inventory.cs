@@ -13,17 +13,17 @@ using GD2Lib;
 public class UI_Inventory : MonoBehaviour
 {
     #region INITIALIZING VARIABLES
-    [Header("Related to the inventory")]
+    [Header("RELATED TO THE INVENTORY")]
     private Inventory inventory;
     public IntVar m_inventorySpace;
     [SerializeField] TextMeshProUGUI m_amountItemsInventory;
 
-    [Header("Quest system")]
+    [Header("QUEST SYSTEM")]
     [SerializeField] QuestSystem m_questSystem;
     [SerializeField] QuestManager m_questManager;
 
 
-    [Header("UI Elements for items Slots")]
+    [Header("UI ELEMENTS FOR ITEMS SLOTS")]
     [SerializeField] Transform m_ressourcesSlotContainer;
     [SerializeField] Transform m_ressourcesSlotTemplate;
     [SerializeField] Transform m_toolsWindow;
@@ -32,24 +32,24 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] Transform m_craftResult;
     [SerializeField] List<Transform> m_craftSlot;
 
-    [Header("Use those scripts")]
+    [Header("USE THOSE SCRIPTS")]
     [SerializeField] CraftSystem m_craftSystem;
     private HarvestItem player;
 
-    [Header("Notifications on the screen")]
+    [Header("NOTIFICATIONS ON THE SCREEN")]
     [SerializeField] GameObject m_notification;
     [SerializeField] TextMeshProUGUI m_textNotification;
 
-    [Header("Related to the tools section")]
+    [Header("RELATED TO THE TOOLS SECTION")]
     [SerializeField] GameObject m_toolsWind;
     [SerializeField] GameObject m_toolsButton;
 
     public List<Transform> m_slotsForCraft;
 
-    [Header("Tuto for the first tool crafted")]
+    [Header("TUTO FOR THE FIRST TOOL CRAFTED")]
     public static bool m_firstToolsCrafted;
 
-    [Header("Related to the sound")]
+    [Header("RELATED TO THE SOUND")]
     [SerializeField] AudioManager m_audioManager;
     [SerializeField] AudioSource m_audioSource;
     #endregion
@@ -63,6 +63,7 @@ public class UI_Inventory : MonoBehaviour
     private void Awake()
     {
         m_audioManager.m_audioSource = GetComponent<AudioSource>();
+        m_firstToolsCrafted = false;
         m_toolsButton.SetActive(false);
     }
 
